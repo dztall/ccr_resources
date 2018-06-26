@@ -1,0 +1,254 @@
+Contents
+Contenidos
+
+Save
+Almacenado
+
+Select all
+Seleccionar todo
+
+Use precompiled header
+Usar encabezado precompilado
+
+Back
+Espalda
+
+Go to line
+Ir a línea
+
+Search files(folders)
+Buscar archivos (carpetas)
+
+Level of optimization
+Nivel de optimización
+
+Build LLVM Bitcode
+Generar código de bit LLVM
+
+Build LLVM Assembly
+Crear ensamblaje LLVM
+
+Keyboard sound effect
+Sonido de teclado
+
+Send email
+Enviar correo electrónico
+
+Generate debug information
+Generate debug information
+
+TCC
+TCC 0.9.27
+
+Save changes?
+Guardar cambios?
+
+Yes
+Sí
+
+No
+No
+
+Use JIT execution
+Habilitar la ejecución JIT ( Experimental )
+
+System headers
+System headers
+
+Theme
+Tema
+
+External storage ( Permission denied )
+Almacenamiento externo ( Permission denied )
+
+External storage
+Almacenamiento externo
+
+Buy Mobile C
+Comprar Mobile C ( Eliminar anuncios de banner )
+
+Edit
+Editar
+
+Enable code diagnostic
+Usar código diagnóstico
+
+Enable code complete
+Usar autocompletar
+
+Display line number
+Mostrar los números de línea
+
+What's new
+Nueva función
+
+GENERAL
+GENERAL
+
+Language
+Idioma ( Language )
+
+SOURCE EDITOR
+EDITOR DE CÓDIGO FUENTE
+
+Font Size
+Tamaño de Fuente
+
+Tab Size
+Tamaño de Tab
+
+Word Wrapping
+Palabra de Envolver
+
+Auto Indenting
+Sangría Auto
+
+TEXT EDITOR
+EDITOR DE TEXTO
+
+TEXT OUTPUT
+SALIDA DE TEXTO
+
+Disable
+Inactivo
+
+Break Word
+Palabra Cortada
+
+Keep Word
+Conservación
+
+Settings
+Ajustes
+
+Restore Examples
+Restaurar Ejemplos
+
+Confirmation
+Confirmación
+
+Existing example files will be overwritten.
+Sobrescribirán archivos de ejemplo.
+
+Proceed?
+Proceder?
+
+Cancel
+Cancelar
+
+OK
+OK
+
+Open Source
+Código Abierto
+
+Tips
+Consejos
+
+Forum
+Foro
+
+Help
+Ayuda
+
+Please visit the forum for customer support.
+Para la atención al cliente, por favor visite el foro.
+
+Run
+Ejecute
+
+New folder name?
+Introduzca el nombre del carpeta que se creará.
+
+NewFolder
+NuevaCarpeta
+
+Copy
+Copia
+
+New file name?
+Introduzca el nombre del archivo que se creará.
+
+NewFile
+NuevaArchivo
+
+Stop
+Detener
+
+Run Again
+Ejecución
+
+Mobile C
+Móvil C
+
+Target
+Objetivo
+
+Compressed file name?
+Nombre del archivo comprimido?
+
+Compressed.zip
+ArchivoComprimido.zip
+
+New file(folder) name?
+Nuevo archivo(carpeta) nombre?
+
+Delete selected files(folders)?
+Eliminar los archivos/carpetas seleccionados?
+
+Examples
+Ejemplos
+
+Example files are created successfully.
+Archivos de ejemplo se crean correctamente.
+
+Exit app?
+Salga de la aplicación.
+
+Use OS Keyboard
+Utilice el teclado del OS
+
+Use Mono-space font
+Utilice la fuente espacio mono
+
+Go
+Ir
+
+Extract
+Abrir
+
+Search text
+Búsqueda de texto
+
+Find
+Hallar
+
+Parent Folder
+Carpeta de Padres
+
+Copying resources...
+Recursos de copiado...
+
+DEFAULT COMPILER
+EL COMPILADOR POR DEFECTO
+
+CPP ( Built-in )
+CPP 1.2.10 ( Incorporado )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+OPCIONES DEL COMPILADOR
+
+Line number?
+Ingrese el número de línea

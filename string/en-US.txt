@@ -1,0 +1,26 @@
+TCC
+TCC 0.9.27
+
+Use JIT execution
+Use JIT execution ( Experimental )
+
+Buy Mobile C
+Buy Mobile C ( Removes Ad Banner )
+
+Exit app?
+Exit the app?
+
+CPP ( Built-in )
+CPP 1.2.10 ( Built-in )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0

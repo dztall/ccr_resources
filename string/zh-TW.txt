@@ -1,0 +1,287 @@
+﻿Contents
+內容
+
+Save
+保存
+
+Select all
+全選
+
+Use precompiled header
+使用預編譯頭
+
+Level of optimization
+優化級別
+
+Build LLVM Bitcode
+生成LLVM位代碼
+
+Build LLVM Assembly
+創建LLVM組件
+
+Keyboard sound effect
+鍵盤聲音
+
+Send email
+發送電子郵件
+
+Generate debug information
+生成調試信息
+
+TCC
+TCC 0.9.27
+
+Save changes?
+保存更改？
+
+Yes
+是
+
+No
+否
+
+Use JIT execution
+啟用 JIT 執行 ( 試驗 )
+
+System headers
+System headers
+
+Theme
+主題
+
+External storage ( Permission denied )
+外部存儲 ( Permission denied )
+
+External storage
+外部存儲
+
+Buy Mobile C
+購買 Mobile C ( 刪除橫幅廣告 )
+
+Shortcuts
+快捷鍵
+
+Rate Mobile C
+評估 Mobile C
+
+Go to line
+跳至指定的行
+
+Back
+返回鍵
+
+Jump
+跳轉
+
+Edit
+編輯
+
+Terminal
+終奌站
+
+Enable code diagnostic
+啟用代碼診斷
+
+Enable code complete
+使用自動完成
+
+Display line number
+顯示行號
+
+What's new
+新機能
+
+GENERAL
+一般
+
+Language
+語言 ( Language )
+
+SOURCE EDITOR
+源代碼編輯器
+
+Font Size
+字體大小
+
+Tab Size
+製表尺寸
+
+Word Wrapping
+自動換行
+
+Auto Indenting
+自動縮進
+
+TEXT EDITOR
+文本編輯器
+
+TEXT OUTPUT
+文本輸出
+
+Disable
+非活動
+
+Break Word
+破字
+
+Keep Word
+字守
+
+Settings
+設置
+
+Restore Examples
+復位示例文件
+
+Confirmation
+重申
+
+Existing example files will be overwritten.
+現有的樣本文件將被覆蓋。
+
+Proceed?
+是否要繼續
+
+Cancel
+撤消
+
+OK
+好
+
+Open Source
+開源使用
+
+Tips
+提示
+
+Forum
+座談會
+
+Help
+信息
+
+Please visit the forum for customer support.
+對於客戶支持，請訪問論壇。
+
+Run
+執行
+
+New folder name?
+請輸入要生成的文件夾的名稱。
+
+NewFolder
+新文件夾
+
+Copy
+拷貝
+
+New file name?
+請輸入要生成的文件名。
+
+NewFile
+新文件
+
+Stop
+停止
+
+Run Again
+再次運行
+
+Mobile C
+Mobile C
+
+Target
+目標
+
+TextView
+文本
+
+WebView
+捲筒紙
+
+Graphics
+圖像
+
+Compressed file name?
+請輸入一個壓縮文件名。
+
+Compressed.zip
+壓縮文件.zip
+
+New file(folder) name?
+輸入新的文件名(文件夾名)。
+
+Delete selected files(folders)?
+您確定要刪除選定的文件(文件夾)？
+
+Examples
+示例代碼
+
+Example files are created successfully.
+示例文件已經建立。
+
+Exit app?
+退出應用程序。
+
+Use OS Keyboard
+使用OS鍵盤
+
+Use Mono-space font
+使用一個固定的寬度字體
+
+Search files(folders)
+文件（文件夾）搜索。
+
+Use Regex
+正則表達式
+
+Case sensitive
+區分大小寫
+
+Go
+進入
+
+Extract
+解壓縮
+
+Search text
+文本搜索
+
+Find
+搜索
+
+Parent Folder
+父文件夾
+
+Copying resources...
+複印資源...
+
+DEFAULT COMPILER
+默认的编译器
+
+CPP ( Built-in )
+CPP 1.2.10 ( 內置 )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+編譯器選項
+
+Print warning messages
+顯示一條警告消息
+
+Allow implicit function declaration
+允許隱函數聲明
+
+Line number?
+輸入行號

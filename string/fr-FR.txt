@@ -1,0 +1,278 @@
+﻿Contents
+Contenu
+
+Save
+Sauvegarder
+
+Select all
+Tout sélectionner
+
+Use precompiled header
+Utiliser l'en-tête précompilé
+
+Level of optimization
+Niveau d'optimisation
+
+Build LLVM Bitcode
+Générer du code bit LLVM
+
+Build LLVM Assembly
+Créer un assemblage LLVM
+
+Keyboard sound effect
+Son clavier
+
+Send email
+Envoyer un email
+
+Generate debug information
+Générer des informations de débogage
+
+TCC
+TCC 0.9.27
+
+Save changes?
+Enregistrer les modifications?
+
+Yes
+Oui
+
+No
+Non
+
+Use JIT execution
+Activer l'exécution JIT ( Expérimental )
+
+System headers
+System headers
+
+Theme
+Thème
+
+External storage ( Permission denied )
+Stockage externe ( Permission denied )
+
+External storage
+Stockage externe
+
+Case sensitive
+Respecter la casse
+
+Use Regex
+Exp. régulières
+
+Search files(folders)
+Rechercher des fichiers (dossiers)
+
+Print warning messages
+Montrer les messages d'avertissements
+
+Allow implicit function declaration
+Autoriser les déclarations implicites de fonctions
+
+Rate Mobile C
+Noter l'application sur l'app store
+
+Jump
+Sauter
+
+Go to line
+Aller à la ligne
+
+Back
+Retour
+
+Buy Mobile C
+Acheter Mobile C ( Supprimer les bannières publicitaires )
+
+Shortcuts
+Raccourcis
+
+Edit
+Éditer
+
+Enable code diagnostic
+Utiliser le diagnostique de code
+
+Enable code complete
+Activer la saisie semi-automatique
+
+Display line number
+Afficher les numéros de ligne
+
+What's new
+Nouvelle fonctionnalité
+
+GENERAL
+GÉNÉRAL
+
+Language
+Langue ( Language )
+
+SOURCE EDITOR
+ÉDITEUR DE CODE SOURCE
+
+Font Size
+Taille de la police
+
+Tab Size
+Taille des onglets
+
+Word Wrapping
+Coupure de mots
+
+Auto Indenting
+Activer l'indentation automatique
+
+TEXT EDITOR
+ÉDITEUR DE TEXTE
+
+TEXT OUTPUT
+SORTIE TEXTE
+
+Disable
+Désactivée
+
+Break Word
+Couper les mots
+
+Keep Word
+Couper aux espaces
+
+Settings
+Réglages
+
+Restore Examples
+Restaurer les exemples
+
+Confirmation
+Confirmation
+
+Existing example files will be overwritten.
+Exemples fichiers seront écrasés.
+
+Proceed?
+Continuer?
+
+Cancel
+Annuler
+
+OK
+D'accord
+
+Open Source
+Open Source
+
+Tips
+Astuces
+
+Forum
+Forum
+
+Help
+Aider
+
+Please visit the forum for customer support.
+Veuillez visiter le forum pour obtenir de l'aide.
+
+Run
+Exécuter
+
+New folder name?
+Nouveau nom de répertoire?
+
+NewFolder
+NouveauRépertoire
+
+Copy
+Copie
+
+New file name?
+Nouveau nom de fichier?
+
+NewFile
+NouveauFichier
+
+Stop
+Arrêt
+
+Run Again
+Exécuter
+
+Mobile C
+Mobile C
+
+Target
+Cible
+
+Graphics
+Graphique
+
+Compressed file name?
+Nom du fichier compressé?
+
+Compressed.zip
+FichierCompressé.zip
+
+New file(folder) name?
+Nouveau nom de fichier(répertoire)?
+
+Delete selected files(folders)?
+Supprimer les fichiers/répertoires sélectionnés?
+
+Examples
+Exemples
+
+Example files are created successfully.
+Les exemples de fichiers sont créés avec succès.
+
+Exit app?
+Quittez l'application.
+
+Use OS Keyboard
+Utiliser le clavier de l'OS
+
+Use Mono-space font
+Utiliser une police à chasse fixe
+
+Go
+Atteindre
+
+Extract
+Ouvrir
+
+Search text
+Rechercher le texte
+
+Find
+Trouve
+
+Parent Folder
+Dossier Parent
+
+Copying resources...
+Ressources de copie...
+
+DEFAULT COMPILER
+TYPE DE COMPILATEUR
+
+CPP ( Built-in )
+CPP 1.2.10 ( Embarqué )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+OPTIONS DU COMPILATEUR
+
+Line number?
+Entrez le numéro de ligne

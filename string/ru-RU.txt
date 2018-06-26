@@ -1,0 +1,278 @@
+﻿Contents
+Содержание
+
+Home
+Дома
+
+End
+Конец
+
+Save
+Сохранить
+
+Select all
+Выбрать все
+
+Use precompiled header
+Использовать предварительно скомпилированный заголовок
+
+Search files(folders)
+Поиск файлов (папок)
+
+Level of optimization
+Уровень оптимизации
+
+Build LLVM Bitcode
+Генерирование битового кода LLVM
+
+Build LLVM Assembly
+Создать сборку LLVM
+
+Keyboard sound effect
+Звук клавиатуры
+
+Open Source
+Открытый \nисходный код
+
+Shortcuts
+Ярлыки
+
+Rate Mobile C
+Оценка Mobile C
+
+Restore Examples
+Пример восстановления
+
+Jump
+Перейти
+
+Go to line
+Переместить линию
+
+Back
+Возвращаться
+
+Send email
+Э-почта
+
+Generate debug information
+Создание отладочной информации
+
+TCC
+TCC 0.9.27
+
+Save changes?
+Сохранить изменения?
+
+Yes
+Да
+
+No
+Нет
+
+Use JIT execution
+Включить выполнение JIT ( Экспериментальный )
+
+System headers
+System headers
+
+Theme
+тема
+
+External storage ( Permission denied )
+Внешнее хранилище ( Permission denied )
+
+External storage
+Внешнее хранилище
+
+Buy Mobile C
+Купить Мобильный C ( Удалить баннерную рекламу )
+
+Edit
+Редакт
+
+Enable code diagnostic
+Используйте код диагностики
+
+Enable code complete
+Использование автозаполнения
+
+Display line number
+Дисплея строки hомер
+
+What's new
+Новая функция
+
+GENERAL
+ОСНОВНЫЕ
+
+Language
+Язык ( Language )
+
+SOURCE EDITOR
+ИСТОЧНИК РЕДАКТОР
+
+Font Size
+Размер шрифта
+
+Tab Size
+Вкладка Размер
+
+Word Wrapping
+Перенос слов
+
+Auto Indenting
+Авто Отступов
+
+TEXT EDITOR
+ТЕКСТОВЫЙ РЕДАКТОР
+
+TEXT OUTPUT
+ВЫВОД ТЕКСТА
+
+Disable
+Отключить
+
+Break Word
+Перерыв Слово
+
+Keep Word
+Держите Слово
+
+Settings
+Настройки
+
+Confirmation
+Подтверждение
+
+Existing example files will be overwritten.
+переписывает существующий Примеры.
+
+Proceed?
+Вы хотите продолжить?
+
+Cancel
+Отмена
+
+OK
+Хорошо
+
+Tips
+Советы
+
+Forum
+Форум
+
+Help
+Помогите
+
+Please visit the forum for customer support.
+Для поддержки клиентов, посетите форум.
+
+Run
+Работать
+
+New folder name?
+Новое имя папки?
+
+NewFolder
+НоваяПапка
+
+Copy
+Копия
+
+New file name?
+Новое имя файла?
+
+NewFile
+НовыйФайл
+
+Stop
+Стоп
+
+Run Again
+Работать
+
+Mobile C
+Мобильный C
+
+Target
+Цель
+
+Graphics
+Графика
+
+Compressed file name?
+Сжатый имя файла?
+
+Compressed.zip
+ФайлаСжатые.zip
+
+New file(folder) name?
+Новый файл(папку) имя?
+
+Delete selected files(folders)?
+Удалить выбранные файлы(папки)?
+
+Examples
+Примеры
+
+Example files are created successfully.
+Пример файлы успешно создан.
+
+Exit app?
+Выход из приложения.
+
+Use OS Keyboard
+Используйте OS клавиатуры
+
+Use Mono-space font
+Исправлена ширина шрифта
+
+Go
+Идти
+
+Extract
+Экстракт
+
+Search text
+Поиск текста
+
+Find
+Найти
+
+Parent Folder
+Родительская Папка
+
+Copying resources...
+Копирование ресурсов...
+
+DEFAULT COMPILER
+КОМПИЛЯТОР ПО УМОЛЧАНИЮ
+
+CPP ( Built-in )
+CPP 1.2.10 ( Встроенный )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+ОПЦИИ КОМПИЛЯТОРА
+
+Print warning messages
+Появится предупреждающее сообщение.
+
+Allow implicit function declaration
+Разрешить неявное объявление функции.
+
+Line number?
+Введите номер строки

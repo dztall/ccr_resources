@@ -1,0 +1,137 @@
+﻿[General]
+
+• Back :                  ⌘ + W or 
+                          ^ + W or
+                          ^ + F4 or
+                          ESC
+
+• Exit app :              ⌘ + Q or 
+                          ^ + Q or
+                          Alt + F4
+
+[File list view]
+
+• New file :              ⌘ + N or 
+                          ^ + N
+
+• Select file/folder :    ↑ ↓
+
+• Copy file/folder :      ⌘ + C or 
+                          ^ + C
+
+• Cut file/folder :       ⌘ + X or 
+                          ^ + X
+
+• Paste file/folder :     ⌘ + V or 
+                          ^ + V
+
+• Delete selected :       Delete or 
+                          ⌘ + Backsapce ( Delete )
+
+• Run selected file :     ⌘ + R or 
+                          ^ + R
+
+• Search files/folders :  ⌘ + F or 
+                          ^ + F
+
+• Open terminal :         ⌘ + T or
+                          ^ + T
+
+• Open settings :         ⌘ + , or
+                          ^ + ,
+
+• Edit list     :         F2
+                          Space
+
+• Help :                  F1 or
+                          ⌘ + / or
+                          ^ + /
+
+[Code editor]
+
+• Run :                   ⌘ + R or 
+                          ^ + R
+
+• Select next item :      Tab or
+                          ⇧ + Tab or
+                          ↑ ↓
+
+• Jump to declaration :   ^ + ⌘ + J or 
+                          ^ + Alt + J or
+                          ^ + B or
+                          F12
+
+[Text(code) editor]
+
+• Move to left/right :    ← →
+
+• Move to up/down :       ↑ ↓
+
+• Move to beg of word :   ^ + ← or
+                          Alt + ←
+
+• Move to end of word :   ^ + → or
+                          Alt + →
+
+• Move to beg of line :   ⌘ + ← or 
+                          fn + ← or
+                          Home
+
+• Move to end of line :   ⌘ + → or 
+                          fn + → or
+                          End
+
+• Move to Page up/down :  PgUp PgDn
+
+• Move to beg of doc :    ⌘ + ↑ or 
+                          ^ + HOME
+
+• Move to end of doc :    ⌘ + ↓ or 
+                          ^ + END
+
+• Select text :           ⇧ + Move caret
+
+• Search text :           ⌘ + F or 
+                          ^ + F or
+                          F3  
+
+• Find next text :        ⌘ + G or
+                          F3
+
+• Copy :                  ⌘ + C or 
+                          ^ + C
+
+• Cut :                   ⌘ + X or 
+                          ^ + X
+
+• Paste :                 ⌘ + V or 
+                          ^ + V
+
+• Select all :            ⌘ + A or 
+                          ^ + A
+
+• Undo :                  ⌘ + Z or 
+                          ^ + Z
+
+• Redo :                  ⌘ + ⇧ + Z or 
+                          ^ + Y
+
+• Go to line :            ⌘ + L or 
+                          ^ + G
+
+• Save :                  ⌘ + S or 
+                          ^ + S
+
+[Output]
+
+• Run / Run again :       ⌘ + R or 
+                          ^ + R
+
+• Stop :                  ⌘ + S or 
+                          ^ + S
+
+[Tips]
+
+• 硬件鍵盤的鍵盤快捷鍵與桌面操作系統相同。
+• 您可以通过点击顶部标题栏滚动到顶部。
+• 使用html() 函數將HTML輸出到WebView。 查看HTML示例文件夾中的文件。

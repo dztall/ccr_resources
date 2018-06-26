@@ -1,0 +1,293 @@
+﻿Contents
+내용
+
+Home
+처음
+
+End
+끝
+
+Save
+저장
+
+Select all
+모두 선택
+
+Use precompiled header
+미리 컴파일된 헤더 사용
+
+Level of optimization
+최적화 수준
+
+Build LLVM Bitcode
+LLVM 비트코드 생성
+
+Build LLVM Assembly
+LLVM 어셈블리 생성
+
+Keyboard sound effect
+키보드 효과음
+
+Send email
+이메일 전송
+
+Generate debug information
+디버그 정보 생성
+
+TCC
+TCC 0.9.27
+
+Save changes?
+변경 사항을 저장할까요?
+
+Yes
+네
+
+No
+아니오
+
+Use JIT execution
+JIT 실행 사용 ( 실험적 )
+
+System headers
+시스템 헤더
+
+Theme
+테마
+
+External storage ( Permission denied )
+외부 저장소 ( Permission denied )
+
+External storage
+외부 저장소
+
+Shortcuts
+단축키
+
+Buy Mobile C
+모바일 C 구매 ( 배너 광고 제거 )
+
+Back
+뒤로 가기
+
+Jump
+점프
+
+Go to line
+줄 번호 이동
+
+Edit
+편집
+
+Terminal
+터미널
+
+Rate Mobile C
+앱 평가 하기
+
+Enable code diagnostic
+코드 진단 사용
+
+Enable code complete
+자동 완성 사용
+
+Display line number
+줄 번호 표시
+
+What's new
+새로운 기능
+
+GENERAL
+일반
+
+Language
+언어 ( Language )
+
+SOURCE EDITOR
+소스 편집기
+
+Font Size
+글꼴 크기
+
+Tab Size
+탭 크기
+
+Word Wrapping
+자동 줄 바꿈
+
+Auto Indenting
+자동 들여 쓰기
+
+TEXT EDITOR
+텍스트 편집기
+
+TEXT OUTPUT
+텍스트 출력
+
+Disable
+비활성
+
+Break Word
+단어 잘림
+
+Keep Word
+단어 보존
+
+Settings
+설정
+
+Restore Examples
+예제 파일 복원
+
+Confirmation
+재확인
+
+Existing example files will be overwritten.
+기존 예제파일을 덮어 씁니다.
+
+Proceed?
+계속 할까요?
+
+Cancel
+취소
+
+OK
+확인
+
+Open Source
+오픈소스 사용
+
+Tips
+사용팁
+
+Forum
+포럼
+
+Help
+도움 정보
+
+Please visit the forum for customer support.
+고객 지원을 원하시면 포럼을 방문하세요.
+
+Run
+실행
+
+New folder name?
+생성할 폴더명을 입력하세요.
+
+NewFolder
+새폴더
+
+Copy
+복사
+
+New file name?
+생성할 파일명을 입력하세요.
+
+NewFile
+새파일
+
+Stop
+중단
+
+Run Again
+다시 실행
+
+Mobile C
+모바일 C
+
+Target
+대상
+
+TextView
+텍스트 뷰
+
+WebView
+웹 뷰
+
+Graphics
+그래픽스 뷰
+
+Compressed file name?
+압축 파일명을 입력하세요.
+
+Compressed.zip
+압축파일.zip
+
+New file(folder) name?
+새 파일(폴더)명을 입력하세요.
+
+Delete selected files(folders)?
+선택한 파일(폴더)들을 삭제 할까요?
+
+Examples
+예제 파일
+
+Example files are created successfully.
+예제 파일이 생성되었습니다.
+
+Exit app?
+앱을 종료합니다.
+
+Use OS Keyboard
+운영체제 키보드 사용
+
+Use Mono-space font
+고정 폭 글꼴 사용
+
+Search files(folders)
+파일(폴더) 검색
+
+Use Regex
+정규식 사용
+
+Case sensitive
+대소 문자 구분
+
+Go
+이동
+
+Extract
+압축 해제
+
+Search text
+텍스트 검색
+
+Find
+찾기
+
+Parent Folder
+상위 폴더
+
+Copying resources...
+리소스 복사중...
+
+DEFAULT COMPILER
+기본 컴파일러
+
+CPP ( Built-in )
+CPP 1.2.10 ( 내장 )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+컴파일러 옵션
+
+Print warning messages
+경고 메시지 표시
+
+Allow implicit function declaration
+암시적 함수 선언 허용
+
+Line number?
+줄 번호 입력

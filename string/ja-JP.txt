@@ -1,0 +1,293 @@
+﻿Contents
+内容
+
+Home
+ホーム
+
+End
+エンド
+
+Save
+保存
+
+Select all
+すべて選択
+
+Use precompiled header
+プリコンパイル済みヘッダーを使用
+
+Level of optimization
+最適化のレベル
+
+Build LLVM Bitcode
+LLVMビットコード生成
+
+Build LLVM Assembly
+LLVMアセンブリの作成
+
+Keyboard sound effect
+キーボードの効果音
+
+Send email
+メール送信
+
+Generate debug information
+デバッグ情報を生成する
+
+TCC
+TCC 0.9.27
+
+Save changes?
+変更を保存しますか？
+
+Yes
+はい
+
+No
+いいえ
+
+Use JIT execution
+JIT 実行使用 ( 実験的 )
+
+System headers
+システムヘッダ
+
+Theme
+テーマ
+
+External storage ( Permission denied )
+外部ストレージ ( Permission denied )
+
+External storage
+外部ストレージ
+
+Shortcuts
+ショートカット
+
+Buy Mobile C
+モバイル C 購入 ( バナー広告を削除 )
+
+Back
+バック
+
+Jump
+ジャンプ
+
+Go to line
+行目に移動
+
+Edit
+編集
+
+Terminal
+ターミナル
+
+Rate Mobile C
+アプリの評価
+
+Enable code diagnostic
+コードの診断を使用
+
+Enable code complete
+オートコンプリートを使用
+
+Display line number
+行番号を表示
+
+What's new
+新機能
+
+GENERAL
+一般
+
+Language
+言語 ( Language )
+
+SOURCE EDITOR
+ソースエディタ
+
+Font Size
+フォントサイズ
+
+Tab Size
+タブサイズ
+
+Word Wrapping
+自動改行
+
+Auto Indenting
+自動インデント
+
+TEXT EDITOR
+テキストエディタ
+
+TEXT OUTPUT
+テキスト出力
+
+Disable
+無効
+
+Break Word
+単語をブレーク
+
+Keep Word
+単語をキープ
+
+Settings
+設定
+
+Restore Examples
+例復元
+
+Confirmation
+再確認
+
+Existing example files will be overwritten.
+既存のサンプルファイルを上書きします。
+
+Proceed?
+続行しますか？
+
+Cancel
+取消
+
+OK
+確認
+
+Open Source
+オープンソース
+
+Tips
+ヒント
+
+Forum
+フォーラム
+
+Help
+ヘルプ
+
+Please visit the forum for customer support.
+顧客サポートをご希望の場合フォーラムをご覧ください。
+
+Run
+ラン
+
+New folder name?
+生成するフォルダ名を入力してください。
+
+NewFolder
+新しいフォルダ
+
+Copy
+コピー
+
+New file name?
+生成するファイル名を入力してください。
+
+NewFile
+新しいファイル
+
+Stop
+終止
+
+Run Again
+再度実行
+
+Mobile C
+モバイル C
+
+Target
+対象
+
+TextView
+テキストビュ
+
+WebView
+ウェプビュ
+
+Graphics
+グラフィックス
+
+Compressed file name?
+圧縮ファイル名を入力してください。
+
+Compressed.zip
+圧縮ファイル.zip
+
+New file(folder) name?
+新しいファイル（フォルダ）名を入力してください。
+
+Delete selected files(folders)?
+選択したファイル（フォルダ）を削除しますか？
+
+Examples
+サンプルコード
+
+Example files are created successfully.
+サンプルファイルが生成されました。
+
+Exit app?
+アプリを終了します。
+
+Use OS Keyboard
+OSキーボードを使用
+
+Use Mono-space font
+固定幅フォントを使用
+
+Search files(folders)
+ファイル（フォルダ）を検索。
+
+Use Regex
+正規表現
+
+Case sensitive
+大小区別
+
+Go
+移動
+
+Extract
+解凍
+
+Search text
+テキスト検索
+
+Find
+検索
+
+Parent Folder
+親フォルダー
+
+Copying resources...
+リソースのコピー中...
+
+DEFAULT COMPILER
+基本コンパイラ
+
+CPP ( Built-in )
+CPP 1.2.10 ( 内蔵 )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+コンパイラオプション
+
+Print warning messages
+警告メッセージを表示
+
+Allow implicit function declaration
+暗黙的な関数宣言を許可します
+
+Line number?
+行番号を入力

@@ -1,0 +1,269 @@
+﻿Contents
+Inhalt
+
+Save
+Speichern
+
+Select all
+Wählen Sie Alle
+
+Use precompiled header
+Verwenden Sie den vorkompilierten Header
+
+Back
+Zurück
+
+Go to line
+Gehe zur Zeile
+
+Level of optimization
+Grad der Optimierung
+
+Build LLVM Bitcode
+Erzeuge LLVM-Bit-Code
+
+Build LLVM Assembly
+Erstellen Sie eine LLVM-Assembly
+
+Keyboard sound effect
+Tastenton
+
+Send email
+E-Mail senden
+
+Generate debug information
+Debug-Informationen generieren
+
+TCC
+TCC 0.9.27
+
+Save changes?
+Änderungen speichern?
+
+Yes
+Ja
+
+No
+Nein
+
+Use JIT execution
+Aktivieren Sie die JIT ausführung ( Experimental )
+
+System headers
+System headers
+
+Theme
+Thema
+
+External storage ( Permission denied )
+Externer Speicher ( Permission denied )
+
+External storage
+Externer Speicher
+
+Buy Mobile C
+Buy Mobile C ( Löschen Sie Werbebanner )
+
+Edit
+Edieren
+
+Enable code diagnostic
+Codediagnose aktivieren
+
+Enable code complete
+Codevervollständigung aktivieren
+
+Display line number
+Zeilennummer anzeigen
+
+What's new
+Neue Funktionen
+
+GENERAL
+ALLGEMEIN
+
+Language
+Sprache ( Language )
+
+SOURCE EDITOR
+QUELLCODE-EDITOR
+
+Font Size
+Schriftgröße
+
+Tab Size
+Tab-Größe
+
+Word Wrapping
+Zeilenumbruch
+
+Auto Indenting
+Auto Einrücken
+
+TEXT EDITOR
+TEXT-EDITOR
+
+TEXT OUTPUT
+TEXT OUTPUT
+
+Disable
+Inaktiv
+
+Break Word
+Wörter umbrechen
+
+Keep Word
+Buchstaben umbrechen
+
+Settings
+Einstellungen
+
+Restore Examples
+Beispiele aktualisieren
+
+Confirmation
+Bestätigung
+
+Existing example files will be overwritten.
+Vorhandene Dateien werden überschrieben.
+
+Proceed?
+Wollen Sie weitermachen?
+
+Cancel
+Abbrechen
+
+OK
+OK
+
+Open Source
+Open Source
+
+Tips
+Tipps
+
+Forum
+Forum
+
+Help
+Hilfe
+
+Please visit the forum for customer support.
+Bitte besuchen Sie das Forum für Kunden-Support.
+
+Run
+Exekution
+
+New folder name?
+Neuer Ordnername?
+
+NewFolder
+NeuerOrdner
+
+Copy
+Kopie
+
+New file name?
+Neuer Dateiname?
+
+NewFile
+NeueDatei
+
+Stop
+Stoppen
+
+Run Again
+Exekution
+
+Mobile C
+Mobile C
+
+Target
+Ziel
+
+TextView
+TextView
+
+WebView
+WebView
+
+Graphics
+Grafik
+
+Compressed file name?
+Komprimierte Dateinamen?
+
+Compressed.zip
+KomprimierteDatei.zip
+
+New file(folder) name?
+Neue Datei(Ordner) name?
+
+Delete selected files(folders)?
+Löschen Sie die ausgewählten Dateien/Ordner?
+
+Examples
+Beispiele
+
+Example files are created successfully.
+Beispiel-Dateien werden erfolgreich erstellt.
+
+Exit app?
+Verlassen Sie die App.
+
+Use OS Keyboard
+Verwenden OS Tastatur
+
+Use Mono-space font
+Monospace Schrift verwenden
+
+Search files(folders)
+Suche nach Dateien(Ordner).
+
+Go
+Besuchen
+
+Extract
+Extrahieren
+
+Search text
+Textsuche
+
+Find
+Finden
+
+Parent Folder
+Übergeordneter Ordner
+
+Copying resources...
+Kopieren Ressourcen...
+
+DEFAULT COMPILER
+DER STANDARD-COMPILER
+
+CPP ( Built-in )
+CPP 1.2.10 ( Built-in )
+
+Clang
+Clang 6.0.0
+
+Lua Interpreter
+Lua 5.3.4
+
+Python 3
+Python 3.6.5
+
+Duktape
+Duktape 2.2.0
+
+COMPILER OPTIONS
+COMPILER OPTIONEN
+
+Print warning messages
+Warnungen anzeigen
+
+Allow implicit function declaration
+Implizite Funktionsdeklaration erlauben
+
+Line number?
+Geben Sie die Zeilennummer ein
