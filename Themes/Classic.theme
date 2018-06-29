@@ -357,3 +357,18 @@ SourceEditor.Ruby.SyntaxHighlight.Comment.Color
 
 SourceEditor.Ruby.SyntaxHighlight.Keyword.Color
 0xFF0000A3
+
+SourceEditor.JSP.Background.Color
+0xFFE7E7E7
+
+SourceEditor.JSP.SyntaxHighlight.Normal.Color
+0xFF000000
+
+SourceEditor.JSP.SyntaxHighlight.StringLiteral.Color
+0xFFA31515
+
+SourceEditor.JSP.SyntaxHighlight.Comment.Color
+0xFF00A300
+
+SourceEditor.JSP.SyntaxHighlight.Keyword.Color
+0xFF0000A3
