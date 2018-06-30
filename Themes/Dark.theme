@@ -89,25 +89,25 @@ TextInputDialog.TextEditor.Text.Color
 0xFF000000
 
 Keyboard.Color
-0xFF6EACAC
+0xFFD1D5DB
 
 Keyboard.Button.Color
 0xFF009696
 
 Keyboard.AlphabetKey.Color
-0xFF007882
+0xFFFFFFFF
 
 Keyboard.SpecialCharacterKey.Color
-0xFF007882
+0xFFFFFFFF
 
 Keyboard.ControlKey.Color
-0xFF008C8C
+0xFFA5ACB6
 
 Keyboard.TopBarKey.Color
-0xFF006E87
+0xFFA5ACB6
 
 Keyboard.LargeKey.Color
-0xFF325A5A
+0xFFB6B6BA
 
 FileList.ItemButton.Separator.Color
 0xFF7F7F7F

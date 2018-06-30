@@ -32,25 +32,25 @@ Options.Item.Color
 0xFF5AC5C7
 
 Keyboard.Color
-0xFF5AC5C7
+0xFFD1D5DB
 
 Keyboard.Button.Color
 0xFF3D8A94
 
 Keyboard.AlphabetKey.Color
-0xFF337680
+0xFFFFFFFF
 
 Keyboard.SpecialCharacterKey.Color
-0xFF3D8A94
+0xFFFFFFFF
 
 Keyboard.ControlKey.Color
-0xFF3D8A8B
+0xFFA5ACB6
 
 Keyboard.TopBarKey.Color
-0xFF2E6C84
+0xFFA5ACB6
 
 Keyboard.LargeKey.Color
-0xFF7B7D7D
+0xFFB6B6BA
 
 MessageDialog.TextEditor.Background.Color
 0xFF5AC5C7
