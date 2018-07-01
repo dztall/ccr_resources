@@ -266,7 +266,7 @@ Lua Interpreter
 Lua 5.3.4
 
 Python 3
-Python 3.6.5
+Python 3.7.0
 
 Duktape
 Duktape 2.2.0
