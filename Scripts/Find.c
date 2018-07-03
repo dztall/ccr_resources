@@ -111,20 +111,40 @@ void find(const char *name)
     	fprintf(file, "%s/ (unreadable)\n", argv[0]);
         return;
     }
+    if (is_type) {
+    	if (!strcmp(is_type, "d")) {
+            char pathD[1024];
+			snprintf(pathD, sizeof(pathD), "%s%s", argv[0], is_root?"":(is_slash?"/":"/"));
+			if (is_name) {
+				if (strcmp(is_name, argv[0]) == 0) fprintf(file, "%s\n", pathD);
+			}
+			else fprintf(file, "%s\n", pathD);	
+        }
+    }
     
-    char pathD[1024];
-    snprintf(pathD, sizeof(pathD), "%s%s", argv[0], is_root?"":(is_slash?"/":"/"));
-    if (is_name) {
-		if (strcmp(is_name, argv[0]) == 0) fprintf(file, "%s\n", pathD);
+    else if(!is_type || !strcmp(is_type, "f")) {
+	    char pathD[1024];
+    	snprintf(pathD, sizeof(pathD), "%s%s", argv[0], is_root?"":(is_slash?"/":"/"));
+	    if (is_name) {
+			if (strcmp(is_name, argv[0]) == 0) fprintf(file, "%s\n", pathD);
+		}
+		else fprintf(file, "%s\n", pathD);
 	}
-	else fprintf(file, "%s\n", pathD);
-    
-    while ((entry = readdir(dir)) != NULL) {
+    while ((entry = readdir(dir)) != NULL
         if (entry->d_type == DT_DIR) {
             char path[1024];
-            if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+            if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+            	if (is_type) {
+            		if (!strcmp(is_type, "d")) {
+		            	fprintf(file, "%s%s%s\n", argv[0], is_root?"":(is_slash?"/":"/"), entry->d_name);
+		            }
+            	}
+            	else if(!is_type || !strcmp(is_type, "f")) {
+            		fprintf(file, "%s%s%s\n", argv[0], is_root?"":(is_slash?"/":"/"), entry->d_name);
+                }
                 continue;
-			depth++;
+            }
+            depth++;
             snprintf(path, sizeof(path), "%s%s%s%s", argv[0], is_root?"":(is_slash?"/":"/"), entry->d_name, is_root?"/":(is_slash?"/":""));
             char * qp = quote(path);
 			char * cmd = argv_to_string(qp, argc, argv);
@@ -133,12 +153,24 @@ void find(const char *name)
 			free(cmd);
 			depth--;
         } else {
-            char pathF[1024];
-            snprintf(pathF, sizeof(pathF), "%s%s%s", argv[0], is_root?"":(is_slash?"/":"/"), entry->d_name);
-			if (is_name) {
-				if (strcmp(is_name, entry->d_name) == 0) fprintf(file, "%s\n", pathF);
+            if (is_type) {
+            	if (!strcmp(is_type, "f")) {
+            		char pathF[1024];
+		            snprintf(pathF, sizeof(pathF), "%s%s%s", argv[0], is_root?"":(is_slash?"/":"/"), entry->d_name);
+					if (is_name) {
+						if (strcmp(is_name, entry->d_name) == 0) fprintf(file, "%s\n", pathF);
+					}
+					else fprintf(file, "%s\n", pathF);
+            	}
+            }
+            else if(!is_type || !strcmp(is_type, "f")) {
+	            char pathF[1024];
+	            snprintf(pathF, sizeof(pathF), "%s%s%s", argv[0], is_root?"":(is_slash?"/":"/"), entry->d_name);
+				if (is_name) {
+					if (strcmp(is_name, entry->d_name) == 0) fprintf(file, "%s\n", pathF);
+				}
+				else fprintf(file, "%s\n", pathF);
 			}
-			else fprintf(file, "%s\n", pathF);
         }
     }
     closedir(dir);
@@ -147,6 +179,7 @@ void find(const char *name)
 		file = stdout;
 		is_out = 0;
 	}
+			
 }
 
 int main(int argc, char * argv[]) {
