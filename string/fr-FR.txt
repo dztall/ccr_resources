@@ -1,4 +1,7 @@
-﻿Contents
+﻿Print function call logs
+Afficher le journal de l'appel de fonction
+
+Contents
 Contenu
 
 Save
