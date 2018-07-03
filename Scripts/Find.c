@@ -43,6 +43,10 @@ void fusage(void){
 	print_usage_command_info("searches [path] recursively for [file]")
 	print_usage_command("-o [file]")
 	print_usage_command_info("redirects all output into [file]")
+	print_usage_command("-type [type]")
+	print_usage_command_info("only finds files of type [type]")
+	print_usage_command_info("d  - directory")
+	print_usage_command_info("f  - folder")
 }
 
 int is_out = 0;
@@ -116,7 +120,7 @@ void find(const char *name)
             char pathD[1024];
 			snprintf(pathD, sizeof(pathD), "%s%s", argv[0], is_root?"":(is_slash?"/":"/"));
 			if (is_name) {
-				if (strcmp(is_name, argv[0]) == 0) fprintf(file, "%s\n", pathD);
+				if (strcmp(is_name, basename(argv[0])) == 0) fprintf(file, "%s\n", pathD);
 			}
 			else fprintf(file, "%s\n", pathD);	
         }
