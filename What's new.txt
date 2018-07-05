@@ -5,7 +5,7 @@
 
 • Libraries updated
 	- clang/llvm/libc++ 6.0.0
-	- python 3.6.5
+	- python 3.7.0
 	- duktape 2.2.1
 	- libgit2 0.27.1
 	- libssh2 1.8.0
@@ -21,11 +21,16 @@
 • New features
 	- File search by its text contents
 	- Custom extension supported. Add key/value pair to ~/CCR/app_config.txt as example below.
+		//Make the app treat 'cxx' file as if it is 'cpp' file.
 		CustomExtension.cxx
 		cpp
+	- Very basic syntax highlighting for several programming languages.
+		java php perl ruby sql jsp go rust swift html
 
 • Macro name changed : _OS_WINDOWSPHONE_ to _OS_UWP_
+• Macro added : __APP_DIR__ for app data root folder, __RES_DIR__ for app resource root folder.
 • Some changes to UI.
+• In-app soft keyboard layout revised.
 • Ad banner view moved to bottom.
 • Examples are moved to github URL 'https://github.com/dztall/ccr_examples'
 

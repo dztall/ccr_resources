@@ -4,7 +4,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -86,6 +85,8 @@ void list_commands()
 					*str_found = 0;
 				printf("%s ", fileName);
 			}
+			else
+				printf("%s ", ent->d_name);
 		}
 		closedir(dir);
 	}
