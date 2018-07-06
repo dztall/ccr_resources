@@ -135,7 +135,8 @@ void find(const char *name)
 		}
 		else fprintf(file, "%s\n", pathD);
 	}
-    while ((entry = readdir(dir)) != NULL
+    while ((entry = readdir(dir)) != NULL)
+    {
         if (entry->d_type == DT_DIR) {
             char path[1024];
             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
