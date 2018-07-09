@@ -1,0 +1,3 @@
+﻿All the examples are moved to github URL 'https://github.com/dztall/ccr_examples'
+
+Run fetch_mobilec_examples.c script to fetch it to local folder.
