@@ -78,7 +78,7 @@ void list_commands()
 				if ((str_found = strstr_backward(fileName, ".")) != NULL)
 				{
 					*str_found = 0;
-					if (*(str_found + 1) == 'h')
+					if (*(str_found + 1) == 'h' || strcmp(str_found, ".") == 0 || strcmp(str_found, "..") == 0)
 						continue;
 				}
 				if ((str_found = strstr_backward(fileName, ".")) != NULL)
