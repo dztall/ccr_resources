@@ -72,10 +72,12 @@ void find(const char *name)
 		if (!strcmp(argv[i], "-name")) {
 			i++;
 			is_name = argv[i];
+			i++;
 		}
 		else if (!strcmp(argv[i], "-type")) {
 			i++;
 			is_type = argv[i];
+			i++;
 		}
 		else if (!strcmp(argv[i], "-h") || !strcmp(argv[i],"--help")) {
 			if (is_out) {
