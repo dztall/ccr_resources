@@ -378,7 +378,9 @@ void * execute(void * tmp) {
     
     
     // execution exception for exit, will always execute even if execution is disabled
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
+	// builtin__whereis currently broken, do not use it
+	//if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
+	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q") == 0) {
 		cmd->vector_word[0] = "exit";
         DEBUG printf("exit recognized\n");
         shell.exit = 1;
