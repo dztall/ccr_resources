@@ -387,13 +387,17 @@ void * execute(void * tmp) {
     
     if (shell.exe == true && shell.internal == false && shell.builtin == false) {
     	DEBUG printf("executing [%d]: %s\ni am pid %d\n", cmd->vector_line_idx, quote(cmd->vector_line[cmd->vector_line_idx]), getpid());
-    	char * exe = builtin__whereis(cmd->vector_word, ".c", false);
+    	/*
+	builtin__whereis currently broken, do not use it
+	char * exe = builtin__whereis(cmd->vector_word, ".c", false);
     	int ret;
     	if(exe) {
     		ret = 0;
     		execvp(exe, cmd->vector_word);
     	}
     	else ret = -1;
+	*/
+	int ret = execvp(cmd->vector_word[0], cmd->vector_word);
     	return (void *) ret;
     }
     else if (shell.builtin == true) shell.builtin = false;
@@ -446,10 +450,13 @@ void parse_special_commands(int cc, char * command_list[]) {
         // split current line into words
         char **t, **tt;
         int c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
+	/*
+	builtin__whereis currently broken, do not use it
         if (c == 1) {
         	commands.vector_line[commands.vector_line_idx] = strcat(commands.vector_line[commands.vector_line_idx], " ");
         	c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
         }
+	*/
         DEBUG pi(c)
         for (int i = 0; i<c; i++) {
         	int a = split(replacespace(replaces(t[i])), '&', &tt);
