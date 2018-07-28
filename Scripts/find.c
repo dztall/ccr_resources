@@ -110,7 +110,10 @@ void find(const char *name)
 			fusage();
 			return;
 		}
-		else has_path = 1;
+		else {
+			has_path = 1;
+			argv[0] = argv[i];
+		}
 		if (has_path == 0 && is_null == 1) argv[0] = ".";
 	}
     DIR *dir;
