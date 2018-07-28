@@ -26,7 +26,7 @@ struct shell {
 #define MAX 512
 
 shell.name = "Shell";
-shell.version = "1.0.0";
+shell.version = "1.0.1";
 
 char PS1[4096];
 char cwd[4096];
@@ -73,8 +73,10 @@ int split (const char *strconst, char c, char ***arr)
     *arr = NULL;
 
     *arr = (char**) malloc(sizeof(char*) * count);
-    if (*arr == NULL)
-        exit(1);
+    if (*arr == NULL) {
+    	free(str);
+        return -1;
+    }
 
     p = str;
     while (*p != '\0')
@@ -82,8 +84,10 @@ int split (const char *strconst, char c, char ***arr)
         if (*p == c)
         {
             (*arr)[i] = (char*) malloc( sizeof(char) * token_len );
-            if ((*arr)[i] == NULL)
-                exit(1);
+            if ((*arr)[i] == NULL) {
+		    	free(str);
+		        return -1;
+		    }
 
             token_len = 0;
             i++;
@@ -92,8 +96,10 @@ int split (const char *strconst, char c, char ***arr)
         token_len++;
     }
     (*arr)[i] = (char*) malloc( sizeof(char) * token_len );
-    if ((*arr)[i] == NULL)
-        exit(1);
+    if ((*arr)[i] == NULL) {
+		free(str);
+		return -1;
+	}
 
     i = 0;
     p = str;
@@ -114,9 +120,17 @@ int split (const char *strconst, char c, char ***arr)
         p++;
     }
     *t = '\0';
+    
+    free(str);
 
     return count;
 }
+
+void freesplit(int c, char *** a) {
+	for (int i = 0; i < c; i++) free((*a)[i]);
+	free(*a);
+}
+
 
 
 #include "Built-Ins/Built-Ins.h"
@@ -198,16 +212,22 @@ const char * fix_string(const char * fmt) {
     	DEBUG printf("parsing fmt[%d] = %c\n", i, fmt[i]);
 		if (fmt[i] == '\\') {
 			sprintf(tmp, "%s%s", tmp, "\\\\");
-		    DEBUG printf("CORRECTION tmp = %s\n", quote(tmp));
+			mq(qt, tmp);
+		    DEBUG printf("CORRECTION tmp = %s\n", qt);
+		    free(qt);
 		}
 		else {
 			sprintf(tmp, "%s%c", tmp, fmt[i]);
-		    DEBUG printf("tmp = %s\\n", quote(tmp));
+			mq(qt, tmp);
+		    DEBUG printf("tmp = %s\\n", qt);
+		    free(qt);
 		}
 	}
 	fmt = strdup(tmp);
 	free(tmp);
-	DEBUG printf("fixed string = %s\n", quote(fmt));
+	mq(qt, fmt);
+	DEBUG printf("fixed string = %s\n", qt);
+	free(qt);
 	return fmt;
 }
 
@@ -236,17 +256,25 @@ const char * replace(const char * str) {
 			else if (str[i-1] != ' ' && str[i+1] != ' ') sprintf(tmp, "%s %c ", tmp, str[i]); // "a;a"
 			else {
 			    sprintf(tmp, "%s%c", tmp, str[i]);
-		        DEBUG printf("tmp = %s\n", quote(tmp));
+			    mq(qt,tmp);
+		        DEBUG printf("tmp = %s\n", qt);
+		        free(qt);
 		    }
-		    DEBUG printf("CORRECTION tmp = %s\n", quote(tmp));
+		    mq(qt,tmp);
+		    DEBUG printf("CORRECTION tmp = %s\n", qt);
+		    free(qt)
 		}
 		else {
 			sprintf(tmp, "%s%c", tmp, str[i]);
-		    DEBUG printf("tmp = %s\n", quote(tmp));
+			mq(qt,tmp);
+		    DEBUG printf("tmp = %s\n", qt);
+		    free(qt);
 		}
 	}
 	str = strdup(tmp);
-	DEBUG printf("fixed string = %s\n", quote(str));
+	mq(qt,str);
+	DEBUG printf("fixed string = %s\n", qt);
+	free(qt);
 	return str;
 }
 
@@ -344,7 +372,11 @@ void * execute(void * tmp) {
 		if (cmd->vector_sub[idx].vector_has_sub_word == true) {
 			shell.internal = true;
 			DEBUG printf("sub word detected in word %d\nnumber of sub words contained in word = %d\n", idx, cmd->vector_sub[idx].vector_how_many);
-        	DEBUG for (int i = 0; i<cmd->vector_sub[idx].vector_how_many; i++) printf("cmd->vector_sub[%d].word[%d] = %s\n", idx, i, quote(cmd->vector_sub[idx].vector_sub_word[i]));
+        	DEBUG for (int i = 0; i<cmd->vector_sub[idx].vector_how_many; i++) {
+        		mq(qt,cmd->vector_sub[idx].vector_sub_word[i]);
+        		printf("cmd->vector_sub[%d].word[%d] = %s\n", idx, i, qt);
+        		free(qt);
+        	}
 			// parse shell settings
 			if (strcmp(cmd->vector_sub[idx].vector_sub_word[0], "shell") == 0) {
 				DEBUG printf("parsing shell core setting\n");
@@ -378,9 +410,7 @@ void * execute(void * tmp) {
     
     
     // execution exception for exit, will always execute even if execution is disabled
-	// builtin__whereis currently broken, do not use it
-	//if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q") == 0) {
+	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
 		cmd->vector_word[0] = "exit";
         DEBUG printf("exit recognized\n");
         shell.exit = 1;
@@ -388,18 +418,17 @@ void * execute(void * tmp) {
     }
     
     if (shell.exe == true && shell.internal == false && shell.builtin == false) {
-    	DEBUG printf("executing [%d]: %s\ni am pid %d\n", cmd->vector_line_idx, quote(cmd->vector_line[cmd->vector_line_idx]), getpid());
-    	// builtin__whereis currently broken, do not use it
-	/*
-	char * exe = builtin__whereis(cmd->vector_word, ".c", false);
+		mq(qt,cmd->vector_line[cmd->vector_line_idx]);
+    	DEBUG printf("executing [%d]: %s\ni am pid %d\n", cmd->vector_line_idx, qt, getpid());
+    	free(qt);
+    	char * exe;
+    	exe = builtin__whereis(cmd->vector_word, ".c", false);
     	int ret;
     	if(exe) {
     		ret = 0;
     		execvp(exe, cmd->vector_word);
     	}
     	else ret = -1;
-	*/
-	int ret = execvp(cmd->vector_word[0], cmd->vector_word);
     	return (void *) ret;
     }
     else if (shell.builtin == true) shell.builtin = false;
@@ -445,50 +474,70 @@ void execute_thread(struct command ** commands) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void parse_special_commands(int cc, char * command_list[]) {
 	for (int i = 0; i<cc; i++) commands.vector_line[i] = command_list[i];
 	for (commands.vector_line_idx = 0; commands.vector_line_idx < cc; commands.vector_line_idx++) {
-        DEBUG printf("commands.vector_line[%d] = %s\n", commands.vector_line_idx, quote(commands.vector_line[commands.vector_line_idx]));
+		mq(qt,commands.vector_line[commands.vector_line_idx]);
+        DEBUG printf("commands.vector_line[%d] = %s\n", commands.vector_line_idx, qt);
+        free(qt);
         // split current line into words
         char **t, **tt;
         int c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
-	// builtin__whereis currently broken, do not use it
-	/*
         if (c == 1) {
-        	commands.vector_line[commands.vector_line_idx] = strcat(commands.vector_line[commands.vector_line_idx], " ");
+        	commands.vector_line[commands.vector_line_idx] = strcat(strdup(commands.vector_line[commands.vector_line_idx]), " ");
         	c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
         }
-	*/
-        DEBUG pi(c)
         for (int i = 0; i<c; i++) {
         	int a = split(replacespace(replaces(t[i])), '&', &tt);
         	if (a > 1) for (int ii = 0; ii<a; ii++) {
-        		DEBUG printf("tt[%d] = %s\n", ii, quote(t[ii]));
+        		mq(qt,t[ii]);
+        		DEBUG printf("tt[%d] = %s\n", ii, qt);
+        		free(qt);
         		commands.vector_wordAND[i] = strdup(t[ii]);
         		i++;
         	}
         	if (i>=c) {
         		break;
         	}
-        	DEBUG printf("t[%d] = %s\n", i, quote(t[i]));
+        	mq(qt,t[i]);
+        	DEBUG printf("t[%d] = %s\n", i, qt);
+        	free(qt);
         	commands.vector_word[i] = strdup(t[i]);
+        	freesplit(a, &tt);
         }
         PASSED
-        free(t);
-        free(tt);
+        freesplit(c, &t);
         commands.vector_word[c] = NULL;
         // each vector index corresponds to the word index
         for (commands.vector_word_idx = 0; commands.vector_word_idx < c; commands.vector_word_idx++) {
-        	DEBUG printf("commands.vector_word[%d] = %s\n", commands.vector_word_idx, quote(commands.vector_word[commands.vector_word_idx]));
+        	mq(qt,commands.vector_word[commands.vector_word_idx]);
+        	DEBUG printf("commands.vector_word[%d] = %s\n", commands.vector_word_idx, qt);
+        	free(qt);
         	// if word contains a sub word, we split it
         	// save to temporary variable first
         	char ** tt;
         	int cc = split(commands.vector_word[commands.vector_word_idx], '.', &tt);
         	for (int i = 0; i<cc; i++) {
-            	DEBUG printf("tt[%d] = %s\n", i, quote(tt[i]));
+        		mq(qt,tt[i]);
+            	DEBUG printf("tt[%d] = %s\n", i, qt);
+            	free(qt);
             	commands.vector_sub[commands.vector_word_idx].vector_sub_word[i] = strdup(tt[i]);
             }
-            free(tt);
+            freesplit(cc, &tt);
         	// if cc is 1 then the words does not contain a sub word
         	if (cc > 1) {
         		// word contains a sub word, mark and split
@@ -497,7 +546,11 @@ void parse_special_commands(int cc, char * command_list[]) {
         		commands.vector_sub[commands.vector_word_idx].vector_how_many = cc;
         		DEBUG printf("sub word detected\n");
         	    DEBUG printf("cc = %d\n", cc);
-        	    DEBUG for (int i = 0; i<cc; i++) printf("commands.vector_sub[%d].word[%d] = %s\n", commands.vector_word_idx, i, quote(commands.vector_sub[commands.vector_word_idx].vector_sub_word[i]));
+        	    DEBUG for (int i = 0; i<cc; i++) {
+        	    	mq(qt,commands.vector_sub[commands.vector_word_idx].vector_sub_word[i]);
+        	    	printf("commands.vector_sub[%d].word[%d] = %s\n", commands.vector_word_idx, i, qt);
+        	    	free(qt);
+        	    }
         	}
         	else {
         		// else we unmark it to prevent cross marking
@@ -525,10 +578,12 @@ void parse_special_commands(int cc, char * command_list[]) {
 
 void parse(const char * args)
 {
+	if (shell.exit == 1) return 0;
 	if (strcmp(args, "") == 0) return -1;
-	DEBUG printf("parsing: %s\n", quote(args));
+	mq(qt,args);
+	DEBUG printf("parsing: %s\n", qt);
+	free(qt);
     char **ar = NULL;
-    char ** d = NULL;
     // fix string then split into lines
 	int cc = split(replacespace(replaces(args)), ';', &ar);
 	if (strcmp(ar[cc-1],"") == 0) {
@@ -537,24 +592,31 @@ void parse(const char * args)
 		--cc;
 	}
 	for (int i = 0; i<cc; i++) {
-        DEBUG printf("ar[%d] = %s\n", i, quote(ar[i]));
-    	//commands.vector_sub[commands.vector_word_idx].vector_sub_word[i] = strdup(tt[i]);
-    }
-    int c = split(replacespace(replaces(args)), '&', &d);
-	if (strcmp(d[c-1],"") == 0) {
-		DEBUG printf("nulling ar[%d]\n", c-1);
-		d[c-1] = NULL;
-		--c;
-	}
-	for (int i = 0; i<c; i++) {
-        DEBUG printf("d[%d] = %s\n", i, quote(d[i]));
-    	//commands.vector_sub[commands.vector_word_idx].vector_sub_word[i] = strdup(tt[i]);
+        if (! strchr(ar[i], ' ')) {
+        	size_t len = strlen(ar[i]);
+        	char *aspc = malloc(len + 2);
+        	strcpy(aspc, ar[i]);
+        	aspc[len] = ' ';
+        	aspc[len + 1] = '\0';
+        	char * tmp = realloc(ar[i], len + 2);
+        	if (tmp == NULL) {
+        		puts("ran out of memory");
+        	}
+        	else {
+        		ar[i] = tmp;
+        		strcpy(ar[i], aspc);
+        	}
+        	free(aspc);
+        }
+        mq(qt,ar[i]);
+        DEBUG printf("ar[%d] = %s\n", i, qt);
+        free(qt);
     }
     parse_special_commands(cc, ar);
-    free(ar);
+    freesplit(cc, &ar);
     if (shell.exit == 1) {
     	printf("exiting\n");
-		exit(0);;
+    	return 0;
 	}
     //parseb(c, arr);
 }
@@ -574,7 +636,7 @@ void test_builtin(int num) {
     	PASSED
 	    parse("builtin.cat");
     	PASSED
-		parse("builtin.hex");
+		parse("builtin.hex ");
     	PASSED
 		parse("builtin.xxd");
     	PASSED
@@ -583,10 +645,6 @@ void test_builtin(int num) {
 		parse("builtin.CPUInfo");
     	PASSED
 		parse("builtin.gcc help");
-    	PASSED
-		parse("builtin.gcc ls -l");
-    	PASSED
-		parse("builtin.gcc ls -l /");
     	PASSED
 		parse("builtin.help");
     	PASSED
