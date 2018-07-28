@@ -1,6 +1,10 @@
 #ifndef shell__builtins
 #define shell__builtins
 
+#define dothis(what, times) {\
+	for(int i = 0;i<times;i++) { what }; \
+}
+
 #ifndef SHELL
 struct shell {
 	char * name;
@@ -60,7 +64,7 @@ shell.name = "Shell";
 #include <SDL.h>
 #include <inttypes.h>
 #include "argv.h"
-#include "grep.h"
+#include "grep.h" // not needed but included if it ever is
 #include "regex.h"
 #include <stdio.h>
 #include <dirent.h>
@@ -81,105 +85,14 @@ shell.name = "Shell";
 #include <dirent.h>
 #include <sys/types.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mach/mach.h>
-#include <unistd.h
 
-
-char * quote (char * str) {
-	char * p = malloc(strlen(str)+2);
-	strcat(p, "\"");
-	strcat(p, str);
-	strcat(p, "\"");
+char * quote (char * str) { 
+	char * p = malloc(strlen(str)+3); 
+	sprintf(p, "\"%s\"", str); 
 	return p;
 }
 
-
-char * csize(int *print_size) {
-	char *print_size_unit = "B";
-	if (*print_size > 1024) { *print_size /= 1024; print_size_unit = "K"; }
-	if (*print_size > 1024) { *print_size /= 1024; print_size_unit = "M"; }
-	if (*print_size > 1024) { *print_size /= 1024; print_size_unit = "G"; }
-	return print_size_unit;
-}
-
-char * protection_bits_to_rwx (vm_prot_t p)
-{
-
-  // previous version of this somehow lost the "p&", always returning rwx..
-  static char returned[4];
-
-  returned[0] = (p &VM_PROT_READ    ? 'r' : '-');
-  returned[1] = (p &VM_PROT_WRITE   ? 'w' : '-');
-  returned[2] = (p & VM_PROT_EXECUTE ? 'x' : '-');
-  returned[3] = '\0';
-
- // memory leak here. No biggy
-  return (strdup(returned));
-}
-
-const char * unparse_inheritance (vm_inherit_t i)
-{
-  switch (i)
-    {
-    case VM_INHERIT_SHARE:
-      return "share";
-    case VM_INHERIT_COPY:
-      return "copy";
-    case VM_INHERIT_NONE:
-      return "none";
-    default:
-      return "???";
-    }
-}
-
-void builtins__maps_self() {
-	mach_port_t task = mach_task_self();
-	kern_return_t kret;
-	
-	vm_region_basic_info_data_t info, pinfo;
-	vm_size_t size, psize, sizet, fullSize;
-	mach_vm_address_t address = 1, paddress = 1;
-	void * addr, *paddr;
-	mach_port_t object_name;
-	mach_msg_type_number_t count;
-	vm_address_t firstRegionBegin, lastRegionEnd;
-	count = VM_REGION_BASIC_INFO_COUNT_64;
-	int regionCount, flag;
-	kret = vm_region(task, &address, &psize, VM_REGION_BASIC_INFO, (vm_region_info_t) &info, &count, &object_name);
-	paddr = address;
-	while (kret == KERN_SUCCESS)
-   	{
-   		memcpy (&pinfo, &info, sizeof (vm_region_basic_info_data_t));
-   		kret = vm_region(task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t) &info, &count, &object_name);
-   		// vm_region(vm_map_t target_task, vm_address_t *address, vm_size_t *size, vm_region_flavor_t flavor, vm_region_info_t info, mach_msg_type_number_t *infoCnt, mach_port_t *object_name);
-   		if (regionCount == 0)
-   		{
-   			firstRegionBegin = address;
-   		}
-   		fullSize += size;
-   		address += size;
-   		addr = address;
-   		sizet += size;
-   		int	print_size, tprint_size;
-   		print_size = size;
-   		tprint_size = sizet;
-	    char *print_size_unit = csize(&print_size);
-   		char *tprint_size_unit = csize(&tprint_size);
-   		printf("region: %04d, %014p (prot: %s, max prot: %s, %8s, %8s, %8s) - \n              %014p (prot: %s, max prot: %s, %8s, %8s, %8s) (%4d%s) (%4d%s total) \n", regionCount, paddr, protection_bits_to_rwx (pinfo.protection), protection_bits_to_rwx (pinfo.max_protection), unparse_inheritance (pinfo.inheritance), pinfo.shared ? "shared" : "private", pinfo.reserved ? "reserved" : "not-reserved", addr,protection_bits_to_rwx (info.protection), protection_bits_to_rwx (info.max_protection), unparse_inheritance (info.inheritance), info.shared ? "shared" : "private", info.reserved ? "reserved" : "not-reserved", print_size, print_size_unit, tprint_size, tprint_size_unit);
-   		regionCount++;
-   		paddr = address;
-   		psize = size;
-   	}
-   	lastRegionEnd = address;
-   	int	print_size;
-   	print_size = fullSize;
-   	char *print_size_unit = csize(&print_size);
-	
-    printf("firstRegionBegin:  %014p\n", firstRegionBegin);
-    printf("lastRegionEnd:     %014p\n", lastRegionEnd);
-}
+#define mq(a, b) char * a = quote(b)
 
 #ifndef SPLIT
 #define SPLIT
@@ -202,8 +115,10 @@ int split (const char *strconst, char c, char ***arr)
     *arr = NULL;
 
     *arr = (char**) malloc(sizeof(char*) * count);
-    if (*arr == NULL)
-        exit(1);
+    if (*arr == NULL) {
+    	free(str);
+        return -1;
+    }
 
     p = str;
     while (*p != '\0')
@@ -211,8 +126,10 @@ int split (const char *strconst, char c, char ***arr)
         if (*p == c)
         {
             (*arr)[i] = (char*) malloc( sizeof(char) * token_len );
-            if ((*arr)[i] == NULL)
-                exit(1);
+            if ((*arr)[i] == NULL) {
+		    	free(str);
+		        return -1;
+		    }
 
             token_len = 0;
             i++;
@@ -221,8 +138,10 @@ int split (const char *strconst, char c, char ***arr)
         token_len++;
     }
     (*arr)[i] = (char*) malloc( sizeof(char) * token_len );
-    if ((*arr)[i] == NULL)
-        exit(1);
+    if ((*arr)[i] == NULL) {
+		free(str);
+		return -1;
+	}
 
     i = 0;
     p = str;
@@ -243,9 +162,17 @@ int split (const char *strconst, char c, char ***arr)
         p++;
     }
     *t = '\0';
+    
+    free(str);
 
     return count;
 }
+
+void freesplit(int c, char *** a) {
+	for (int i = 0; i < c; i++) free((*a)[i]);
+	free(*a);
+}
+
 #endif
 
 int builtin__CPU_Info(void) {
@@ -274,7 +201,7 @@ int builtin__CPU_Info(void) {
 
 int mode;
 
-#define TEST_FILE "./Built-Ins/Built-Ins.h"
+char * builtin__whereis(char ** f, const char * extention, int skip_arg0);
 
 void __hexdump(unsigned char *buffer, unsigned long index, unsigned long width)
 {
@@ -368,9 +295,18 @@ int __hexdump_string(char *infile, unsigned long start, unsigned long stop, unsi
 
 int __cathex(const char **args)
 {
+	mq(qt, args[1]);
+	ps(qt)
+	free(qt);
 	int result;
 	const char * file;
-	if (args[1] == NULL) file = TEST_FILE;
+	if (args[1] == NULL || strcmp(args[1], "") ==  0) {
+		puts("arg1 is null");
+		char ** a;
+		int c = split("Built-Ins/Built-Ins", ' ', &a);
+		file = builtin__whereis(a, ".h", false);
+		freesplit(c, &a);
+	}
 	else file = args[1];
 	if (mode == cat || mode == hex || mode == json) {
 		char * buf;
@@ -392,85 +328,6 @@ int __cathex(const char **args)
 	result = __hexdump_file(infile, start, start + (int)length, width);
 	}
 	return result;
-}
-
-
-char * __cathexj(const char **args)
-{
-	unsigned char * buffer;
-	unsigned long * len;
-	const char * file;
-	if (args[1] == NULL) file = TEST_FILE;
-	else file = args[1];
-	read__(file, (char *)&buffer, (size_t *)&len);
-/*
-
-The following characters are reserved in JSON and must be properly escaped to be used in strings:
-
-Backspace is replaced with \b
-Form feed is replaced with \f
-Newline is replaced with \n
-Carriage return is replaced with \r
-Tab is replaced with \t
-Double quote is replaced with \"
-Backslash is replaced with \\
-	
-*/
-	
-	// small sacrifice, should be done in memory
-
-	unsigned long i;
-	remove("./json");
-	FILE * printf_stdoutjjjjjjj = fopen("./json", "a+");
-	for (i = 0; i < len; i++)
-	{
-		if ( buffer[i] == '\\' && buffer[i+1] == '\n' && i+2 == len ) fprintf(printf_stdoutjjjjjjj, "\\\n");
-		else if ( buffer[i] == '\\' && buffer[i+1] == '\n' ) fprintf(printf_stdoutjjjjjjj, "\\\\\\n");
-		else if ( buffer[i-1] == '\\' && buffer[i] == '\n' ) {}
-		else if ( buffer[i] == '\n' && i+1 == len ) fprintf(printf_stdoutjjjjjjj, "\\n");
-		else if ( buffer[i] == '\n' ) fprintf(printf_stdoutjjjjjjj, "\\n");
-		else if ( buffer[i] == '\t' ) fprintf(printf_stdoutjjjjjjj, "\\t");
-		else if ( buffer[i] == '\r' ) fprintf(printf_stdoutjjjjjjj, "\\r");
-		else if ( buffer[i] == '\f' ) fprintf(printf_stdoutjjjjjjj, "\\f");
-		else if ( buffer[i] == '\b' ) fprintf(printf_stdoutjjjjjjj, "\\b");
-		else if ( buffer[i] == '"' ) fprintf(printf_stdoutjjjjjjj, "\\\"");
-		else if ( buffer[i] == '\'' ) fprintf(printf_stdoutjjjjjjj, "\\'");
-		else if ( buffer[i] == '\\' ) fprintf(printf_stdoutjjjjjjj, "\\\\");
-		else if ( buffer[i] < 32 || buffer[i] >= 127 ) {}
-			//fprintf(printf_stdoutjjjjjjj, "\
-/* UNPRINTABLE CHARACTER %d */\
-", buffer[i]);
-		else
-			fprintf(printf_stdoutjjjjjjj, "%c", buffer[i]);
-	}
-	fclose(printf_stdoutjjjjjjj);
-	char * buf;
-	size_t * size;
-	read__("./json", &buf, &size);
-	buf[size] = NULL;
-	
-	return strdup(buf);
-}
-
-
-int builtin__hex(const char **args) {
-	mode = hex;
-	return __cathex(args);
-}
-
-int builtin__cat(const char **args) {
-	mode = cat;
-	return __cathex(args);
-}
-
-int builtin__xxd(const char **args) {
-	mode = both;
-	return __cathex(args);
-}
-
-char * builtin__json(const char **args) {
-	mode = json;
-	return __cathexj(args);
 }
 
 struct BOM {
@@ -538,6 +395,95 @@ struct BOM builtin__BOM_get(char * string) {
 	elbom(bom, false, 0, 0, "Not present", "Not present")
 	
 	return (struct BOM) bom;
+}
+
+char * __cathexj(const char **args)
+{
+	unsigned char * buffer;
+	unsigned long * len;
+	const char * file;
+	if (args[1] == NULL || strcmp(args[1], " ") ==  0) {
+		char ** a;
+		int c = split("Built-Ins/Built-Ins", ' ', &a);
+		file = builtin__whereis(a, ".h", false);
+		freesplit(c, &a);
+	}
+	else file = args[1];
+	read__(file, (char *)&buffer, (size_t *)&len);
+	struct BOM d = builtin__BOM_get(buffer);
+	buffer += d.length;
+	len -= d.length;
+/*
+
+The following characters are reserved in JSON and must be properly escaped to be used in strings:
+
+Backspace is replaced with \b
+Form feed is replaced with \f
+Newline is replaced with \n
+Carriage return is replaced with \r
+Tab is replaced with \t
+Double quote is replaced with \"
+Backslash is replaced with \\
+	
+*/
+	
+	// small sacrifice, should be done in memory
+
+	unsigned long i;
+	remove("./json");
+	FILE * printf_stdoutjjjjjjj = fopen("./json", "a+");
+	for (i = 0; i < len; i++)
+	{
+		if ( buffer[i] == '\\' && buffer[i+1] == '\n' && i+2 == len ) fprintf(printf_stdoutjjjjjjj, "\\\n");
+		else if ( buffer[i] == '\\' && buffer[i+1] == '\n' ) fprintf(printf_stdoutjjjjjjj, "\\\\\\n");
+		else if ( buffer[i-1] == '\\' && buffer[i] == '\n' ) {}
+		else if ( buffer[i] == '\n' && i+1 == len ) fprintf(printf_stdoutjjjjjjj, "\\n");
+		else if ( buffer[i] == '\n' ) fprintf(printf_stdoutjjjjjjj, "\\n");
+		else if ( buffer[i] == '\t' ) fprintf(printf_stdoutjjjjjjj, "\\t");
+		else if ( buffer[i] == '\r' ) fprintf(printf_stdoutjjjjjjj, "\\r");
+		else if ( buffer[i] == '\f' ) fprintf(printf_stdoutjjjjjjj, "\\f");
+		else if ( buffer[i] == '\b' ) fprintf(printf_stdoutjjjjjjj, "\\b");
+		else if ( buffer[i] == '"' ) fprintf(printf_stdoutjjjjjjj, "\\\"");
+		else if ( buffer[i] == '\'' ) fprintf(printf_stdoutjjjjjjj, "\\'");
+		else if ( buffer[i] == '\\' ) fprintf(printf_stdoutjjjjjjj, "\\\\");
+		else if ( buffer[i] < 32 || buffer[i] >= 127 ) {}
+			//fprintf(printf_stdoutjjjjjjj, "\
+/* UNPRINTABLE CHARACTER %d */\
+", buffer[i]);
+		else
+			fprintf(printf_stdoutjjjjjjj, "%c", buffer[i]);
+	}
+	fclose(printf_stdoutjjjjjjj);
+	char * buf;
+	size_t * size;
+	read__("./json", &buf, &size);
+	d = builtin__BOM_get(buf);
+	buf += d.length;
+	size -= d.length;
+	buf[size] = NULL;
+	
+	return strdup(buf);
+}
+
+
+int builtin__hex(const char **args) {
+	mode = hex;
+	return __cathex(args);
+}
+
+int builtin__cat(const char **args) {
+	mode = cat;
+	return __cathex(args);
+}
+
+int builtin__xxd(const char **args) {
+	mode = both;
+	return __cathex(args);
+}
+
+char * builtin__json(const char **args) {
+	mode = json;
+	return __cathexj(args);
 }
 
 char * filetostring(char * file) {
@@ -636,6 +582,73 @@ int builtin__ls(const char ** args) {
 	return 0;
 }
 
+#define file__path 1
+#define file__relative 2
+#define file__directory 3
+
+char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
+	int mode, arg_number;
+	if(*f[skip_arg0] == '.' && *f[skip_arg0]+1 == '/') mode = file__relative;
+	else if (*f[skip_arg0] == '/') mode = file__directory;
+	else {
+		char ** tt;
+		int c = split(f[skip_arg0], '/', &tt);
+    	if (c == 1 && *f[skip_arg0] != '.') mode = file__path;
+    	freesplit(c, &tt);
+    	puts("is file path");
+	}
+	
+	char * file = f[skip_arg0];
+	
+	if (mode == file__relative || mode == file__directory) return strdup(f[skip_arg0]);
+	else {
+		char * path = env__get(environ_default?environ_default:environ, "PATH");
+		char ph[4096];
+	  	if (!path) path = "/bin:/usr/bin:/usr/local/bin";
+		sprintf(path, "%s:%s/CCR/Scripts", path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
+		if (path == NULL) {
+			puts("environment variable PATH is unset; cannot proceed");
+			return NULL;
+		}
+		char *hardcoded_platform_specific_path_separator = ":";
+		char * pathtmp = strdup(path);
+		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+			sprintf(ph, "%s/%s%s", tok, file, extention);
+			printf("tryingA %s....   \n", ph);
+			if (access(ph, F_OK) == 0) {
+	      		printf("foundA at %s\n", ph);
+	      		return ph;
+	      	}
+		}
+		free(pathtmp);
+		pathtmp = strdup(path);
+		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+			sprintf(ph, "%s/%s.proj%s", tok, file, extention);
+			printf("tryingB %s....   \n", ph);
+			if (access(ph, F_OK) == 0) {
+	      		printf("foundB at %s\n", ph);
+	      		return ph;
+	      	}
+		}
+		free(pathtmp);
+		sprintf(ph, "./%s%s", file, extention);
+		printf("tryingA %s....   \n", ph);
+		if (access(ph, F_OK) == 0) {
+	      	printf("foundA at %s\n", ph);
+	      		return ph;
+	    }
+		sprintf(ph, "./%s.proj%s", file, extention);
+		printf("tryingA %s....   \n", ph);
+	      if (access(ph, F_OK) == 0) {
+	      	printf("foundA at %s\n", ph);
+	      		return ph;
+	      }
+	}
+	printf("%s: %s not found\n", skip_arg0?file:shell.name, file);
+	return NULL;
+}
+
+
 
 // we enum to allow for preprocessing of #x as definition string of the define itself instead of its value
 enum {
@@ -674,218 +687,6 @@ const char * cpp_z;
 		return -1; \
 	} \
 }
-
-int bcmpcq2_(void const *vp, size_t n, void const *vp2, size_t n2)
-{
-    int string_match = 0;
-    unsigned char const *p = vp;
-    unsigned char const *p2 = vp2;
-    int matches=0,i=0;
-    for (; i<n; i++) if (p[i] == p2[i]) matches++; else break;
-    if (matches == 0 || i < n) return -1;
-    else return 0;
-}
-
-int bytecmpcq2(void const * p, void const * pp) { return bcmpcq2_(p, strlen(p), pp, strlen(pp)); }
-
-struct fileinfo {
-	char * name;
-	char * type;
-} fileinfo[9999];
-
-#define file__path 1
-#define file__relative 2
-#define file__directory 3
-
-static void *malloc_check(const char *what, size_t n) {
-  void *p = malloc(n);
-  if (p == NULL) {
-    fprintf(stderr, "Cannot allocate %zu bytes to %s\n", n, what);
-    exit(2);
-  }
-  return p;
-}
-
-static char *strsave(const char *s, const char *lim) {
-  if (lim == NULL)
-    lim = s + strlen(s);
-  char *p = malloc_check("save string", lim - s + 1);
-  strncpy(p, s, lim-s);
-  p[lim-s] = '\0';
-  return p;
-}
-
-char ** shellpath(void) {
-  char *path = env__get(environ_default?environ_default:environ, "PATH");
-  if (!path)
-    path = "/bin:/usr/bin:/usr/local/bin";
-  
-  strcat(path, ":");
-  strcat(path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
-  strcat(path, "/CCR/Scripts");
-
-  char **vector = // size is overkill
-    malloc_check("hold path elements", strlen(path) * sizeof(*vector)); 
-  const char *p = path;
-  int next = 0;
-  while (p) {
-    char *q = strchr(p, ':');
-    vector[next++] = strsave(p, q);
-    p = q ? q + 1 : NULL;
-  }
-  vector[next] = NULL;
-  return vector;
-}
-
-void freeshellpath (char *shellpath[]) {
-  for (int i = 0; shellpath[i]; i++)
-    free(shellpath[i]);
-  free(shellpath);
-}
-
-unsigned maxpathlen(char *path[], const char *base) {
-  unsigned blen = strlen(base);
-  unsigned n = 0;
-  for (int i = 0; path[i]; i++) {
-    unsigned pn = strlen(path[i]);
-    if (pn > n) n = pn;
-  }
-  return blen+n+1;
-}
-
-
-
-char * findfile(char *path[], const char *base)
-{
-  	if (strchr(base, '/')) {
-  		printf("trying %s\n", base);
-    	if(access(base, F_OK) == 0) {
-    		return base;
-    	}
-  	}
-  	else {
-    	size_t maxlen = maxpathlen(path, base)+1;
-    	char *buf = malloc_check("hold path", maxlen);
-    	for (int i = 0; path[i]; i++) {
-      		snprintf(buf, maxlen, "%s/%s", path[i], base);
-      		printf("trying %s\n", buf);
-      		if(access(buf, F_OK) == 0) {
-      			return buf;
-      		}
-    	}
-  	}
-  	return "NULL";
-}
-
-
-
-const char * builtin__whereis(const char ** file, const char * extention, int skip_arg0) {
-	int mode, arg_number;
-	if(*file[skip_arg0] == '.' && *file[skip_arg0]+1 == '/') mode = file__relative;
-	else if (*file[skip_arg0] == '/') mode = file__directory;
-	else {
-		char ** tt;
-    	if (split(file[skip_arg0], '/', &tt) == 1 && *file[skip_arg0] != '.') mode = file__path;
-    	free(tt);
-	}
-	char * path;
-	
-	if (mode == file__relative || mode == file__directory) return strdup(file[skip_arg0]);
-	else {
-		// test for files presence
-		char * tmp1 = strdup(file[skip_arg0]);
-		strcat(tmp1, extention);
-		path = findfile(shellpath(), tmp1);
-		if (strcmp(path, "NULL") == 0) {
-			char * tmp2 = strdup(file[skip_arg0]);
-			strcat(tmp2, ".proj");
-			strcat(tmp2, extention);
-			path = findfile(shellpath(), tmp2);
-			if (strcmp(path, "NULL") == 0) path = strdup(file[skip_arg0]);
-			else
-			if (access(path, F_OK) == 0) {
-      			printf("found1 at %s\n", path);
-      			return path;
-      		}
-		}
-		else
-		if (access(path, F_OK) == 0) {
-      		printf("found2 at %s\n", path);
-      		return path;
-      	}
-	}
-	// file could not be found, look for it manually
-	DIR *pDir;
-	struct dirent *ent;
-	int found;
-	pDir = opendir(dirname(path));
-	if (pDir)
-	{
-		while((ent = readdir(pDir)) != NULL) {
-			if (bytecmpcq2(path, ent->d_name) == 0) {
-				fileinfo[found].name = strdup(ent->d_name);
-				fileinfo[found].type = __find_gettype(ent->d_type);
-				found++;
-			}
-		}
-		closedir(pDir);
-	}
-	else {
-		printf("%s: Access to %s was denied\n", skip_arg0?file[0]:shell.name, path);
-		return "NO_PERM";
-	}
-	if (found == 1 && bytecmpcq2("file", fileinfo[0].type) == 0) {
-		char * pathtmp = malloc(4096);
-		if (strcmp(dirname(path),".") == 0) sprintf(pathtmp, "./%s", fileinfo[0].name);
-		else pathtmp=path;
-		char * pathnew = malloc(strlen(pathtmp));
-		pathnew = strdup(pathtmp);
-		free(pathtmp);
-		printf("trying %s\n", pathnew);
-		if (access(pathnew, F_OK) == 0) {
-      			printf("found3 at %s\n", pathnew);
-      			return pathnew;
-      	}
-	}
-	else if (found > 1) {
-		// there is more than one file of the desired name, check for a file extention if given
-		char * filefull = strcat("./", strcat(strdup(file[skip_arg0]), extention));
-		for (int i = 0;i<found;i++) {
-			//DEBUG printf("comparing %s with %s\n", filefull, fileinfo[i].name);
-			if (bytecmpcq2(filefull+2, fileinfo[i].name) == 0 && bytecmpcq2("file", fileinfo[i].type) == 0) {
-				printf("trying %s\n",filefull);
-				//printf("trying %s\n", fileinfo[i].name);
-				if (access(filefull, F_OK) == 0) {
-      				printf("found4 at %s\n", filefull);
-      				return filefull;
-      			}
-			}
-		}
-	}
-	// if all else fails we try file.proj.c
-	char * filefull = strdup(file[skip_arg0]);
-	strcat(filefull, ".proj");
-	strcat(filefull, extention);
-	for (int i = 0;i<found;i++) {
-		//DEBUG printf("comparing %s with %s\n", filefull, fileinfo[i].name);
-		if (bytecmpcq2(filefull, fileinfo[i].name) == 0 && bytecmpcq2("file", fileinfo[i].type) == 0) {
-			if (access(fileinfo[0].name, F_OK) == 0) {
-      			printf("found5 at %s\n", fileinfo[0].name);
-      			return fileinfo[0].name;
-      		}
-		}
-	}
-	path = findfile(shellpath(), filefull);
-	if (strcmp(path, "NULL") == 0) {
-		printf("%s: %s not found\n", skip_arg0?file[0]:shell.name, file[skip_arg0]);
-		return "NULL";
-	}
-	if (access(path, F_OK) == 0) {
-      	printf("found6 at %s\n", path);
-      	return path;
-	}
-}
-
 
 const char *userHeaderSearchPaths[] = {};
 const char *defines[] = { "#define DEVNULLSOMETHINGFOOBAR" };
