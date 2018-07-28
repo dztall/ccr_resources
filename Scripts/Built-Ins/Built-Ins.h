@@ -301,7 +301,6 @@ int __cathex(const char **args)
 	int result;
 	const char * file;
 	if (args[1] == NULL || strcmp(args[1], "") ==  0) {
-		puts("arg1 is null");
 		char ** a;
 		int c = split("Built-Ins/Built-Ins", ' ', &a);
 		file = builtin__whereis(a, ".h", false);
@@ -402,7 +401,7 @@ char * __cathexj(const char **args)
 	unsigned char * buffer;
 	unsigned long * len;
 	const char * file;
-	if (args[1] == NULL || strcmp(args[1], " ") ==  0) {
+	if (args[1] == NULL || strcmp(args[1], "") ==  0) {
 		char ** a;
 		int c = split("Built-Ins/Built-Ins", ' ', &a);
 		file = builtin__whereis(a, ".h", false);
