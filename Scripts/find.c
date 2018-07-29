@@ -68,8 +68,10 @@ void find(const char *name)
 		is_slash = 1;
 	}
 	// process args
-	for (int i = 0; i< argc; i++) {
-		if (!strcmp(argv[i], "-name")) {
+	int is_null = 0, has_path = 0;
+	for (int i = 0; i<= argc; i++) {
+		if (argv[i] == NULL) is_null = 1;
+		else if (!strcmp(argv[i], "-name")) {
 			i++;
 			is_name = argv[i];
 		}
@@ -107,7 +109,12 @@ void find(const char *name)
 			fprintf(file, "invalid command: '%s'\n", argv[i]);
 			fusage();
 			return;
-		}	
+		}
+		else {
+			has_path = 1;
+			argv[0] = argv[i];
+		}
+		if (has_path == 0 && is_null == 1) argv[0] = ".";
 	}
     DIR *dir;
     struct dirent *entry;
