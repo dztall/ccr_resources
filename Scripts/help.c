@@ -1,4 +1,6 @@
-﻿#include <dirent.h>
+﻿//Authors : Lee Jeong Seop
+
+#include <dirent.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
