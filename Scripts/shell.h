@@ -34,13 +34,15 @@ char charcurrent, charkeycurrent, charlast;
 char input[MAX];
 char com[MAX];
 
+#include <libgen.h>
+
 void prompt()
 {
    if (getcwd(cwd, sizeof(cwd)) != NULL)
         {
           strcpy(PS1, shell.name);
           strcat(PS1, ":");
-          strcat(PS1, cwd);
+          strcat(PS1, basename(cwd));
           strcat(PS1, "$ ");
 
           printf("%s", PS1);
@@ -576,7 +578,7 @@ void parse_special_commands(int cc, char * command_list[]) {
 
 
 
-void parse(const char * args)
+int parse(const char * args)
 {
 	if (shell.exit == 1) return 0;
 	if (strcmp(args, "") == 0) return -1;
@@ -616,8 +618,9 @@ void parse(const char * args)
     freesplit(cc, &ar);
     if (shell.exit == 1) {
     	printf("exiting\n");
-    	return 0;
+    	return 1;
 	}
+	return 0;
     //parseb(c, arr);
 }
 
