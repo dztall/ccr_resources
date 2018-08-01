@@ -216,3 +216,14 @@ void builtin__argv(int argc, char ** argv) {
 	printf("argc = %d\n", argc);
 	for (int i = 0; i<argc; i++) printf("argv[%d] = %s\n", i, argv[i]);
 }
+
+char * builtin__argvtostring(int argc, char ** argv) {
+	str_new(a);
+	for (int i = 0; i<argc; i++) {
+		str_insert_string(a, a.index, argv[i]);
+		str_insert_string(a, a.index, " ");
+	}
+	char * b = strdup(a.string);
+	str_free(a);
+	return b;
+}
