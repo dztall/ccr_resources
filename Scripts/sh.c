@@ -2,15 +2,11 @@
 
 int main(void)
 {
-	environ_default = env__copy(environ);
 	// execution is disabled by default, enable it
 	shell.exe = true;
-	shell.exebackground = false;
-	shell.debug = false;
-	shell.debug_calls = false;
-	//test_all(1);
 	printf("Welcome to %s %s!\n", shell.name, shell.version);
-	while(1)
+	int status = 0;
+	while(status == 0)
 	{
 		// clear last input
 		memset(input, 0, MAX);
@@ -21,8 +17,9 @@ int main(void)
 			if (charcurrent != '\n') sprintf(input, "%s%c", input, charcurrent);
 		}
 		DEBUG printf("recieved %s\n", quote(input));
-		parse(input);
+		status = parse(input);
+		DEBUG pi(status);
 	}
-	free(environ_default);
+	
 	return 0;
 }
