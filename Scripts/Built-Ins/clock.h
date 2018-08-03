@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #include <stdio.h>
 #include <stdarg.h>
 
