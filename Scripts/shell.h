@@ -428,7 +428,10 @@ void * execute(void * tmp) {
     		ret = 0;
     		iftime(execvp(exe, cmd->vector_word));
     	}
-    	else ret = -1;
+    	else {
+    		iftime()
+    		ret = -1;
+    	}
     	return (void *) ret;
     }
     else if (shell.builtin == true) shell.builtin = false;
