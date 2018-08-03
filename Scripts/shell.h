@@ -21,12 +21,9 @@ struct shell {
 	int exebackground;
 	int internal;
 	int builtin;
-} shell;
+} shell = { "Shell", "1.0.2" };
 
 #define MAX 512
-
-shell.name = "Shell";
-shell.version = "1.0.2";
 
 char PS1[4096];
 char cwd[4096];
