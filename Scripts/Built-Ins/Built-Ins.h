@@ -830,7 +830,7 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		char * path = env__get(environ_default?environ_default:environ, "PATH");
 		char ph[4096];
 	  	if (!path) path = "/bin:/usr/bin:/usr/local/bin";
-		sprintf(path, "%s:%s/CCR/Scripts", path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
+		sprintf(path, "%s/CCR/Scripts:%s:%s/CCR/Scripts", env__get(environ_default?environ_default:environ, "CPP_DATA_DIR"), path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
 		if (path == NULL) {
 			puts("environment variable PATH is unset; cannot proceed");
 			return NULL;
