@@ -55,6 +55,18 @@ int color_test()
 	return 0;
 }
 
+#define comment_asm(x, ...) printf(GRN " ; " x RESET __VA_ARGS__)
+
+#define printf_b(x, ...) printf(BLU x RESET __VA_ARGS__)
+#define printf_r(x, ...) printf(RED x RESET __VA_ARGS__)
+#define printf_m(x, ...) printf(MAG x RESET __VA_ARGS__)
+
+#define fprintf_b(a, x, ...) fprintf(a, BLU x RESET __VA_ARGS__)
+#define fprintf_r(a, x, ...) fprintf(a, RED x RESET __VA_ARGS__)
+#define fprintf_m(a, x, ...) fprintf(a, MAG x RESET __VA_ARGS__)
+
+/*
+
 int comment_asm(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
@@ -125,3 +137,4 @@ int fprintf_m(FILE * a, const char *fmt, ...) {
     return bytes;
 }
 
+*/
