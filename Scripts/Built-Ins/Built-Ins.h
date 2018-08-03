@@ -260,7 +260,6 @@ shell.name = "Shell";
 	for(int i = 0;i<times;i++) { what }; \
 }
 
-
 #include "libstring.h"
 #include "env.h"
 #include <SDL.h>
@@ -291,6 +290,26 @@ shell.name = "Shell";
 #define ift if (has_time == true)
 
 #define iftime(x) { ift { timefunc(x); } else { x; } } 
+
+int getline_stdin(char ** input) {
+	int total;
+	char * t = malloc(4096);
+	char charcurrent = 0;
+	while(charcurrent!='\n') {
+		charcurrent = getchar();
+		if (charcurrent != '\n') total = sprintf(t, "%s%c", t, charcurrent);
+	}
+	if (!total) {
+		free(t);
+		return 0;
+	}
+	total++;
+	*input = malloc(total);
+	memset(*input, 0, total);
+	strncpy(*input, t, total-1);
+	free(t);
+	return total-1;
+}
 
 int getline_stdin(char ** input) {
 	int total;

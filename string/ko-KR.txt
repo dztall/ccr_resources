@@ -1,4 +1,7 @@
-﻿Contents
+﻿Print function call logs
+함수 호출 로그 표시
+
+Contents
 내용
 
 Home

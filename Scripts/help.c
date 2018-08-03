@@ -1,10 +1,11 @@
-﻿#include <dirent.h>
+﻿//Authors : Lee Jeong Seop
+
+#include <dirent.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -79,13 +80,15 @@ void list_commands()
 				if ((str_found = strstr_backward(fileName, ".")) != NULL)
 				{
 					*str_found = 0;
-					if (*(str_found + 1) == 'h')
+					if (*(str_found + 1) == 'h' || strcmp(str_found, ".") == 0 || strcmp(str_found, "..") == 0)
 						continue;
 				}
 				if ((str_found = strstr_backward(fileName, ".")) != NULL)
 					*str_found = 0;
 				printf("%s ", fileName);
 			}
+			else
+				printf("%s ", ent->d_name);
 		}
 		closedir(dir);
 	}

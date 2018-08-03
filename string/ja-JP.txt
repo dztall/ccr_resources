@@ -1,4 +1,7 @@
-﻿Contents
+﻿Print function call logs
+関数呼び出しのログを表示
+
+Contents
 内容
 
 Home

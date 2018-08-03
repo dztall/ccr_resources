@@ -1,4 +1,7 @@
-﻿Contents
+﻿Print function call logs
+Просмотр журнала вызова функции
+
+Contents
 Содержание
 
 Home
