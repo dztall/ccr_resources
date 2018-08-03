@@ -1,18 +1,5 @@
 #ifndef shell__builtins
 #define shell__builtins
-
-#define dothis(what, times) {\
-	for(int i = 0;i<times;i++) { what }; \
-}
-
-char * print_size(int *print_size) { // superceeded by gits version
-	char *print_size_unit = "B";
-	if (*print_size > 1024) { *print_size /= 1024; print_size_unit = "K"; }
-	if (*print_size > 1024) { *print_size /= 1024; print_size_unit = "M"; }
-	if (*print_size > 1024) { *print_size /= 1024; print_size_unit = "G"; }
-	return print_size_unit;
-}
-
 #ifndef SHELL
 struct shell {
 	char * name;
@@ -269,6 +256,11 @@ shell.name = "Shell";
 #define px(x)      printf("%s = %02x\n", #x, x);
 #define p(x)       printf(#x);
 
+#define dothis(what, times) {\
+	for(int i = 0;i<times;i++) { what }; \
+}
+
+
 #include "libstring.h"
 #include "env.h"
 #include <SDL.h>
@@ -294,6 +286,11 @@ shell.name = "Shell";
 #include <stdio.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include "clock.h"
+
+#define ift if (has_time == true)
+
+#define iftime(x) { ift { timefunc(x); } else { x; } } 
 
 int getline_stdin(char ** input) {
 	int total;
@@ -824,7 +821,6 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		int c = split(f[skip_arg0], '/', &tt);
     	if (c == 1 && *f[skip_arg0] != '.') mode = file__path;
     	freesplit(c, &tt);
-    	puts("is file path");
 	}
 	
 	char * file = f[skip_arg0];
@@ -843,9 +839,9 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		char * pathtmp = strdup(path);
 		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
 			sprintf(ph, "/var/%s/%s%s", tok+4, file, extention);
-			printf("trying %s\n", ph);
+			DEBUG printf("trying %s\n", ph);
 			if (access(ph, F_OK) == 0) {
-	      		printf("found '%s' at '%s'\n", file, ph);
+	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
 	      		return ph;
 	      	}
 		}
@@ -853,23 +849,23 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		pathtmp = strdup(path);
 		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
 			sprintf(ph, "/var/%s/%s.proj%s", tok+4, file, extention);
-			printf("trying %s\n", ph);
+			DEBUG printf("trying %s\n", ph);
 			if (access(ph, F_OK) == 0) {
-	      		printf("found '%s' at '%s'\n", file, ph);
+	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
 	      		return ph;
 	      	}
 		}
 		free(pathtmp);
 		sprintf(ph, "./%s%s", file, extention);
-		printf("trying %s\n", ph);
+		DEBUG printf("trying %s\n", ph);
 		if (access(ph, F_OK) == 0) {
-	      	printf("found '%s' at '%s'\n", file, ph);
+	      	if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
 	      		return ph;
 	    }
 		sprintf(ph, "./%s.proj%s", file, extention);
-		printf("trying %s\n", ph);
+		DEBUG printf("trying %s\n", ph);
 	      if (access(ph, F_OK) == 0) {
-	      	printf("found '%s' at '%s'\n", file, ph);
+	      	if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
 	      		return ph;
 	      }
 	}
@@ -877,11 +873,41 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 	return NULL;
 }
 
+// for gcc builtin to be timed in detail, we need to set up seperate timers for each step, but what should we identify as a "step"?
+
+/*
+
+clock__add(timefunc_start);
+clock__add(timefunc_end);
+
+#define timefunc(func) { \
+	clock__set(timefunc_start); \
+	func; \
+	clock__set(timefunc_end); \
+	printf("cpu time: %.2f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
+}
+
+
+
+to time a initiation such as
+
+int a = clock();
+
+we could change this to
+
+int a;
+timefunc(a = clock())
+
+tho additional time may be spent during the assignment of the variable
+
+*/
+
 
 
 // we enum to allow for preprocessing of #x as definition string of the define itself instead of its value
 enum {
-	// prepend _ to allow for preprocessing to still work (if any is done) on these defines
+	// prepend _ to allow for preprocessing (if any) to still work on these defines
+	
 	_CPP_NO_ERROR=CPP_NO_ERROR,
 	_CPP_OUT_OF_MEMORY=CPP_OUT_OF_MEMORY,
 	_CPP_INVALID_ARGUMENTS=CPP_INVALID_ARGUMENTS,
@@ -908,8 +934,12 @@ const char * cpp_z;
 #define cpp_check1(x) printf("%s returned %s\n", #x, return_cpp_error_code(x));
 
 // same code above but with proper error checking
-#define cpp_check(x) { \
+
+// cpp_check shall recieve a start clock and a end clock to eliminate time taken for debug calls when timing x itself, currently defines as invalid operand
+#define cpp_check(x, clock_start, clock_end) { \
+	/*clock_start = clock();*/ \
 	cpp_y = x; \
+	/*clock_end = clock();*/ \
 	cpp_z = return_cpp_error_code(cpp_y); \
 	if (strcmp(cpp_z, cpp_y==_CPP_NO_ERROR?"CPP_NO_ERROR":"NULL") != 0) { \
 		printf("%s returned %s\n", #x, cpp_z); \
@@ -945,24 +975,53 @@ CPPuint programID = 0;
 	
 	
 	
-	
 
 int builtin__gcc(const char **args) {
-	const char * file = builtin__whereis(args, ".c", true);
+	ift clock__init();
+	const char * file;
+	// time whereis first
+	clock__add(whereis_start);
+	clock__add(whereis_end);
+	ift clock__set(whereis_start);
+	file = builtin__whereis(args, ".c", true);
+	ift clock__set(whereis_end);
 	ps(file)
 	if (strcmp(file,"NULL") == 0) {
 		printf("%s: error: input is NULL\n", args[0]);
 		return -1;
 	}
+	clock__add(create_start);
+	clock__add(create_end);
+	ift clock__set(create_start);
 	programID = cppCreateProgram();
+	ift clock__set(create_end);
+	clock__add(build_start);
+	clock__add(build_end);
+	ift clock__set(build_start);
 	//attachSourceFile(programID, "wrappers.h"); // add our wrapper file first
 	attachSourceFile(programID, file);
+	ift clock__set(build_end);
 	DEBUG printf("Compiling and linking...\n");
-	cpp_check(cppLinkProgram(programID));
+	clock__add(link_start);
+	clock__add(link_end);
+	ift clock__set(link_start);
+	cpp_check(cppLinkProgram(programID), clock__get(link_start), clock__get(link_end));
+	ift clock__set(link_end);
 	DEBUG printf("Running...\n");
-	cpp_check(cppRunProgram(programID));
+	clock__add(run_start);
+	clock__add(run_end);
+	ift clock__set(run_start);
+	cpp_check(cppRunProgram(programID), clock__get(run_start), clock__get(run_end));
+	ift clock__set(run_end);
 	DEBUG printf("Finished running.\n");
-	if (programID) cppDeleteProgram(programID);
+	clock__add(delete_start);
+	clock__add(delete_end);
+	if (programID) {
+		ift clock__set(delete_start);
+		cppDeleteProgram(programID);
+		ift clock__set(delete_end);
+	}
+	ift clock__total(clock__shorten(whereis), clock__shorten(create), clock__shorten(build), clock__shorten(link), clock__shorten(run), clock__shorten(delete));
 	return 0;
 }
 
