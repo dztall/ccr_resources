@@ -312,26 +312,6 @@ int getline_stdin(char ** input) {
 	return total-1;
 }
 
-int getline_stdin(char ** input) {
-	int total;
-	char * t = malloc(4096);
-	char charcurrent = 0;
-	while(charcurrent!='\n') {
-		charcurrent = getchar();
-		if (charcurrent != '\n') total = sprintf(t, "%s%c", t, charcurrent);
-	}
-	if (!total) {
-		free(t);
-		return 0;
-	}
-	total++;
-	*input = malloc(total);
-	memset(*input, 0, total);
-	strncpy(*input, t, total-1);
-	free(t);
-	return total-1;
-}
-
 
 char * quote (char * str) { 
 	char * p = malloc(strlen(str)+3); 
@@ -869,6 +849,16 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		pathtmp = strdup(path);
 		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
 			sprintf(ph, "/var/%s/%s.proj%s", tok+4, file, extention);
+			DEBUG printf("trying %s\n", ph);
+			if (access(ph, F_OK) == 0) {
+	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
+	      		return ph;
+	      	}
+		}
+		free(pathtmp); // update puts .proj in named folders, we search both for compatibility with older versions
+		pathtmp = strdup(path);
+		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+			sprintf(ph, "/var/%s/%s/%s.proj%s", tok+4, file, file, extention);
 			DEBUG printf("trying %s\n", ph);
 			if (access(ph, F_OK) == 0) {
 	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
