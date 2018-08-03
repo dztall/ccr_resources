@@ -26,7 +26,7 @@ struct shell {
 #define MAX 512
 
 shell.name = "Shell";
-shell.version = "1.0.1";
+shell.version = "1.0.2";
 
 char PS1[4096];
 char cwd[4096];
@@ -162,17 +162,17 @@ const char * builtin__whereis(const char ** file, const char * extention, int sk
 
 void builtin(const char * builtin, const char ** args) {
 	if(have_builtins == true) {
-		ifb("hex") builtin__hex(args);
-		elifb("cat") builtin__cat(args);
-		elifb("json") puts(builtin__json(args));
-		elifb("xxd") builtin__xxd(args);
-		elifb("CPUInfo") builtin__CPU_Info();
-		elifb("ls") builtin__ls(args);
-		elifb("gcc") builtin__gcc(args);
-		elifb("whereis") ps(builtin__whereis(args, ".c", true))
-		elifb("help") printf("list of available builtins:\nhex\ncat\njson\nxxd\nCPUInfo\nls\ngcc\nwhereis\nhelp\n");
-		else printf("builtin not found, type builtin.help for a list of available built-ins");
-	} else printf("warning, no builtins installed\n");
+		ifb("hex") iftime(builtin__hex(args))
+		elifb("cat") iftime(builtin__cat(args))
+		elifb("json") iftime(puts(builtin__json(args)))
+		elifb("xxd") iftime(builtin__xxd(args))
+		elifb("CPUInfo") iftime(builtin__CPU_Info())
+		elifb("ls") iftime(builtin__ls(args))
+		elifb("gcc") iftime(builtin__gcc(args))
+		elifb("whereis") iftime(builtin__whereis(args, ".c", true))
+		elifb("help") iftime(printf("list of available builtins:\nhex\ncat\njson\nxxd\nCPUInfo\nls\ngcc\nwhereis\nhelp\n"))
+		else iftime(printf("builtin not found, type builtin.help for a list of available built-ins"))
+	} else iftime(printf("warning, no builtins installed\n"))
 }
 
 #include <pthread.h>
@@ -182,13 +182,6 @@ int rc;
 long t;
 void *status;
 
-/*
-struct word {
-		int vector_has_sub_word;
-		int vector_how_many;
-		char * vector_sub_word[MAX];
-} vector_sub;
-	*/
 struct command {
 	char * vector_line[MAX];
 	int vector_line_idx;
@@ -196,8 +189,8 @@ struct command {
 	int vector_word_idx;
 	char * vector_wordAND[MAX];
 	int vector_wordAND_idx;
-	//struct word vector_sub[MAX];
 	struct word {
+		int has_time;
 		int vector_has_sub_word;
 		int vector_how_many;
 		char * vector_sub_word[MAX];
@@ -368,8 +361,23 @@ void * execute(void * tmp) {
 	mach_port_t machTID = pthread_mach_thread_np(pthread_self());
 	DEBUG printf("machTid is %d\n", machTID);
 	struct command *cmd = tmp;
+	
+	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"time ") == 0) {
+		timefunc();
+    	return (void *) 0;
+	}
+    
+    // execution exception for exit, will always execute even if execution is disabled
+	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
+		cmd->vector_word[0] = "exit";
+        DEBUG printf("exit recognized\n");
+        shell.exit = 1;
+    	return (void *) 0;
+    }
+    
 	// parse sub.words
 	for (int idx = 0; idx < cmd->vector_word_idx; idx++) {
+		has_time = commands.vector_sub[0].has_time;
 		// begin
 		if (cmd->vector_sub[idx].vector_has_sub_word == true) {
 			shell.internal = true;
@@ -409,16 +417,6 @@ void * execute(void * tmp) {
         // end
     }
     
-    
-    
-    // execution exception for exit, will always execute even if execution is disabled
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
-		cmd->vector_word[0] = "exit";
-        DEBUG printf("exit recognized\n");
-        shell.exit = 1;
-        shell.builtin = true;
-    }
-    
     if (shell.exe == true && shell.internal == false && shell.builtin == false) {
 		mq(qt,cmd->vector_line[cmd->vector_line_idx]);
     	DEBUG printf("executing [%d]: %s\ni am pid %d\n", cmd->vector_line_idx, qt, getpid());
@@ -428,7 +426,7 @@ void * execute(void * tmp) {
     	int ret;
     	if(exe) {
     		ret = 0;
-    		execvp(exe, cmd->vector_word);
+    		iftime(execvp(exe, cmd->vector_word));
     	}
     	else ret = -1;
     	return (void *) ret;
@@ -438,8 +436,11 @@ void * execute(void * tmp) {
     	DEBUG printf("ERROR: execution is disabled when parsing shell core settings\n");
     	shell.internal = false;
     }
-    else printf("ERROR: execution is disabled\n");
-    return (void *) -2;
+    else {
+    	printf("ERROR: execution is disabled\n");
+    	return (void *) -2;
+    }
+    return (void *) 0;
 }
 
 
@@ -493,6 +494,7 @@ void execute_thread(struct command ** commands) {
 void parse_special_commands(int cc, char * command_list[]) {
 	for (int i = 0; i<cc; i++) commands.vector_line[i] = command_list[i];
 	for (commands.vector_line_idx = 0; commands.vector_line_idx < cc; commands.vector_line_idx++) {
+        commands.vector_sub[0].has_time = false;
 		mq(qt,commands.vector_line[commands.vector_line_idx]);
         DEBUG printf("commands.vector_line[%d] = %s\n", commands.vector_line_idx, qt);
         free(qt);
@@ -522,6 +524,16 @@ void parse_special_commands(int cc, char * command_list[]) {
         	freesplit(a, &tt);
         }
         PASSED
+        if (strcmp(commands.vector_word[0], "time") == 0) {
+        	int size = sizeof(commands.vector_word)/sizeof(commands.vector_word[0]);
+        	for (int i = 0; i<size; i++) {
+        		if (i+2 <= size) commands.vector_word[i] = commands.vector_word[i+1];
+        		else commands.vector_word[i] = NULL;
+        	}
+        	c--;
+        	if (strcmp(commands.vector_word[0], "time") == 0) puts("still has time");
+        	commands.vector_sub[0].has_time = true;
+        }
         freesplit(c, &t);
         commands.vector_word[c] = NULL;
         // each vector index corresponds to the word index
@@ -673,6 +685,15 @@ void test_background_execution(int num) {
 		    parse("t;a&y;a& b w&7;a.a&w.a&");
 	    	PASSED
 		}
+	}
+}
+
+void test_time(int num) {
+	CURRENT_FUNCTION
+    for (int i = 0; i < num; i++) {
+	    parse("time test line ; sub.word.test.1; time sub.word.test.2 ; bash ; time bash; time version 1.2.4 ;");
+	    parse("shell.exe 0 shell.exe 1 shell.exe 0 shell.exe 1");
+	    parse("time return42 ; time cat return42.c ; exit42 ; cat exit42.c ; true;false");
 	}
 }
 
