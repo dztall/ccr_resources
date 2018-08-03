@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #define PCRE2_CODE_UNIT_WIDTH 8
 
 #include <stdio.h>
