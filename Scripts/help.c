@@ -11,7 +11,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-char scriptsPath[1024];
+char scriptsPathSystem[1024];
+char scriptsPathUser[1024];
 
 char *strstr_backward(char *str, const char *str_find)
 {
@@ -48,7 +49,7 @@ bool is_dot(const char *localFileName)
 }
 
 
-bool is_directory(const char *localFileName)
+bool is_directory(const char * scriptsPath, const char *localFileName)
 {
 	char *buf;
 	size_t len;
@@ -73,7 +74,7 @@ bool is_directory(const char *localFileName)
 	return false;
 }
 
-void list_commands()
+void list_commands(const char * scriptsPath)
 {
 	DIR *dir;
 	struct dirent *ent;
@@ -84,7 +85,7 @@ void list_commands()
 		{
 			
 			if (!is_dot(ent->d_name)) {
-				if (!is_directory(ent->d_name))
+				if (!is_directory(scriptsPath, ent->d_name))
 				{
 					char fileName[512];
 					strcpy(fileName, ent->d_name);
@@ -114,11 +115,16 @@ void list_commands()
 
 int main()
 {
-	strcpy(scriptsPath, getenv("CCR_RESOURCE_DIR"));
-	strcat(scriptsPath, "/CCR/Scripts");
+	strcpy(scriptsPathSystem, getenv("CCR_RESOURCE_DIR"));
+	strcpy(scriptsPathUser, getenv("CCR_DATA_DIR"));
+	strcat(scriptsPathSystem, "/CCR/Scripts");
+	strcat(scriptsPathUser, "/CCR/Scripts");
 
-	printf("Available commands : \n");
-	list_commands();
-	printf("\n");
+	printf("Available commands : \n\n");
+	printf("User Directory: ");
+	list_commands(scriptsPathUser);
+	printf("\n\nSystem Directory: ");
+	list_commands(scriptsPathSystem);
+	printf("\n\n");
 	return 0;
 }
