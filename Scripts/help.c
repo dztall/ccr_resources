@@ -1,4 +1,4 @@
-﻿//Authors : Lee Jeong Seop
+//Authors : Lee Jeong Seop
 
 #include <dirent.h>
 #include <unistd.h>
@@ -38,6 +38,16 @@ char *GetLastPathComponent(const char *path)
 	return "";
 }
 
+
+				
+bool is_dot(const char *localFileName)
+{
+	if (strcmp(localFileName, ".") == 0) return true;
+	if (strcmp(localFileName, "..") == 0) return true;
+	return false;
+}
+
+
 bool is_directory(const char *localFileName)
 {
 	char *buf;
@@ -72,23 +82,26 @@ void list_commands()
 	{
 		while ((ent = readdir(dir)) != NULL)
 		{
-			if (!is_directory(ent->d_name))
-			{
-				char fileName[512];
-				strcpy(fileName, ent->d_name);
-				char *str_found = NULL;
-				if ((str_found = strstr_backward(fileName, ".")) != NULL)
+			
+			if (!is_dot(ent->d_name)) {
+				if (!is_directory(ent->d_name))
 				{
-					*str_found = 0;
-					if (*(str_found + 1) == 'h' || strcmp(str_found, ".") == 0 || strcmp(str_found, "..") == 0)
-						continue;
+					char fileName[512];
+					strcpy(fileName, ent->d_name);
+					char *str_found = NULL;
+					if ((str_found = strstr_backward(fileName, ".")) != NULL)
+					{
+						*str_found = 0;
+						if (*(str_found + 1) == 'h')
+							continue;
+					}
+					if ((str_found = strstr_backward(fileName, ".")) != NULL)
+						*str_found = 0;
+					printf("%s ", fileName);
 				}
-				if ((str_found = strstr_backward(fileName, ".")) != NULL)
-					*str_found = 0;
-				printf("%s ", fileName);
+				else
+					printf("%s ", ent->d_name);
 			}
-			else
-				printf("%s ", ent->d_name);
 		}
 		closedir(dir);
 	}
