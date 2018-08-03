@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #ifndef libstring
 #define libstring
 // TODO: move all of this into a seperate library called libstring.so
