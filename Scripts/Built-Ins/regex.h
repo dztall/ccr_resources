@@ -208,8 +208,14 @@ char * regex_gen(char * fmt) {
 		
 		// parse string
 		if(is_range && !range_next && !swap_next) { !range?str_insert_char(range0, range0.index, *fmt):str_insert_char(range1, range1.index, *fmt) }
-		if(is_regex && !swap_next) str_insert_char(reg, reg.index, *fmt=='x'?'.':*fmt) // if regex contains 'x' or '-' replace with '.'
-		
+		if(is_regex && !swap_next) {
+			// if regex contains a not, we go the easy way and replace it with a !
+			if (*(fmt) == 'n' && *(fmt+1) == 'o' && *(fmt+2) == 't') {
+				fmt += *(fmt+3)==' '?3:2;
+				*(fmt) = '!';
+			}
+			str_insert_char(reg, reg.index, *fmt=='x'?'.':*fmt) // if regex contains 'x' replace it with '.'
+		}
 		/*
 		pc(*fmt)
 		pi(swap_next)
@@ -259,16 +265,28 @@ char * regex_gen(char * fmt) {
 					index += add;
 				}
 			}
+			
+			// if regex contains a regex not regex, we insert a look ahead of the not regex then we insert the regex as usual
+			
+			if (strstr(reg.string, "!") && !(strstr(reg.string, "!") == reg.string)) {
+				str_insert_string(expression, expression.index, "(?");
+				str_insert_string(expression, expression.index, strstr(reg.string, "!"));
+				str_insert_char(expression, expression.index, ')');
+				if (regex_gen_Debug) {
+					pi(index)
+					str_info(expression)
+				}
+				// remove look ahead from regex
+				reg.len -= strlen(strstr(reg.string, "!")-1);
+				reg.string[strlen(reg.string)-strlen(strstr(reg.string, "!"))-1] = 0;
+			}
+			
 			// if regex starts with ! then we regex look ahead and skip
 			
 			if(strcmp(reg.string, "-") != 0) {
 				if (reg.string[0] == '!') str_insert_string(expression, expression.index, "(?");
 				str_insert_string(expression, expression.index, reg.string);
 				if (reg.string[0] == '!') str_insert_char(expression, expression.index, ')');
-			}
-			if(strcmp(reg.string, "-") == 0) {
-				//str_insert_string(reg, reg.index, strdup(reg.string));
-				//str_insert_char(reg, 0, '!');
 			}
 			if (regex_gen_Debug)  {
 				pi(index)
