@@ -1,4 +1,4 @@
-﻿//Authors : Lee Jeong Seop
+//Authors : Lee Jeong Seop
 
 #include <dirent.h>
 #include <unistd.h>
@@ -11,7 +11,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-char scriptsPath[1024];
+char scriptsPathSystem[1024];
+char scriptsPathUser[1024];
 
 char *strstr_backward(char *str, const char *str_find)
 {
@@ -38,7 +39,17 @@ char *GetLastPathComponent(const char *path)
 	return "";
 }
 
-bool is_directory(const char *localFileName)
+
+				
+bool is_dot(const char *localFileName)
+{
+	if (strcmp(localFileName, ".") == 0) return true;
+	if (strcmp(localFileName, "..") == 0) return true;
+	return false;
+}
+
+
+bool is_directory(const char * scriptsPath, const char *localFileName)
 {
 	char *buf;
 	size_t len;
@@ -63,7 +74,7 @@ bool is_directory(const char *localFileName)
 	return false;
 }
 
-void list_commands()
+void list_commands(const char * scriptsPath)
 {
 	DIR *dir;
 	struct dirent *ent;
@@ -72,23 +83,26 @@ void list_commands()
 	{
 		while ((ent = readdir(dir)) != NULL)
 		{
-			if (!is_directory(ent->d_name))
-			{
-				char fileName[512];
-				strcpy(fileName, ent->d_name);
-				char *str_found = NULL;
-				if ((str_found = strstr_backward(fileName, ".")) != NULL)
+			
+			if (!is_dot(ent->d_name)) {
+				if (!is_directory(scriptsPath, ent->d_name))
 				{
-					*str_found = 0;
-					if (*(str_found + 1) == 'h' || strcmp(str_found, ".") == 0 || strcmp(str_found, "..") == 0)
-						continue;
+					char fileName[512];
+					strcpy(fileName, ent->d_name);
+					char *str_found = NULL;
+					if ((str_found = strstr_backward(fileName, ".")) != NULL)
+					{
+						*str_found = 0;
+						if (*(str_found + 1) == 'h')
+							continue;
+					}
+					if ((str_found = strstr_backward(fileName, ".")) != NULL)
+						*str_found = 0;
+					printf("%s ", fileName);
 				}
-				if ((str_found = strstr_backward(fileName, ".")) != NULL)
-					*str_found = 0;
-				printf("%s ", fileName);
+				else
+					printf("%s ", ent->d_name);
 			}
-			else
-				printf("%s ", ent->d_name);
 		}
 		closedir(dir);
 	}
@@ -101,11 +115,16 @@ void list_commands()
 
 int main()
 {
-	strcpy(scriptsPath, getenv("CCR_RESOURCE_DIR"));
-	strcat(scriptsPath, "/CCR/Scripts");
+	strcpy(scriptsPathSystem, getenv("CCR_RESOURCE_DIR"));
+	strcpy(scriptsPathUser, getenv("CCR_DATA_DIR"));
+	strcat(scriptsPathSystem, "/CCR/Scripts");
+	strcat(scriptsPathUser, "/CCR/Scripts");
 
-	printf("Available commands : \n");
-	list_commands();
-	printf("\n");
+	printf("Available commands : \n\n");
+	printf("User Directory: ");
+	list_commands(scriptsPathUser);
+	printf("\n\nSystem Directory: ");
+	list_commands(scriptsPathSystem);
+	printf("\n\n");
 	return 0;
 }
