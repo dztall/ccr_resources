@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -64,7 +66,7 @@ clock__add (base);
 	clock__set(timefunc_start); \
 	func; \
 	clock__set(timefunc_end); \
-	printf("cpu time: %.2f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
+	printf("cpu time: %.3f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
 }
 
 #include <stdio.h>

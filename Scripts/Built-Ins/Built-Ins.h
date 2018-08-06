@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #ifndef shell__builtins
 #define shell__builtins
 #ifndef SHELL
@@ -291,26 +293,6 @@ shell.name = "Shell";
 #define ift if (has_time == true)
 
 #define iftime(x) { ift { timefunc(x); } else { x; } } 
-
-int getline_stdin(char ** input) {
-	int total;
-	char * t = malloc(4096);
-	char charcurrent = 0;
-	while(charcurrent!='\n') {
-		charcurrent = getchar();
-		if (charcurrent != '\n') total = sprintf(t, "%s%c", t, charcurrent);
-	}
-	if (!total) {
-		free(t);
-		return 0;
-	}
-	total++;
-	*input = malloc(total);
-	memset(*input, 0, total);
-	strncpy(*input, t, total-1);
-	free(t);
-	return total-1;
-}
 
 int getline_stdin(char ** input) {
 	int total;
@@ -850,7 +832,7 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		char * path = env__get(environ_default?environ_default:environ, "PATH");
 		char ph[4096];
 	  	if (!path) path = "/bin:/usr/bin:/usr/local/bin";
-		sprintf(path, "%s:%s/CCR/Scripts", path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
+		sprintf(path, "%s/CCR/Scripts:%s:%s/CCR/Scripts", env__get(environ_default?environ_default:environ, "CPP_DATA_DIR"), path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
 		if (path == NULL) {
 			puts("environment variable PATH is unset; cannot proceed");
 			return NULL;
@@ -869,6 +851,16 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 		pathtmp = strdup(path);
 		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
 			sprintf(ph, "/var/%s/%s.proj%s", tok+4, file, extention);
+			DEBUG printf("trying %s\n", ph);
+			if (access(ph, F_OK) == 0) {
+	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
+	      		return ph;
+	      	}
+		}
+		free(pathtmp); // update puts .proj in named folders, we search both for compatibility with older versions
+		pathtmp = strdup(path);
+		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+			sprintf(ph, "/var/%s/%s/%s.proj%s", tok+4, file, file, extention);
 			DEBUG printf("trying %s\n", ph);
 			if (access(ph, F_OK) == 0) {
 	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);

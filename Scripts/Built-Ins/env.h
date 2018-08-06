@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #ifndef __SHELL_ENV
 #define __SHELL_ENV
 

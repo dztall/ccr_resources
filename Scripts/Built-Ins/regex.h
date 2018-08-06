@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 #define PCRE2_CODE_UNIT_WIDTH 8
 
 #include <stdio.h>
@@ -175,7 +177,7 @@ char * regex_gen(char * fmt) {
 	bool swap_next=0, range=0, range_next=0, is_range=1, is_regex=0;
 	int offset = regex_gen_max_bit_length-regex_gen_bit_start;
 	int regex_gen_bit_end = regex_gen_max_bit_length-offset;
-	int index=offset, add = 0;
+	int index=offset, add = 0, skip = 0;
 	while (fmt && *fmt) {
 		/*
 		assumptions:
@@ -206,16 +208,26 @@ char * regex_gen(char * fmt) {
 		
 		// parse string
 		if(is_range && !range_next && !swap_next) { !range?str_insert_char(range0, range0.index, *fmt):str_insert_char(range1, range1.index, *fmt) }
-		if(is_regex && !swap_next) str_insert_char(reg, reg.index, *fmt=='x'?'.':*fmt) // if regex contains 'x' or '-' replace with '.'
-		
-		/*
-		pc(*fmt)
-		pi(swap_next)
-		pi(range)
-		pi(range_next)
-		pi(is_range)
-		pi(is_regex)
-		*/
+		if(is_regex && !swap_next) {
+			// if regex contains a not, we go the easy way and replace it with a !
+			if (regex_gen_Debug) pi(skip)
+			if (skip) skip--;
+			if (*(fmt) == 'n' && *(fmt+1) == 'o' && *(fmt+2) == 't') {
+				skip += *(fmt+3)==' '?4:3;
+			}
+			if (skip) {
+				if (skip == 1) str_insert_char(reg, reg.index, '!')
+			}
+			else str_insert_char(reg, reg.index, *fmt=='x'?'.':*fmt) // if regex contains 'x' or '-' replace with '.'
+		}
+		if (regex_gen_Debug) {
+			pc(*fmt)
+			pi(swap_next)
+			pi(range)
+			pi(range_next)
+			pi(is_range)
+			pi(is_regex)
+		}
 		*fmt++;
 		
 		
@@ -257,16 +269,28 @@ char * regex_gen(char * fmt) {
 					index += add;
 				}
 			}
+			
+			// if regex contains a regex not regex, we insert a look ahead of the not regex then we insert the regex as usual
+			
+			if (strstr(reg.string, "!") && !(strstr(reg.string, "!") == reg.string)) {
+				str_insert_string(expression, expression.index, "(?");
+				str_insert_string(expression, expression.index, strstr(reg.string, "!"));
+				str_insert_char(expression, expression.index, ')');
+				if (regex_gen_Debug) {
+					pi(index)
+					str_info(expression)
+				}
+				// remove look ahead from regex
+				reg.len -= strlen(strstr(reg.string, "!")-1);
+				memset(reg.string+(strlen(reg.string)-strlen(strstr(reg.string, "!"))-1), 0, strlen(strstr(reg.string, "!")))
+			}
+			
 			// if regex starts with ! then we regex look ahead and skip
 			
 			if(strcmp(reg.string, "-") != 0) {
 				if (reg.string[0] == '!') str_insert_string(expression, expression.index, "(?");
 				str_insert_string(expression, expression.index, reg.string);
 				if (reg.string[0] == '!') str_insert_char(expression, expression.index, ')');
-			}
-			if(strcmp(reg.string, "-") == 0) {
-				//str_insert_string(reg, reg.index, strdup(reg.string));
-				//str_insert_char(reg, 0, '!');
 			}
 			if (regex_gen_Debug)  {
 				pi(index)

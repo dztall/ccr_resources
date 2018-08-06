@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 /*
 
 http://coliru.stacked-crooked.com/a/Invalid query parameters: invalid %-encoding ({&quot;cmd&quot;:&quot;cat .&#x2F;main.cpp&quot;,&quot;src&quot;:&quot;&#x2F;*\n\nhttp:&#x2F;&#x2F;coliru.stacked-crooked.com&#x2F;a&#x2F;Invalid query parameters: invalid %-encoding ({)
