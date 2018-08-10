@@ -222,10 +222,39 @@ void builtin__argv(int argc, char ** argv) {
 char * builtin__argvtostring(int argc, char ** argv) {
 	str_new(a);
 	for (int i = 0; i<argc; i++) {
+		if (i != 0) str_insert_string(a, a.index, " ");
 		str_insert_string(a, a.index, argv[i]);
-		str_insert_string(a, a.index, " ");
 	}
 	char * b = strdup(a.string);
 	str_free(a);
 	return b;
+}
+
+char * argtopathlist(int argc, char ** argv) {
+	str_new(a);
+	for (int i = 0; i<argc; i++) {
+		if (i != 0) str_insert_string(a, a.index, ":");
+		str_insert_string(a, a.index, argv[i]);
+	}
+	char * b = strdup(a.string);
+	str_free(a);
+	return b;
+}
+
+void list_array(char ** array, char * name) {
+	int i = 0;
+	char **ep;
+	for (ep = array; *ep; ep++) {
+		printf("%s[%d] = %s\n", name, i, *ep);
+		i++;
+	}
+}
+
+int count_array(char ** array) {
+	int i = 0;
+	char **ep;
+	for (ep = array; *ep; ep++) {
+		i++;
+	}
+	return i;
 }
