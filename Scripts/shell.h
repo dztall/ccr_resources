@@ -23,7 +23,7 @@ struct shell {
 	int exebackground;
 	int internal;
 	int builtin;
-} shell = { "Shell", "1.0.2" };
+} shell = { "Shell", "1.0.3" };
 
 #define MAX 512
 
@@ -146,29 +146,29 @@ int have_builtins = true;
 #else
 int have_builtins = false;
 // dummy the builtins
-int builtin__hex(const char **args) {}
-int builtin__cat(const char **args) {}
-int builtin__xxd(const char **args) {}
-int builtin__CPU_Info() {}
-int builtin__ls(const char **args) {};
-int builtin__gcc(const char **args) {};
-char * builtin_json(const char **args);
-const char * builtin__whereis(const char ** file, const char * extention, int skip_argv0);
+int builtin__hex(const int argc, const char * argv[]) {}
+int builtin__cat(const int argc, const char * argv[]) {}
+int builtin__xxd(const int argc, const char * argv[]) {}
+int builtin__CPU_Info(const int argc, const char * argv[]) {}
+int builtin__ls(const int argc, const char * argv[]) {};
+int builtin__gcc(const int argc, const char * argv[]) {};
+char * builtin_json(const int argc, const char * argv[]);
+const char * builtin__whereis(const int argc, const char * argv[], const char * extention, int skip_argv0, char * optional_path, int mode);
 #endif
 
 #define ifb(x) if(strcmp(builtin, x) == 0)
 #define elifb(x) else ifb(x)
 
-void builtin(const char * builtin, const char ** args) {
+void builtin(const char * builtin, const int argc, const char * argv[]) {
 	if(have_builtins == true) {
-		ifb("hex") iftime(builtin__hex(args))
-		elifb("cat") iftime(builtin__cat(args))
-		elifb("json") iftime(puts(builtin__json(args)))
-		elifb("xxd") iftime(builtin__xxd(args))
-		elifb("CPUInfo") iftime(builtin__CPU_Info())
-		elifb("ls") iftime(builtin__ls(args))
-		elifb("gcc") iftime(builtin__gcc(args))
-		elifb("whereis") iftime(builtin__whereis(args, ".c", true))
+		ifb("hex") iftime(builtin__hex(argc, argv))
+		elifb("cat") iftime(builtin__cat(argc, argv))
+		elifb("json") iftime(puts(builtin__json(argc, argv)))
+		elifb("xxd") iftime(builtin__xxd(argc, argv))
+		elifb("CPUInfo") iftime(builtin__CPU_Info(argc, argv))
+		elifb("ls") iftime(builtin__ls(argc, argv))
+		elifb("gcc") iftime(builtin__gcc(argc, argv))
+		elifb("whereis") iftime(builtin__whereis(argc, argv, ".c", true, NULL, whereis_mode_return_first))
 		elifb("help") iftime(printf("list of available builtins:\nhex\ncat\njson\nxxd\nCPUInfo\nls\ngcc\nwhereis\nhelp\n"))
 		else iftime(printf("builtin not found, type builtin.help for a list of available built-ins"))
 	} else iftime(printf("warning, no builtins installed\n"))
@@ -360,14 +360,16 @@ void * execute(void * tmp) {
 	mach_port_t machTID = pthread_mach_thread_np(pthread_self());
 	DEBUG printf("machTid is %d\n", machTID);
 	struct command *cmd = tmp;
+	pi(cmd->vector_line_idx)
+	pi(cmd->vector_word_idx)
 	
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"time ") == 0) {
+	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"time") == 0) {
 		timefunc();
     	return (void *) 0;
 	}
     
     // execution exception for exit, will always execute even if execution is disabled
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit ") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q ") == 0) {
+	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q") == 0) {
 		cmd->vector_word[0] = "exit";
         DEBUG printf("exit recognized\n");
         shell.exit = 1;
@@ -402,7 +404,7 @@ void * execute(void * tmp) {
             else if (strcmp(cmd->vector_sub[idx].vector_sub_word[0], "builtin") == 0) {
             	shell.builtin = true;
             	DEBUG printf("parsing builtin\n");
-            	builtin(cmd->vector_sub[idx].vector_sub_word[1], cmd->vector_word);
+            	builtin(cmd->vector_sub[idx].vector_sub_word[1], cmd->vector_word_idx, cmd->vector_word);
             	// unlike shell settings, we cannot parse multiple builtins on one line
             	shell.internal = false;
             	break;
@@ -421,7 +423,7 @@ void * execute(void * tmp) {
     	DEBUG printf("executing [%d]: %s\ni am pid %d\n", cmd->vector_line_idx, qt, getpid());
     	free(qt);
     	char * exe;
-    	exe = builtin__whereis(cmd->vector_word, ".c", false);
+    	exe = builtin__whereis(cmd->vector_word_idx, cmd->vector_word, ".c", false, NULL, whereis_mode_return_first);
     	int ret;
     	if(exe) {
     		ret = 0;
@@ -502,11 +504,9 @@ void parse_special_commands(int cc, char * command_list[]) {
         free(qt);
         // split current line into words
         char **t, **tt;
-        int c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
-        if (c == 1) {
-        	commands.vector_line[commands.vector_line_idx] = strcat(strdup(commands.vector_line[commands.vector_line_idx]), " ");
-        	c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
-        }
+        int c;
+        string_to_argv(commands.vector_line[commands.vector_line_idx], &c, &t);
+        //int c = split(commands.vector_line[commands.vector_line_idx], ' ', &t);
         for (int i = 0; i<c; i++) {
         	int a = split(replacespace(replaces(t[i])), '&', &tt);
         	if (a > 1) for (int ii = 0; ii<a; ii++) {
@@ -536,7 +536,8 @@ void parse_special_commands(int cc, char * command_list[]) {
         	if (strcmp(commands.vector_word[0], "time") == 0) puts("still has time");
         	commands.vector_sub[0].has_time = true;
         }
-        freesplit(c, &t);
+        //freesplit(c, &t);
+        free(t);
         commands.vector_word[c] = NULL;
         // each vector index corresponds to the word index
         for (commands.vector_word_idx = 0; commands.vector_word_idx < c; commands.vector_word_idx++) {
@@ -608,22 +609,6 @@ int parse(const char * args)
 		--cc;
 	}
 	for (int i = 0; i<cc; i++) {
-        if (! strchr(ar[i], ' ')) {
-        	size_t len = strlen(ar[i]);
-        	char *aspc = malloc(len + 2);
-        	strcpy(aspc, ar[i]);
-        	aspc[len] = ' ';
-        	aspc[len + 1] = '\0';
-        	char * tmp = realloc(ar[i], len + 2);
-        	if (tmp == NULL) {
-        		puts("ran out of memory");
-        	}
-        	else {
-        		ar[i] = tmp;
-        		strcpy(ar[i], aspc);
-        	}
-        	free(aspc);
-        }
         mq(qt,ar[i]);
         DEBUG printf("ar[%d] = %s\n", i, qt);
         free(qt);
