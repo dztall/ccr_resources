@@ -5,8 +5,7 @@
 #ifndef SHELL
 struct shell {
 	char * name;
-} shell;
-shell.name = "Shell";
+} shell = { "Shell" };
 #endif
 
 
@@ -39,224 +38,7 @@ shell.name = "Shell";
 #define CURRENT_FUNCTION DEBUG2 printf("->called %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
 #endif
 
-/*
-
-#if !defined(_INTTYPES_H_)
-#define _INTTYPES_H_
-
-#  define __PRI_8_LENGTH_MODIFIER__ "hh"
-#  define __PRI_64_LENGTH_MODIFIER__ "ll"
-#  define __SCN_64_LENGTH_MODIFIER__ "ll"
-#  define __PRI_MAX_LENGTH_MODIFIER__ "j"
-#  define __SCN_MAX_LENGTH_MODIFIER__ "j"
-
-#  define PRId8         __PRI_8_LENGTH_MODIFIER__ "d"
-#  define PRIi8         __PRI_8_LENGTH_MODIFIER__ "i"
-#  define PRIo8         __PRI_8_LENGTH_MODIFIER__ "o"
-#  define PRIu8         __PRI_8_LENGTH_MODIFIER__ "u"
-#  define PRIx8         __PRI_8_LENGTH_MODIFIER__ "x"
-#  define PRIX8         __PRI_8_LENGTH_MODIFIER__ "X"
-
-#  define PRId16        "hd"
-#  define PRIi16        "hi"
-#  define PRIo16        "ho"
-#  define PRIu16        "hu"
-#  define PRIx16        "hx"
-#  define PRIX16        "hX"
-
-#  define PRId32        "d"
-#  define PRIi32        "i"
-#  define PRIo32        "o"
-#  define PRIu32        "u"
-#  define PRIx32        "x"
-#  define PRIX32        "X"
-
-#  define PRId64        __PRI_64_LENGTH_MODIFIER__ "d"
-#  define PRIi64        __PRI_64_LENGTH_MODIFIER__ "i"
-#  define PRIo64        __PRI_64_LENGTH_MODIFIER__ "o"
-#  define PRIu64        __PRI_64_LENGTH_MODIFIER__ "u"
-#  define PRIx64        __PRI_64_LENGTH_MODIFIER__ "x"
-#  define PRIX64        __PRI_64_LENGTH_MODIFIER__ "X"
-
-#  define PRIdLEAST8    PRId8
-#  define PRIiLEAST8    PRIi8
-#  define PRIoLEAST8    PRIo8
-#  define PRIuLEAST8    PRIu8
-#  define PRIxLEAST8    PRIx8
-#  define PRIXLEAST8    PRIX8
-
-#  define PRIdLEAST16   PRId16
-#  define PRIiLEAST16   PRIi16
-#  define PRIoLEAST16   PRIo16
-#  define PRIuLEAST16   PRIu16
-#  define PRIxLEAST16   PRIx16
-#  define PRIXLEAST16   PRIX16
-
-#  define PRIdLEAST32   PRId32
-#  define PRIiLEAST32   PRIi32
-#  define PRIoLEAST32   PRIo32
-#  define PRIuLEAST32   PRIu32
-#  define PRIxLEAST32   PRIx32
-#  define PRIXLEAST32   PRIX32
-
-#  define PRIdLEAST64   PRId64
-#  define PRIiLEAST64   PRIi64
-#  define PRIoLEAST64   PRIo64
-#  define PRIuLEAST64   PRIu64
-#  define PRIxLEAST64   PRIx64
-#  define PRIXLEAST64   PRIX64
-
-#  define PRIdFAST8     PRId8
-#  define PRIiFAST8     PRIi8
-#  define PRIoFAST8     PRIo8
-#  define PRIuFAST8     PRIu8
-#  define PRIxFAST8     PRIx8
-#  define PRIXFAST8     PRIX8
-
-#  define PRIdFAST16    PRId16
-#  define PRIiFAST16    PRIi16
-#  define PRIoFAST16    PRIo16
-#  define PRIuFAST16    PRIu16
-#  define PRIxFAST16    PRIx16
-#  define PRIXFAST16    PRIX16
-
-#  define PRIdFAST32    PRId32
-#  define PRIiFAST32    PRIi32
-#  define PRIoFAST32    PRIo32
-#  define PRIuFAST32    PRIu32
-#  define PRIxFAST32    PRIx32
-#  define PRIXFAST32    PRIX32
-
-#  define PRIdFAST64    PRId64
-#  define PRIiFAST64    PRIi64
-#  define PRIoFAST64    PRIo64
-#  define PRIuFAST64    PRIu64
-#  define PRIxFAST64    PRIx64
-#  define PRIXFAST64    PRIX64
-
-// int32_t is 'int', but intptr_t is 'long'.
-#  define PRIdPTR       "ld"
-#  define PRIiPTR       "li"
-#  define PRIoPTR       "lo"
-#  define PRIuPTR       "lu"
-#  define PRIxPTR       "lx"
-#  define PRIXPTR       "lX"
-
-#  define PRIdMAX        __PRI_MAX_LENGTH_MODIFIER__ "d"
-#  define PRIiMAX        __PRI_MAX_LENGTH_MODIFIER__ "i"
-#  define PRIoMAX        __PRI_MAX_LENGTH_MODIFIER__ "o"
-#  define PRIuMAX        __PRI_MAX_LENGTH_MODIFIER__ "u"
-#  define PRIxMAX        __PRI_MAX_LENGTH_MODIFIER__ "x"
-#  define PRIXMAX        __PRI_MAX_LENGTH_MODIFIER__ "X"
-
-#  define SCNd8         __PRI_8_LENGTH_MODIFIER__ "d"
-#  define SCNi8         __PRI_8_LENGTH_MODIFIER__ "i"
-#  define SCNo8         __PRI_8_LENGTH_MODIFIER__ "o"
-#  define SCNu8         __PRI_8_LENGTH_MODIFIER__ "u"
-#  define SCNx8         __PRI_8_LENGTH_MODIFIER__ "x"
-
-#  define SCNd16        "hd"
-#  define SCNi16        "hi"
-#  define SCNo16        "ho"
-#  define SCNu16        "hu"
-#  define SCNx16        "hx"
-
-#  define SCNd32        "d"
-#  define SCNi32        "i"
-#  define SCNo32        "o"
-#  define SCNu32        "u"
-#  define SCNx32        "x"
-
-#  define SCNd64        __SCN_64_LENGTH_MODIFIER__ "d"
-#  define SCNi64        __SCN_64_LENGTH_MODIFIER__ "i"
-#  define SCNo64        __SCN_64_LENGTH_MODIFIER__ "o"
-#  define SCNu64        __SCN_64_LENGTH_MODIFIER__ "u"
-#  define SCNx64        __SCN_64_LENGTH_MODIFIER__ "x"
-
-#  define SCNdLEAST8    SCNd8
-#  define SCNiLEAST8    SCNi8
-#  define SCNoLEAST8    SCNo8
-#  define SCNuLEAST8    SCNu8
-#  define SCNxLEAST8    SCNx8
-
-#  define SCNdLEAST16   SCNd16
-#  define SCNiLEAST16   SCNi16
-#  define SCNoLEAST16   SCNo16
-#  define SCNuLEAST16   SCNu16
-#  define SCNxLEAST16   SCNx16
-
-#  define SCNdLEAST32   SCNd32
-#  define SCNiLEAST32   SCNi32
-#  define SCNoLEAST32   SCNo32
-#  define SCNuLEAST32   SCNu32
-#  define SCNxLEAST32   SCNx32
-
-#  define SCNdLEAST64   SCNd64
-#  define SCNiLEAST64   SCNi64
-#  define SCNoLEAST64   SCNo64
-#  define SCNuLEAST64   SCNu64
-#  define SCNxLEAST64   SCNx64
-
-#  define SCNdFAST8     SCNd8
-#  define SCNiFAST8     SCNi8
-#  define SCNoFAST8     SCNo8
-#  define SCNuFAST8     SCNu8
-#  define SCNxFAST8     SCNx8
-
-#  define SCNdFAST16    SCNd16
-#  define SCNiFAST16    SCNi16
-#  define SCNoFAST16    SCNo16
-#  define SCNuFAST16    SCNu16
-#  define SCNxFAST16    SCNx16
-
-#  define SCNdFAST32    SCNd32
-#  define SCNiFAST32    SCNi32
-#  define SCNoFAST32    SCNo32
-#  define SCNuFAST32    SCNu32
-#  define SCNxFAST32    SCNx32
-
-#  define SCNdFAST64    SCNd64
-#  define SCNiFAST64    SCNi64
-#  define SCNoFAST64    SCNo64
-#  define SCNuFAST64    SCNu64
-#  define SCNxFAST64    SCNx64
-
-#  define SCNdPTR       "ld"
-#  define SCNiPTR       "li"
-#  define SCNoPTR       "lo"
-#  define SCNuPTR       "lu"
-#  define SCNxPTR       "lx"
-
-#  define SCNdMAX       __SCN_MAX_LENGTH_MODIFIER__ "d"
-#  define SCNiMAX       __SCN_MAX_LENGTH_MODIFIER__ "i"
-#  define SCNoMAX       __SCN_MAX_LENGTH_MODIFIER__ "o"
-#  define SCNuMAX       __SCN_MAX_LENGTH_MODIFIER__ "u"
-#  define SCNxMAX       __SCN_MAX_LENGTH_MODIFIER__ "x"
-*/
-
-#include <inttypes.h>
-
-#define puint64(x) printf("%s = %" PRIu64 "\n", #x, x);
-#define puint32(x) printf("%s = %" PRIu32 "\n", #x, x);
-#define puint16(x) printf("%s = %" PRIu16 "\n", #x, x);
-#define puint8(x)  printf("%s = %" PRIu8 "\n", #x, x);
-
-#define pc(x)      printf("%s = %c\n", #x, x);
-#define puc(x)     printf("%s = %c\n", #x, x);
-#define ps(x)      printf("%s = %s\n", #x, x);
-#define pus(x)     printf("%s = %s\n", #x, x);
-#define pi(x)      printf("%s = %d\n", #x, x);
-#define pui(x)     printf("%s = %u\n", #x, x);
-#define pd(x)      printf("%s = %f\n", #x, x);
-#define pud(x)     printf("%s = %f\n", #x, x);
-#define pl(x)      printf("%s = %l\n", #x, x);
-#define pul(x)     printf("%s = %lu\n", #x, x);
-#define pll(x)     printf("%s = %ll\n", #x, x);
-#define pull(x)    printf("%s = %llu\n", #x, x);
-#define psize_t(x) printf("%s = %zu\n", #x, x);
-#define pp(x)      printf("%s = %p\n", #x, x);
-#define px(x)      printf("%s = %02x\n", #x, x);
-#define p(x)       printf(#x);
+#include "printfmacro.h"
 
 #define dothis(what, times) {\
 	for(int i = 0;i<times;i++) { what }; \
@@ -269,6 +51,7 @@ shell.name = "Shell";
 #include <inttypes.h>
 #include "regex.h"
 #include "argv.h"
+#define itta(x) list_array(x, #x)
 #include "grep.h" // not needed but included if it ever is
 #include <stdio.h>
 #include <dirent.h>
@@ -404,7 +187,7 @@ void freesplit(int c, char *** a) {
 
 #endif
 
-int builtin__CPU_Info(void) {
+int builtin__CPU_Info(const int argc, const char * argv[]) {
 	Uint64 PerformanceCounter = SDL_GetPerformanceCounter();
 	Uint64 PerformanceFrequency = SDL_GetPerformanceFrequency();
 	int CPUCount = SDL_GetCPUCount();
@@ -430,7 +213,12 @@ int builtin__CPU_Info(void) {
 
 int mode;
 
-char * builtin__whereis(char ** f, const char * extention, int skip_arg0);
+#define whereis_mode_print_all 1
+#define whereis_mode_return_first 2
+#define whereis_mode_return_all_as_path 3
+#define whereis_mode_return_all_as_string 4
+
+char * builtin__whereis(const int argc, const char * argv[], const char * extention, int skip_arg0, char * optional_path, int mode);
 
 void __hexdump(unsigned char *buffer, unsigned long index, unsigned long width)
 {
@@ -522,20 +310,20 @@ int __hexdump_string(char *infile, unsigned long start, unsigned long stop, unsi
 	return 0;
 }
 
-int __cathex(const char **args)
+int __cathex(const int argc, const char * argv[])
 {
-	mq(qt, args[1]);
+	mq(qt, argv[1]);
 	ps(qt)
 	free(qt);
 	int result;
 	const char * file;
-	if (args[1] == NULL || strcmp(args[1], "") ==  0) {
+	if (argc < 2) {
 		char ** a;
 		int c = split("Built-Ins/Built-Ins", ' ', &a);
-		file = builtin__whereis(a, ".h", false);
+		file = builtin__whereis(c, a, ".h", false, NULL, whereis_mode_return_first);
 		freesplit(c, &a);
 	}
-	else file = args[1];
+	else file = argv[1];
 	if (mode == cat || mode == hex || mode == json) {
 		char * buf;
 		size_t size;
@@ -625,18 +413,18 @@ struct BOM builtin__BOM_get(char * string) {
 	return (struct BOM) bom;
 }
 
-char * __cathexj(const char **args)
+char * __cathexj(const int argc, const char * argv[])
 {
 	unsigned char * buffer;
 	unsigned long * len;
 	const char * file;
-	if (args[1] == NULL || strcmp(args[1], "") ==  0) {
+	if (argc < 2) {
 		char ** a;
 		int c = split("Built-Ins/Built-Ins", ' ', &a);
-		file = builtin__whereis(a, ".h", false);
+		file = builtin__whereis(c, a, ".h", false, NULL, whereis_mode_return_first);
 		freesplit(c, &a);
 	}
-	else file = args[1];
+	else file = argv[1];
 	read__(file, (char *)&buffer, (size_t *)&len);
 	struct BOM d = builtin__BOM_get(buffer);
 	buffer += d.length;
@@ -694,24 +482,24 @@ Backslash is replaced with \\
 }
 
 
-int builtin__hex(const char **args) {
+int builtin__hex(const int argc, const char * argv[]) {
 	mode = hex;
-	return __cathex(args);
+	return __cathex(argc, argv);
 }
 
-int builtin__cat(const char **args) {
+int builtin__cat(const int argc, const char * argv[]) {
 	mode = cat;
-	return __cathex(args);
+	return __cathex(argc, argv);
 }
 
-int builtin__xxd(const char **args) {
+int builtin__xxd(const int argc, const char * argv[]) {
 	mode = both;
-	return __cathex(args);
+	return __cathex(argc, argv);
 }
 
-char * builtin__json(const char **args) {
+char * builtin__json(const int argc, const char * argv[]) {
 	mode = json;
-	return __cathexj(args);
+	return __cathexj(argc, argv);
 }
 
 char * filetostring(char * file) {
@@ -749,9 +537,10 @@ void builtin__coliru(char * mode, char * file, char * cmd, char * out)
 		puts("must specify a command (\" \" is allowed)");
 		return;
 	}
-	char ** args = env__add(env__add(env__new(), "default"), file);
-	char * s4 = builtin__json(args);
-	free(args);
+	char ** argv = env__add(env__add(env__new(), "default"), file);
+	int argc = 2;
+	char * s4 = builtin__json(argc, argv);
+	free(argv);
 	char * s1 = "curl 'http://coliru.stacked-crooked.com/";
 	char * s2 = "' --data-binary '{\"cmd\":\"";
 	char * s3 = "\
@@ -793,10 +582,10 @@ char * __find_gettype (int type) {
 	else return __find_unknown(type);
 }
 
-int builtin__ls(const char ** args) {
+int builtin__ls(const int argc, const char * argv[]) {
 	DIR *pDir;
 	struct dirent *ent;
-	char * path = args[1]==NULL?"./":args[1];
+	char * path = argc==1?"./":argv[1];
 	pDir = opendir(path);
 	if (pDir)
 	{
@@ -814,20 +603,28 @@ int builtin__ls(const char ** args) {
 #define file__relative 2
 #define file__directory 3
 
-char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
+#define try DEBUG printf("trying %s\n", ph); if (access(ph, F_OK) == 0) { if (shell.builtin) printf("found '%s' at '%s'\n", file, ph); return ph; }
+
+char * builtin__whereis(const int argc, const char * argv[], const char * extention, int skip_arg0, char * optional_path, int mode) {
+	if (extention == NULL) extention = "";
 	int mode, arg_number;
-	if(*f[skip_arg0] == '.' && *f[skip_arg0]+1 == '/') mode = file__relative;
-	else if (*f[skip_arg0] == '/') mode = file__directory;
+	if(*argv[skip_arg0] == '.' && *argv[skip_arg0]+1 == '/') mode = file__relative;
+	else if (*argv[skip_arg0] == '/') mode = file__directory;
 	else {
 		char ** tt;
-		int c = split(f[skip_arg0], '/', &tt);
-    	if (c == 1 && *f[skip_arg0] != '.') mode = file__path;
+		int c = split(argv[skip_arg0], '/', &tt);
+    	if (c == 1 && *argv[skip_arg0] != '.') mode = file__path;
     	freesplit(c, &tt);
 	}
 	
-	char * file = f[skip_arg0];
+	char * file = argv[skip_arg0];
 	
-	if (mode == file__relative || mode == file__directory) return strdup(f[skip_arg0]);
+	if (optional_path == NULL && (mode == file__relative || mode == file__directory)) {
+		if (access(argv[skip_arg0], F_OK) == 0) {
+			if (shell.builtin) printf("found '%s' at '%s'\n", argv[skip_arg0], argv[skip_arg0]);
+			return strdup(argv[skip_arg0]);
+		}
+	}
 	else {
 		char * path = env__get(environ_default?environ_default:environ, "PATH");
 		char ph[4096];
@@ -838,204 +635,47 @@ char * builtin__whereis(char ** f, const char * extention, int skip_arg0) {
 			return NULL;
 		}
 		char *hardcoded_platform_specific_path_separator = ":";
-		char * pathtmp = strdup(path);
+		char * pathtmp;
+		// optional search path
+		if(optional_path != NULL) {
+			pathtmp = strdup(path);
+			char * pathtmp2 = strdup(optional_path);
+			ps(optional_path)
+			for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+				for (char *tok2 = strtok(pathtmp2, hardcoded_platform_specific_path_separator); tok2; tok2 = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+					sprintf(ph, "/var/%s/%s%s%s", tok+4, tok2, file, extention);
+					try
+					sprintf(ph, "/var/%s/%s%s.proj%s", tok+4, tok2, file, extention);
+					try
+					sprintf(ph, "./%s%s%s", tok2, file, extention);
+					try
+					sprintf(ph, "./%s%s.proj%s", tok2, file, extention);
+					try
+				}
+			}
+			free(pathtmp);
+		}
+		pathtmp = strdup(path);
 		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
 			sprintf(ph, "/var/%s/%s%s", tok+4, file, extention);
-			DEBUG printf("trying %s\n", ph);
-			if (access(ph, F_OK) == 0) {
-	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
-	      		return ph;
-	      	}
-		}
-		free(pathtmp);
-		pathtmp = strdup(path);
-		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+			try
 			sprintf(ph, "/var/%s/%s.proj%s", tok+4, file, extention);
-			DEBUG printf("trying %s\n", ph);
-			if (access(ph, F_OK) == 0) {
-	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
-	      		return ph;
-	      	}
-		}
-		free(pathtmp); // update puts .proj in named folders, we search both for compatibility with older versions
-		pathtmp = strdup(path);
-		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
+			try
+			// update puts .proj in named folders, we search both for compatibility with older versions
 			sprintf(ph, "/var/%s/%s/%s.proj%s", tok+4, file, file, extention);
-			DEBUG printf("trying %s\n", ph);
-			if (access(ph, F_OK) == 0) {
-	      		if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
-	      		return ph;
-	      	}
+			try
 		}
 		free(pathtmp);
 		sprintf(ph, "./%s%s", file, extention);
-		DEBUG printf("trying %s\n", ph);
-		if (access(ph, F_OK) == 0) {
-	      	if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
-	      		return ph;
-	    }
+		try
 		sprintf(ph, "./%s.proj%s", file, extention);
-		DEBUG printf("trying %s\n", ph);
-	      if (access(ph, F_OK) == 0) {
-	      	if (shell.builtin) printf("found '%s' at '%s'\n", file, ph);
-	      		return ph;
-	      }
+		try
 	}
 	printf("%s: %s not found\n", skip_arg0?file:shell.name, file);
 	return NULL;
 }
 
-// for gcc builtin to be timed in detail, we need to set up seperate timers for each step, but what should we identify as a "step"?
-
-/*
-
-clock__add(timefunc_start);
-clock__add(timefunc_end);
-
-#define timefunc(func) { \
-	clock__set(timefunc_start); \
-	func; \
-	clock__set(timefunc_end); \
-	printf("cpu time: %.2f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
-}
-
-
-
-to time a initiation such as
-
-int a = clock();
-
-we could change this to
-
-int a;
-timefunc(a = clock())
-
-tho additional time may be spent during the assignment of the variable
-
-*/
-
-
-
-// we enum to allow for preprocessing of #x as definition string of the define itself instead of its value
-enum {
-	// prepend _ to allow for preprocessing (if any) to still work on these defines
-	
-	_CPP_NO_ERROR=CPP_NO_ERROR,
-	_CPP_OUT_OF_MEMORY=CPP_OUT_OF_MEMORY,
-	_CPP_INVALID_ARGUMENTS=CPP_INVALID_ARGUMENTS,
-	_CPP_INTERNAL_ERROR=CPP_INTERNAL_ERROR,
-	_CPP_PARSING_ERROR=CPP_PARSING_ERROR,
-	_CPP_LINKING_ERROR=CPP_LINKING_ERROR,
-	_CPP_RUNNING_ERROR=CPP_RUNNING_ERROR
-}
-
-#define __return(function) printf("%s returned %d\n", #function, function);
-
-#define retv(ret, x) if(ret == x) return #x+1; // trim the leading _
-
-#define retc(x) retv(x, _CPP_INTERNAL_ERROR) retv(x, _CPP_INVALID_ARGUMENTS) retv(x, _CPP_LINKING_ERROR) retv(x, _CPP_NO_ERROR) retv(x, _CPP_OUT_OF_MEMORY) retv(x, _CPP_PARSING_ERROR) retv(x, _CPP_RUNNING_ERROR)
-
-const char * return_cpp_error_code(int ret) {
-	retc(ret)
-	return "(null)";
-}
-
-CPPenum cpp_y;
-const char * cpp_z;
-
-#define cpp_check1(x) printf("%s returned %s\n", #x, return_cpp_error_code(x));
-
-// same code above but with proper error checking
-
-// cpp_check shall recieve a start clock and a end clock to eliminate time taken for debug calls when timing x itself, currently defines as invalid operand
-#define cpp_check(x, clock_start, clock_end) { \
-	/*clock_start = clock();*/ \
-	cpp_y = x; \
-	/*clock_end = clock();*/ \
-	cpp_z = return_cpp_error_code(cpp_y); \
-	if (strcmp(cpp_z, cpp_y==_CPP_NO_ERROR?"CPP_NO_ERROR":"NULL") != 0) { \
-		printf("%s returned %s\n", #x, cpp_z); \
-		return -1; \
-	} \
-}
-
-const char *userHeaderSearchPaths[] = {};
-const char *defines[] = { "#define DEVNULLSOMETHINGFOOBAR" };
-
-void attachSourceFile(CPPuint programID, const char *fileName);
-const char *getFileExtension(const char *fileName);
-
-CPPuint programID = 0;
-
-#define attachSourceFile(x, y) { \
-	CPPuint objectID = cppCreateObject(); \
-\
-	/* Set user header search paths. */ \
-	for (int i = 0; i < sizeof(userHeaderSearchPaths) / sizeof(userHeaderSearchPaths[0]); i++) \
-		cpp_check(cppObjectAddUserHeaderSearchPath(objectID, userHeaderSearchPaths[i])); \
-\
-	/* Macro definitions... */ \
-	for (int i = 0; i < sizeof(defines) / sizeof(defines[0]); i++) \
-		cpp_check(cppObjectAddPrologue(objectID, defines[i])); \
-\
-	cpp_check(cppObjectSourceFile(objectID, y)); \
-	cpp_check(cppCompileObject(objectID)); \
-	cpp_check(cppAttachObject(x, objectID)); \
-	cpp_check(cppDeleteObject(objectID)); \
-}
-	
-	
-	
-	
-
-int builtin__gcc(const char **args) {
-	ift clock__init();
-	const char * file;
-	// time whereis first
-	clock__add(whereis_start);
-	clock__add(whereis_end);
-	ift clock__set(whereis_start);
-	file = builtin__whereis(args, ".c", true);
-	ift clock__set(whereis_end);
-	ps(file)
-	if (strcmp(file,"NULL") == 0) {
-		printf("%s: error: input is NULL\n", args[0]);
-		return -1;
-	}
-	clock__add(create_start);
-	clock__add(create_end);
-	ift clock__set(create_start);
-	programID = cppCreateProgram();
-	ift clock__set(create_end);
-	clock__add(build_start);
-	clock__add(build_end);
-	ift clock__set(build_start);
-	//attachSourceFile(programID, "wrappers.h"); // add our wrapper file first
-	attachSourceFile(programID, file);
-	ift clock__set(build_end);
-	DEBUG printf("Compiling and linking...\n");
-	clock__add(link_start);
-	clock__add(link_end);
-	ift clock__set(link_start);
-	cpp_check(cppLinkProgram(programID), clock__get(link_start), clock__get(link_end));
-	ift clock__set(link_end);
-	DEBUG printf("Running...\n");
-	clock__add(run_start);
-	clock__add(run_end);
-	ift clock__set(run_start);
-	cpp_check(cppRunProgram(programID), clock__get(run_start), clock__get(run_end));
-	ift clock__set(run_end);
-	DEBUG printf("Finished running.\n");
-	clock__add(delete_start);
-	clock__add(delete_end);
-	if (programID) {
-		ift clock__set(delete_start);
-		cppDeleteProgram(programID);
-		ift clock__set(delete_end);
-	}
-	ift clock__total(clock__shorten(whereis), clock__shorten(create), clock__shorten(build), clock__shorten(link), clock__shorten(run), clock__shorten(delete));
-	return 0;
-}
-
+#include "gcc.h"
 
 #endif
+ 
