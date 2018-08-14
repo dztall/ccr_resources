@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 /*
 
 #if !defined(_INTTYPES_H_)
