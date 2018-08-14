@@ -75,7 +75,9 @@ struct shell {
 
 #define ift if (has_time == true)
 
-#define iftime(x) { ift { timefunc(x); } else { x; } } 
+#define iftime(x) { ift { timefunc(x); } else { x; } }
+#define iftimeret(x) { ift { timefuncret(x); } else { return x; } }
+#define iftimeretc(x, ret) { ift { timefuncretc(x, ret); } else { x; return ret; } }
 
 int getline_stdin(char ** input) {
 	int total;
@@ -599,81 +601,7 @@ int builtin__ls(const int argc, const char * argv[]) {
 	return 0;
 }
 
-#define file__path 1
-#define file__relative 2
-#define file__directory 3
-
-#define try DEBUG printf("trying %s\n", ph); if (access(ph, F_OK) == 0) { if (shell.builtin) printf("found '%s' at '%s'\n", file, ph); return ph; }
-
-char * builtin__whereis(const int argc, const char * argv[], const char * extention, int skip_arg0, char * optional_path, int mode) {
-	if (extention == NULL) extention = "";
-	int mode, arg_number;
-	if(*argv[skip_arg0] == '.' && *argv[skip_arg0]+1 == '/') mode = file__relative;
-	else if (*argv[skip_arg0] == '/') mode = file__directory;
-	else {
-		char ** tt;
-		int c = split(argv[skip_arg0], '/', &tt);
-    	if (c == 1 && *argv[skip_arg0] != '.') mode = file__path;
-    	freesplit(c, &tt);
-	}
-	
-	char * file = argv[skip_arg0];
-	
-	if (optional_path == NULL && (mode == file__relative || mode == file__directory)) {
-		if (access(argv[skip_arg0], F_OK) == 0) {
-			if (shell.builtin) printf("found '%s' at '%s'\n", argv[skip_arg0], argv[skip_arg0]);
-			return strdup(argv[skip_arg0]);
-		}
-	}
-	else {
-		char * path = env__get(environ_default?environ_default:environ, "PATH");
-		char ph[4096];
-	  	if (!path) path = "/bin:/usr/bin:/usr/local/bin";
-		sprintf(path, "%s/CCR/Scripts:%s:%s/CCR/Scripts", env__get(environ_default?environ_default:environ, "CPP_DATA_DIR"), path, env__get(environ_default?environ_default:environ, "CPP_RESOURCE_DIR"));
-		if (path == NULL) {
-			puts("environment variable PATH is unset; cannot proceed");
-			return NULL;
-		}
-		char *hardcoded_platform_specific_path_separator = ":";
-		char * pathtmp;
-		// optional search path
-		if(optional_path != NULL) {
-			pathtmp = strdup(path);
-			char * pathtmp2 = strdup(optional_path);
-			ps(optional_path)
-			for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
-				for (char *tok2 = strtok(pathtmp2, hardcoded_platform_specific_path_separator); tok2; tok2 = strtok(NULL, hardcoded_platform_specific_path_separator)) {
-					sprintf(ph, "/var/%s/%s%s%s", tok+4, tok2, file, extention);
-					try
-					sprintf(ph, "/var/%s/%s%s.proj%s", tok+4, tok2, file, extention);
-					try
-					sprintf(ph, "./%s%s%s", tok2, file, extention);
-					try
-					sprintf(ph, "./%s%s.proj%s", tok2, file, extention);
-					try
-				}
-			}
-			free(pathtmp);
-		}
-		pathtmp = strdup(path);
-		for (char *tok = strtok(pathtmp, hardcoded_platform_specific_path_separator); tok; tok = strtok(NULL, hardcoded_platform_specific_path_separator)) {
-			sprintf(ph, "/var/%s/%s%s", tok+4, file, extention);
-			try
-			sprintf(ph, "/var/%s/%s.proj%s", tok+4, file, extention);
-			try
-			// update puts .proj in named folders, we search both for compatibility with older versions
-			sprintf(ph, "/var/%s/%s/%s.proj%s", tok+4, file, file, extention);
-			try
-		}
-		free(pathtmp);
-		sprintf(ph, "./%s%s", file, extention);
-		try
-		sprintf(ph, "./%s.proj%s", file, extention);
-		try
-	}
-	printf("%s: %s not found\n", skip_arg0?file:shell.name, file);
-	return NULL;
-}
+#include "whereis.h"
 
 #include "gcc.h"
 
