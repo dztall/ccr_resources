@@ -145,33 +145,57 @@ void freesplit(int c, char *** a) {
 int have_builtins = true;
 #else
 int have_builtins = false;
-// dummy the builtins
-int builtin__hex(const int argc, const char * argv[]) {}
-int builtin__cat(const int argc, const char * argv[]) {}
-int builtin__xxd(const int argc, const char * argv[]) {}
-int builtin__CPU_Info(const int argc, const char * argv[]) {}
-int builtin__ls(const int argc, const char * argv[]) {};
-int builtin__gcc(const int argc, const char * argv[]) {};
-char * builtin_json(const int argc, const char * argv[]);
-const char * builtin__whereis(const int argc, const char * argv[], const char * extention, int skip_argv0, char * optional_path, int mode);
 #endif
 
 #define ifb(x) if(strcmp(builtin, x) == 0)
 #define elifb(x) else ifb(x)
 
-void builtin(const char * builtin, const int argc, const char * argv[]) {
+int builtin(const char * builtin, const int argc, const char * argv[]) {
 	if(have_builtins == true) {
-		ifb("hex") iftime(builtin__hex(argc, argv))
-		elifb("cat") iftime(builtin__cat(argc, argv))
-		elifb("json") iftime(puts(builtin__json(argc, argv)))
-		elifb("xxd") iftime(builtin__xxd(argc, argv))
-		elifb("CPUInfo") iftime(builtin__CPU_Info(argc, argv))
-		elifb("ls") iftime(builtin__ls(argc, argv))
-		elifb("gcc") iftime(builtin__gcc(argc, argv))
-		elifb("whereis") iftime(builtin__whereis(argc, argv, ".c", true, NULL, whereis_mode_return_first))
-		elifb("help") iftime(printf("list of available builtins:\nhex\ncat\njson\nxxd\nCPUInfo\nls\ngcc\nwhereis\nhelp\n"))
-		else iftime(printf("builtin not found, type builtin.help for a list of available built-ins"))
-	} else iftime(printf("warning, no builtins installed\n"))
+		ifb("hex") iftimeret(builtin__hex(argc, argv))
+		elifb("cat") iftimeret(builtin__cat(argc, argv))
+		elifb("json") iftimeret(puts(builtin__json(argc, argv)))
+		elifb("xxd") iftimeret(builtin__xxd(argc, argv))
+		elifb("CPUInfo") iftimeret(builtin__CPU_Info(argc, argv))
+		elifb("ls") iftimeret(builtin__ls(argc, argv))
+		elifb("gcc") iftimeret(builtin__gcc(argc, argv))
+		elifb("whereis") iftimeret(builtin__whereis(argc, argv, ".c", true, NULL, whereis_mode_return_first))
+		elifb("list") iftimeretc(printf("list of available builtins:\nhex\ncat\njson\nxxd\nCPUInfo\nls\ngcc\nwhereis\nlist\ntime\nexit\nq\n"), 0)
+		elifb("time") timefuncretc(, 0)
+		elifb("exit") {
+			DEBUG printf("exit recognized\n");
+        	shell.exit = 1;
+    		0;
+    	}
+		elifb("q") {
+			DEBUG printf("exit recognized\n");
+        	shell.exit = 1;
+    		return 0;
+    	}
+		else if (shell.builtin == true) iftime(printf("builtin not found, type builtin.list for a list of available built-ins"))
+		return -1;
+	} else if (shell.builtin == true) iftime(printf("warning, no builtins installed\n"))
+	return -2;
+}
+
+#define ib(x) if(strcmp(builtin, #x) == 0) return 0;
+#define eb(x) else ib(x)
+
+int ifbuiltin(const char * builtin) {
+	if(have_builtins == true) {
+		ib(hex)
+		eb(cat)
+		eb(json)
+		eb(CPUInfo)
+		eb(ls)
+		eb(gcc)
+		eb(whereis)
+		eb(list)
+		eb(time)
+		eb(exit)
+		eb(q)
+	}
+	return -1;
 }
 
 #include <pthread.h>
@@ -360,25 +384,17 @@ void * execute(void * tmp) {
 	mach_port_t machTID = pthread_mach_thread_np(pthread_self());
 	DEBUG printf("machTid is %d\n", machTID);
 	struct command *cmd = tmp;
+	ps(cmd->vector_line[cmd->vector_line_idx])
 	pi(cmd->vector_line_idx)
 	pi(cmd->vector_word_idx)
+	ps(cmd->vector_word[0])
+	pi(ifbuiltin(cmd->vector_word[0]))
+	has_time = commands.vector_sub[0].has_time;
+	pi(has_time)
+	if (!ifbuiltin(cmd->vector_word[0])) return (void *) builtin(cmd->vector_word[0], cmd->vector_word_idx, cmd->vector_word);
 	
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"time") == 0) {
-		timefunc();
-    	return (void *) 0;
-	}
-    
-    // execution exception for exit, will always execute even if execution is disabled
-	if (strcmp(cmd->vector_line[cmd->vector_line_idx],"exit") == 0 || strcmp(cmd->vector_line[cmd->vector_line_idx],"q") == 0) {
-		cmd->vector_word[0] = "exit";
-        DEBUG printf("exit recognized\n");
-        shell.exit = 1;
-    	return (void *) 0;
-    }
-    
 	// parse sub.words
 	for (int idx = 0; idx < cmd->vector_word_idx; idx++) {
-		has_time = commands.vector_sub[0].has_time;
 		// begin
 		if (cmd->vector_sub[idx].vector_has_sub_word == true) {
 			shell.internal = true;
@@ -526,7 +542,8 @@ void parse_special_commands(int cc, char * command_list[]) {
         	freesplit(a, &tt);
         }
         PASSED
-        if (strcmp(commands.vector_word[0], "time") == 0) {
+        pi(c)
+        if (c > 1 && strcmp(commands.vector_word[0], "time") == 0) {
         	int size = sizeof(commands.vector_word)/sizeof(commands.vector_word[0]);
         	for (int i = 0; i<size; i++) {
         		if (i+2 <= size) commands.vector_word[i] = commands.vector_word[i+1];
