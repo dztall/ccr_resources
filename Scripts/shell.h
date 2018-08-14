@@ -23,7 +23,7 @@ struct shell {
 	int exebackground;
 	int internal;
 	int builtin;
-} shell = { "Shell", "1.0.3" };
+} shell = { "Shell", "1.0.4" };
 
 #define MAX 512
 
