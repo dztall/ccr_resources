@@ -1,3 +1,5 @@
+//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+
 // for gcc builtin to be timed in detail, we need to set up seperate timers for each step, but what should we identify as a "step"?
 
 /*
@@ -87,11 +89,13 @@ void attachSourceFile(CPPuint programID, const char *fileName) {
 
 	/* Set user header search paths. */
 	for (int i = 0; i < count_array(gcc_includes); i++) {
+		printf("including %s\n", gcc_defines[i]);
 		cpp_check(cppObjectAddUserHeaderSearchPath(objectID, gcc_includes[i]));
 	}
 	
 	/* Macro definitions... */
 	for (int i = 0; i < count_array(gcc_defines); i++) {
+		printf("defining %s\n", gcc_defines[i]);
 		cpp_check(cppObjectAddPrologue(objectID, gcc_defines[i]));
 	}
 
@@ -118,19 +122,25 @@ int builtin__gcc(const int argc, const char * argv[]) {
 		else if (!strcmp(argv[i], "-I") || !strcmp(argv[i],"--include")) {
 			i++;
 			printf("Include: %s\n", argv[i]);
-			env__add(gcc_includes, argv[i])
+			env__add(gcc_includes, argv[i]);
+			itta(gcc_includes);
 		}
 		else if (!strcmp(argv[i], "-D") || !strcmp(argv[i],"--define")) {
 			i++;
 			printf("Define: %s\n", argv[i]);
-			env__add(gcc_defines, strcat("#define ",argv[i]))
+			str_new(defined);
+			str_insert_string(defined, defined.index, "#define ");
+			str_insert_string(defined, defined.index, argv[i]);
+			env__add(gcc_defines, defined.string);
+			str_free(defined);
+			itta(gcc_defines);
 		}
 		else if ((argv[i])[0]== '-') {
 			fprintf(stderr, "Unsupported option %s\n", argv[i]);
 		}
 		else {
 			printf("File: %s\n", argv[i]);
-			env__add(gcc_files, argv[i])
+			env__add(gcc_files, argv[i]);
 		}
 	}
 	pz(sizeof(gcc_includes));

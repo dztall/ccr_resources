@@ -18,9 +18,9 @@
 
 /* GCC-style: named argument, empty arg is OK */
 
-# define N_ARGS(args...) N_ARGS_HELPER1(args, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+# define N_ARGS(args...) N_ARGS_HELPER1(args, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
 # define N_ARGS_HELPER1(args...) N_ARGS_HELPER2(args)
-# define N_ARGS_HELPER2(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, n, x...) n
+# define N_ARGS_HELPER2(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, n, x...) n
 
 # define foo(args...) foo_helper(N_ARGS(args), args)
 # define clock__total(args...) clock_total__h(N_ARGS(args), args)
@@ -67,6 +67,23 @@ clock__add (base);
 	func; \
 	clock__set(timefunc_end); \
 	printf("cpu time: %.3f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
+}
+
+#define timefuncret(func) { \
+	clock__set(timefunc_start); \
+	int ret = func; \
+	clock__set(timefunc_end); \
+	printf("cpu time: %.3f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
+	return ret; \
+}
+
+// for functions that return void or a variable integer such as strlen
+#define timefuncretc(func, ret) { \
+	clock__set(timefunc_start); \
+	func; \
+	clock__set(timefunc_end); \
+	printf("cpu time: %.3f seconds\n", clock__calculate(timefunc_start, timefunc_end)); \
+	return ret; \
 }
 
 #include <stdio.h>
