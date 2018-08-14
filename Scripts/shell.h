@@ -384,13 +384,13 @@ void * execute(void * tmp) {
 	mach_port_t machTID = pthread_mach_thread_np(pthread_self());
 	DEBUG printf("machTid is %d\n", machTID);
 	struct command *cmd = tmp;
-	ps(cmd->vector_line[cmd->vector_line_idx])
-	pi(cmd->vector_line_idx)
-	pi(cmd->vector_word_idx)
-	ps(cmd->vector_word[0])
-	pi(ifbuiltin(cmd->vector_word[0]))
+	DEBUG ps(cmd->vector_line[cmd->vector_line_idx])
+	DEBUG pi(cmd->vector_line_idx)
+	DEBUG pi(cmd->vector_word_idx)
+	DEBUG ps(cmd->vector_word[0])
+	DEBUG pi(ifbuiltin(cmd->vector_word[0]))
 	has_time = commands.vector_sub[0].has_time;
-	pi(has_time)
+	DEBUG pi(has_time)
 	if (!ifbuiltin(cmd->vector_word[0])) return (void *) builtin(cmd->vector_word[0], cmd->vector_word_idx, cmd->vector_word);
 	
 	// parse sub.words
