@@ -10,6 +10,46 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <assert.h>
+#include "Built-Ins/env.h"
+#include "Built-Ins/colors.h"
+#include "Built-Ins/printfmacro.h"
+
+char * chartostring(char c) {
+	char cc[2];
+	cc[0] = c;
+	cc[1] = '\0';
+	return strdup(cc);
+}
+
+#define DEBUG if (shell.debug)
+#define DEBUG2 if (shell.debug_calls)
+
+#ifndef DEBUG_SLEEP
+#define DEBUG_SLEEP /* printf("sleeping for 2 seconds\n") ; sleep(2) ; */
+#endif
+
+
+#ifndef PASSED
+#define PASSED DEBUG2 DEBUG_SLEEP fprintf(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#endif
+
+#ifndef PASSED_COLORS
+#define PASSED_COLORS
+#define PASSED_B DEBUG2 DEBUG_SLEEP fprintf_b(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#define PASSED_R DEBUG2 DEBUG_SLEEP fprintf_r(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#define PASSED_M DEBUGw DEBUG_SLEEP fprintf_m(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#endif
+
+#ifndef CURRENT_FUNCTION
+#define CURRENT_FUNCTION DEBUG2 printf("->called %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#endif
+
+
+#define dothis(what, times) {\
+	for(int i = 0;i<times;i++) { what }; \
+}
+
 
 #define SHELL
 
@@ -23,7 +63,7 @@ struct shell {
 	int exebackground;
 	int internal;
 	int builtin;
-} shell = { "Shell", "1.0.4" };
+} shell = { "Shell", "1.1" };
 
 #define MAX 512
 
@@ -51,86 +91,7 @@ void prompt()
 
 }
 
-#define DEBUG if (shell.debug)
-#define DEBUG2 if (shell.debug_calls)
-
-#define SPLIT
-int split (const char *strconst, char c, char ***arr)
-{
-    int count = 1;
-    int token_len = 1;
-    int i = 0;
-    char *p;
-    char *t;
-    char * str = strdup(strconst);
-
-    p = str;
-    while (*p != '\0')
-    {
-        if (*p == c)
-            count++;
-        p++;
-    }
-    *arr = NULL;
-
-    *arr = (char**) malloc(sizeof(char*) * count);
-    if (*arr == NULL) {
-    	free(str);
-        return -1;
-    }
-
-    p = str;
-    while (*p != '\0')
-    {
-        if (*p == c)
-        {
-            (*arr)[i] = (char*) malloc( sizeof(char) * token_len );
-            if ((*arr)[i] == NULL) {
-		    	free(str);
-		        return -1;
-		    }
-
-            token_len = 0;
-            i++;
-        }
-        p++;
-        token_len++;
-    }
-    (*arr)[i] = (char*) malloc( sizeof(char) * token_len );
-    if ((*arr)[i] == NULL) {
-		free(str);
-		return -1;
-	}
-
-    i = 0;
-    p = str;
-    t = ((*arr)[i]);
-    while (*p != '\0')
-    {
-        if (*p != c && *p != '\0')
-        {
-            *t = *p;
-            t++;
-        }
-        else
-        {
-            *t = '\0';
-            i++;
-            t = ((*arr)[i]);
-        }
-        p++;
-    }
-    *t = '\0';
-    
-    free(str);
-
-    return count;
-}
-
-void freesplit(int c, char *** a) {
-	for (int i = 0; i < c; i++) free((*a)[i]);
-	free(*a);
-}
+#include "Built-Ins/split.h"
 
 
 
@@ -184,7 +145,7 @@ int builtin(const char * builtin, const int argc, const char * argv[]) {
 int ifbuiltin(const char * builtin) {
 	if(have_builtins == true) {
 		ib(hex)
-		eb(cat)
+		eb(xxd)
 		eb(json)
 		eb(CPUInfo)
 		eb(ls)
@@ -508,9 +469,6 @@ void execute_thread(struct command ** commands) {
 
 
 
-
-
-
 void parse_special_commands(int cc, char * command_list[]) {
 	for (int i = 0; i<cc; i++) commands.vector_line[i] = command_list[i];
 	for (commands.vector_line_idx = 0; commands.vector_line_idx < cc; commands.vector_line_idx++) {
@@ -542,7 +500,7 @@ void parse_special_commands(int cc, char * command_list[]) {
         	freesplit(a, &tt);
         }
         PASSED
-        pi(c)
+        DEBUG pi(c)
         if (c > 1 && strcmp(commands.vector_word[0], "time") == 0) {
         	int size = sizeof(commands.vector_word)/sizeof(commands.vector_word[0]);
         	for (int i = 0; i<size; i++) {
@@ -610,26 +568,21 @@ void parse_special_commands(int cc, char * command_list[]) {
 
 
 
+
+
+
+
+
+
+
 int parse(const char * args)
 {
-	if (shell.exit == 1) return 0;
-	if (strcmp(args, "") == 0) return -1;
 	mq(qt,args);
 	DEBUG printf("parsing: %s\n", qt);
 	free(qt);
     char **ar = NULL;
     // fix string then split into lines
 	int cc = split(replacespace(replaces(args)), ';', &ar);
-	if (strcmp(ar[cc-1],"") == 0) {
-		DEBUG printf("nulling ar[%d]\n", cc-1);
-		ar[cc-1] = NULL;
-		--cc;
-	}
-	for (int i = 0; i<cc; i++) {
-        mq(qt,ar[i]);
-        DEBUG printf("ar[%d] = %s\n", i, qt);
-        free(qt);
-    }
     parse_special_commands(cc, ar);
     freesplit(cc, &ar);
     if (shell.exit == 1) {

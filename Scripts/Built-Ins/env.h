@@ -224,12 +224,8 @@ char ** env__add(char ** env, const char * string) {
 
 char ** env__copy(char **env)
 {
-	char **ret;
-	size_t i = env__size(env);
-	ret = malloc((i+2)*sizeof(char*));
-	for (i = 0; env[i]; i++)
-		ret[i] = strdup(env[i]);
-	ret[i] = NULL;
+	char **ret = env__new();
+	for (int i = 0; i < env__size(env); i++) ret = env__add(ret, env[i]);
 	return ret;
 }
 
@@ -328,7 +324,7 @@ char ** env__append(char ** env, const char * name, const char * string) {
             pch = strtok (y,"=");
             while (pch != NULL)
                 {
-                	printf("does %s == %s (%s)\n", pch, name s, string);
+                	printf("does %s == %s (%s)\n", pch, name, string);
                     if (strcmp(pch,name) != 0 ) {
                     	envempty = env__add(envempty, s);
                     }

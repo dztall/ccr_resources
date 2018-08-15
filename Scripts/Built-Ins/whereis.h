@@ -1,5 +1,41 @@
 //Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
 
+#pragma once
+
+#ifndef __SHELL_ENV
+#include "env.h"
+#endif
+#ifndef SPLIT
+#include "split.h"
+#endif
+
+#ifndef SHELL
+	#define SHELLtmp
+	#ifndef shell__builtins
+		#ifndef shell__builtinstmp
+			#define shell__builtinstmp
+			struct shell {
+				char * name;
+			} shell = { "Shell" };
+			#define DEBUG if(1)
+			#define ps(x)
+		#endif
+	#endif
+#else
+	#ifndef shell__builtins
+		#ifndef shell__builtinstmp
+			#define shell__builtinstmp
+			struct shell {
+				char * name;
+			} shell = { "Shell" };
+			#define DEBUG if(1)
+			#define ps(x)
+		#endif
+	#endif
+#endif
+
+
+
 #define file__path 1
 #define file__relative 2
 #define file__directory 3
