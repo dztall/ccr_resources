@@ -1449,6 +1449,8 @@ char *
   
       return dest;
   }
+  
+#ifndef __SHELL_ENV
 
 char *
 strcatb(char *dest,
@@ -1466,6 +1468,8 @@ strcatb(char *dest,
 
     return dest;
 }
+
+#endif
 
 /* TESTED OK */
 char *
