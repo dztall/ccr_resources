@@ -3,9 +3,58 @@
 #ifndef shell__builtins
 #define shell__builtins
 #ifndef SHELL
+#include "colors.h"
+#include "printfmacro.h"
+
+char * chartostring(char c) {
+	char cc[2];
+	cc[0] = c;
+	cc[1] = '\0';
+	return strdup(cc);
+}
+
+#define DEBUG if (shell.debug)
+#define DEBUG2 if (shell.debug_calls)
+
+#ifndef DEBUG_SLEEP
+#define DEBUG_SLEEP /* printf("sleeping for 2 seconds\n") ; sleep(2) ; */
+#endif
+
+
+#ifndef PASSED
+#define PASSED DEBUG2 DEBUG_SLEEP fprintf(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#endif
+
+#ifndef PASSED_COLORS
+#define PASSED_COLORS
+#define PASSED_B DEBUG2 DEBUG_SLEEP fprintf_b(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#define PASSED_R DEBUG2 DEBUG_SLEEP fprintf_r(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#define PASSED_M DEBUGw DEBUG_SLEEP fprintf_m(stderr, "passed %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#endif
+
+#ifndef CURRENT_FUNCTION
+#define CURRENT_FUNCTION DEBUG2 printf("->called %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+#endif
+
+
+#define dothis(what, times) {\
+	for(int i = 0;i<times;i++) { what }; \
+}
+
+
+#define SHELL
+
 struct shell {
 	char * name;
-} shell = { "Shell" };
+	char * version;
+	int exit;
+	int debug;
+	int debug_calls;
+	int exe;
+	int exebackground;
+	int internal;
+	int builtin;
+} shell = { "Shell", "1.1" };
 #endif
 
 #include "libstring.h"
