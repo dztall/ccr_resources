@@ -91,23 +91,7 @@ void prompt()
 
 }
 
-#define SPLIT
-int split (const char *strconst, char c, char ***arr) {
-	*arr =  env__new();
-	char * pathtmp = strdup(strconst);
-	int i=0;
-	for (char *tok = strtok(pathtmp, chartostring(c)); tok; tok = strtok(NULL, chartostring(c))) {
-		DEBUG ps(tok)
-		*arr = env__add(*arr, tok);
-		i++;
-	}
-	free(pathtmp);
-	return i;
-}
-
-void freesplit(int c, char *** a) {
-	env__free(*a);
-}
+#include "Built-Ins/split.h"
 
 
 
@@ -161,7 +145,7 @@ int builtin(const char * builtin, const int argc, const char * argv[]) {
 int ifbuiltin(const char * builtin) {
 	if(have_builtins == true) {
 		ib(hex)
-		eb(cat)
+		eb(xxd)
 		eb(json)
 		eb(CPUInfo)
 		eb(ls)
