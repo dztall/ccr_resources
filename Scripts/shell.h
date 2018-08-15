@@ -583,17 +583,13 @@ void parse_special_commands(int cc, char * command_list[]) {
 
 
 
-char ** env__copy_new(char **env)
-{
-	char **ret = env__new();
-	int sm = env__size(env);
-	pi(sm)
-	for (int i = 0; i < sm; i++) {
-		pi(i)
-		ret = env__add(ret, env[i]);
-	}
-	return ret;
-}
+
+
+
+
+
+
+
 
 int parse(const char * args)
 {
