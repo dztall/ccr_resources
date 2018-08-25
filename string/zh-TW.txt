@@ -1,4 +1,7 @@
-﻿Replace
+﻿Next
+下
+
+Replace
 替換
 
 Print function call logs

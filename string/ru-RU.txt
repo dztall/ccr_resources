@@ -1,4 +1,7 @@
-﻿Replace
+﻿Next
+Следующий
+
+Replace
 Замещать
 
 Print function call logs

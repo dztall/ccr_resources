@@ -1,5 +1,5 @@
-﻿Replace
-Ersetzen
+﻿Next
+Weiter
 
 Print function call logs
 Protokoll des Funktionsaufrufs anzeigen

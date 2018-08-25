@@ -1,4 +1,7 @@
-﻿Replace
+﻿Next
+다음
+
+Replace
 바꾸기
 
 Print function call logs
@@ -248,7 +251,7 @@ Use Regex
 정규식 사용
 
 Case sensitive
-대소 문자 구분
+대소 구분
 
 Go
 이동

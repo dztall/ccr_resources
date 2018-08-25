@@ -1,4 +1,7 @@
-﻿Replace
+﻿Next
+Prochain
+
+Replace
 Remplacer
 
 Print function call logs
