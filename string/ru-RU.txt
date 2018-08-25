@@ -1,4 +1,7 @@
-﻿Print function call logs
+﻿Replace
+Замещать
+
+Print function call logs
 Просмотр журнала вызова функции
 
 Contents

@@ -1,4 +1,7 @@
-﻿Print function call logs
+﻿Replace
+Remplacer
+
+Print function call logs
 Afficher le journal de l'appel de fonction
 
 Contents

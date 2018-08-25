@@ -1,3 +1,6 @@
+Replace
+替换
+
 Print function call logs
 显示函数调用的日志
 

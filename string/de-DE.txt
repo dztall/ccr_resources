@@ -1,4 +1,7 @@
-﻿Print function call logs
+﻿Replace
+Ersetzen
+
+Print function call logs
 Protokoll des Funktionsaufrufs anzeigen
 
 Contents

@@ -1,4 +1,7 @@
-﻿Print function call logs
+﻿Replace
+替換
+
+Print function call logs
 顯示函數調用的日誌
 
 Contents

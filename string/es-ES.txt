@@ -1,3 +1,6 @@
+Replace
+Reemplazar
+
 Print function call logs
 Mostrar el registro de la llamada a la función
 
