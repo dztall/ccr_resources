@@ -1,3 +1,9 @@
+﻿--------------Mobile C 2.5.2--------------
+
+• New features
+	- Text editor text replace added.
+	- In-app keyboard  single page layout restored.
+
 --------------Mobile C 2.5.1--------------
 
 • New features
