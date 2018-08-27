@@ -7,6 +7,9 @@ TitleBar.Color
 Button.Color
 0xFF5AC5C7
 
+FileList.Background.Color
+0xFFFFFFFF
+
 FileList.ItemButton.Color
 0xFFFFFFFF
 

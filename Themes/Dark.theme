@@ -109,6 +109,9 @@ Keyboard.TopBarKey.Color
 Keyboard.LargeKey.Color
 0xFFB6B6BA
 
+FileList.Background.Color
+0xFFFFFFFF
+
 FileList.ItemButton.Color
 0xFFFFFFFF
 
