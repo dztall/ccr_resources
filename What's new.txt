@@ -3,6 +3,7 @@
 • New features
 	- Text editor text replace added.
 	- In-app keyboard  single page layout restored.
+	- Text editor word wrap indentation.
 
 --------------Mobile C 2.5.1--------------
 
