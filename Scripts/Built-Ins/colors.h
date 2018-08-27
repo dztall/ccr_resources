@@ -1,4 +1,4 @@
-//Modified by: mgood7123 (Matthew James Good) http://github.com/mgood7123
+﻿//Modified by: mgood7123 (Matthew James Good) http://github.com/mgood7123
 
 //Original source code found at : https://stackoverflow.com/questions/3585846/color-text-in-terminal-applications-in-unix
 

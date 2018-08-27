@@ -1,4 +1,4 @@
-//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
+﻿//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
 
 // for gcc builtin to be timed in detail, we need to set up seperate timers for each step, but what should we identify as a "step"?
 

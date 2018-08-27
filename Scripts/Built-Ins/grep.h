@@ -1,4 +1,4 @@
-//Modified by: mgood7123 (Matthew James Good) http://github.com/mgood7123
+﻿//Modified by: mgood7123 (Matthew James Good) http://github.com/mgood7123
 
 int limit = 100; // how many times should grep allow the buffer to be refilled until a recursive loop (resulting in endlessly refilling the buffer) is detected
 

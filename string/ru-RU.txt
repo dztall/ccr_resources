@@ -1,4 +1,7 @@
-﻿Next
+﻿Case sensitive
+Чувствительность
+
+Next
 Следующий
 
 Replace
