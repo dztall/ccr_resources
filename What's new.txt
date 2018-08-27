@@ -8,6 +8,9 @@
 • Theme file key added.
 	- FileList.Background.Color for file list view background color setting.
 
+• Bugs fixed
+	- symlink, link system function failed due to permission denied on some platforms.
+
 --------------Mobile C 2.5.1--------------
 
 • New features
