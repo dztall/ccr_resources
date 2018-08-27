@@ -3,7 +3,10 @@
 • New features
 	- Text editor text replace added.
 	- In-app keyboard  single page layout restored.
-	- Text editor word wrap indentation.
+	- Text editor word wrap indentation added.
+
+• Theme file key added.
+	- FileList.Background.Color for file list view background color setting.
 
 --------------Mobile C 2.5.1--------------
 
