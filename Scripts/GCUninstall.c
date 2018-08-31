@@ -15,8 +15,6 @@ int main()
 	int len = strlen(pathh)-strlen("~/CCR/Headers");
 	str_insert_string(path, path.index, pathh);
 	str_insert_string(path, path.index, "/gc.h");
-	ps(path.string);
-	pc(path.string[0]);
 	if (access(path.string, F_OK) == 0) {
 		printf("Uninstalling Garbage Collector from %s\n", path.string);
 		unlink(path.string);
