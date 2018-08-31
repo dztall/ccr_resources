@@ -18,6 +18,7 @@ int main()
 	ps(path.string);
 	pc(path.string[0]);
 	if (access(path.string, F_OK) == 0) {
+		printf("Uninstalling Garbage Collector from %s\n", path.string);
 		unlink(path.string);
 		puts("Garbage Collector has been succesfully uninstalled\nGarbage collector can no longer be accessed by '#include <gc.h>'");
 	}
