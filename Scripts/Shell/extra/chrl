@@ -1,0 +1,233 @@
+== Info: timeout on name lookup is not supported
+== Info:   Trying 173.203.57.63...
+== Info: Connected to coliru.stacked-crooked.com (173.203.57.63) port 80 (#0)
+=> Send header, 168 bytes (0xa8)
+0000: 50 4f 53 54 20 2f 63 6f 6d 70 69 6c 65 20 48 54 POST /compile HT
+0010: 54 50 2f 31 2e 31 0d 0a 48 6f 73 74 3a 20 63 6f TP/1.1..Host: co
+0020: 6c 69 72 75 2e 73 74 61 63 6b 65 64 2d 63 72 6f liru.stacked-cro
+0030: 6f 6b 65 64 2e 63 6f 6d 0d 0a 55 73 65 72 2d 41 oked.com..User-A
+0040: 67 65 6e 74 3a 20 63 75 72 6c 2f 37 2e 34 38 2e gent: curl/7.48.
+0050: 30 0d 0a 41 63 63 65 70 74 3a 20 2a 2f 2a 0d 0a 0..Accept: */*..
+0060: 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68 3a 20 Content-Length: 
+0070: 34 31 33 0d 0a 43 6f 6e 74 65 6e 74 2d 54 79 70 413..Content-Typ
+0080: 65 3a 20 61 70 70 6c 69 63 61 74 69 6f 6e 2f 78 e: application/x
+0090: 2d 77 77 77 2d 66 6f 72 6d 2d 75 72 6c 65 6e 63 -www-form-urlenc
+00a0: 6f 64 65 64 0d 0a 0d 0a                         oded....
+=> Send data, 413 bytes (0x19d)
+0000: 7b 22 63 6d 64 22 3a 22 6d 76 20 6d 61 69 6e 2e {"cmd":"mv main.
+0010: 63 70 70 20 6d 61 69 6e 2e 63 20 3b 20 67 63 63 cpp main.c ; gcc
+0020: 20 6d 61 69 6e 2e 63 3b 20 2e 2f 61 2e 6f 75 74  main.c; ./a.out
+0030: 20 22 2c 22 73 72 63 22 3a 22 2f 2a 20 55 4e 50  ","src":"/* UNP
+0040: 52 49 4e 54 41 42 4c 45 20 43 48 41 52 41 43 54 RINTABLE CHARACT
+0050: 45 52 20 2a 2f 2f 2a 20 55 4e 50 52 49 4e 54 41 ER *//* UNPRINTA
+0060: 42 4c 45 20 43 48 41 52 41 43 54 45 52 20 2a 2f BLE CHARACTER */
+0070: 2f 2a 20 55 4e 50 52 49 4e 54 41 42 4c 45 20 43 /* UNPRINTABLE C
+0080: 48 41 52 41 43 54 45 52 20 2a 2f 23 69 6e 63 6c HARACTER */#incl
+0090: 75 64 65 20 3c 73 74 64 69 6f 2e 68 3e 5c 6e 23 ude <stdio.h>\n#
+00a0: 69 6e 63 6c 75 64 65 20 3c 75 6e 69 73 74 64 2e include <unistd.
+00b0: 68 3e 5c 6e 23 69 6e 63 6c 75 64 65 20 5c 22 42 h>\n#include \"B
+00c0: 75 69 6c 74 2d 49 6e 73 2f 42 75 69 6c 74 2d 49 uilt-Ins/Built-I
+00d0: 6e 73 2e 68 5c 22 5c 6e 23 69 6e 63 6c 75 64 65 ns.h\"\n#include
+00e0: 20 3c 63 63 72 2e 68 3e 5c 6e 5c 6e 69 6e 74 20  <ccr.h>\n\nint 
+00f0: 6d 61 69 6e 28 76 6f 69 64 29 5c 6e 7b 5c 6e 5c main(void)\n{\n\
+0100: 74 63 68 61 72 20 2a 20 73 32 20 3d 20 62 75 69 tchar * s2 = bui
+0110: 6c 74 69 6e 5f 5f 6a 73 6f 6e 28 5c 22 63 6f 6c ltin__json(\"col
+0120: 69 72 75 2e 63 5c 22 29 3b 5c 6e 5c 74 63 68 61 iru.c\");\n\tcha
+0130: 72 20 2a 20 73 31 20 3d 20 5c 22 63 75 72 6c 20 r * s1 = \"curl 
+0140: 2d 76 20 2d 53 20 2d 2d 74 72 61 63 65 5c 74 63 -v -S --trace\tc
+0150: 68 72 6c 20 68 74 74 70 3a 2f 2f 63 6f 6c 69 72 hrl http://colir
+0160: 75 2e 73 74 61 63 6b 65 64 2d 63 72 6f 6f 6b 65 u.stacked-crooke
+0170: 64 2e 63 6f 6d 2f 63 6f 6d 70 69 6c 65 20 2d 2d d.com/compile --
+0180: 64 61 74 61 2d 62 69 6e 61 72 79 20 7b 5c 22 63 data-binary {\"c
+0190: 6d 64 5c 22 3a 5c 22 5c 6e 5c 6e 6d 76          md\":\"\n\nmv
+== Info: upload completely sent off: 413 out of 413 bytes
+<= Recv header, 18 bytes (0x12)
+0000: 48 54 54 50 2f 31 2e 31 20 32 30 30 20 4f 4b 20 HTTP/1.1 200 OK 
+0010: 0d 0a                                           ..
+<= Recv header, 39 bytes (0x27)
+0000: 43 6f 6e 74 65 6e 74 2d 54 79 70 65 3a 20 74 65 Content-Type: te
+0010: 78 74 2f 68 74 6d 6c 3b 63 68 61 72 73 65 74 3d xt/html;charset=
+0020: 75 74 66 2d 38 0d 0a                            utf-8..
+<= Recv header, 21 bytes (0x15)
+0000: 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68 3a 20 Content-Length: 
+0010: 34 34 30 0d 0a                                  440..
+<= Recv header, 47 bytes (0x2f)
+0000: 53 65 72 76 65 72 3a 20 57 45 42 72 69 63 6b 2f Server: WEBrick/
+0010: 31 2e 33 2e 31 20 28 52 75 62 79 2f 32 2e 33 2e 1.3.1 (Ruby/2.3.
+0020: 31 2f 32 30 31 36 2d 30 34 2d 32 36 29 0d 0a    1/2016-04-26)..
+<= Recv header, 37 bytes (0x25)
+0000: 44 61 74 65 3a 20 4d 6f 6e 2c 20 31 34 20 4d 61 Date: Mon, 14 Ma
+0010: 79 20 32 30 31 38 20 31 33 3a 32 33 3a 33 35 20 y 2018 13:23:35 
+0020: 47 4d 54 0d 0a                                  GMT..
+<= Recv header, 24 bytes (0x18)
+0000: 43 6f 6e 6e 65 63 74 69 6f 6e 3a 20 4b 65 65 70 Connection: Keep
+0010: 2d 41 6c 69 76 65 0d 0a                         -Alive..
+<= Recv header, 2 bytes (0x2)
+0000: 0d 0a                                           ..
+<= Recv data, 440 bytes (0x1b8)
+0000: 37 38 34 3a 20 75 6e 65 78 70 65 63 74 65 64 20 784: unexpected 
+0010: 74 6f 6b 65 6e 20 61 74 20 27 7b 22 63 6d 64 22 token at '{"cmd"
+0020: 3a 22 6d 76 20 6d 61 69 6e 2e 63 70 70 20 6d 61 :"mv main.cpp ma
+0030: 69 6e 2e 63 20 3b 20 67 63 63 20 6d 61 69 6e 2e in.c ; gcc main.
+0040: 63 3b 20 2e 2f 61 2e 6f 75 74 20 22 2c 22 73 72 c; ./a.out ","sr
+0050: 63 22 3a 22 2f 2a 20 55 4e 50 52 49 4e 54 41 42 c":"/* UNPRINTAB
+0060: 4c 45 20 43 48 41 52 41 43 54 45 52 20 2a 2f 2f LE CHARACTER *//
+0070: 2a 20 55 4e 50 52 49 4e 54 41 42 4c 45 20 43 48 * UNPRINTABLE CH
+0080: 41 52 41 43 54 45 52 20 2a 2f 2f 2a 20 55 4e 50 ARACTER *//* UNP
+0090: 52 49 4e 54 41 42 4c 45 20 43 48 41 52 41 43 54 RINTABLE CHARACT
+00a0: 45 52 20 2a 2f 23 69 6e 63 6c 75 64 65 20 3c 73 ER */#include <s
+00b0: 74 64 69 6f 2e 68 3e 5c 6e 23 69 6e 63 6c 75 64 tdio.h>\n#includ
+00c0: 65 20 3c 75 6e 69 73 74 64 2e 68 3e 5c 6e 23 69 e <unistd.h>\n#i
+00d0: 6e 63 6c 75 64 65 20 5c 22 42 75 69 6c 74 2d 49 nclude \"Built-I
+00e0: 6e 73 2f 42 75 69 6c 74 2d 49 6e 73 2e 68 5c 22 ns/Built-Ins.h\"
+00f0: 5c 6e 23 69 6e 63 6c 75 64 65 20 3c 63 63 72 2e \n#include <ccr.
+0100: 68 3e 5c 6e 5c 6e 69 6e 74 20 6d 61 69 6e 28 76 h>\n\nint main(v
+0110: 6f 69 64 29 5c 6e 7b 5c 6e 5c 74 63 68 61 72 20 oid)\n{\n\tchar 
+0120: 2a 20 73 32 20 3d 20 62 75 69 6c 74 69 6e 5f 5f * s2 = builtin__
+0130: 6a 73 6f 6e 28 5c 22 63 6f 6c 69 72 75 2e 63 5c json(\"coliru.c\
+0140: 22 29 3b 5c 6e 5c 74 63 68 61 72 20 2a 20 73 31 ");\n\tchar * s1
+0150: 20 3d 20 5c 22 63 75 72 6c 20 2d 76 20 2d 53 20  = \"curl -v -S 
+0160: 2d 2d 74 72 61 63 65 5c 74 63 68 72 6c 20 68 74 --trace\tchrl ht
+0170: 74 70 3a 2f 2f 63 6f 6c 69 72 75 2e 73 74 61 63 tp://coliru.stac
+0180: 6b 65 64 2d 63 72 6f 6f 6b 65 64 2e 63 6f 6d 2f ked-crooked.com/
+0190: 63 6f 6d 70 69 6c 65 20 2d 2d 64 61 74 61 2d 62 compile --data-b
+01a0: 69 6e 61 72 79 20 7b 5c 22 63 6d 64 5c 22 3a 5c inary {\"cmd\":\
+01b0: 22 5c 6e 5c 6e 6d 76 27                         "\n\nmv'
+== Info: Connection #0 to host coliru.stacked-crooked.com left intact
+== Info: Rebuilt URL to: main.cpp/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.cpp
+== Info: Couldn't resolve host 'main.cpp'
+== Info: Closing connection 1
+== Info: Rebuilt URL to: main.c/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.c
+== Info: Couldn't resolve host 'main.c'
+== Info: Closing connection 2
+== Info: Rebuilt URL to: ;/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for ;
+== Info: Couldn't resolve host ';'
+== Info: Closing connection 3
+== Info: Rebuilt URL to: gcc/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for gcc
+== Info: Couldn't resolve host 'gcc'
+== Info: Closing connection 4
+== Info: Rebuilt URL to: main.c;/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.c;
+== Info: Couldn't resolve host 'main.c;'
+== Info: Closing connection 5
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for 
+== Info: Couldn't resolve host ''
+== Info: Closing connection 6
+== Info: Illegal characters found in URL
+== Info: Closing connection -1
+== Info: Rebuilt URL to: */
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for *
+== Info: Couldn't resolve host '*'
+== Info: Closing connection 7
+== Info: Rebuilt URL to: s3/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for s3
+== Info: Couldn't resolve host 's3'
+== Info: Closing connection 8
+== Info: Rebuilt URL to: =/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for =
+== Info: Couldn't resolve host '='
+== Info: Closing connection 9
+== Info: Rebuilt URL to: main.cpp/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.cpp
+== Info: Couldn't resolve host 'main.cpp'
+== Info: Closing connection 10
+== Info: Rebuilt URL to: main.c/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.c
+== Info: Couldn't resolve host 'main.c'
+== Info: Closing connection 11
+== Info: Rebuilt URL to: ;/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for ;
+== Info: Couldn't resolve host ';'
+== Info: Closing connection 12
+== Info: Rebuilt URL to: gcc/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for gcc
+== Info: Couldn't resolve host 'gcc'
+== Info: Closing connection 13
+== Info: Rebuilt URL to: main.c;/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.c;
+== Info: Couldn't resolve host 'main.c;'
+== Info: Closing connection 14
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for 
+== Info: Couldn't resolve host ''
+== Info: Closing connection 15
+== Info: Rebuilt URL to: ","src":"#include/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for ","src"
+== Info: Couldn't resolve host '","src"'
+== Info: Closing connection 16
+== Info: Rebuilt URL to: <stdio.h>\nint/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for <stdio.h>\nint
+== Info: Couldn't resolve host '<stdio.h>\nint'
+== Info: Closing connection 17
+== Info: Rebuilt URL to: main()/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main()
+== Info: Couldn't resolve host 'main()'
+== Info: Closing connection 18
+== Info: Rebuilt URL to: main.cpp/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.cpp
+== Info: Couldn't resolve host 'main.cpp'
+== Info: Closing connection 19
+== Info: Rebuilt URL to: main.c/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.c
+== Info: Couldn't resolve host 'main.c'
+== Info: Closing connection 20
+== Info: Rebuilt URL to: ;/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for ;
+== Info: Couldn't resolve host ';'
+== Info: Closing connection 21
+== Info: Rebuilt URL to: gcc/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for gcc
+== Info: Couldn't resolve host 'gcc'
+== Info: Closing connection 22
+== Info: Rebuilt URL to: main.c;/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main.c;
+== Info: Couldn't resolve host 'main.c;'
+== Info: Closing connection 23
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for 
+== Info: Couldn't resolve host ''
+== Info: Closing connection 24
+== Info: Illegal characters found in URL
+== Info: Closing connection -1
+== Info: Illegal characters found in URL
+== Info: Closing connection -1
+== Info: Rebuilt URL to: main()/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main()
+== Info: Couldn't resolve host 'main()'
+== Info: Closing connection 25
+== Info: Illegal characters found in URL
+== Info: Closing connection -1
+== Info: Illegal characters found in URL
+== Info: Closing connection -1
+== Info: Rebuilt URL to: main()/
+== Info: timeout on name lookup is not supported
+== Info: Curl_ipv4_resolve_r failed for main()
+== Info: Couldn't resolve host 'main()'
+== Info: Closing connection 26

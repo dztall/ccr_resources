@@ -1,0 +1,2969 @@
+﻿rbage Collector: Entering function: tgc_get_ptr
+T197>        return 50; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_hash(0x15a000c0, 0xfd63060); 
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>       return 33211916; //from tgc_hash
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>        return 49; //from printf
+T197>       return nullptr; //from token
+T197>      return nullptr; //from tgc_get_ptr
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>    return 1; //from split
+T197>   parse_special_commands(1, 0x104d17d0); 
+T197>    printf("->called %s() at line %d from %s\n", "parse_special_commands", 556, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h"); 
+->called parse_special_commands() at line 556 from ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+T197>     return 193; //from printf
+T197>    quote(0xefa9210); 
+T197>     strlen("q"); 
+T197>      return 1; //from strlen
+T197>     tgc_alloc(0x15a000c0, 4, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>        return 243; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_alloc_opt(0x15a000c0, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>         return 52; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>         return 243; //from printf
+T197>        return nullptr; //from token
+T197>       malloc(4); 
+T197>        return 0x10a64ff0; //from malloc
+T197>       tgc_add(0x15a000c0, 0x10a64ff0, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>          return 243; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>           return 54; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_ideal_size(0x15a000c0, 6); 
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>            return 52; //from printf
+T197>           return nullptr; //from token
+T197>          return 11; //from tgc_ideal_size
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>           return 53; //from printf
+T197>          return nullptr; //from token
+T197>         return 1; //from tgc_resize_more
+T197>        tgc_add_ptr(0x15a000c0, 0x10a64ff0, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>           return 50; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_hash(0x15a000c0, 0x10a64ff0); 
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>            return 46; //from printf
+T197>           return nullptr; //from token
+T197>          return 34916862; //from tgc_hash
+T197>         tgc_probe(0x15a000c0, 2, 3); 
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>            return 48; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          return 0; //from tgc_probe
+T197>         token(0x10a64ff0, 3); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x10a64ff0 to the list
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_probe(0x15a000c0, 3, 4); 
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>            return 48; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          return 0; //from tgc_probe
+T197>         token(0x10a64ff0, 3); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x10a64ff0 to the list
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         token(0x10a64ff0, 1); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x10a64ff0 to the list
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>          return 45; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x10a64ff0; //from tgc_add
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>         return 51; //from printf
+T197>        return nullptr; //from token
+T197>       return 0x10a64ff0; //from tgc_alloc_opt
+T197>      return 0x10a64ff0; //from tgc_alloc
+T197>     sprintf("", ""%s"", "q"); 
+T197>      return 3; //from sprintf
+T197>     return ""q""; //from quote
+T197>    tgc_free(0x15a000c0, ""q"", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+T197>      printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 562
+Garbage Collector: function: parse_special_commands
+T197>       return 248; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_get_ptr(0x15a000c0, 0x10a64ff0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands", "free"); 
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>        return 50; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_hash(0x15a000c0, 0x10a64ff0); 
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>       return 34916862; //from tgc_hash
+T197>      tgc_probe(0x15a000c0, 2, 3); 
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       return 0; //from tgc_probe
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>        return 49; //from printf
+T197>       return nullptr; //from token
+T197>      return 0x109894c0; //from tgc_get_ptr
+T197>     token(0x10a64ff0); 
+T197>      printf("Garbage Collector: freeing %p\n", ""q""); 
+Garbage Collector: freeing 0x10a64ff0
+T197>       return 38; //from printf
+T197>      return nullptr; //from token
+T197>     free(0x10a64ff0); 
+T197>     tgc_rem(0x15a000c0, 0x10a64ff0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_rem"); 
+Garbage Collector: Entering function: tgc_rem
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 562
+Garbage Collector: function: parse_special_commands
+T197>        return 248; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_rem_ptr(0x15a000c0, 0x10a64ff0); 
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Entering function: tgc_rem_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0x10a64ff0); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 34916862; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 2, 3); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token(0x10a64ff0); 
+T197>        printf("Garbage Collector: removing %p from the list\n", "@�����Garbage Collector: removing 0x10a64ff0 from the list
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       memset(0x109894c0, 0, 32); 
+T197>        return 0x109894c0; //from memset
+T197>       tgc_probe(0x15a000c0, 3, 3); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       memcpy(0x109894c0, 0x109894e0, 32); 
+T197>        return 0x109894c0; //from memcpy
+T197>       memset(0x109894e0, 0, 32); 
+T197>        return 0x109894e0; //from memset
+T197>       tgc_probe(0x15a000c0, 4, 4); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       memcpy(0x109894e0, 0x10989500, 32); 
+T197>        return 0x109894e0; //from memcpy
+T197>       memset(0x10989500, 0, 32); 
+T197>        return 0x10989500; //from memset
+T197>       tgc_probe(0x15a000c0, 5, 6); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Exiting function: tgc_rem_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>      tgc_resize_less(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Entering function: tgc_resize_less
+T197>         return 54; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 562, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 562
+Garbage Collector: function: parse_special_commands
+T197>         return 248; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_ideal_size(0x15a000c0, 5); 
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>          return 53; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        return 11; //from tgc_ideal_size
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Exiting function: tgc_resize_less
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       return 1; //from tgc_resize_less
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_rem"); 
+Garbage Collector: Exiting function: tgc_rem
+T197>        return 45; //from printf
+T197>       return nullptr; //from token
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>    string_to_argv(0xefa9210, 0xe4f6fcc, 0xe4f6fd4); 
+T197>     Xmalloc(40); 
+T197>      tgc_alloc(0x15a000c0, 40, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>       token("tgc_alloc"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h
+Garbage Collector: line: 28
+Garbage Collector: function: Xmalloc
+T197>         return 240; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_alloc"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_alloc_opt(0x15a000c0, 40, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>        token("tgc_alloc_opt"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h
+Garbage Collector: line: 28
+Garbage Collector: function: Xmalloc
+T197>          return 240; //from printf
+T197>         return nullptr; //from token
+T197>        malloc(40); 
+T197>         return 0x1059e6d0; //from malloc
+T197>        tgc_add(0x15a000c0, 0x1059e6d0, 40, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>         token("tgc_add"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h
+Garbage Collector: line: 28
+Garbage Collector: function: Xmalloc
+T197>           return 240; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>          token("tgc_resize_more"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>            return 54; //from printf
+T197>           return nullptr; //from token
+T197>          token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>           printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h
+Garbage Collector: line: 28
+Garbage Collector: function: Xmalloc
+T197>            return 240; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_ideal_size(0x15a000c0, 6); 
+T197>           token("tgc_ideal_size"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>             return 53; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_ideal_size"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>             return 52; //from printf
+T197>            return nullptr; //from token
+T197>           return 11; //from tgc_ideal_size
+T197>          token("tgc_resize_more"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          return 1; //from tgc_resize_more
+T197>         tgc_add_ptr(0x15a000c0, 0x1059e6d0, 40, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>          token("tgc_add_ptr"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>            return 50; //from printf
+T197>           return nullptr; //from token
+T197>          token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+T197>           printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h", 28, "Xmalloc"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/argv.h
+Garbage Collector: line: 28
+Garbage Collector: function: Xmalloc
+T197>            return 240; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_hash(0x15a000c0, 0x1059e6d0); 
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>             return 46; //from printf
+T197>            return nullptr; //from token
+T197>           return 34290906; //from tgc_hash
+T197>          token(0x1059e6d0, 1); 
+T197>           printf("Garbage Collector: adding %p to the list\n", "�������Garbage Collector: adding 0x1059e6d0 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_add_ptr"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>         token("tgc_add"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>           return 45; //from printf
+T197>          return nullptr; //from token
+T197>         return 0x1059e6d0; //from tgc_add
+T197>        token("tgc_alloc_opt"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>          return 51; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x1059e6d0; //from tgc_alloc_opt
+T197>       return 0x1059e6d0; //from tgc_alloc
+T197>      return 0x1059e6d0; //from Xmalloc
+T197>     isspace(113); 
+T197>      __istype(113, 16384); 
+T197>       isascii(113); 
+T197>        return 1; //from isascii
+T197>       return 0; //from __istype
+T197>      return 0; //from isspace
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     isspace(113); 
+T197>      __istype(113, 16384); 
+T197>       isascii(113); 
+T197>        return 1; //from isascii
+T197>       return 0; //from __istype
+T197>      return 0; //from isspace
+T197>     return 0; //from string_to_argv
+T197>    replaces(0xfe94b50); 
+T197>     printf("->called %s() at line %d from %s\n", "replaces", 328, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h"); 
+->called replaces() at line 328 from ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+T197>      return 179; //from printf
+T197>     sprintf("", "%s%c", "", 113); 
+T197>      return 1; //from sprintf
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     return "q"; //from replaces
+T197>    replacespace("q"); 
+T197>     printf("->called %s() at line %d from %s\n", "replacespace", 355, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h"); 
+->called replacespace() at line 355 from ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+T197>      return 183; //from printf
+T197>     memset("", 0, 512); 
+T197>      return 0xe4f6dbc; //from memset
+T197>     sprintf("", "%s%c", "", 113); 
+T197>      return 1; //from sprintf
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     memset("q", 0, 512); 
+T197>      return 0xe4f6dbc; //from memset
+T197>     sprintf("", "%s%c", "", 113); 
+T197>      return 1; //from sprintf
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     memset("q", 0, 512); 
+T197>      return 0xe4f6dbc; //from memset
+T197>     sprintf("", "%s%c", "", 113); 
+T197>      return 1; //from sprintf
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     return "q"; //from replacespace
+T197>    split("q", &, 0xe4f6fd0); 
+T197>     env__new(); 
+T197>      tgc_alloc(0x15a000c0, 1, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>       token("tgc_alloc"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>         return 241; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_alloc"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_alloc_opt(0x15a000c0, 1, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>        token("tgc_alloc_opt"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>          return 241; //from printf
+T197>         return nullptr; //from token
+T197>        malloc(1); 
+T197>         return 0x1247a510; //from malloc
+T197>        tgc_add(0x15a000c0, 0x1247a510, 1, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>         token("tgc_add"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>           return 241; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>          token("tgc_resize_more"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>            return 54; //from printf
+T197>           return nullptr; //from token
+T197>          token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>           printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>            return 241; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_ideal_size(0x15a000c0, 7); 
+T197>           token("tgc_ideal_size"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>             return 53; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_ideal_size"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>             return 52; //from printf
+T197>            return nullptr; //from token
+T197>           return 11; //from tgc_ideal_size
+T197>          token("tgc_resize_more"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          return 1; //from tgc_resize_more
+T197>         tgc_add_ptr(0x15a000c0, 0x1247a510, 1, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>          token("tgc_add_ptr"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>            return 50; //from printf
+T197>           return nullptr; //from token
+T197>          token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>           printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>            return 241; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_hash(0x15a000c0, 0x1247a510); 
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>             return 46; //from printf
+T197>            return nullptr; //from token
+T197>           return 38335650; //from tgc_hash
+T197>          tgc_probe(0x15a000c0, 1, 2); 
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>             return 48; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           return 0; //from tgc_probe
+T197>          token(0x1247a510, 3); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x1247a510 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_probe(0x15a000c0, 2, 3); 
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>             return 48; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           return 0; //from tgc_probe
+T197>          token(0x1247a510, 3); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x1247a510 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_probe(0x15a000c0, 3, 4); 
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>             return 48; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           return 0; //from tgc_probe
+T197>          token(0x1247a510, 3); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x1247a510 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          token(0x1247a510, 1); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x1247a510 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_add_ptr"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>         token("tgc_add"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>           return 45; //from printf
+T197>          return nullptr; //from token
+T197>         return 0x1247a510; //from tgc_add
+T197>        token("tgc_alloc_opt"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>          return 51; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x1247a510; //from tgc_alloc_opt
+T197>       return 0x1247a510; //from tgc_alloc
+T197>      return 0x1247a510; //from env__new
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     chartostring(&); 
+T197>      strdup("&"); 
+T197>       return "&"; //from strdup
+T197>      return "&"; //from chartostring
+T197>     strtok("q", "&"); 
+T197>      return "q"; //from strtok
+T197>     env__add(0x1247a510, "q"); 
+T197>      env__size(0x1247a510); 
+T197>       return 0; //from env__size
+T197>      tgc_realloc(0x15a000c0, 0x1247a510, 8, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add"); 
+T197>       token("tgc_realloc"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_realloc"); 
+Garbage Collector: Entering function: tgc_realloc
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 213
+Garbage Collector: function: env__add
+T197>         return 241; //from printf
+T197>        return nullptr; //from token
+T197>       realloc(0x1247a510, 8); 
+T197>        return 0x1247a510; //from realloc
+T197>       tgc_get_ptr(0x15a000c0, 0x1247a510, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add", "realloc"); 
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>          return 50; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_hash(0x15a000c0, 0x1247a510); 
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         return 38335650; //from tgc_hash
+T197>        tgc_probe(0x15a000c0, 1, 2); 
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         return 0; //from tgc_probe
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>          return 49; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x109894a0; //from tgc_get_ptr
+T197>       token(0x1247a510, 1, 8); 
+T197>        printf("Garbage Collector: reallocating %p from %zu to %zu\n", "", 1, 8); 
+Garbage Collector: reallocating 0x1247a510 from 1 to 8
+T197>         return 55; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_realloc"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_realloc"); 
+Garbage Collector: Exiting function: tgc_realloc
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>       return 0x1247a510; //from tgc_realloc
+T197>      strdup("q"); 
+T197>       return "q"; //from strdup
+T197>      return 0x1247a510; //from env__add
+T197>     chartostring(&); 
+T197>      strdup("&"); 
+T197>       return "&"; //from strdup
+T197>      return "&"; //from chartostring
+T197>     strtok(nullptr, "&"); 
+T197>      return nullptr; //from strtok
+T197>     tgc_free(0x15a000c0, "q", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split"); 
+T197>      token("tgc_free"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h
+Garbage Collector: line: 13
+Garbage Collector: function: split
+T197>        return 239; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_get_ptr(0x15a000c0, 0xf07b080, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split", "free"); 
+T197>       token("tgc_get_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0xf07b080); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 31520272; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 3, 3); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       tgc_probe(0x15a000c0, 4, 4); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       tgc_probe(0x15a000c0, 5, 6); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token("tgc_get_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>       return nullptr; //from tgc_get_ptr
+T197>      token("tgc_free"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>     return 1; //from split
+T197>    quote(0xfe94b50); 
+T197>     strlen("q"); 
+T197>      return 1; //from strlen
+T197>     tgc_alloc(0x15a000c0, 4, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>        return 243; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_alloc_opt(0x15a000c0, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>         return 52; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>         return 243; //from printf
+T197>        return nullptr; //from token
+T197>       malloc(4); 
+T197>        return 0x11951f10; //from malloc
+T197>       tgc_add(0x15a000c0, 0x11951f10, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>          return 243; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>           return 54; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_ideal_size(0x15a000c0, 8); 
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>            return 52; //from printf
+T197>           return nullptr; //from token
+T197>          return 11; //from tgc_ideal_size
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>           return 53; //from printf
+T197>          return nullptr; //from token
+T197>         return 1; //from tgc_resize_more
+T197>        tgc_add_ptr(0x15a000c0, 0x11951f10, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>           return 50; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_hash(0x15a000c0, 0x11951f10); 
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>            return 46; //from printf
+T197>           return nullptr; //from token
+T197>          return 36873186; //from tgc_hash
+T197>         token(0x11951f10, 1); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x11951f10 to the list
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>          return 45; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x11951f10; //from tgc_add
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>         return 51; //from printf
+T197>        return nullptr; //from token
+T197>       return 0x11951f10; //from tgc_alloc_opt
+T197>      return 0x11951f10; //from tgc_alloc
+T197>     sprintf("", ""%s"", "q"); 
+T197>      return 3; //from sprintf
+T197>     return ""q""; //from quote
+T197>    tgc_free(0x15a000c0, ""q"", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+T197>      printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 582
+Garbage Collector: function: parse_special_commands
+T197>       return 248; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_get_ptr(0x15a000c0, 0x11951f10, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands", "free"); 
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>        return 50; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_hash(0x15a000c0, 0x11951f10); 
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>       return 36873186; //from tgc_hash
+T197>      tgc_probe(0x15a000c0, 9, 10); 
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       return 0; //from tgc_probe
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>        return 49; //from printf
+T197>       return nullptr; //from token
+T197>      return 0x109895a0; //from tgc_get_ptr
+T197>     token(0x11951f10); 
+T197>      printf("Garbage Collector: freeing %p\n", ""q""); 
+Garbage Collector: freeing 0x11951f10
+T197>       return 38; //from printf
+T197>      return nullptr; //from token
+T197>     free(0x11951f10); 
+T197>     tgc_rem(0x15a000c0, 0x11951f10, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_rem"); 
+Garbage Collector: Entering function: tgc_rem
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 582
+Garbage Collector: function: parse_special_commands
+T197>        return 248; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_rem_ptr(0x15a000c0, 0x11951f10); 
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Entering function: tgc_rem_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0x11951f10); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 36873186; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 9, 10); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token(0x11951f10); 
+T197>        printf("Garbage Collector: removing %p from the list\n", ""q""); 
+Garbage Collector: removing 0x11951f10 from the list
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       memset(0x109895a0, 0, 32); 
+T197>        return 0x109895a0; //from memset
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Exiting function: tgc_rem_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>      tgc_resize_less(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Entering function: tgc_resize_less
+T197>         return 54; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 582, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 582
+Garbage Collector: function: parse_special_commands
+T197>         return 248; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_ideal_size(0x15a000c0, 7); 
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>          return 53; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        return 11; //from tgc_ideal_size
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Exiting function: tgc_resize_less
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       return 1; //from tgc_resize_less
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_rem"); 
+Garbage Collector: Exiting function: tgc_rem
+T197>        return 45; //from printf
+T197>       return nullptr; //from token
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>    strdup(0xfe94b50); 
+T197>     return "q"; //from strdup
+T197>    freesplit(1, 0xe4f6fd0); 
+T197>     env__free(0x1247a510); 
+T197>      tgc_free(0x15a000c0, 0x12ac0d10, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+T197>       token("tgc_free"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 197
+Garbage Collector: function: env__free
+T197>         return 242; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_get_ptr(0x15a000c0, 0x12ac0d10, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free", "free"); 
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>          return 50; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_hash(0x15a000c0, 0x12ac0d10); 
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         return 39158178; //from tgc_hash
+T197>        tgc_probe(0x15a000c0, 4, 4); 
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         return 1; //from tgc_probe
+T197>        tgc_probe(0x15a000c0, 5, 6); 
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         return 0; //from tgc_probe
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>          return 49; //from printf
+T197>         return nullptr; //from token
+T197>        return nullptr; //from tgc_get_ptr
+T197>       token("tgc_free"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>    tgc_free(0x15a000c0, 0x1059e6d0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+T197>      printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 599
+Garbage Collector: function: parse_special_commands
+T197>       return 248; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_get_ptr(0x15a000c0, 0x1059e6d0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands", "free"); 
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>        return 50; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_hash(0x15a000c0, 0x1059e6d0); 
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>       return 34290906; //from tgc_hash
+T197>      tgc_probe(0x15a000c0, 1, 2); 
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       return 0; //from tgc_probe
+T197>      tgc_probe(0x15a000c0, 2, 2); 
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       return 1; //from tgc_probe
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>        return 49; //from printf
+T197>       return nullptr; //from token
+T197>      return 0x109894c0; //from tgc_get_ptr
+T197>     token(0x1059e6d0); 
+T197>      printf("Garbage Collector: freeing %p\n", "PK�%s\n"�"tgc���������Garbage Collector: freeing 0x1059e6d0
+T197>       return 38; //from printf
+T197>      return nullptr; //from token
+T197>     free(0x1059e6d0); 
+T197>     tgc_rem(0x15a000c0, 0x1059e6d0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_rem"); 
+Garbage Collector: Entering function: tgc_rem
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 599
+Garbage Collector: function: parse_special_commands
+T197>        return 248; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_rem_ptr(0x15a000c0, 0x1059e6d0); 
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Entering function: tgc_rem_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0x1059e6d0); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 34290906; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 1, 2); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       tgc_probe(0x15a000c0, 2, 2); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       token(0x1059e6d0); 
+T197>        printf("Garbage Collector: removing %p from the list\n", ""); 
+Garbage Collector: removing 0x1059e6d0 from the list
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       memset(0x109894c0, 0, 32); 
+T197>        return 0x109894c0; //from memset
+T197>       tgc_probe(0x15a000c0, 3, 3); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       memcpy(0x109894c0, 0x109894e0, 32); 
+T197>        return 0x109894c0; //from memcpy
+T197>       memset(0x109894e0, 0, 32); 
+T197>        return 0x109894e0; //from memset
+T197>       tgc_probe(0x15a000c0, 4, 4); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       memcpy(0x109894e0, 0x10989500, 32); 
+T197>        return 0x109894e0; //from memcpy
+T197>       memset(0x10989500, 0, 32); 
+T197>        return 0x10989500; //from memset
+T197>       tgc_probe(0x15a000c0, 5, 6); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Exiting function: tgc_rem_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>      tgc_resize_less(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Entering function: tgc_resize_less
+T197>         return 54; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 599, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 599
+Garbage Collector: function: parse_special_commands
+T197>         return 248; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_ideal_size(0x15a000c0, 6); 
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>          return 53; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        return 11; //from tgc_ideal_size
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Exiting function: tgc_resize_less
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       return 1; //from tgc_resize_less
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_rem"); 
+Garbage Collector: Exiting function: tgc_rem
+T197>        return 45; //from printf
+T197>       return nullptr; //from token
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>    quote(0x12ad6040); 
+T197>     strlen("q"); 
+T197>      return 1; //from strlen
+T197>     tgc_alloc(0x15a000c0, 4, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>        return 243; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_alloc_opt(0x15a000c0, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>         return 52; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>         return 243; //from printf
+T197>        return nullptr; //from token
+T197>       malloc(4); 
+T197>        return 0xd96b070; //from malloc
+T197>       tgc_add(0x15a000c0, 0xd96b070, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>          return 243; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>           return 54; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_ideal_size(0x15a000c0, 7); 
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>            return 52; //from printf
+T197>           return nullptr; //from token
+T197>          return 11; //from tgc_ideal_size
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>           return 53; //from printf
+T197>          return nullptr; //from token
+T197>         return 1; //from tgc_resize_more
+T197>        tgc_add_ptr(0x15a000c0, 0xd96b070, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>           return 50; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_hash(0x15a000c0, 0xd96b070); 
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>            return 46; //from printf
+T197>           return nullptr; //from token
+T197>          return 28497422; //from tgc_hash
+T197>         tgc_probe(0x15a000c0, 8, 9); 
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>            return 48; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          return 0; //from tgc_probe
+T197>         token(0xd96b070, 3); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0xd96b070 to the list
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token(0xd96b070, 1); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0xd96b070 to the list
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>          return 45; //from printf
+T197>         return nullptr; //from token
+T197>        return 0xd96b070; //from tgc_add
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>         return 51; //from printf
+T197>        return nullptr; //from token
+T197>       return 0xd96b070; //from tgc_alloc_opt
+T197>      return 0xd96b070; //from tgc_alloc
+T197>     sprintf("", ""%s"", "q"); 
+T197>      return 3; //from sprintf
+T197>     return ""q""; //from quote
+T197>    tgc_free(0x15a000c0, ""q"", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+T197>      printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 605
+Garbage Collector: function: parse_special_commands
+T197>       return 248; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_get_ptr(0x15a000c0, 0xd96b070, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands", "free"); 
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>        return 50; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_hash(0x15a000c0, 0xd96b070); 
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>       return 28497422; //from tgc_hash
+T197>      tgc_probe(0x15a000c0, 8, 9); 
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       return 0; //from tgc_probe
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>        return 49; //from printf
+T197>       return nullptr; //from token
+T197>      return 0x10989580; //from tgc_get_ptr
+T197>     token(0xd96b070); 
+T197>      printf("Garbage Collector: freeing %p\n", ""q""); 
+Garbage Collector: freeing 0xd96b070
+T197>       return 37; //from printf
+T197>      return nullptr; //from token
+T197>     free(0xd96b070); 
+T197>     tgc_rem(0x15a000c0, 0xd96b070, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_rem"); 
+Garbage Collector: Entering function: tgc_rem
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 605
+Garbage Collector: function: parse_special_commands
+T197>        return 248; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_rem_ptr(0x15a000c0, 0xd96b070); 
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Entering function: tgc_rem_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0xd96b070); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 28497422; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 8, 9); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token(0xd96b070); 
+T197>        printf("Garbage Collector: removing %p from the list\n", "PX����Garbage Collector: removing 0xd96b070 from the list
+T197>         return 52; //from printf
+T197>        return nullptr; //from token
+T197>       memset(0x10989580, 0, 32); 
+T197>        return 0x10989580; //from memset
+T197>       tgc_probe(0x15a000c0, 9, 9); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       memcpy(0x10989580, 0x109895a0, 32); 
+T197>        return 0x10989580; //from memcpy
+T197>       memset(0x109895a0, 0, 32); 
+T197>        return 0x109895a0; //from memset
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Exiting function: tgc_rem_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>      tgc_resize_less(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Entering function: tgc_resize_less
+T197>         return 54; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 605, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 605
+Garbage Collector: function: parse_special_commands
+T197>         return 248; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_ideal_size(0x15a000c0, 6); 
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>          return 53; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        return 11; //from tgc_ideal_size
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Exiting function: tgc_resize_less
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       return 1; //from tgc_resize_less
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_rem"); 
+Garbage Collector: Exiting function: tgc_rem
+T197>        return 45; //from printf
+T197>       return nullptr; //from token
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>    split(0x12ad6040, ., 0xe4f6fc0); 
+T197>     env__new(); 
+T197>      tgc_alloc(0x15a000c0, 1, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>       token("tgc_alloc"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>         return 241; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_alloc"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_alloc_opt(0x15a000c0, 1, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>        token("tgc_alloc_opt"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>          return 241; //from printf
+T197>         return nullptr; //from token
+T197>        malloc(1); 
+T197>         return 0x15d3e1d0; //from malloc
+T197>        tgc_add(0x15a000c0, 0x15d3e1d0, 1, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>         token("tgc_add"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>           return 241; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>          token("tgc_resize_more"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>            return 54; //from printf
+T197>           return nullptr; //from token
+T197>          token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>           printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>            return 241; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_ideal_size(0x15a000c0, 7); 
+T197>           token("tgc_ideal_size"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>             return 53; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_ideal_size"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>             return 52; //from printf
+T197>            return nullptr; //from token
+T197>           return 11; //from tgc_ideal_size
+T197>          token("tgc_resize_more"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          return 1; //from tgc_resize_more
+T197>         tgc_add_ptr(0x15a000c0, 0x15d3e1d0, 1, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>          token("tgc_add_ptr"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>            return 50; //from printf
+T197>           return nullptr; //from token
+T197>          token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+T197>           printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 191, "env__new"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 191
+Garbage Collector: function: env__new
+T197>            return 241; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_hash(0x15a000c0, 0x15d3e1d0); 
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>             return 46; //from printf
+T197>            return nullptr; //from token
+T197>           return 45775930; //from tgc_hash
+T197>          tgc_probe(0x15a000c0, 2, 3); 
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>             return 48; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           return 0; //from tgc_probe
+T197>          token(0x15d3e1d0, 3); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x15d3e1d0 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_probe(0x15a000c0, 3, 4); 
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>             return 48; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           return 0; //from tgc_probe
+T197>          token(0x15d3e1d0, 3); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x15d3e1d0 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          token(0x15d3e1d0, 1); 
+T197>           printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x15d3e1d0 to the list
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_add_ptr"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>         token("tgc_add"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>           return 45; //from printf
+T197>          return nullptr; //from token
+T197>         return 0x15d3e1d0; //from tgc_add
+T197>        token("tgc_alloc_opt"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>          return 51; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x15d3e1d0; //from tgc_alloc_opt
+T197>       return 0x15d3e1d0; //from tgc_alloc
+T197>      return 0x15d3e1d0; //from env__new
+T197>     strdup("q"); 
+T197>      return "q"; //from strdup
+T197>     chartostring(.); 
+T197>      strdup("."); 
+T197>       return "."; //from strdup
+T197>      return "."; //from chartostring
+T197>     strtok("q", "."); 
+T197>      return "q"; //from strtok
+T197>     env__add(0x15d3e1d0, "q"); 
+T197>      env__size(0x15d3e1d0); 
+T197>       return 0; //from env__size
+T197>      tgc_realloc(0x15a000c0, 0x15d3e1d0, 8, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add"); 
+T197>       token("tgc_realloc"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_realloc"); 
+Garbage Collector: Entering function: tgc_realloc
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 213
+Garbage Collector: function: env__add
+T197>         return 241; //from printf
+T197>        return nullptr; //from token
+T197>       realloc(0x15d3e1d0, 8); 
+T197>        return 0x15d3e1d0; //from realloc
+T197>       tgc_get_ptr(0x15a000c0, 0x15d3e1d0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 213, "env__add", "realloc"); 
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>          return 50; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_hash(0x15a000c0, 0x15d3e1d0); 
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         return 45775930; //from tgc_hash
+T197>        tgc_probe(0x15a000c0, 2, 3); 
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         return 0; //from tgc_probe
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>          return 49; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x109894c0; //from tgc_get_ptr
+T197>       token(0x15d3e1d0, 1, 8); 
+T197>        printf("Garbage Collector: reallocating %p from %zu to %zu\n", "", 1, 8); 
+Garbage Collector: reallocating 0x15d3e1d0 from 1 to 8
+T197>         return 55; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_realloc"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_realloc"); 
+Garbage Collector: Exiting function: tgc_realloc
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>       return 0x15d3e1d0; //from tgc_realloc
+T197>      strdup("q"); 
+T197>       return "q"; //from strdup
+T197>      return 0x15d3e1d0; //from env__add
+T197>     chartostring(.); 
+T197>      strdup("."); 
+T197>       return "."; //from strdup
+T197>      return "."; //from chartostring
+T197>     strtok(nullptr, "."); 
+T197>      return nullptr; //from strtok
+T197>     tgc_free(0x15a000c0, "q", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split"); 
+T197>      token("tgc_free"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h
+Garbage Collector: line: 13
+Garbage Collector: function: split
+T197>        return 239; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_get_ptr(0x15a000c0, 0xf7e6550, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/split.h", 13, "split", "free"); 
+T197>       token("tgc_get_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0xf7e6550); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 32492714; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 1, 2); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       tgc_probe(0x15a000c0, 2, 3); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token("tgc_get_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>       return nullptr; //from tgc_get_ptr
+T197>      token("tgc_free"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>     return 1; //from split
+T197>    quote(0x17f00e60); 
+T197>     strlen("q"); 
+T197>      return 1; //from strlen
+T197>     tgc_alloc(0x15a000c0, 4, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_alloc"); 
+Garbage Collector: Entering function: tgc_alloc
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>        return 243; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_alloc"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc"); 
+Garbage Collector: Exiting function: tgc_alloc
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_alloc_opt(0x15a000c0, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Entering function: tgc_alloc_opt
+T197>         return 52; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>         return 243; //from printf
+T197>        return nullptr; //from token
+T197>       malloc(4); 
+T197>        return 0x17f17080; //from malloc
+T197>       tgc_add(0x15a000c0, 0x17f17080, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_add"); 
+Garbage Collector: Entering function: tgc_add
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>          return 243; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_resize_more(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Entering function: tgc_resize_more
+T197>           return 54; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_ideal_size(0x15a000c0, 8); 
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>            return 53; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_ideal_size"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>            return 52; //from printf
+T197>           return nullptr; //from token
+T197>          return 11; //from tgc_ideal_size
+T197>         token("tgc_resize_more"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_more"); 
+Garbage Collector: Exiting function: tgc_resize_more
+T197>           return 53; //from printf
+T197>          return nullptr; //from token
+T197>         return 1; //from tgc_resize_more
+T197>        tgc_add_ptr(0x15a000c0, 0x17f17080, 4, 0, nullptr, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Entering function: tgc_add_ptr
+T197>           return 50; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h", 105, "quote"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/builtins.h
+Garbage Collector: line: 105
+Garbage Collector: function: quote
+T197>           return 243; //from printf
+T197>          return nullptr; //from token
+T197>         tgc_hash(0x15a000c0, 0x17f17080); 
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_hash"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>            return 46; //from printf
+T197>           return nullptr; //from token
+T197>          return 50212368; //from tgc_hash
+T197>         tgc_probe(0x15a000c0, 8, 9); 
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>            return 48; //from printf
+T197>           return nullptr; //from token
+T197>          token("tgc_probe"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>            return 47; //from printf
+T197>           return nullptr; //from token
+T197>          return 0; //from tgc_probe
+T197>         token(0x17f17080, 3); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x17f17080 to the list
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         token(0x17f17080, 1); 
+T197>          printf("Garbage Collector: adding %p to the list\n", ""); 
+Garbage Collector: adding 0x17f17080 to the list
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_add_ptr"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_add_ptr"); 
+Garbage Collector: Exiting function: tgc_add_ptr
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>        token("tgc_add"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_add"); 
+Garbage Collector: Exiting function: tgc_add
+T197>          return 45; //from printf
+T197>         return nullptr; //from token
+T197>        return 0x17f17080; //from tgc_add
+T197>       token("tgc_alloc_opt"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_alloc_opt"); 
+Garbage Collector: Exiting function: tgc_alloc_opt
+T197>         return 51; //from printf
+T197>        return nullptr; //from token
+T197>       return 0x17f17080; //from tgc_alloc_opt
+T197>      return 0x17f17080; //from tgc_alloc
+T197>     sprintf("", ""%s"", "q"); 
+T197>      return 3; //from sprintf
+T197>     return ""q""; //from quote
+T197>    tgc_free(0x15a000c0, ""q"", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+T197>      printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 613
+Garbage Collector: function: parse_special_commands
+T197>       return 248; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_get_ptr(0x15a000c0, 0x17f17080, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands", "free"); 
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>        return 50; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_hash(0x15a000c0, 0x17f17080); 
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_hash"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>       return 50212368; //from tgc_hash
+T197>      tgc_probe(0x15a000c0, 8, 9); 
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>         return 48; //from printf
+T197>        return nullptr; //from token
+T197>       token("tgc_probe"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       return 0; //from tgc_probe
+T197>      token("tgc_get_ptr"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>        return 49; //from printf
+T197>       return nullptr; //from token
+T197>      return 0x10989580; //from tgc_get_ptr
+T197>     token(0x17f17080); 
+T197>      printf("Garbage Collector: freeing %p\n", ""q""); 
+Garbage Collector: freeing 0x17f17080
+T197>       return 38; //from printf
+T197>      return nullptr; //from token
+T197>     free(0x17f17080); 
+T197>     tgc_rem(0x15a000c0, 0x17f17080, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_rem"); 
+Garbage Collector: Entering function: tgc_rem
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 613
+Garbage Collector: function: parse_special_commands
+T197>        return 248; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_rem_ptr(0x15a000c0, 0x17f17080); 
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Entering function: tgc_rem_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0x17f17080); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 50212368; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 8, 9); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token(0x17f17080); 
+T197>        printf("Garbage Collector: removing %p from the list\n", "PX����Garbage Collector: removing 0x17f17080 from the list
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       memset(0x10989580, 0, 32); 
+T197>        return 0x10989580; //from memset
+T197>       tgc_probe(0x15a000c0, 9, 9); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       memcpy(0x10989580, 0x109895a0, 32); 
+T197>        return 0x10989580; //from memcpy
+T197>       memset(0x109895a0, 0, 32); 
+T197>        return 0x109895a0; //from memset
+T197>       token("tgc_rem_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Exiting function: tgc_rem_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>      tgc_resize_less(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Entering function: tgc_resize_less
+T197>         return 54; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h", 613, "parse_special_commands"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+Garbage Collector: line: 613
+Garbage Collector: function: parse_special_commands
+T197>         return 248; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_ideal_size(0x15a000c0, 7); 
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>          return 53; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_ideal_size"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>          return 52; //from printf
+T197>         return nullptr; //from token
+T197>        return 11; //from tgc_ideal_size
+T197>       token("tgc_resize_less"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Exiting function: tgc_resize_less
+T197>         return 53; //from printf
+T197>        return nullptr; //from token
+T197>       return 1; //from tgc_resize_less
+T197>      token("tgc_rem"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_rem"); 
+Garbage Collector: Exiting function: tgc_rem
+T197>        return 45; //from printf
+T197>       return nullptr; //from token
+T197>     token("tgc_free"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>    strdup(0x17f00e60); 
+T197>     return "q"; //from strdup
+T197>    freesplit(1, 0xe4f6fc0); 
+T197>     env__free(0x15d3e1d0); 
+T197>      tgc_free(0x15a000c0, 0x17f00e60, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+T197>       token("tgc_free"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>         return 47; //from printf
+T197>        return nullptr; //from token
+T197>       token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+T197>        printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 197
+Garbage Collector: function: env__free
+T197>         return 242; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_get_ptr(0x15a000c0, 0x17f00e60, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free", "free"); 
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>          return 50; //from printf
+T197>         return nullptr; //from token
+T197>        tgc_hash(0x15a000c0, 0x17f00e60); 
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_hash"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>           return 46; //from printf
+T197>          return nullptr; //from token
+T197>         return 50201036; //from tgc_hash
+T197>        tgc_probe(0x15a000c0, 6, 6); 
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>           return 48; //from printf
+T197>          return nullptr; //from token
+T197>         token("tgc_probe"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>           return 47; //from printf
+T197>          return nullptr; //from token
+T197>         return 1; //from tgc_probe
+T197>        token("tgc_get_ptr"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>          return 49; //from printf
+T197>         return nullptr; //from token
+T197>        return nullptr; //from tgc_get_ptr
+T197>       token("tgc_free"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>         return 46; //from printf
+T197>        return nullptr; //from token
+T197>    execute_thread(0x15a046f4); 
+T197>     printf("->called %s() at line %d from %s\n", "execute_thread", 515, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h"); 
+->called execute_thread() at line 515 from ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+T197>      return 185; //from printf
+T197>     pthread_self(); 
+T197>      return 0x42001000; //from pthread_self
+T197>     pthread_mach_thread_np(0x42001000); 
+T197>      return 55363; //from pthread_mach_thread_np
+T197>     pthread_attr_init(0x15a046c0); 
+T197>      return 0; //from pthread_attr_init
+T197>     pthread_create(0x15a046b0, 0x15a046c0, 0x2b13b5, 0x15a046f4); 
+T09> printf("->called %s() at line %d from %s\n", "execute", 415, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h"); 
+->called execute() at line 415 from ~/CCR/UserFiles/ccr_resources/Scripts/Shell/shell.h
+T09>  return 178; //from printf
+T09> pthread_self(); 
+T09>  return 0x193c7000; //from pthread_self
+T09> pthread_mach_thread_np(0x193c7000); 
+T09>  return 51451; //from pthread_mach_thread_np
+T09> ifbuiltin(0x12ad6040); 
+T09>  strcmp("q", "hex"); 
+T09>   return 9; //from strcmp
+T09>  strcmp("q", "xxd"); 
+T09>   return -7; //from strcmp
+T09>  strcmp("q", "json"); 
+T09>   return 7; //from strcmp
+T09>  strcmp("q", "CPUInfo"); 
+T09>   return 46; //from strcmp
+T09>  strcmp("q", "ls"); 
+T09>   return 5; //from strcmp
+T09>  strcmp("q", "gcc"); 
+T09>   return 10; //from strcmp
+T09>  strcmp("q", "whereis"); 
+T09>   return -6; //from strcmp
+T09>  strcmp("q", "list"); 
+T09>   return 5; //from strcmp
+T09>  strcmp("q", "time"); 
+T09>   return -3; //from strcmp
+T09>  strcmp("q", "exit"); 
+T09>   return 12; //from strcmp
+T09>  strcmp("q", "q"); 
+T09>   return 0; //from strcmp
+T09>  return 0; //from ifbuiltin
+T09> builtin(0x12ad6040, 1, 0x15a04ef8); 
+T09>  strcmp("q", "hex"); 
+T09>   return 9; //from strcmp
+T09>  strcmp("q", "cat"); 
+T09>   return 14; //from strcmp
+T09>  strcmp("q", "json"); 
+T09>   return 7; //from strcmp
+T09>  strcmp("q", "xxd"); 
+T09>   return -7; //from strcmp
+T09>  strcmp("q", "CPUInfo"); 
+T09>   return 46; //from strcmp
+T09>  strcmp("q", "ls"); 
+T09>   return 5; //from strcmp
+T09>  strcmp("q", "gcc"); 
+T09>   return 10; //from strcmp
+T09>  strcmp("q", "whereis"); 
+T09>   return -6; //from strcmp
+T09>  strcmp("q", "list"); 
+T09>   return 5; //from strcmp
+T09>  strcmp("q", "time"); 
+T09>   return -3; //from strcmp
+T09>  strcmp("q", "exit"); 
+T09>   return 12; //from strcmp
+T09>  strcmp("q", "q"); 
+T09>   return 0; //from strcmp
+T09>  return 0; //from builtin
+T197>      return 0; //from pthread_create
+T197>     pthread_attr_setdetachstate(0x15a046c0, 1); 
+T197>      return 0; //from pthread_attr_setdetachstate
+T197>     pthread_attr_destroy(0x15a046c0); 
+T197>      return 0; //from pthread_attr_destroy
+T197>     pthread_join(0x193c7000, 0x15a046f0); 
+T197>      return 0; //from pthread_join
+T197>   freesplit(1, 0xe4f6fec); 
+T197>    env__free(0x104d17d0); 
+T197>     tgc_free(0x15a000c0, 0xefa9210, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+T197>      token("tgc_free"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+T197>       printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h
+Garbage Collector: line: 197
+Garbage Collector: function: env__free
+T197>        return 242; //from printf
+T197>       return nullptr; //from token
+T197>      tgc_get_ptr(0x15a000c0, 0xefa9210, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 197, "env__free", "free"); 
+T197>       token("tgc_get_ptr"); 
+T197>        printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>         return 50; //from printf
+T197>        return nullptr; //from token
+T197>       tgc_hash(0x15a000c0, 0xefa9210); 
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_hash"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>          return 46; //from printf
+T197>         return nullptr; //from token
+T197>        return 31412802; //from tgc_hash
+T197>       tgc_probe(0x15a000c0, 3, 3); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       tgc_probe(0x15a000c0, 4, 4); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 1; //from tgc_probe
+T197>       tgc_probe(0x15a000c0, 5, 6); 
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>          return 48; //from printf
+T197>         return nullptr; //from token
+T197>        token("tgc_probe"); 
+T197>         printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>          return 47; //from printf
+T197>         return nullptr; //from token
+T197>        return 0; //from tgc_probe
+T197>       token("tgc_get_ptr"); 
+T197>        printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>         return 49; //from printf
+T197>        return nullptr; //from token
+T197>       return nullptr; //from tgc_get_ptr
+T197>      token("tgc_free"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>   printf("exiting\n"); 
+exiting
+T197>    return 8; //from printf
+T197>   return 1; //from parse
+T197>  tgc_free(0x15a000c0, "q", "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+T197>   token("tgc_free"); 
+T197>    printf("Garbage Collector: Entering function: %s\n", "tgc_free"); 
+Garbage Collector: Entering function: tgc_free
+T197>     return 47; //from printf
+T197>    return nullptr; //from token
+T197>   token("~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+T197>    printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/sh.c
+Garbage Collector: line: 22
+Garbage Collector: function: main
+T197>     return 220; //from printf
+T197>    return nullptr; //from token
+T197>   tgc_get_ptr(0x15a000c0, 0x17f17370, "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main", "free"); 
+T197>    token("tgc_get_ptr"); 
+T197>     printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>      return 50; //from printf
+T197>     return nullptr; //from token
+T197>    tgc_hash(0x15a000c0, 0x17f17370); 
+T197>     token("tgc_hash"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     token("tgc_hash"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>       return 46; //from printf
+T197>      return nullptr; //from token
+T197>     return 50212462; //from tgc_hash
+T197>    tgc_probe(0x15a000c0, 3, 3); 
+T197>     token("tgc_probe"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>       return 48; //from printf
+T197>      return nullptr; //from token
+T197>     token("tgc_probe"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     return 1; //from tgc_probe
+T197>    tgc_probe(0x15a000c0, 4, 4); 
+T197>     token("tgc_probe"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>       return 48; //from printf
+T197>      return nullptr; //from token
+T197>     token("tgc_probe"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>       return 47; //from printf
+T197>      return nullptr; //from token
+T197>     return 1; //from tgc_probe
+T197>    token("tgc_get_ptr"); 
+T197>     printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>      return 49; //from printf
+T197>     return nullptr; //from token
+T197>    return 0x10989500; //from tgc_get_ptr
+T197>   token(0x17f17370); 
+T197>    printf("Garbage Collector: freeing %p\n", "q"); 
+Garbage Collector: freeing 0x17f17370
+T197>     return 38; //from printf
+T197>    return nullptr; //from token
+T197>   free(0x17f17370); 
+T197>   tgc_rem(0x15a000c0, 0x17f17370, "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+T197>    token("tgc_rem"); 
+T197>     printf("Garbage Collector: Entering function: %s\n", "tgc_rem"); 
+Garbage Collector: Entering function: tgc_rem
+T197>      return 46; //from printf
+T197>     return nullptr; //from token
+T197>    token("~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+T197>     printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/sh.c
+Garbage Collector: line: 22
+Garbage Collector: function: main
+T197>      return 220; //from printf
+T197>     return nullptr; //from token
+T197>    tgc_rem_ptr(0x15a000c0, 0x17f17370); 
+T197>     token("tgc_rem_ptr"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Entering function: tgc_rem_ptr
+T197>       return 50; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_hash(0x15a000c0, 0x17f17370); 
+T197>      token("tgc_hash"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_hash"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>        return 46; //from printf
+T197>       return nullptr; //from token
+T197>      return 50212462; //from tgc_hash
+T197>     tgc_probe(0x15a000c0, 3, 3); 
+T197>      token("tgc_probe"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_probe"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      return 1; //from tgc_probe
+T197>     tgc_probe(0x15a000c0, 4, 4); 
+T197>      token("tgc_probe"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_probe"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      return 1; //from tgc_probe
+T197>     token(0x17f17370); 
+T197>      printf("Garbage Collector: removing %p from the list\n", ""); 
+Garbage Collector: removing 0x17f17370 from the list
+T197>       return 53; //from printf
+T197>      return nullptr; //from token
+T197>     memset(0x10989500, 0, 32); 
+T197>      return 0x10989500; //from memset
+T197>     tgc_probe(0x15a000c0, 5, 6); 
+T197>      token("tgc_probe"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>        return 48; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_probe"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>        return 47; //from printf
+T197>       return nullptr; //from token
+T197>      return 0; //from tgc_probe
+T197>     token("tgc_rem_ptr"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_rem_ptr"); 
+Garbage Collector: Exiting function: tgc_rem_ptr
+T197>       return 49; //from printf
+T197>      return nullptr; //from token
+T197>    tgc_resize_less(0x15a000c0, "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+T197>     token("tgc_resize_less"); 
+T197>      printf("Garbage Collector: Entering function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Entering function: tgc_resize_less
+T197>       return 54; //from printf
+T197>      return nullptr; //from token
+T197>     token("~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+T197>      printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/sh.c", 22, "main"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/sh.c
+Garbage Collector: line: 22
+Garbage Collector: function: main
+T197>       return 220; //from printf
+T197>      return nullptr; //from token
+T197>     tgc_ideal_size(0x15a000c0, 6); 
+T197>      token("tgc_ideal_size"); 
+T197>       printf("Garbage Collector: Entering function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Entering function: tgc_ideal_size
+T197>        return 53; //from printf
+T197>       return nullptr; //from token
+T197>      token("tgc_ideal_size"); 
+T197>       printf("Garbage Collector: Exiting function: %s\n", "tgc_ideal_size"); 
+Garbage Collector: Exiting function: tgc_ideal_size
+T197>        return 52; //from printf
+T197>       return nullptr; //from token
+T197>      return 11; //from tgc_ideal_size
+T197>     token("tgc_resize_less"); 
+T197>      printf("Garbage Collector: Exiting function: %s\n", "tgc_resize_less"); 
+Garbage Collector: Exiting function: tgc_resize_less
+T197>       return 53; //from printf
+T197>      return nullptr; //from token
+T197>     return 1; //from tgc_resize_less
+T197>    token("tgc_rem"); 
+T197>     printf("Garbage Collector: Exiting function: %s\n", "tgc_rem"); 
+Garbage Collector: Exiting function: tgc_rem
+T197>      return 45; //from printf
+T197>     return nullptr; //from token
+T197>   token("tgc_free"); 
+T197>    printf("Garbage Collector: Exiting function: %s\n", "tgc_free"); 
+Garbage Collector: Exiting function: tgc_free
+T197>     return 46; //from printf
+T197>    return nullptr; //from token
+T197>  Garbage_Collector_Dump_Mem(0x3843e124); 
+T197>   tgc_dump(0x15a000c0, 0x3843e124); 
+T197>    token("tgc_dump"); 
+T197>     printf("Garbage Collector: Entering function: %s\n", "tgc_dump"); 
+Garbage Collector: Entering function: tgc_dump
+T197>      return 47; //from printf
+T197>     return nullptr; //from token
+T197>    token(0x3843e124, ); 
+T197>     fprintf(0x3843e124, "Garbage Collector: Unfreed: %p, first allocated in file %s, line %zu, from function %s, with current total usage of %zu bytes\n", 0x1247a510, 0x12a20c40, 191, 0x15a00683, 8); 
+Garbage Collector: Unfreed: 0x1247a510, first allocated in file ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h, line 191, from function env__new, with current total usage of 8 bytes
+T197>      return 284; //from fprintf
+T197>     get_file(0x12a20c40, 191); 
+T197>      malloc(4096); 
+T197>       return 0x160e6a00; //from malloc
+T197>      access("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", 0); 
+T197>       return 0; //from access
+T197>      fopen("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/env.h", "r"); 
+T197>       return 0x15dc682c; //from fopen
+T197>      getline(0xe4f6fa8, 0xe4f6fa0, 0x15dc682c); 
+T197>       getdelim(0xe4f6fa8, 0xe4f6fa0, 10, 0x15dc682c); 
+T197>        tgc_realloc(0x15a000c0, 0x160e6a00, 1, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim"); 
+T197>         token("tgc_realloc"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_realloc"); 
+Garbage Collector: Entering function: tgc_realloc
+T197>           return 50; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h
+Garbage Collector: line: 115
+Garbage Collector: function: getdelim
+T197>           return 245; //from printf
+T197>          return nullptr; //from token
+T197>         realloc(0x160e6a00, 1); 
+T197>          return 0x402adef0; //from realloc
+T197>         tgc_get_ptr(0x15a000c0, 0x160e6a00, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim", "realloc"); 
+T197>          token("tgc_get_ptr"); 
+T197>           printf("Garbage Collector: Entering function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Entering function: tgc_get_ptr
+T197>            return 50; //from printf
+T197>           return nullptr; //from token
+T197>          tgc_hash(0x15a000c0, 0x160e6a00); 
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_hash"); 
+Garbage Collector: Entering function: tgc_hash
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_hash"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_hash"); 
+Garbage Collector: Exiting function: tgc_hash
+T197>             return 46; //from printf
+T197>            return nullptr; //from token
+T197>           return 46255424; //from tgc_hash
+T197>          tgc_probe(0x15a000c0, 6, 6); 
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Entering function: %s\n", "tgc_probe"); 
+Garbage Collector: Entering function: tgc_probe
+T197>             return 48; //from printf
+T197>            return nullptr; //from token
+T197>           token("tgc_probe"); 
+T197>            printf("Garbage Collector: Exiting function: %s\n", "tgc_probe"); 
+Garbage Collector: Exiting function: tgc_probe
+T197>             return 47; //from printf
+T197>            return nullptr; //from token
+T197>           return 1; //from tgc_probe
+T197>          token("tgc_get_ptr"); 
+T197>           printf("Garbage Collector: Exiting function: %s\n", "tgc_get_ptr"); 
+Garbage Collector: Exiting function: tgc_get_ptr
+T197>            return 49; //from printf
+T197>           return nullptr; //from token
+T197>          return nullptr; //from tgc_get_ptr
+T197>         token("tgc_realloc"); 
+T197>          printf("Garbage Collector: Exiting function: %s\n", "tgc_realloc"); 
+Garbage Collector: Exiting function: tgc_realloc
+T197>           return 49; //from printf
+T197>          return nullptr; //from token
+T197>         return nullptr; //from tgc_realloc
+T197>        __error(); 
+T197>         return 0x42001030; //from __error
+T197>        return -1; //from getdelim
+T197>       return -1; //from getline
+T197>      getline(0xe4f6fa8, 0xe4f6fa0, 0x15dc682c); 
+T197>       getdelim(0xe4f6fa8, 0xe4f6fa0, 10, 0x15dc682c); 
+T197>        tgc_realloc(0x15a000c0, 0x160e6a00, 1, "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim"); 
+T197>         token("tgc_realloc"); 
+T197>          printf("Garbage Collector: Entering function: %s\n", "tgc_realloc"); 
+Garbage Collector: Entering function: tgc_realloc
+T197>           return 50; //from printf
+T197>          return nullptr; //from token
+T197>         token("~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim"); 
+T197>          printf("Garbage Collector: file: %s\nGarbage Collector: line: %d\nGarbage Collector: function: %s\n", "~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h", 115, "getdelim"); 
+Garbage Collector: file: ~/CCR/UserFiles/ccr_resources/Scripts/Shell/builtins/getline.h
+Garbage Collector: line: 115
+Garbage Collector: function: getdelim
+T197>           return 245; //from printf
+T197>          return nullptr; //from token
+T197>         realloc(0x160e6a00, 1); 
+T197> printf("Signal recieved: %s\n", "SIGABRT"); 
+Signal recieved: SIGABRT
+T197>  return 25; //from printf
+T197> puts("i will now abort this program"); 
+i will now abort this program
+T197>  return 0; //from puts
+T197> abort(); 
+Program aborted.
+T253>   return -1; //from cppRunSystemCommand
+T253>  ccrGetTextOutputLastCharacter(); 
+T253>   return 109; //from ccrGetTextOutputLastCharacter
+T253>  printf(" \n"); 
+ 
+T253>   return 2; //from printf
+T253>  ccrGetEvent(true); 
+T253>   return 0; //from ccrGetEvent
+T253>  getcwd("", 1024); 
+T253>   return "~/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from getcwd
+T253>  GetLastPathComponent("~/CCR/UserFiles/ccr_resources/Scripts/Shell"); 
+T253>   strcpy("", "~/CCR/UserFiles/ccr_resources/Scripts/Shell"); 
+T253>    return "~/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strcpy
+T253>   strstr_backward("~/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>    strstr("~/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "~/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("var/mobile/Containers/Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/mobile/Containers/Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("mobile/Containers/Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/Containers/Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("Containers/Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("Data/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("Application/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("D306DF46-6C9B-4E6D-90C4-D19B1DA7868D/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("Documents/Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/Data/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("Data/CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/CCR/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("CCR/UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/UserFiles/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("UserFiles/ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/ccr_resources/Scripts/Shell"; //from strstr
+T253>    strstr("ccr_resources/Scripts/Shell", "/"); 
+T253>     return "/Scripts/Shell"; //from strstr
+T253>    strstr("Scripts/Shell", "/"); 
+T253>     return "/Shell"; //from strstr
+T253>    strstr("Shell", "/"); 
+T253>     return nullptr; //from strstr
+T253>    return "/Shell"; //from strstr_backward
+T253>   return "Shell"; //from GetLastPathComponent
+T253>  printf("%s> ", "Shell"); 
+Shell> T253>   return 7; //from printf
+T253>  scanf("%[^\n]%*c", ""); 
