@@ -1,0 +1,168 @@
+﻿location: https://github.com/mgood7123/MobileC_CCR
+
+version 1.1
+
+New Feature: Garbage Collector : fairly stable garbage collector based on tgc's garbage collector
+the Garbage Collector is to be included via :
+
+#include <gc.h>
+
+once it has been installed with
+
+GCInstall
+
+can be uninstalled with
+
+GCUninstal
+
+
+CANNOT detect mallocs from internal functions such as strdup or printf
+unknown if thread safe or not
+the Garbage Collector can be paused/resumed with Garbage_Collector_Pause() Garbage_Collector_Resume(), and can be manually started and stopped with Garbage_Collector_Start() and Garbage_Collector_Shutdown
+
+Garbage Collector API provides numerous callbacks for debugging, via the following structures:
+
+typedef struct {
+	void (*callback_entry)(void*);
+	void (*callback_exit)(void*);
+	void (*callback_source)(char*,int,char*);
+	void (*callback_error)(char*,char*);
+	void (*callback_forgot_to_init)(char*);
+	void (*callback_unfreed_info)(FILE*,tgc_ptr_t);
+	void (*callback_unfreed_total)(FILE*,size_t);
+	void (*callback_add)(void*,size_t);
+	void (*callback_remove)(void*);
+	void (*callback_realloc)(void*, size_t);
+	void (*callback_free)(void*);
+	void (*callback_startup)(int);
+	void (*callback_shutdown)(int);
+	void (*callback_pause)(int);
+} tgc_callbacks;
+
+typedef struct {
+  tgc_callbacks callbacks;
+  int init;
+  void *bottom;
+  int paused;
+  uintptr_t minptr, maxptr;
+  tgc_ptr_t *items, *frees;
+  double loadfactor, sweepfactor;
+  size_t nitems, nslots, mitems, nfrees;
+} tgc_t = {0};
+
+
+
+Garbage Collector provides its own default callbacks which can be overriden if required:
+
+either in full:
+
+
+tgc_t Garbage_Collector_Program;
+
+tgc_callbacks tgc_callbacks_default = {
+	tgc_callbacks_default_entry,
+	tgc_callbacks_default_exit,
+	tgc_callbacks_default_source,
+	tgc_callbacks_default_error,
+	tgc_callbacks_default_forgot_to_init,
+	tgc_callbacks_default_unfreed_info,
+	tgc_callbacks_default_unfreed_total,
+	tgc_callbacks_default_add,
+	tgc_callbacks_default_remove,
+	tgc_callbacks_default_realloc,
+	tgc_callbacks_default_free,
+	tgc_callbacks_default_startup,
+	tgc_callbacks_default_shutdown,
+	tgc_callbacks_default_pause
+};
+
+Garbage_Collector_Program.callbacks = tgc_callbacks_default;
+
+
+or set individually:
+
+
+void user_callback(int status) {
+	if (status == Garbage_Collector_Events_Startup_Begin) puts("Garbage Collector: Starting ");
+	else if (status == Garbage_Collector_Events_Startup_End) puts("Garbage Collector: Successfully started");
+	else printf("Garbage Collector: Received unknown status: %d\n", status);
+	return;
+}
+
+
+gc->callbacks.callback_startup = user_callback;
+
+
+
+note: all callbacks MUST return, if a value is provided it is UNUSED, the program will segmentation fault (SEGSEGV) if the callback does not return, the callback type is unspecified and does not affect the callback itself
+
+
+
+WARNING: Garbage Collection uses considerable overhead and will increase runtime tenfold on malloc/realloc/free intensive tasks, DOES NOT WORK FOR C++
+
+Garbage Collector is automatically included in my commands (eg shell, argv, help (warents enough reason to include garbage collector due to it using mallocs), getline, and so on
+
+debugging flags:
+Garbage_Collector_Debug = 
+Garbage_Collector_Debug_None | 
+Garbage_Collector_Debug_Normal | 
+Garbage_Collector_Debug_List | 
+Garbage_Collector_Debug_Free | 
+Garbage_Collector_Debug_Realloc
+
+option flags:
+Garbage_Collector_Options = 
+Garbage_Collector_Options_Default |
+Garbage_Collector_Options_No_Recycle |
+Garbage_Collector_Options_Recycle |
+Garbage_Collector_Options_Quiet 
+
+by default the Garbage_Collector_Options_No_Recycle is turned on by default as it is safest, recycling frees memory if the current number of mallocs goes over a certain limit and is to be done with caution, as it CAN mess with the memory of programs by freeing memory that is not meant to be freed, however it can save ALOT of memory if recycling is turned on, for example if you malloc 4kb 1000 times in a row, with recycling chances are only 8kb will actually be malloced and will never exceed 8kb, without recycling 4000kb will be malloced
+
+note all options including debugging options can be turned on or off at any point of the programs execution
+
+
+
+Garbage_Collector_Dump_Mem(File * fp) will dump a list of all STILL IN USE pointers allocated by the garbage collector, along with, if available, the source lines of where they originated
+
+
+
+
+
+New Feature:  Signal Handler : included with Garbage Collector to aid in Garbage collection in the event the program crashes for any reason, dumps and cleans up on the event of a crash
+
+New Command: GarbageCollectorTest : tests the garbage collector
+
+New Command: realpath: gnu CoreUtils port of realpath, with tiny additional error checking such as warning if PATH (of --relative-to=PATH argument) is non existant or is a file, as it expects a directory
+
+New Beta header: disassembler.h : a very beta, long term project,  C function disassembler, proof of concept
+
+Fixed: Shell : Shell should now work again
+
+
+
+version 1.0
+
+merged current shell
+
+merged current git
+
+new (more stabler) find command
+
+new command: dotgit (moved .git to dotgit if it is present) (kinda like an alias lol)
+
+new command: colors: display a list of supported printable color combinations along with that they actually look like
+
+new command: fecho : like echo but with the option to output to a file
+
+new command: bom : displays a cat of the file and displays wether it contains a BOM mark or not, and if so displays info such as BOM type, BOM length, and the BOM itself in hex
+
+updated help command: now displays valid commands located in cwd, reinforces the display of VALID executable formats such as .py, .ll, c, and others, now makes SURE that commands that exist in there respective folders are displayed, for example, cp/cp.proj.c, Shell/shell.h, cp will show as a command but Shell will not show as a command, currently obeys the execution rule that it will execute a command in a folder if it is conforms to this syntax: [cmd]/[cmd].proj.c, the rule applies to all locationes searched by help (including the cwd)
+
+new command: ln: creates symlinks (currently useless in ios but would be assumed to work in android)
+
+new command: argv : displays argument count and argument contents
+
+new command: mmaps : (ios only) attempts to emulate [cat /proc/self/maps], unknown wether mappings displayed are correct or if they are garbage but at least it is something
+
+new command: raw : displays raw input in decimal, eg "a is 97' ( usefull for seeing what key codes ur keyboard (3rd party keyboards included) is capable of sending)
