@@ -2,6 +2,8 @@
 
 version 1.1
 
+changes : dotgit : integrated the standalone command "dotgot" into the list of Git commands
+
 Changes: Git : moved callbacks into seperate folder
 
 
