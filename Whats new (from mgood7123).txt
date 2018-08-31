@@ -2,6 +2,9 @@
 
 version 1.1
 
+Changes: Git : moved callbacks into seperate folder
+
+
 New Feature: Garbage Collector : fairly stable garbage collector based on tgc's garbage collector
 the Garbage Collector is to be included via :
 
