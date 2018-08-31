@@ -16,9 +16,9 @@ once it has been installed with
 
 GCInstall
 
-can be uninstalled with
+and can be uninstalled with
 
-GCUninstal
+GCUninstall
 
 
 CANNOT detect mallocs from internal functions such as strdup or printf
