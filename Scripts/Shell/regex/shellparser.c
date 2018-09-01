@@ -239,7 +239,7 @@ int column_global = 0;
 			if ((a.current_scope == -1 || a.scope_depth == 0) && token == NULL) { \
 				char * register_token = chartostring(ii.string[(ii.index-1)]); \
 				if (debug_tok) printf("state: %d, at line/column %d/%d, registering token: %s\n", state, line_local, column_local, register_token); \
-				token = register_token \
+				token = register_token; \
 				token_column = column_local; \
 				token_line = line_local; \
 			} \
@@ -442,8 +442,6 @@ char * fill_int(int pad, char fill, int i) {
 
 void parse(char * i, char * delim) {
 	char local_fill = ' ';
-	struct BOM d = builtin__BOM_get(i);
-	i += d.length;
 	int input_len = strlen(i);
 	int line_local = 0;
 	int line_local_max = getbitgroupcount(get_lines(i));
@@ -784,10 +782,6 @@ void parse(char * i, char * delim) {
 		column_global++;
 		column_local++;
 	}
-    reset(buffer);
-    reset(bufferb);
-    free(buffer);
-    free(bufferb);
 	free(token);
 	free(last_token);
 	str_free(ii);
