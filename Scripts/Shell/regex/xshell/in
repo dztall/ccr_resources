@@ -1,0 +1,6 @@
+echo "cats"
+pwd
+ls -F
+printenv
+alias
+echo life | rev > output
