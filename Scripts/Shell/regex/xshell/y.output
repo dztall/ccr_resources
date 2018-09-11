@@ -1,0 +1,270 @@
+Terminals unused in grammar
+
+   BACKGROUND
+
+
+State 13 conflicts: 9 shift/reduce
+
+
+Grammar
+
+    0 $accept: commands $end
+
+    1 commands: %empty
+    2         | commands command
+
+    3 command: arguments
+
+    4 arguments: argument
+    5          | ignore
+    6          | arguments '|'
+    7          | arguments ignore
+    8          | arguments argument
+
+    9 ignore: STDERROUT
+   10       | STDERR VAR
+   11       | '&'
+   12       | '<' VAR
+   13       | STDOUTAPPEND VAR
+   14       | '>' VAR
+
+   15 argument: USERNAME
+   16         | STRINGLITERAL
+   17         | VAR
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'&' (38) 11
+'<' (60) 12
+'>' (62) 14
+'|' (124) 6
+error (256)
+STDOUTAPPEND (258) 13
+STDERROUT (259) 9
+STDERR (260) 10
+BACKGROUND (261)
+VAR (262) 10 12 13 14 17
+USERNAME (263) 15
+STRINGLITERAL (264) 16
+
+
+Nonterminals, with rules where they appear
+
+$accept (14)
+    on left: 0
+commands (15)
+    on left: 1 2, on right: 0 2
+command (16)
+    on left: 3, on right: 2
+arguments (17)
+    on left: 4 5 6 7 8, on right: 3 6 7 8
+ignore (18)
+    on left: 9 10 11 12 13 14, on right: 5 7
+argument (19)
+    on left: 15 16 17, on right: 4 8
+
+
+State 0
+
+    0 $accept: . commands $end
+
+    $default  reduce using rule 1 (commands)
+
+    commands  go to state 1
+
+
+State 1
+
+    0 $accept: commands . $end
+    2 commands: commands . command
+
+    $end           shift, and go to state 2
+    STDOUTAPPEND   shift, and go to state 3
+    STDERROUT      shift, and go to state 4
+    STDERR         shift, and go to state 5
+    VAR            shift, and go to state 6
+    USERNAME       shift, and go to state 7
+    STRINGLITERAL  shift, and go to state 8
+    '&'            shift, and go to state 9
+    '<'            shift, and go to state 10
+    '>'            shift, and go to state 11
+
+    command    go to state 12
+    arguments  go to state 13
+    ignore     go to state 14
+    argument   go to state 15
+
+
+State 2
+
+    0 $accept: commands $end .
+
+    $default  accept
+
+
+State 3
+
+   13 ignore: STDOUTAPPEND . VAR
+
+    VAR  shift, and go to state 16
+
+
+State 4
+
+    9 ignore: STDERROUT .
+
+    $default  reduce using rule 9 (ignore)
+
+
+State 5
+
+   10 ignore: STDERR . VAR
+
+    VAR  shift, and go to state 17
+
+
+State 6
+
+   17 argument: VAR .
+
+    $default  reduce using rule 17 (argument)
+
+
+State 7
+
+   15 argument: USERNAME .
+
+    $default  reduce using rule 15 (argument)
+
+
+State 8
+
+   16 argument: STRINGLITERAL .
+
+    $default  reduce using rule 16 (argument)
+
+
+State 9
+
+   11 ignore: '&' .
+
+    $default  reduce using rule 11 (ignore)
+
+
+State 10
+
+   12 ignore: '<' . VAR
+
+    VAR  shift, and go to state 18
+
+
+State 11
+
+   14 ignore: '>' . VAR
+
+    VAR  shift, and go to state 19
+
+
+State 12
+
+    2 commands: commands command .
+
+    $default  reduce using rule 2 (commands)
+
+
+State 13
+
+    3 command: arguments .
+    6 arguments: arguments . '|'
+    7          | arguments . ignore
+    8          | arguments . argument
+
+    STDOUTAPPEND   shift, and go to state 3
+    STDERROUT      shift, and go to state 4
+    STDERR         shift, and go to state 5
+    VAR            shift, and go to state 6
+    USERNAME       shift, and go to state 7
+    STRINGLITERAL  shift, and go to state 8
+    '|'            shift, and go to state 20
+    '&'            shift, and go to state 9
+    '<'            shift, and go to state 10
+    '>'            shift, and go to state 11
+
+    STDOUTAPPEND   [reduce using rule 3 (command)]
+    STDERROUT      [reduce using rule 3 (command)]
+    STDERR         [reduce using rule 3 (command)]
+    VAR            [reduce using rule 3 (command)]
+    USERNAME       [reduce using rule 3 (command)]
+    STRINGLITERAL  [reduce using rule 3 (command)]
+    '&'            [reduce using rule 3 (command)]
+    '<'            [reduce using rule 3 (command)]
+    '>'            [reduce using rule 3 (command)]
+    $default       reduce using rule 3 (command)
+
+    ignore    go to state 21
+    argument  go to state 22
+
+
+State 14
+
+    5 arguments: ignore .
+
+    $default  reduce using rule 5 (arguments)
+
+
+State 15
+
+    4 arguments: argument .
+
+    $default  reduce using rule 4 (arguments)
+
+
+State 16
+
+   13 ignore: STDOUTAPPEND VAR .
+
+    $default  reduce using rule 13 (ignore)
+
+
+State 17
+
+   10 ignore: STDERR VAR .
+
+    $default  reduce using rule 10 (ignore)
+
+
+State 18
+
+   12 ignore: '<' VAR .
+
+    $default  reduce using rule 12 (ignore)
+
+
+State 19
+
+   14 ignore: '>' VAR .
+
+    $default  reduce using rule 14 (ignore)
+
+
+State 20
+
+    6 arguments: arguments '|' .
+
+    $default  reduce using rule 6 (arguments)
+
+
+State 21
+
+    7 arguments: arguments ignore .
+
+    $default  reduce using rule 7 (arguments)
+
+
+State 22
+
+    8 arguments: arguments argument .
+
+    $default  reduce using rule 8 (arguments)
