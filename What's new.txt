@@ -4,9 +4,7 @@
 	- Text editor text replace added.
 	- In-app keyboard  single page layout restored.
 	- Text editor word wrap indentation added.
-
-• Theme file key added.
-	- FileList.Background.Color for file list view background color setting.
+	- Theme file key 'FileList.Background.Color' added for file list view background color setting.
 
 • Bugs fixed
 	- symlink, link system function failed due to permission denied on some platforms.
