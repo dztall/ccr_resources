@@ -66,7 +66,7 @@ int regexEngine(char * fmt, char * string) {
 		
 		// parse string
 		if(is_range && !range_next && !swap_next) {
-			!range?{
+			if (!range){
 				if (range0.index == limit*limit_multiplierrange0) {
 					p(reallocating);
 					limit_multiplierrange0++;
@@ -74,7 +74,7 @@ int regexEngine(char * fmt, char * string) {
 				}
 				range0.string[range0.index] = *fmt;
 				range0.index++;
-			}:{
+			}else{
 				if (range1.index == limit*limit_multiplierrange1) {
 					p(reallocating);
 					limit_multiplierrange1++;

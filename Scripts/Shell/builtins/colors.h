@@ -33,24 +33,24 @@
 
 #endif
 
-#define comment_asm(x, ...) printf(colors_GREEN " ; " x colors_RESET __VA_ARGS__)
+// #define comment_asm(x, ...) printf(colors_GREEN " ; " x colors_RESET __VA_ARGS__)
+// 
+// #define printf_b(x, ...) printf(colors_BLUE x colors_RESET __VA_ARGS__)
+// #define printf_r(x, ...) printf(colors_RED x colors_RESET __VA_ARGS__)
+// #define printf_m(x, ...) printf(colors_MAG x colors_RESET __VA_ARGS__)
+// 
+// #define fprintf_b(a, x, ...) fprintf(a, colors_BLUE x colors_RESET __VA_ARGS__)
+// #define fprintf_r(a, x, ...) fprintf(a, colors_RED x colors_RESET __VA_ARGS__)
+// #define fprintf_m(a, x, ...) fprintf(a, colors_MAG x colors_RESET __VA_ARGS__)
 
-#define printf_b(x, ...) printf(colors_BLUE x colors_RESET __VA_ARGS__)
-#define printf_r(x, ...) printf(colors_RED x colors_RESET __VA_ARGS__)
-#define printf_m(x, ...) printf(colors_MAG x colors_RESET __VA_ARGS__)
 
-#define fprintf_b(a, x, ...) fprintf(a, colors_BLUE x colors_RESET __VA_ARGS__)
-#define fprintf_r(a, x, ...) fprintf(a, colors_RED x colors_RESET __VA_ARGS__)
-#define fprintf_m(a, x, ...) fprintf(a, colors_MAG x colors_RESET __VA_ARGS__)
-
-/*
 
 int comment_asm(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    printf(GRN " ; ");
+    printf(colors_GREEN " ; ");
     int bytes = vprintf (fmt, ap);
-    printf(RESET);
+    printf(colors_RESET);
     va_end(ap);
     return bytes;
 }
@@ -58,9 +58,9 @@ int comment_asm(const char *fmt, ...) {
 int printf_b(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    printf(BLU);
+    printf(colors_BLUE);
     int bytes = vprintf (fmt, ap);
-    printf(RESET);
+    printf(colors_RESET);
     va_end(ap);
     return bytes;
 }
@@ -68,9 +68,9 @@ int printf_b(const char *fmt, ...) {
 int printf_r(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    printf(RED);
+    printf(colors_RED);
     int bytes = vprintf (fmt, ap);
-    printf(RESET);
+    printf(colors_RESET);
     va_end(ap);
     return bytes;
 }
@@ -78,9 +78,9 @@ int printf_r(const char *fmt, ...) {
 int printf_m(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    printf(MAG);
+    printf(colors_MAG);
     int bytes = vprintf (fmt, ap);
-    printf(RESET);
+    printf(colors_RESET);
     va_end(ap);
     return bytes;
 }
@@ -88,9 +88,9 @@ int printf_m(const char *fmt, ...) {
 int fprintf_b(FILE * a, const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    fprintf(a, BLU);
+    fprintf(a, colors_BLUE);
     int bytes = vfprintf (a, fmt, ap);
-    fprintf(a, RESET);
+    fprintf(a, colors_RESET);
     va_end(ap);
     return bytes;
 }
@@ -98,9 +98,9 @@ int fprintf_b(FILE * a, const char *fmt, ...) {
 int fprintf_r(FILE * a, const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    fprintf(a, RED);
+    fprintf(a, colors_RED);
     int bytes = vfprintf (a, fmt, ap);
-    fprintf(a, RESET);
+    fprintf(a, colors_RESET);
     va_end(ap);
     return bytes;
 }
@@ -108,11 +108,11 @@ int fprintf_r(FILE * a, const char *fmt, ...) {
 int fprintf_m(FILE * a, const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    fprintf(a, MAG);
+    fprintf(a, colors_MAG);
     int bytes = vfprintf (a, fmt, ap);
-    fprintf(a, RESET);
+    fprintf(a, colors_RESET);
     va_end(ap);
     return bytes;
 }
 
-*/
+

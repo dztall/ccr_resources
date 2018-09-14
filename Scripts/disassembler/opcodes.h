@@ -5,12 +5,11 @@ bool disassembler_include_binary = false;
 
 void process_opcodes(void *bufferb, unsigned char * opcode, unsigned long index, unsigned long width)
 {
-	printf("%p " bufferb);
+	//printf("%p ", bufferb);
 	unsigned char * buffer = bufferb;
 	unsigned long i, ii;
 	int c = 0;
-	// mov AL : 10110 000
-	for (int i = 0; i < index; i++) { ifc printf_b("%02x ", opcode[i]); else printf("%02x ", opcode[i]); }
+	//for (int i = 0; i < index; i++) { ifc printf_b("%02x ", opcode[i]); else printf("%02x ", opcode[i]); }
 	//puts("");
 	if(disassembler_include_binary) {
 		for (i = !swap?0:index-1; !swap?i < index:i != -1; !swap?i++:i--) {
@@ -25,6 +24,7 @@ void process_opcodes(void *bufferb, unsigned char * opcode, unsigned long index,
 			printf(" ");
 		}
 	}
+	// our opcode gets stored in a opcode byte string with a type of char
 	read_encoding_arm_regexEngine(opcode);
 	puts("");
 }

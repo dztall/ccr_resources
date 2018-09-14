@@ -10,6 +10,12 @@ int32_t string_to_bin(int len, char * s) {
 	return x;
 }
 
+uint64_t string_to_bin64(int len, char * s) {
+	uint64_t x = 0;
+	for(int i = 0; i < len; i++) x = (x << 1) | (s[i] == '1' ? 1 : 0);
+	return x;
+}
+
 int32_t binary(int start, int end, char * s) {
 	int32_t x = 0;
 	for(int i = end; i <= start; i++) x = (x << 1) | (s[arm2index(i)] == '1' ? 1 : 0);
