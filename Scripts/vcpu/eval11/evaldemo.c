@@ -28,8 +28,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "../../../Shell/builtins/printfmacro.h"
-#include "../../../Shell/builtins/env.h"
+#include "../../Shell/builtins/printfmacro.h"
+#include "../../Shell/builtins/env.h"
 #define EVAL_TYPE int
 #include "evaldefs.h"
 #include "evalkern.c"

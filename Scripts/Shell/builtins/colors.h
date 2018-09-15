@@ -33,16 +33,17 @@
 
 #endif
 
-// #define comment_asm(x, ...) printf(colors_GREEN " ; " x colors_RESET __VA_ARGS__)
-// 
-// #define printf_b(x, ...) printf(colors_BLUE x colors_RESET __VA_ARGS__)
-// #define printf_r(x, ...) printf(colors_RED x colors_RESET __VA_ARGS__)
-// #define printf_m(x, ...) printf(colors_MAG x colors_RESET __VA_ARGS__)
-// 
-// #define fprintf_b(a, x, ...) fprintf(a, colors_BLUE x colors_RESET __VA_ARGS__)
-// #define fprintf_r(a, x, ...) fprintf(a, colors_RED x colors_RESET __VA_ARGS__)
-// #define fprintf_m(a, x, ...) fprintf(a, colors_MAG x colors_RESET __VA_ARGS__)
+#ifdef __CCR__
+    #define comment_asm(x, ...) printf(colors_GREEN " ; " x colors_RESET __VA_ARGS__)
 
+    #define printf_b(x, ...) printf(colors_BLUE x colors_RESET __VA_ARGS__)
+    #define printf_r(x, ...) printf(colors_RED x colors_RESET __VA_ARGS__)
+    #define printf_m(x, ...) printf(colors_MAG x colors_RESET __VA_ARGS__)
+
+    #define fprintf_b(a, x, ...) fprintf(a, colors_BLUE x colors_RESET __VA_ARGS__)
+    #define fprintf_r(a, x, ...) fprintf(a, colors_RED x colors_RESET __VA_ARGS__)
+    #define fprintf_m(a, x, ...) fprintf(a, colors_MAG x colors_RESET __VA_ARGS__)
+#else
 
 
 int comment_asm(const char *fmt, ...) {
@@ -114,5 +115,5 @@ int fprintf_m(FILE * a, const char *fmt, ...) {
     va_end(ap);
     return bytes;
 }
-
+#endif
 

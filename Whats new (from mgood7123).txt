@@ -1,5 +1,9 @@
 ﻿version 1.2:
 
+Changes: shell : colour.h should now compile appropriately for x86 and cpp 1.12
+
+Fixes : evaldemo.c : fixed incorrect header paths
+
 New: atexitfix : small fix for atexit(): normal atexit() does not call its registered functions in reverse order like gnu atexit does, making functions registered first be called first instead of last
 
 Fixed: Signal Handler : now pauses when there is a infinite signal loop, eg SIGBUS > _Exit > SIGBUS
