@@ -67,6 +67,7 @@ void __dump(unsigned char *buffer, unsigned long index, unsigned long width)
 
 
 void disassemble_ARM_IOS(void * function, int length, int lines) {
+	pp(function);
 	swap = swap_();
 	printf("Endian: %s\nbit length: %d\nlines to read = %d (1 line == %d bits read)\n", swap?"Big":"Little", length, lines, length);
 	length = length/8;

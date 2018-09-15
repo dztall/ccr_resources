@@ -1,14 +1,16 @@
-﻿#include "encoding_arm_cond.h"
+﻿#include "encoding_arm_structures.h"
 #include "psuedosyntax.h"
+#include "encoding_arm_cond.h"
 // instructions will be in alphabetical order hopefully
 // a b c d e f g h i j k l m n o p q r s t u v w x y z
 void decode(char * instruction, char * type, char * encoding) {
-	ASPCR = encoding;
+	APSR  = encoding;
 	extract(cond, encoding, 31, 28);
 	ifc {
 		if (ConditionPassed(cond)) conditionalcolour
 	}
-	printf("%s", instruction);
+	printf("%s ", instruction);
+	if (type) printf("(%s) ", type);
 	
 	if (!strcmp(instruction, "B")) {
 		int32_t imm32 = SIGN_EXTEND(32,23, string_to_bin(32, encoding+shift_by_bits32(2)));
@@ -37,4 +39,11 @@ void decode(char * instruction, char * type, char * encoding) {
 		printf(" #0x%x ", imm32);
 	}
 	ifc printf(colors_RESET);
+	printf("(");
+	if (ConditionPassed(cond)) conditionaltext
+	printf(")");
+	if (disassembler_decode_cond) {
+		puts("");
+		program_info(encoding);
+	}
 }

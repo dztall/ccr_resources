@@ -50,3 +50,17 @@ void extract_h(char * to, char * from, int locationstart,int locationend) {
 	to[ii] = 0;
 }
 #define extract(to,from,locationstart,locationend) char to[(locationstart-locationend)+2]; extract_h(to,from,locationstart,locationend)
+
+bool ConditionPassed(char * cond) {
+	bool result;
+	ifregexEngine("3-1,000", cond) result = (APSR->Z == '1');
+	else ifregexEngine("3-1,001", cond) result = (APSR->C == '1');
+	else ifregexEngine("3-1,010", cond) result = (APSR->N == '1');
+	else ifregexEngine("3-1,011", cond) result = (APSR->V == '1');
+	else ifregexEngine("3-1,100", cond) result = (APSR->C == '1' && APSR->Z == '0');
+	else ifregexEngine("3-1,101", cond) result = (APSR->N == APSR->V);
+	else ifregexEngine("3-1,110", cond) result = (APSR->N == APSR->V && APSR->Z == '0');
+	else ifregexEngine("3-1,111", cond) result = true;
+	if(cond[3] == '1' && strcmp(cond, "1111") == -1) result = !result;
+	return result;
+}

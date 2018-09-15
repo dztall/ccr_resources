@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "../Shell/builtins/env.h"
+// #include "../disassembler/disassembler.h"
 #ifndef MCASSEMBLER
 #define printBinLen(num, len) { \
 	for (int i = len-1; i != -1; i--) printf("%d", (num >> i) & 0x1); \
