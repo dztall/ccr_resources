@@ -1,5 +1,6 @@
 ﻿//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
-
+#define MCASSEMBLER
+#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

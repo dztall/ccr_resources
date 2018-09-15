@@ -245,7 +245,7 @@ void env__list(char ** env) {
 }
 
 char ** env__add(char ** env, const char * string) {
-    if (!env) env = env__new();
+    //if (!env) env = env__new();
 	char ** array_tmp;
 	size_t i = env__size(env);
 	array_tmp = realloc(env, ((i+2)*sizeof(char*)));
@@ -393,10 +393,15 @@ char ** env__append(char ** env, const char * name, const char * string) {
 }
 
 char ** env__append_env(char ** env1, char ** env2) {
-    if (!env1 && !env2) return env__new();
+ 	if (!env1 && !env2) return env__new();
     if (!env2) return env1;
 	// we rebuild the entire environment
-	for (int i = 0; i < env__size(env2); i++) env1 = env__add(env1, env2[i]);
+ 	char ** envtmp = env__copy(env1);
+	for (int i = 0; i < env__size(env1); i++) envtmp = env__add(envtmp, env1[i]);
+	for (int i = 0; i < env__size(env2); i++) envtmp = env__add(envtmp, env2[i]);
+	env__free(env1);
+	env1 = env__copy(envtmp);
+	env__free(envtmp);
 	return env1;
 }
 

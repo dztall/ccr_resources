@@ -1,6 +1,5 @@
 ﻿#include "encoding_arm_cond.h"
 #include "psuedosyntax.h"
-
 // instructions will be in alphabetical order hopefully
 // a b c d e f g h i j k l m n o p q r s t u v w x y z
 void decode(char * instruction, char * type, char * encoding) {

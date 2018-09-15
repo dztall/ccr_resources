@@ -1,4 +1,4 @@
-﻿//#include "../Garbage_Collector/gc.h"
+﻿#include "../Garbage_Collector/gc.h"
 //Garbage_Collector_Debug = Garbage_Collector_Debug_None;
 #include <unistd.h>
 #include "disassembler.h"
@@ -25,10 +25,19 @@ int i = 100;
 
 
 */
-//#include "cpu.h"
+#include "cpu.h"
 // cpu type could be used to automatically choose the disassembly type based on the host
 int main(void)
 {
+	//Garbage_Collector_Pause();
+	timefunc(
+		getCPUType();
+		printCPUType(cpu);
+	);
+    static char (*func)();
+    func = (char *()) fooa;
+	pi(a());
+	pi(fooa());
 	regexEngine_Debug = false;
 	disassembler_colour = true;
 	disassembler_debug = false;
@@ -39,5 +48,13 @@ int main(void)
 		disassemble_ARM_IOS(a, 32, 32);
 	);
 	pi(regexEngine_Total_Calls)
+	if (rec == 1) {
+	if(m < i) {
+		m++;
+		main();
+	}
+	if (m < i+1) printf("%d < %d\n", m, i+1);
+	m--;
+	}
 	return 0;
 }

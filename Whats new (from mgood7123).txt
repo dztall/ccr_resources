@@ -1,8 +1,262 @@
-﻿location: https://github.com/mgood7123/MobileC_CCR
+﻿version 1.2:
+
+New: atexitfix : small fix for atexit(): normal atexit() does not call its registered functions in reverse order like gnu atexit does, making functions registered first be called first instead of last
+
+Fixed: Signal Handler : now pauses when there is a infinite signal loop, eg SIGBUS > _Exit > SIGBUS
+
+Fixed: shell : fixed memory bugs in env__* functions resulting in the possibility of a corrupted environment
+
+Updated: Shell : added env_append_env: appends an environment to another environment
+
+Updated: vcpu : vcpu now has a integrated assembly assembler, parser, disassembler, and decoder, powered by a modified version of the eval11 expression library (https://www.parsifalsoft.com/examples/evalexpression/index.html), allowing the cpu to actually use assembly
+
+Changes: original vcpu moved to vcpu/minimal_cpu_test.c
+
+Updates: vcpu: vcpu now supports assembly, including the use of operands, registers, and hexadecimal (hex is not implemented yet)
+
+New: vcpu : hand coded modular virtual cpu implementation
+
+as the name suggests, this is a hand coded from scratch, modular virtual cpu emulator, designed to be modular and portableish (compiles with x86 gnu gcc and Mobile C CPP 1.12.10, unknown if compiles with other compilers)
+
+the cpu has a pre built, work in progress, default cpu structure named default_cpu, but new ones can be made as you see fit, but this is not recommended as you would, due to the possible change in cpu structure, re implement all functions to work with the new structure
+
+the structure of a cpu:
+
+struct virtual_cpu_register_bank {
+    int r1;
+    int r2;
+    int r3;
+    int32_t pc;
+    char * name;
+    CPU_TYPE type;
+};
+
+struct virtual_cpu_sub_core {
+    struct virtual_cpu_register_bank virtual_register;
+    int op;
+    int status;
+    char * name;
+};
+
+struct virtual_cpu_core {
+    struct virtual_cpu_sub_core previous;
+    struct virtual_cpu_sub_core current;
+    int status;
+    int power;
+    char * cpu_power_state[2];
+    char * name;
+    bool init;
+};
+
+struct virtual_cpu {
+    int core_count;
+    struct virtual_cpu_core *core;
+    struct Queue *q;
+    char ** table_instructions;
+    char ** table_types;
+    char ** table_registers;
+    char ** table_encoding;
+    struct instruction * instruction_bank;
+    char * name;
+} cpu_default;
+
+as you can see its structure is fairly complex (and as such it is NOT recommended that you attempt to modify this unless you know what you are doing, adding additional members is OK tho) and most of it is not yet functional, such as use of multiple cores (threading), and a meaningfull power status, (for example, when the cpu is powered off all que and execute functions using that cpu should not work), a FULL set of registers, stack, cpu cache line, multiple instruction sets, etc, this is planned to be supported
+
+the cpu can have unlimited cores, but by default this is limited to a maximum of 32 cores, (cus imagine just printing the information for 999+ cores), and by default it initializes with 32 cores, but only uses 1 due to lack of thread support
+
+note: thread support does not refer to pthreads, thread support refers to the ability to split a cpu's load across multiple cores
+
+the cpu currently uses a queue and execute system, queue() will queue an assembly string for assembling, and execute() will parse, assemble, and execute the current queue, in the order it is queued, until the queue is empty, as opposed to the standard cpu execution sequence: [ Instruction Fetch, Instruction Decode, Execute, Memory access, Register write back ] (https://en.wikipedia.org/wiki/Instruction_pipelining)
+
+example of queue and execute in pure assembler:
+
+// the guts of our queue/execute system, without this we can queue and execute as much as we want and nothing will happen
+
+#include "cpu_language.h"
+
+void setup_decoding_information(struct instruction ** instruction_bank) {
+    instruction_add(instruction_bank, "instruction_add");
+    instruction_add_operands(instruction_bank, "instruction_add", "register_r1, register_r2"); // if this step is omitted all registers in the operations shall become IMPLICIT
+    instruction_add_operations(instruction_bank, "instruction_add", "register_r3 = register_r1 + register_r2");
+    instruction_finalize(instruction_bank);
+    
+    instruction_add(instruction_bank, "instruction_add3");
+    instruction_add_operands(instruction_bank, "instruction_add3", "a, b, c"); // if this step is omitted all registers in the operations shall become IMPLICIT
+    instruction_add_operations(instruction_bank, "instruction_add3", "a = (b * c) + c; a += (c*c)*a");
+    instruction_finalize(instruction_bank);
+
+    instruction_add(instruction_bank, "instruction_mov");
+    instruction_add_operands(instruction_bank, "instruction_mov", "register_r1, register_r2"); // if this step is omitted all registers in the operations shall become IMPLICIT
+    instruction_add_operations(instruction_bank, "instruction_mov", "register_r2 = register_r1");
+    instruction_finalize(instruction_bank);
+}
+
+int main()
+{
+    char ** table_instructions;
+    char ** table_types;
+    char ** table_registers;
+    char ** table_encoding;
+    init_table(&table_instructions, &table_types, &table_registers, &table_encoding);
+    instruction_new_bank(test);
+    setup_decoding_information(&test);
+    parse(table_encoding, "instruction_mov 19, register_r1");
+    parse(table_encoding, "instruction_mov 1, register_r2");
+    parse(table_encoding, "instruction_add register_r1, register_r2");
+    parse(table_encoding, "instruction_add3 register_r3, register_r3, register_r3");
+    puts("writing from opcode_structure to testcpuwrite");
+    opcode_structure_write("testcpuwrite", "a+");
+    opcode_structure_clear_all();
+    puts("reading from testcpuwrite into opcode_structure");
+    opcode_structure_read("testcpuwrite");
+    opcode_structure_print_all();
+    cpu_decode(table_encoding, table_types, table_registers, test, 0);
+    cpu_decode(table_encoding, table_types, table_registers, test, 1);
+    cpu_decode(table_encoding, table_types, table_registers, test, 2);
+    cpu_decode(table_encoding, table_types, table_registers, test, 3);
+    opcode_structure_clear_all();
+    instruction_delete_bank(&test);
+    return 0;
+}
+
+
+
+this, when compiled, will:
+assemble the following assembly:
+mov 19, r1
+mov 1, r2
+add r1, r2
+add3 r3, r3, r3
+write the assembled code into the file "testcpuwrite"
+clear the structure that contains the assembled code
+read the assembled code from "testcpuwrite" back into the structure
+print the structure
+then execute the assembled code
+
+in detail:
+we first include the full assembler itself, cpu_language.h,
+
+next we declare and initialize our tables: instructions, types, registers, and encoding
+the existence of these tables (while they can be named anything), are vital to the functionality of the assembler, these, separate, define the instruction list, argument types, and register list, and when combined into the table encoding, form a complete Instruction Set Architecture
+
+next we create a new instruction bank which holds all the decoding information required to successfully disassemble, decode, and execute our instructions
+
+next we initialize out instruction bank:
+    first we add an instruction, this MUST be done before all other operations and is REQUIRED by all other operations except finalization
+    
+    next we add an operand definition to our instruction, these MUST be unique per instruction, no two identifiers are allowed to be the same, identifiers can be any alphanumerical character, but is NOT allowed to be a single digit (note this is a bug, single digits SHOULD be valid, but the parser cannot process them correctly)
+    
+    next we add some operations for our instruction to preform when executed, any items NOT defined in the operands are automatically declared as IMPLICIT and are not required in the statement itself, any MATCHING items will be replaced with the appropriate contents of the operands identifiers, regardless of the position of either operation/operand, as you can see by instruction_add3, multiple operations ARE allowed in a single instruction, seperated by ; itself
+    
+    finally we finalize the instruction, this just increases the instruction bank index to the next index
+    
+    then we repeat this process to add other instructions
+
+next we parse and execute our assembly
+
+you will notice that i do not just parse then decode directly without writing anything to file, and with good reason:
+while it IS capable of executing entirely in memory, it ALSO needs a way to execute from a file, and thus cannot rely directly on the parser to hand us the required information for us such as all the registers and numbers and instructions parsed and assembled
+
+parse() will parse an instruction and attempt to internally assemble it into a valid opcode structure which can be written to a file using opcode_structure_write, examined with opcode_structure_print, cleared with opcode_structure_clear, or executed with cpu_decode
+
+opcode_structure_write writes the entire opcode structure into a file, it accepts the same arguments as fread does
+
+opcode_structure_read reads the opcode structure from a file into the opcode_structure, and checks for incomplete structure tail and warns if present, indicating the possibility the file is damaged or corrupted
+
+opcode_structure_print and opcode_structure_clear take a index into the opcode structure, and those suffixed with _all take no index, and operate on all available indexes of the opcode structure
+
+cpu_disassemble will attempt to disassemble an opcode structure and attempt to produce a valid operations string with all text replacement done
+
+cpu_decode will decode a specified opcode_structure structure index, internally disassembling it and using the string obtained during disassembling to execute the instruction
+
+finally after everything is done we clean everything up by clear all opcode structures and deleting the instruction bank
+
+binding of operands to external variables such as registers can be done via Expression_Assign("register_r1", &cpu->core[0].current.virtual_register.r1)
+
+in this case the variable "register_r1" is binded to the variable cpu->core[0].current.virtual_register.r1
+variables being binded MUST be of type int, and MUST be the address to the value of the variable being binded, pointers to an int type also suffice but must be binded accordingly, it will not dereference pointers for you
+
+for example:
+declaring int * i then binding to i itself will bind it to the address of i, which WILL work
+binding to *i will bind to the value of i and will not work
+binding to &i will bind to the address of the pointer to i (int ** i) and will not work
+
+declaring int i then binding to i will not work
+binding to &i will work
+
+when a variable is binded to an operand any changes to that operands value is reflected in the variable and vice versa, note this only takes place after string replacement in cpu_decode, for example is the resulting string contains "R1" (eg, R1 is recognised, SR1L is NOT recognised) and R1 is binded then any changes to R1 will be present in the binded value, retrieval of this value manually without binding is possible but somewhat tedious as it is stored in a structured array:
+
+struct VariableDescriptor {
+  char   *name;
+  EVAL_TYPE * valueptr; // shall be a pointer to a external variable otherwise shall point to value
+  EVAL_TYPE value;      // this is what valueptr points to when not binded
+};
+
+by default it is assigned to "variable" and can be retrieved via:
+
+int returnvar(char * string) {
+    for (int i = 0; i < nVariables; i++) if (strcmp(variable[i].name, string) == 0) return *variable[i].valueptr;
+}
+printf("value of R1 is %d\n", returnvar("R1"));
+
+format CAN be changed by modifying EVAL_TYPE but this is not recommended due to printf formatting being hard-coded to type int
+
+for convinience every cpu structure has its own name
+
+detailed information about the cpu can be retrieved via cpu_info()
+for example:
+VIRTUAL CPU: INFO : cpu name:         cpu_default
+VIRTUAL CPU: INFO : cpu cores:        32
+VIRTUAL CPU: INFO : size of cpu_default: 5904
+VIRTUAL CPU: INFO : size of instruction table: 0
+VIRTUAL CPU: INFO : size of types table:       0
+VIRTUAL CPU: INFO : size of registers table:   0
+VIRTUAL CPU: INFO : size of encoding table:    0
+VIRTUAL CPU: INFO : size of instruction bank:  0
+VIRTUAL CPU: INFO : cpu_default : core name:  Core 0
+VIRTUAL CPU: INFO : cpu_default : size of Core 0: 184
+VIRTUAL CPU: INFO : cpu_default : Core 0 : cpu power status: OFF
+VIRTUAL CPU: INFO : cpu_default : Core 0 : status:           0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : sub core name: PREVIOUS
+VIRTUAL CPU: INFO : cpu_default : Core 0 : size of PREVIOUS: 48
+VIRTUAL CPU: INFO : cpu_default : Core 0 : PREVIOUS : register bank name: register
+VIRTUAL CPU: INFO : cpu_default : Core 0 : PREVIOUS : size of register: 32
+VIRTUAL CPU: INFO : cpu_default : Core 0 : PREVIOUS : register : r1: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : PREVIOUS : register : r2: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : PREVIOUS : register : r3: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : PREVIOUS : register : pc: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : sub core name: CURRENT
+VIRTUAL CPU: INFO : cpu_default : Core 0 : size of CURRENT: 48
+VIRTUAL CPU: INFO : cpu_default : Core 0 : CURRENT : register bank name: register
+VIRTUAL CPU: INFO : cpu_default : Core 0 : CURRENT : size of register: 32
+VIRTUAL CPU: INFO : cpu_default : Core 0 : CURRENT : register : r1: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : CURRENT : register : r2: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : CURRENT : register : r3: 0
+VIRTUAL CPU: INFO : cpu_default : Core 0 : CURRENT : register : pc: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 version 1.1
 
-changes : dotgit : integrated the standalone command "dotgit" into the list of Git commands
+Changes: dotgit : integrated the standalone command "dotgit" into the list of Git commands
 
 Changes: Git : moved callbacks into seperate folder
 
@@ -138,7 +392,7 @@ New Feature:  Signal Handler : included with Garbage Collector to aid in Garbage
 
 New Command: GarbageCollectorTest : tests the garbage collector
 
-New Command: realpath: gnu CoreUtils port of realpath, with tiny additional error checking such as warning if PATH (of --relative-to=PATH argument) is non existant or is a file, as it expects a directory
+New Command: realpath: GNU CoreUtils port of realpath, with tiny additional error checking such as warning if PATH (of --relative-to=PATH argument) is non existant or is a file, as it expects a directory
 
 New Beta header: disassembler.h : a very beta, long term project,  C function disassembler, proof of concept
 
@@ -148,26 +402,26 @@ Fixed: Shell : Shell should now work again
 
 version 1.0
 
-merged current shell
+Merged current shell
 
-merged current git
+Merged current git
 
-new (more stabler) find command
+New (more stabler) find command
 
-new command: dotgit (moved .git to dotgit if it is present) (kinda like an alias lol)
+New Command: dotgit (moved .git to dotgit if it is present) (kinda like an alias lol)
 
-new command: colors: display a list of supported printable color combinations along with that they actually look like
+New Command: colors: display a list of supported printable color combinations along with that they actually look like
 
-new command: fecho : like echo but with the option to output to a file
+New Command: fecho : like echo but with the option to output to a file
 
-new command: bom : displays a cat of the file and displays wether it contains a BOM mark or not, and if so displays info such as BOM type, BOM length, and the BOM itself in hex
+New Command: bom : displays a cat of the file and displays wether it contains a BOM mark or not, and if so displays info such as BOM type, BOM length, and the BOM itself in hex
 
-updated help command: now displays valid commands located in cwd, reinforces the display of VALID executable formats such as .py, .ll, c, and others, now makes SURE that commands that exist in there respective folders are displayed, for example, cp/cp.proj.c, Shell/shell.h, cp will show as a command but Shell will not show as a command, currently obeys the execution rule that it will execute a command in a folder if it is conforms to this syntax: [cmd]/[cmd].proj.c, the rule applies to all locationes searched by help (including the cwd)
+Updated: help : now displays valid commands located in cwd, reinforces the display of VALID executable formats such as .py, .ll, c, and others, now makes SURE that commands that exist in there respective folders are displayed, for example, cp/cp.proj.c, Shell/shell.h, cp will show as a command but Shell will not show as a command, currently obeys the execution rule that it will execute a command in a folder if it is conforms to this syntax: [cmd]/[cmd].proj.c, the rule applies to all locationes searched by help (including the cwd)
 
-new command: ln: creates symlinks (currently useless in ios but would be assumed to work in android)
+New Command: ln: creates symlinks (currently useless in ios but would be assumed to work in android)
 
-new command: argv : displays argument count and argument contents
+New Command: argv : displays argument count and argument contents
 
-new command: mmaps : (ios only) attempts to emulate [cat /proc/self/maps], unknown wether mappings displayed are correct or if they are garbage but at least it is something
+New Command: mmaps : (ios only) attempts to emulate [cat /proc/self/maps], unknown wether mappings displayed are correct or if they are garbage but at least it is something
 
-new command: raw : displays raw input in decimal, eg "a is 97' ( usefull for seeing what key codes ur keyboard (3rd party keyboards included) is capable of sending)
+New Command: raw : displays raw input in decimal, eg "a is 97' ( usefull for seeing what key codes ur keyboard (3rd party keyboards included) is capable of sending)
