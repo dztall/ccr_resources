@@ -10,9 +10,8 @@ int gitprefix(push1) (char * dir, char * from, char * to)
     git_remote_callbacks callbacks = GIT_REMOTE_CALLBACKS_INIT;
     
 
-	if (git_repository_open(&repo, dir)) {
-		giterror("Could not open repository");
-	}
+	gitopenrepo(&repo, dir);
+	
 	// get the remote.
 	git_remote* remote = NULL;
 	if (git_remote_lookup( &remote, repo, from)) {
@@ -69,34 +68,9 @@ int gitprefix(push1) (char * dir, char * from, char * to)
 }
 
 int gitprefix(push) (int argc, char * argv[]) {
-	// process args
-	/*
-	for (int i = 1; i< argc; i++) {
-		//ps(argv[i])
-		if (!strcmp(argv[i], "-h") || !strcmp(argv[i],"--help")) {
-			return gitprefix(print_usageC)();
-		}
-		else if (!strcmp(argv[i], "--global")) {
-			is_global = 1;
-			pi(is_global)
-		}
-		else if ((argv[i])[0]== '-') {
-			fprintf(stderr, "Unsupported option %s.\n", argv[i]);
-			return gitprefix(print_usageC)();
-		}
-		else {
-			cfg_var = argv[i];
-			i++;
-			cfg_val = argv[i];
-			
-			ps(cfg_var)
-			ps(cfg_val)
-		}
-	}
-	*/
 	int err;
 	giterr(git_libgit2_init());
-	err = gitprefix(push1) (".", argv[1], argv[2]);
+	err = gitprefix(push1) (NULL, argv[1], argv[2]);
 	if (!using_defined) {
 		if (username) {
 			free(username);

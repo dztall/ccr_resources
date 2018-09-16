@@ -51,26 +51,13 @@ int gitprefix(remote) (int argc, char *argv[])
 {
 	int retval = 0;
 	struct gitprefix(remote_opts) opt = {0};
-	git_buf buf = GIT_BUF_INIT_CONST(NULL, 0);
 	git_repository *repo = NULL;
 
 	if (gitprefix(remote_parse_subcmd)(&opt, argc, argv) == -1) return -1;
 
 	git_libgit2_init();
 	
-	if (git_repository_discover(&buf, ".", 0, NULL)) {
-		git_buf_free(&buf);
-		git_libgit2_shutdown();
-		giterror("Could not find repository");
-	}
-
-	if (git_repository_open(&repo, buf.ptr)) {
-		git_buf_free(&buf);
-		git_libgit2_shutdown();
-		giterror("Could not open repository");
-	}
-	
-	git_buf_free(&buf);
+	gitopenrepo(&repo,NULL);
 
 	switch (opt.cmd)
 	{

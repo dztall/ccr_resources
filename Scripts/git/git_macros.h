@@ -1,6 +1,22 @@
 ﻿
 #define touch(x) close(open(x,O_WRONLY | O_CREAT, DEFFILEMODE))
 
+#define gitopenrepo(repo, path) git_buf buf = GIT_BUF_INIT_CONST(NULL, 0); \
+	\
+	if (path == NULL) if (git_repository_discover(&buf, ".", 0, NULL)) {\
+		git_buf_free(&buf);\
+		git_libgit2_shutdown();\
+		giterror("Could not find repository");\
+	}\
+\
+	if (git_repository_open(repo, path==NULL?buf.ptr:path)) {\
+		git_buf_free(&buf);\
+		git_libgit2_shutdown();\
+		giterror("Could not open repository");\
+	}\
+	\
+	if (path == NULL) git_buf_free(&buf);
+
 #define gitprefix(x) git_libgit_version_2_api_##x
 
 #define gitprefix(x) git_libgit_version_2_api_##x

@@ -50,11 +50,7 @@ int gitprefix(add) (int argc, char** argv)
 
 	gitprefix(init_array)(&array, argc-count, argv+count);
 
-	if (git_repository_open(&repo, ".")) {
-		git_repository_free(repo);
-		git_libgit2_shutdown();
-		giterror("Could not open repository");
-	}
+	gitopenrepo(&repo, NULL);
 	
 	if (git_repository_index(&index, repo)) {
 		git_index_free(index);
