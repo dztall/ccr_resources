@@ -1,5 +1,9 @@
 ﻿version 1.2:
 
+Fixed: Shell : fixed a redefinition that prevented the shell from compiling
+
+Changed: Shell : turned Garbage Collection Debug off
+
 New Command: evaldemo : demonstrates the eval11 library
 
 Fixes: eval11 : fixed a bug where the variables where set before they where pushed instead of after

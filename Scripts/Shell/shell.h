@@ -1,8 +1,7 @@
 ﻿//Author: mgood7123 (Matthew James Good) http://github.com/mgood7123
 
 #include "../Garbage_Collector/gc.h"
-Garbage_Collector_Options = Garbage_Collector_Options_No_Recycle;
-Garbage_Collector_Debug = Garbage_Collector_Debug_Free | Garbage_Collector_Debug_Realloc | Garbage_Collector_Debug_List;
+// Garbage_Collector_Debug = Garbage_Collector_Debug_Free | Garbage_Collector_Debug_Realloc | Garbage_Collector_Debug_List;
 
 #include <stdio.h>
 #include <assert.h>

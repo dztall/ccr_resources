@@ -26,7 +26,9 @@ strcatb(char *dest,
     return dest;
 }
 
-int bcmpcq__(void const *vp, size_t n, void const *vp2, size_t n2)
+#endif
+
+int bcmpcq__2(void const *vp, size_t n, void const *vp2, size_t n2)
 {
     int string_match = 0;
     unsigned char const *p = vp;
@@ -49,8 +51,6 @@ int bcmpcq__(void const *vp, size_t n, void const *vp2, size_t n2)
         return ret;
     }
 }
-
-#endif
 
 extern char **environ;
 char **environ_default;
@@ -80,12 +80,12 @@ env__get(char ** env, const char *envtarget)
             pch = strtok (y,"=");
             while (pch != NULL)
                 {
-                    if (bcmpcq__(s, strlen(STTR), STTR, strlen(STTR)) == 0)
+                    if (bcmpcq__2(s, strlen(STTR), STTR, strlen(STTR)) == 0)
                         {
                             free(y);
                             return strchr(s, '=')+1;
                         }
-                    if (bcmpcq__(s, strlen(STTR), STTR, strlen(STTR)) != 0)
+                    if (bcmpcq__2(s, strlen(STTR), STTR, strlen(STTR)) != 0)
                         {
                         }
                     break;
