@@ -1,12 +1,21 @@
 ﻿version 1.2:
 
-Updated: disassembler now defines itself as MDISASSEMBLER
+Fixes: Eval11 : fixed a bug where the variables where set before they where pushed instead of after
+
+Updated: diff : now attempts to paginated output
+
+Updated: disassembler now defines MDISASSEMBLER
 
 Fixed: shell : colour.h should now compile appropriately for x86 and cpp 1.12
 
 Fixed: evaldemo.c : fixed incorrect header paths
 
-Fixed: vcpu disassembler : fixed memory bugs relating to the opcode structure read/write
+Fixed: vcpu disassembler :
+    fixed memory bugs relating to the opcode structure read/write
+    
+    fixed a bug where opcode structure read/write was being read and written incorrectly leading to lack of data vs expected data length, eg it has 32 bytes to write, incorrectly writes 16 bytes, and reads 16 bytes incorrectly into the structure
+
+Updated: vcpu disassembler : opcode structure is no longer padded and will write from/read into correctly (eg can read/write 7 bytes instead of fixed 8 bytes)
 
 New: atexitfix : small fix for atexit(): normal atexit() does not call its registered functions in reverse order like gnu atexit does, making functions registered first be called first instead of last
 
@@ -16,11 +25,14 @@ Fixed: shell : fixed memory bugs in env__* functions resulting in the possibilit
 
 Updated: Shell : added env_append_env: appends an environment to another environment
 
-Updated: vcpu : vcpu now has a integrated assembly assembler, parser, disassembler, and decoder, powered by a modified version of the eval11 expression library (https://www.parsifalsoft.com/examples/evalexpression/index.html), allowing the cpu to actually use assembly
+Updated: vcpu :
+    vcpu now has a integrated assembly assembler, parser, disassembler, and decoder, powered by a modified version of the eval11 expression library (https://www.parsifalsoft.com/examples/evalexpression/index.html), allowing the cpu to actually use assembly
+    
+    vcpu now supports assembly, including the use of operands, registers, and hexadecimal (hex is not implemented yet)
 
-Changes: original vcpu moved to vcpu/minimal_cpu_test.c
+Changes: vcpu : original vcpu.c moved to vcpu/minimal_cpu_test.c in favor of the updated vcpu, kept for historical purposes as a minimal implementation
 
-Updates: vcpu: vcpu now supports assembly, including the use of operands, registers, and hexadecimal (hex is not implemented yet)
+New Command: vcpu : tests the virtual cpu
 
 New: vcpu : hand coded modular virtual cpu implementation
 

@@ -122,6 +122,7 @@ void Expression_Assign_free(void) {
             EVALWRAP_INTERNAL_VARIABLE_LIST_freed = 1;
             puts("freeing EVALWRAP_INTERNAL_VARIABLE_LIST");
             env__free(EVALWRAP_INTERNAL_VARIABLE_LIST);
+            EVALWRAP_INTERNAL_VARIABLE_LIST = NULL;
         }
     }
 }
@@ -149,6 +150,7 @@ void (variable_cleanup)(void) {
     	variable[i].valueptr = NULL;
     	variable[i].value = 0;
     }
+    nVariables = 0;
 }
 
 
@@ -328,6 +330,8 @@ struct {
 EVAL_TYPE callFunction(int nameLength, int argCount) {
   char *name = popString(nameLength);
   EVAL_TYPE *argValues = popArgs(argCount);
+  ps(name);
+  pi(argCount);
   int first = 0;
   int last = N_FUNCTIONS-1;
   while (first <= last) {                     /* binary search */

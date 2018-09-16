@@ -40,8 +40,8 @@ int main(int argc,char *argv[])
     			//printf("Same for both files: line %d : %s\n", line_count1, line1);
     		}
     		else {
-    			printf("%s: line %d : %s\n", argv[1], line_count1, line1);
-    			printf("%s: line %d : %s\n", argv[2], line_count2, line2);
+    			printf("%s: \tline %d: %s\n", argv[1], line_count1, line1);
+    			printf("%s: \tline %d: %s\n", argv[2], line_count2, line2);
     		}
     	}
     	else break;

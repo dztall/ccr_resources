@@ -204,9 +204,9 @@ evalKernel_pcb_type evalKernel_pcb;
 
 #define ag_rp_27() (0)
 
-#define ag_rp_28(x) 1; pushArg(x);
+#define ag_rp_28(z, x) z = 1; pushArg(x)
 
-#define ag_rp_29(k, x) k+1; pushArg(x);
+#define ag_rp_29(k, x) k+=1; pushArg(x)
 
 #define ag_rp_30(x, e) (x*pow(10,e))
 
@@ -228,9 +228,9 @@ evalKernel_pcb_type evalKernel_pcb;
 
 #define ag_rp_39(x, d) (10*x + d-'0')
 
-#define ag_rp_40(c) 1; pushChar(c);
+#define ag_rp_40(c) pushChar(c); c = 1
 
-#define ag_rp_41(k, c) k+1; pushChar(c); pc(c);
+#define ag_rp_41(k, c) k+=1; pushChar(c)
 
 
 #define READ_COUNTS 
@@ -832,7 +832,7 @@ static const unsigned char ag_ptt[] = {
 
 static void ag_ra(void)
 {
-	switch(ag_rpx[(PCB).ag_ap]) {
+  switch(ag_rpx[(PCB).ag_ap]) {
     case 1: V(0,EVAL_TYPE) = ag_rp_1(V(0,int), V(2,EVAL_TYPE)); break;
     case 2: V(0,EVAL_TYPE) = ag_rp_2(V(0,int), V(2,EVAL_TYPE)); break;
     case 3: V(0,EVAL_TYPE) = ag_rp_3(V(0,int), V(2,EVAL_TYPE)); break;
@@ -860,8 +860,8 @@ static void ag_ra(void)
     case 25: V(0,EVAL_TYPE) = ag_rp_25(V(1,EVAL_TYPE)); break;
     case 26: V(0,EVAL_TYPE) = ag_rp_26(V(0,int), V(2,int)); break;
     case 27: V(0,int) = ag_rp_27(); break;
-    case 28: pushArg(V(0,EVAL_TYPE)); V(0,int) = 1; break;
-    case 29: pushArg(V(0,EVAL_TYPE)); V(0,int) = V(2,EVAL_TYPE)+1; break;
+    case 28: ag_rp_28(V(0,int), V(0,EVAL_TYPE)); break;
+    case 29: ag_rp_29(V(0,int), V(2,EVAL_TYPE)); break;
     case 30: V(0,EVAL_TYPE) = ag_rp_30(V(0,EVAL_TYPE), V(3,int)); break;
     case 31: V(0,EVAL_TYPE) = ag_rp_31(V(0,EVAL_TYPE), V(3,int)); break;
     case 32: V(0,EVAL_TYPE) = ag_rp_32(V(0,EVAL_TYPE), V(2,EVAL_TYPE)); break;
@@ -872,8 +872,8 @@ static void ag_ra(void)
     case 37: V(0,EVAL_TYPE) = ag_rp_37(V(0,int), V(1,EVAL_TYPE)); break;
     case 38: V(0,int) = ag_rp_38(V(0,int)); break;
     case 39: V(0,int) = ag_rp_39(V(0,int), V(1,int)); break;
-    case 40: pushChar(V(0,int)); V(0,int) = 1; break;
-    case 41: pushChar(V(1,int)); V(0,int) = V(0,int)+1; break;
+    case 40: ag_rp_40(V(0,int)); break;
+    case 41: ag_rp_41(V(0,int), V(1,int)); break;
   }
   (PCB).la_ptr = (PCB).pointer;
 }
@@ -1288,7 +1288,9 @@ static int ag_action_6_proc(void) {
     (PCB).dssx=(PCB).ssx;
     (PCB).dsn=(PCB).sn;
   }
-  if (ag_sd) (PCB).sn = (PCB).ss[(PCB).ssx -= ag_sd];
+  if (ag_sd) {
+    (PCB).sn = (PCB).ss[(PCB).ssx -= ag_sd];
+  }
   else {
     ag_prot();
     (PCB).vs[(PCB).ssx] = ag_null_value;

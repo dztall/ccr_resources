@@ -63,7 +63,6 @@ struct opcode {
     uint8_t op2;
     uint8_t ty3;
     uint8_t op3;
-    uint8_t nu1;
 } * opcode_structure;
 int internal_parser_index = 0;
 
@@ -103,7 +102,7 @@ void opcode_structure_print_all(void) {
 
 void opcode_structure_write(char * file, char * mode) {
     FILE * t = fopen(file, mode);
-    fwrite(opcode_structure, (sizeof(opcode_structure)*internal_parser_index), 1, t);
+    fwrite(opcode_structure, sizeof(*opcode_structure)*internal_parser_index, 1, t);
     fclose(t);
 }
 
@@ -111,18 +110,18 @@ void opcode_structure_read(char * file) {
     // shall update the structure and index
     if (opcode_structure) opcode_structure_clear_all();
     if (!opcode_structure) {
-        opcode_structure = malloc(50*sizeof(struct opcode)); // create 50 structure pointers
+        opcode_structure = malloc(50*sizeof(*opcode_structure)); // create 50 structure pointers
         memset(opcode_structure, 0, 50);
     }
     FILE * t = fopen(file, "r");
     fseek(t, 0, SEEK_END);
     size_t len = ftell(t);
     rewind(t);
-    internal_parser_index = len/sizeof(opcode_structure);
-    if (len % sizeof(opcode_structure) != 0) {
+    internal_parser_index = len/sizeof(*opcode_structure);
+    if (len % sizeof(*opcode_structure) != 0) {
         printf("error: file sector %d is damaged, structure may be incomplete\n", internal_parser_index+1);
     }
-    fread(opcode_structure, len, 1, t);
+    fread(opcode_structure, sizeof(*opcode_structure), internal_parser_index, t);
     fclose(t);
 }
 

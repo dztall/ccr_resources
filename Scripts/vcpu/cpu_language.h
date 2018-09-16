@@ -60,7 +60,7 @@ void instruction_delete_bank(struct instruction ** instruction_bank) {
 // step 2. register an instruction to the instruction bank, this shall be searched for when assembling and queueing instructions aswell as disassembling
 void instruction_add(struct instruction ** instruction_bank, char * instr) {
     if (*instruction_bank == NULL) {
-        *instruction_bank = malloc(50*sizeof(struct instruction)); // create 50 structure pointers
+        *instruction_bank = malloc(50*sizeof(**instruction_bank)); // create 50 structure pointers
         for (int i = 0; i < 50; i++) {
         	(*instruction_bank)[i].instruction = NULL;
         	(*instruction_bank)[i].instruction_operands = NULL;
@@ -219,7 +219,7 @@ void parse(char ** table_encoding, char * str) {
         return;
     }
     if (!opcode_structure) {
-        opcode_structure = malloc(50*sizeof(struct opcode)); // create 50 structure pointers
+        opcode_structure = malloc(50*sizeof(*opcode_structure)); // create 50 structure pointers
         memset(opcode_structure, 0, 50);
     }
     // step 1. gather needed information
