@@ -180,7 +180,7 @@ void egenaa32(modified_immediate_constants_in_ARM_instructions, e) {
 	// we will deal with this later
 }
 
-void egenaa32(encodings_arm_arch_32_multiply_and_multiply_accumulate, e) {
+void egenaa32(multiply_and_multiply_accumulate, e) {
 	if (!disassembler_instruction_only) printf("Multiply and multiply accumulator > ");
 		 ifregexEngine("23-20,000x", e) decode("MUL", NULL, e);
 	else ifregexEngine("23-20,001x", e) decode("MLA", NULL, e);

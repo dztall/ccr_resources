@@ -1,5 +1,4 @@
-﻿#include "../Garbage_Collector/gc.h"
-//Garbage_Collector_Debug = Garbage_Collector_Debug_None;
+﻿//#include "../Garbage_Collector/gc.h"
 #include <unistd.h>
 #include "disassembler.h"
 
@@ -10,6 +9,10 @@ int a() {
 
 int fooa(void) {
 	return a()+7;
+}
+
+void loop(void) {
+	return 1;
 }
 
 int rec = 0; // set to 1 to test recursion and stability
@@ -29,7 +32,6 @@ int i = 100;
 // cpu type could be used to automatically choose the disassembly type based on the host
 int main(void)
 {
-	//Garbage_Collector_Pause();
 	timefunc(
 		getCPUType();
 		printCPUType(cpu);
@@ -45,7 +47,7 @@ int main(void)
 	disassembler_instruction_only = true;
 	disassembler_include_binary = false;
 	timefunc(
-		disassemble_ARM_IOS(a, 32, 32);
+		disassemble_ARM_IOS(loop, 32, 32);
 	);
 	pi(regexEngine_Total_Calls)
 	if (rec == 1) {

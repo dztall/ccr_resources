@@ -123,6 +123,58 @@ int bcmpc_(void const *vp, size_t n, void const *vp2, size_t n2)
     }
 }
 
+int bcmpc__(void const *vp, size_t n, void const *vp2, size_t n2)
+{
+    if (bytecmpq(GQ2, "no") == 0) fprintf(stderr, "----------------------------------------------------------------------->called %s() at line %d from %s\n", __func__, __LINE__, __FILE__);
+    int string_match = 0;
+    unsigned char const *p = vp;
+    unsigned char const *p2 = vp2;
+    int matches=0;
+    int contains_matches=0;
+    for (size_t i=0; i<n; i++) {
+        if (bytecmpq(GQ2, "no") == 0) fprintf(stderr, "p[%d] = %c\n", i, p[i]);
+        if (p[i] == p2[i]) {
+            matches++;
+        } else {
+            if (matches) contains_matches = 1;
+            break;
+        }
+    }
+    if (matches == 0) {
+        if (bytecmpq(GQ2, "no") == 0) fprintf(stderr, "ERROR: strings do not match\n");
+        return -1;
+    } else {
+        int ret = 0;
+        if (contains_matches) ret = 1;
+        if (bytecmpq(GQ2, "no") == 0) fprintf(stderr, "returning %d\n", ret);
+        return ret;
+    }
+}
+
+int bcmpcq__(void const *vp, size_t n, void const *vp2, size_t n2)
+{
+    int string_match = 0;
+    unsigned char const *p = vp;
+    unsigned char const *p2 = vp2;
+    int matches=0;
+    int contains_matches=0;
+    for (size_t i=0; i<n; i++) {
+        if (p[i] == p2[i]) {
+            matches++;
+        } else {
+            if (matches) contains_matches = 1;
+            break;
+        }
+    }
+    if (matches == 0) {
+        return -1;
+    } else {
+        int ret = 0;
+        if (contains_matches) ret = 1;
+        return ret;
+    }
+}
+
 int bytecmpc(void const * p, void const * pp) { return bcmpc_(p, strlen(p), pp, strlen(pp)); }
 
 int bcmpcq_(void const *vp, size_t n, void const *vp2, size_t n2)

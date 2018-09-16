@@ -45,10 +45,13 @@ int sig_handler(int sig_num) {
 	else printf("Unknown Signal recieved: %d\n", sig_num);
 	// may get stuck in recursive loop, attempt to avoid this
 	if (sigdepth > 1) {
+		if (sigdepth > 2) {
+			puts("stuck in handler loop, pausing");
+			pause();
+		}
 		puts("handler loop detected, exiting program");
 		_Exit(-121);
 	}
-	sigdepth--;
 	puts("i will now exit this program");
 	_Exit(-120);
 }

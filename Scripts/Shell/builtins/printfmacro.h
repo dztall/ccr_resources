@@ -226,3 +226,8 @@
 #define pp(x)      printf("%s = %p\n", #x, x);
 #define px(x)      printf("%s = %02x\n", #x, x);
 #define p(x)       printf(#x);
+#define psi(x, i) { \
+    printf("%s = ", #x); \
+    for (int z = 0; z < i; z++) printf("%c", x[z]); \
+    printf("\n"); \
+}

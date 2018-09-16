@@ -5,7 +5,7 @@ bool disassembler_include_binary = false;
 
 void process_opcodes(void *bufferb, unsigned char * opcode, unsigned long index, unsigned long width)
 {
-	printf("%p " bufferb);
+	printf("%p ", bufferb);
 	unsigned char * buffer = bufferb;
 	unsigned long i, ii;
 	int c = 0;

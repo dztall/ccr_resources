@@ -1,6 +1,6 @@
 ﻿#ifndef TGC_H
 #define TGC_H
-
+#include "../atexitfix/atexit.h"
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -84,7 +84,7 @@ void * Garbage_Collector_atexit(void) {
 	return (void*)0;
 }
 
-int Garbage_Collector_Initilizer_atexit = atexit(Garbage_Collector_atexit);
+int Garbage_Collector_Initilizer_atexit = atexitf(Garbage_Collector_atexit);
 
 #define Garbage_Collector_Debug_None (1)
 #define Garbage_Collector_Debug_Normal (1<<1)
