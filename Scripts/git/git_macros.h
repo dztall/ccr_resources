@@ -19,8 +19,6 @@
 
 #define gitprefix(x) git_libgit_version_2_api_##x
 
-#define gitprefix(x) git_libgit_version_2_api_##x
-
 
 #define giterr(x) { printf("%s = %d (%s)\n", #x, x, giterr_last()?giterr_last()->message:"none"); }
 
