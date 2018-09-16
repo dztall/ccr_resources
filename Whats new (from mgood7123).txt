@@ -1,10 +1,12 @@
 ﻿version 1.2:
 
-Updated: disassembler now defines itself as MDISASSEMBLER , 
+Updated: disassembler now defines itself as MDISASSEMBLER
 
 Fixed: shell : colour.h should now compile appropriately for x86 and cpp 1.12
 
 Fixed: evaldemo.c : fixed incorrect header paths
+
+Fixed: vcpu disassembler : fixed memory bugs relating to the opcode structure read/write
 
 New: atexitfix : small fix for atexit(): normal atexit() does not call its registered functions in reverse order like gnu atexit does, making functions registered first be called first instead of last
 
@@ -111,8 +113,7 @@ int main()
     parse(table_encoding, "instruction_add register_r1, register_r2");
     parse(table_encoding, "instruction_add3 register_r3, register_r3, register_r3");
     puts("writing from opcode_structure to testcpuwrite");
-    opcode_structure_write("testcpuwrite", "a+");
-    opcode_structure_clear_all();
+    opcode_structure_write("testcpuwrite", "w");
     puts("reading from testcpuwrite into opcode_structure");
     opcode_structure_read("testcpuwrite");
     opcode_structure_print_all();
@@ -122,6 +123,7 @@ int main()
     cpu_decode(table_encoding, table_types, table_registers, test, 3);
     opcode_structure_clear_all();
     instruction_delete_bank(&test);
+    denit_table(&table_instructions, &table_types, &table_registers, &table_encoding);
     return 0;
 }
 
@@ -134,10 +136,10 @@ mov 1, r2
 add r1, r2
 add3 r3, r3, r3
 write the assembled code into the file "testcpuwrite"
-clear the structure that contains the assembled code
 read the assembled code from "testcpuwrite" back into the structure
 print the structure
-then execute the assembled code
+execute the assembled code
+then clean up
 
 in detail:
 we first include the full assembler itself, cpu_language.h,
@@ -163,13 +165,25 @@ next we parse and execute our assembly
 you will notice that i do not just parse then decode directly without writing anything to file, and with good reason:
 while it IS capable of executing entirely in memory, it ALSO needs a way to execute from a file, and thus cannot rely directly on the parser to hand us the required information for us such as all the registers and numbers and instructions parsed and assembled
 
-parse() will parse an instruction and attempt to internally assemble it into a valid opcode structure which can be written to a file using opcode_structure_write, examined with opcode_structure_print, cleared with opcode_structure_clear, or executed with cpu_decode
+parse() will parse an instruction and attempt to internally assemble it into a valid opcode structure which can be:
+written to a file using opcode_structure_write
+examined with opcode_structure_print
+cleared with opcode_structure_clear
+or executed with cpu_decode
 
 opcode_structure_write writes the entire opcode structure into a file, it accepts the same arguments as fread does
 
-opcode_structure_read reads the opcode structure from a file into the opcode_structure, and checks for incomplete structure tail and warns if present, indicating the possibility the file is damaged or corrupted
+opcode_structure_read clears the current opcode structure if present, then allocates a new opcode structure and reads the opcode structure from a file into the opcode_structure, and checks for incomplete structure tail and warns if present, indicating the possibility the file is damaged or corrupted
 
 opcode_structure_print and opcode_structure_clear take a index into the opcode structure, and those suffixed with _all take no index, and operate on all available indexes of the opcode structure
+
+opcode_structure_print will print the specified opcode structure index
+
+opcode_structure_clear will clear the specified opcode index, and, if the specified index is the last index that was written, decreases the internal parser index
+
+opcode_structure_print_all will print all available opcode structure indexes
+
+opcode_structure_clear_all will clear the current opcode structure, free it, NULL it, then reset the parser index to 0, as if the opcode_structure was never initialized
 
 cpu_disassemble will attempt to disassemble an opcode structure and attempt to produce a valid operations string with all text replacement done
 

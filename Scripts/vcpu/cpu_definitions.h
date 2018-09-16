@@ -67,26 +67,6 @@ struct opcode {
 } * opcode_structure;
 int internal_parser_index = 0;
 
-void opcode_structure_write(char * file, char * mode) {
-    FILE * t = fopen(file, mode);
-    fwrite(opcode_structure, (sizeof(opcode_structure)*internal_parser_index), 1, t);
-    fclose(t);
-}
-
-void opcode_structure_read(char * file) {
-    // shall update the structure and index
-    FILE * t = fopen(file, "r");
-    fseek(t, 0, SEEK_END);
-    size_t len = ftell(t);
-    rewind(t);
-    internal_parser_index = len/sizeof(opcode_structure);
-    if (len % sizeof(opcode_structure) != 0) {
-        printf("error: file sector %d is damaged, structure may be incomplete\n", internal_parser_index+1);
-    }
-    fread(opcode_structure, len, 1, t);
-    fclose(t);
-}
-
 void opcode_structure_clear(int index) {
     printf("clearing opcode_structure index %d\n", index);
     opcode_structure[index].ins = 0;
@@ -96,6 +76,14 @@ void opcode_structure_clear(int index) {
     opcode_structure[index].op2 = 0;
     opcode_structure[index].ty3 = 0;
     opcode_structure[index].op3 = 0;
+    if (index == internal_parser_index-1 && index != 0) internal_parser_index--;
+}
+
+void opcode_structure_clear_all(void) {
+    for (int i = 0; i < internal_parser_index; i++) opcode_structure_clear(i);
+    free(opcode_structure);
+    opcode_structure = NULL;
+    internal_parser_index = 0;
 }
 
 void opcode_structure_print(int index) {
@@ -109,13 +97,33 @@ void opcode_structure_print(int index) {
     printBinLen(opcode_structure[index].op3,8); puts("");
 }
 
-void opcode_structure_clear_all(void) {
-    for (int i = 0; i < internal_parser_index; i++) opcode_structure_clear(i);
-    free(opcode_structure);
-}
-
 void opcode_structure_print_all(void) {
     for (int i = 0; i < internal_parser_index; i++) opcode_structure_print(i);
+}
+
+void opcode_structure_write(char * file, char * mode) {
+    FILE * t = fopen(file, mode);
+    fwrite(opcode_structure, (sizeof(opcode_structure)*internal_parser_index), 1, t);
+    fclose(t);
+}
+
+void opcode_structure_read(char * file) {
+    // shall update the structure and index
+    if (opcode_structure) opcode_structure_clear_all();
+    if (!opcode_structure) {
+        opcode_structure = malloc(50*sizeof(struct opcode)); // create 50 structure pointers
+        memset(opcode_structure, 0, 50);
+    }
+    FILE * t = fopen(file, "r");
+    fseek(t, 0, SEEK_END);
+    size_t len = ftell(t);
+    rewind(t);
+    internal_parser_index = len/sizeof(opcode_structure);
+    if (len % sizeof(opcode_structure) != 0) {
+        printf("error: file sector %d is damaged, structure may be incomplete\n", internal_parser_index+1);
+    }
+    fread(opcode_structure, len, 1, t);
+    fclose(t);
 }
 
 char ** table_instructions; char ** table_types; char ** table_registers; char ** table_encoding;

@@ -1,4 +1,4 @@
-﻿#include <gc.h>
+﻿// #include <gc.h>
 #include "cpu_language.h"
 
 void setup_decoding_information(struct instruction ** instruction_bank) {
@@ -28,15 +28,18 @@ int main()
     instruction_new_bank(test);
     setup_decoding_information(&test);
     parse(table_encoding, "instruction_mov 19, register_r1");
-    /*
+    parse(table_encoding, "instruction_mov 1, register_r2");
+    parse(table_encoding, "instruction_add register_r1, register_r2");
+    parse(table_encoding, "instruction_add3 register_r3, register_r3, register_r3");
     puts("writing from opcode_structure to testcpuwrite");
-    opcode_structure_write("testcpuwrite", "a+");
-    opcode_structure_clear_all();
+    opcode_structure_write("testcpuwrite", "w");
     puts("reading from testcpuwrite into opcode_structure");
     opcode_structure_read("testcpuwrite");
     opcode_structure_print_all();
-    */
     cpu_decode(table_encoding, table_types, table_registers, test, 0);
+    cpu_decode(table_encoding, table_types, table_registers, test, 1);
+    cpu_decode(table_encoding, table_types, table_registers, test, 2);
+    cpu_decode(table_encoding, table_types, table_registers, test, 3);
     opcode_structure_clear_all();
     instruction_delete_bank(&test);
     denit_table(&table_instructions, &table_types, &table_registers, &table_encoding);
