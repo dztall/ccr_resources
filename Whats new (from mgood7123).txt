@@ -1,6 +1,8 @@
 ﻿version 1.2:
 
-Fixes: Eval11 : fixed a bug where the variables where set before they where pushed instead of after
+New Command: evaldemo : demonstrates the eval11 library
+
+Fixes: eval11 : fixed a bug where the variables where set before they where pushed instead of after
 
 Updated: diff : now attempts to paginated output
 
