@@ -71,6 +71,11 @@ void gitprefix(test_push2)(void) {
 	git("remote add origin mgood7123/git_implementation_test_push_twice.git");
 	git("remote show -v");
 	git("push origin master");
+	touch("c");
+	git("add -A");
+	git("commit -a");
+	git("status");
+	git("push origin master");
 	git("status");
 	chdir("../../");
 	puts("testing done");
@@ -117,6 +122,7 @@ void gitprefix(test_commit)(void) {
 	git("status");
 	git("commit -a");
 	git("status");
+	git("log");
 	chdir("../../");
 	puts("testing done");
 	git("clean init");

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+Garbage_Collector_Options |= Garbage_Collector_Options_Quiet;
 
 #ifdef UNUSED
 #elif defined(__GNUC__)
@@ -56,6 +57,8 @@ char * defined_password = "";
 #include "git_clone.h"
 #include "git_curl.h"
 #include "git_commit.h"
+#include "git_general.h"
+#include "git_log.h"
 #include "git_merge.h"
 #include "git_push.h"
 #include "git_remote.h"
@@ -127,9 +130,10 @@ int git(char * str) {
 	else gitdo(clone)
 	else gitdo(config)
 	else gitdo(commit)
-	else gitdo(commit2)
 	else gitdo(curl)
 	else gitdo(dotgit)
+	else gitdo(general)
+	else gitdo(log)
 	else gitdo(merge)
 	else gitdo(push)
 	else gitdo(remote)

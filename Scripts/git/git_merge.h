@@ -316,9 +316,8 @@ int gitprefix(merge)(int argc, char **argv)
 	parse_options(&path, &opts, argc, argv);
 
 	git_libgit2_init();
-
-	check_lg2(git_repository_open_ext(&repo, path, 0, NULL),
-	          "Could not open repository", NULL);
+	
+	gitopenrepo(&repo, NULL)
 
 	state = git_repository_state(repo);
 	if (state != GIT_REPOSITORY_STATE_NONE) {

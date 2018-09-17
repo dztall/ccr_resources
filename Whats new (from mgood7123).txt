@@ -1,4 +1,12 @@
-﻿version 1.2:
+﻿version 1.2.1:
+
+Updated: git :
+    git now supports the 'log' sub command (git log) ( somewhat critical )
+    git now has a new sub command: `general` prints general info about the repository, most is currently broken, but some is useful ( minor )
+    git now works from any sub directory in a valid git repository (THIS IS CRITICAL)
+    git commit now includes the system time as per clock(), tho inaccuate it is better then it always being jan 1 1970 ( somewhat critical )
+
+version 1.2:
 
 Fixed: Shell : fixed a redefinition that prevented the shell from compiling
 

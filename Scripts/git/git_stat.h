@@ -22,31 +22,21 @@ int gitprefix(stat) (int argc, char** argv)
 	size_t dirlen;
 	char out[GIT_OID_HEXSZ+1];
 	out[GIT_OID_HEXSZ] = '\0';
+	
+	
 
 	git_libgit2_init();
 
-	if (argc > 2)
-		giterror("usage: showindex [<repo-dir>]", NULL);
-	if (argc > 1)
-		dir = argv[1];
+	if (argc > 2) giterror("usage: showindex [<repo-dir>]", NULL);
+	
+	git_repository *repo;
+	gitopenrepo(&repo, argv[1]);
 
-	dirlen = strlen(dir);
-	if (dirlen > 5 && strcmp(dir + dirlen - 5, "index") == 0) {
-		gitret(check_lg2(git_index_open(&index, dir), "could not open index", dir));
-	} else {
-		git_repository *repo;
-		if (git_repository_open_ext(&repo, dir, 0, NULL)) {
-			if (repo) git_repository_free(repo);
-			if (index) git_index_free(index);
-			giterror("could not open repository %s", dir);
-		}
-		if (git_repository_index(&index, repo)) {
-			if (repo) git_repository_free(repo);
-			if (index) git_index_free(index);
-			giterror("could not open repository index");
-		}
+	if (git_repository_index(&index, repo)) {
+		if (repo) git_repository_free(repo);
+		if (index) git_index_free(index);
+		giterror("could not open repository index");
 	}
-
 	git_index_read(index, 0);
 
 	ecount = git_index_entrycount(index);
@@ -71,6 +61,7 @@ int gitprefix(stat) (int argc, char** argv)
 	}
 
 	if (index) git_index_free(index);
+	if (repo) git_repository_free(repo);
 	git_libgit2_shutdown();
 
 	return 0;
@@ -319,12 +310,7 @@ int gitprefix(status)(int argc, char *argv[])
 
 	gitprefix(parse_optsST)(&o, argc, argv);
 
-	/**
-	 * Try to open the repository at the given path (or at the current
-	 * directory if none was given).
-	 */
-	gitret(check_lg2(git_repository_open_ext(&repo, o.repodir, 0, NULL),
-		  "Could not open repository", o.repodir));
+	gitopenrepo(&repo, NULL);
 
 	if (git_repository_is_bare(repo))
 		gitret(fatal("Cannot report status on bare repository",
