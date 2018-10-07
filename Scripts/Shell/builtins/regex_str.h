@@ -137,18 +137,6 @@ struct regex_string
 			str_insert_char(str.json, '\\'); \
 			str_insert_char(str.json, 'b'); \
 		} \
-		else if (c == '\c') { \
-			str_insert_char(str.escaped, '\\'); \
-			str_insert_char(str.escaped, 'c'); \
-		} \
-		else if (c == '\e') { \
-			str_insert_char(str.escaped, '\\'); \
-			str_insert_char(str.escaped, 'e'); \
-		} \
-		else if (c == '\E') { \
-			str_insert_char(str.escaped, '\\'); \
-			str_insert_char(str.escaped, 'E'); \
-		} \
 		else if (c == '\f') { \
 			str_insert_char(str.escaped, '\\'); \
 			str_insert_char(str.escaped, 'f'); \

@@ -14,7 +14,6 @@ Updated: Shell :
 	added env_get_env: retrieves an embeded environment
 		example:
 
-		```
 			// based upon looking at evalwrap.c from my modified eval11 library it SHOULD be possible, if used correctly, to store any variable type as a string in the environment
 			// lets attempt to store the environment B in the environment A
 			env_t A = env__new();
@@ -37,6 +36,8 @@ Updated: Shell :
 			C = NULL;
 			env__free(B);
 			env__free(A);
+		
+	Added new sub strings to the regex strings: str.escaped.string and str.json.string (use str_info(str) to view info about them)
 
 
 version 1.2:
