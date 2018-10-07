@@ -1511,7 +1511,9 @@ int lx_alloc_parser(
 
 #if LEMONEX_DBGLVL>=1
   if(dbgpfx != 0) {
+#ifndef NDEBUG
     ParseTrace(stdout, (char*)dbgpfx);
+#endif
   }
 #endif
   return 0;
