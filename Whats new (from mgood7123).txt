@@ -1,10 +1,43 @@
 ﻿version 1.2.1:
 
+New Command: lemon : a modified version of lemonex, see https://github.com/mgood7123/lemonlex/tree/master/README.md for details
+
 Updated: git :
     git now supports the 'log' sub command (git log) ( somewhat critical )
     git now has a new sub command: `general` prints general info about the repository, most is currently broken, but some is useful ( minor )
     git now works from any sub directory in a valid git repository (THIS IS CRITICAL)
     git commit now includes the system time as per clock(), tho inaccuate it is better then it always being jan 1 1970 ( somewhat critical )
+	
+Updated: Shell :
+	changed char ** to env_t for easier readability
+	added env_add_env: embeds an environment into another environment
+	added env_get_env: retrieves an embeded environment
+		example:
+
+		```
+			// based upon looking at evalwrap.c from my modified eval11 library it SHOULD be possible, if used correctly, to store any variable type as a string in the environment
+			// lets attempt to store the environment B in the environment A
+			env_t A = env__new();
+			A = env__add(A, "A");
+			env_t B = env__new();
+			B = env__add(B, "B");
+			// according to evalwrap the first thing we need to do is construct a string, however we will instead modify its existing function to suit our purposes so the function does almost all the work for us
+			A = env__add_env(A, "s", &B);
+			env_t * C = env__get_env(A, "s");
+			pi(env__size(B)); 	pi(env__size(*C));
+			puts("adding C to B");
+			B = env__add(B, "C");
+			pi(env__size(B)); 	pi(env__size(*C));
+			puts("adding D to C");
+			*C = env__add(*C, "D");
+			pi(env__size(B)); 	pi(env__size(*C));
+			if (env__size(A)) ps(A[0]);
+			if (env__size(B)) ps(B[0]);
+			if (env__size(*C)) ps(*C[0]);
+			C = NULL;
+			env__free(B);
+			env__free(A);
+
 
 version 1.2:
 

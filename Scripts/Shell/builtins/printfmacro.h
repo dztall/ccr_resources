@@ -205,11 +205,11 @@
 #define puint8(x)  printf("%s = %" PRIu8 "\n", #x, x);
 
 #define pc(x)      printf("%s = %c\n", #x, x);
-#define puc(x)     pc(x)
 #define ps(x)      printf("%s = %s\n", #x, x);
 #define pus(x)     ps(x);
 #define pi(x)      printf("%s = %d\n", #x, x);
-#define pui(x)     printf("%s = %u\n", #x, x);
+#define pui(x)     printf("%s = %u\n", #x, (unsigned int) x);
+#define puc(x)     printf("%s = %u\n", #x, (unsigned char) x);
 #define pu(x)      pui(x)
 #define pd(x)      printf("%s = %f\n", #x, x);
 #define pud(x)     pd(x)

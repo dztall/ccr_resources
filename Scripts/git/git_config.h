@@ -8,8 +8,8 @@ char * cfg_var, *cfg_val;
 
 int gitprefix(create_global) (void) {
 	str_new(git_global_config_directory_default_path)
-	str_insert_string(git_global_config_directory_default_path, git_global_config_directory_default_path.index, env__get(environ, git_global_config_directory));
-	str_insert_string(git_global_config_directory_default_path, git_global_config_directory_default_path.index, "/.gitconfig");
+	str_insert_string(git_global_config_directory_default_path, env__get(environ, git_global_config_directory));
+	str_insert_string(git_global_config_directory_default_path, "/.gitconfig");
 	ps(git_global_config_directory_default_path.string)
 	if (access(git_global_config_directory_default_path.string, F_OK)) {
 		puts("create global config");

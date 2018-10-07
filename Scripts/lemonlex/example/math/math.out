@@ -1,0 +1,16 @@
+State 0:
+		  (0) rModule ::= *
+
+                             $ reduce			 0      rModule ::=
+                       rModule accept
+
+----------------------------------------------------
+Symbols:
+	  0: $:
+	  1: DIVIDE
+	  2: TIMES
+	  3: MINUS
+	  4: PLUS
+	  5: INTEGER
+	  6: error:
+	  7: rModule: <lambda>

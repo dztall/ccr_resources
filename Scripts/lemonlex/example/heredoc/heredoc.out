@@ -1,0 +1,11 @@
+State 0:
+		  (0) rModule ::= *
+
+                             $ reduce			 0      rModule ::=
+                       rModule accept
+
+----------------------------------------------------
+Symbols:
+	  0: $:
+	  1: error:
+	  2: rModule: <lambda>

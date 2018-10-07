@@ -28,6 +28,7 @@ strcatb(char *dest,
 
 #endif
 
+// we require from libstring bcmpcq__, if libstring is included after env.h bcmpcq__ will be unavailable and #ifndef libstring will produces a duplicate definition, have a local copy of it renamed as bcmpcq__2 to avoid this case
 int bcmpcq__2(void const *vp, size_t n, void const *vp2, size_t n2)
 {
     int string_match = 0;
@@ -52,10 +53,14 @@ int bcmpcq__2(void const *vp, size_t n, void const *vp2, size_t n2)
     }
 }
 
-extern char **environ;
-char **environ_default;
 
-static int env__size(char **env) { 
+
+typedef char ** env_t;
+
+extern env_t environ;
+env_t environ_default;
+
+static int env__size(env_t env) { 
     if (!env) return 0;
 	int i;
 	for(i = 0; env[i] != 0; i++);
@@ -63,7 +68,7 @@ static int env__size(char **env) {
 }
 
 char *
-env__get(char ** env, const char *envtarget)
+env__get(env_t env, const char *envtarget)
 {
     if (!env) return NULL;
     const char * STTR = envtarget;
@@ -99,8 +104,46 @@ env__get(char ** env, const char *envtarget)
 	return NULL;
 }
 
+char *
+env__get_name(env_t env, const char *envtarget)
+{
+    if (!env) return NULL;
+    const char * STTR = envtarget;
+    int i = 1;
+    char *s = *env;
+
+    for (; s; i++) {
+        if (s)
+        {
+            char * pch;
+            char * y = (char *)malloc(strlen(s) + 1);
+            strcpy(y,s);
+            //fprintf(stderr, "trying \"%s\"\n", y);
+            pch = strtok (y,"=");
+            while (pch != NULL)
+                {
+                    if (bcmpcq__2(s, strlen(STTR), STTR, strlen(STTR)) == 0)
+                        {
+							char * n = strchr(s, '=');
+							if (n != NULL) y[strlen(s)-strlen(n)] = 0;
+							return y;
+                        }
+                    if (bcmpcq__2(s, strlen(STTR), STTR, strlen(STTR)) != 0)
+                        {
+                        }
+                    break;
+                }
+            free(y);
+        }
+        s = *(env+i);
+    }
+// 	fprintf(stderr, "  \"%s\" COULD NOT BE FOUND\n", STTR);
+	free(s);
+	return NULL;
+}
+
 void
-env__print(char ** env, const char *envtarget)
+env__print(env_t env, const char *envtarget)
 {
     if (!env) return;
     const char * STTR = envtarget;
@@ -140,7 +183,7 @@ env__print(char ** env, const char *envtarget)
 }
 
 char *
-env__return(char ** env, const char *envtarget)
+env__return(env_t env, const char *envtarget)
 {
     if (!env) return NULL;
     const char * STTR = envtarget;
@@ -178,7 +221,7 @@ env__return(char ** env, const char *envtarget)
 }
 
 int
-env__getposition(char ** env, const char *envtarget)
+env__getposition(env_t env, const char *envtarget)
 {
     if (!env) return -1;
     const char * STTR = envtarget;
@@ -210,20 +253,19 @@ env__getposition(char ** env, const char *envtarget)
         }
         s = *(env+i);
     }
-	fprintf(stderr, "  \"%s\" COULD NOT BE FOUND\n", STTR);
 	free(s);
 	return -1;
 }
 
-char ** env__new() {
-	char ** envempty = malloc(1*sizeof(*envempty));
+env_t env__new() {
+	env_t envempty = malloc(1*sizeof(*envempty));
 	envempty[0] = NULL;
 	return envempty;
 }
 
-void env__free(char ** env) {
+void env__free(env_t env) {
     if (!env) return;
-    for (char ** ep = env; *ep; ep++) {
+    for (env_t ep = env; *ep; ep++) {
         memset(*ep, 0, strlen(*ep));
         free(*ep);
         *ep = NULL;
@@ -233,20 +275,23 @@ void env__free(char ** env) {
     env = NULL;
 }
 
-void env__clear(char ** env) {
+void env__clear(env_t env) {
 	env__free(env);
 	env = env__new();
 }
 
-void env__list(char ** env) {
+void env__list(env_t env) {
     if (!env) return;
-	char **ep;
+	env_t ep;
 	for (ep = env; *ep; ep++) printf("%s\n", *ep);
 }
 
-char ** env__add(char ** env, const char * string) {
+env_t env__add(env_t env, const char * string) {
     //if (!env) env = env__new();
-	char ** array_tmp;
+	// duplicate entries should be ignored
+	char * name = env__get_name(env, string);
+	if (env__getposition(env, name==NULL?string:name) != -1) return env;
+	env_t array_tmp;
 	size_t i = env__size(env);
 	array_tmp = realloc(env, ((i+2)*sizeof(char*)));
     if (array_tmp == NULL) {
@@ -260,18 +305,58 @@ char ** env__add(char ** env, const char * string) {
     return env;
 }
 
-char ** env__copy(char **env)
+env_t env__add2(env_t env, const char * string) {
+    //if (!env) env = env__new();
+	env_t array_tmp;
+	size_t i = env__size(env);
+	array_tmp = realloc(env, ((i+2)*sizeof(char*)));
+    if (array_tmp == NULL) {
+        fprintf(stderr, "failed to resize env");
+        return env;
+    } else {
+        env = array_tmp;
+    }
+    env[i] = strdup(string);
+    env[i+1] = NULL;
+    return env;
+}
+
+env_t env__copy(env_t env)
 {
     if (!env) return env__new();
-	char **ret = env__new();
+	env_t ret = env__new();
 	for (int i = 0; i < env__size(env); i++) ret = env__add(ret, env[i]);
 	return ret;
 }
 
-char ** env__remove(char ** env, const char * string) {
+env_t env__add_env(env_t env, char * name, env_t * variable) {
+    env_t envtmp = env__copy(env);
+    int len = 1+strlen(name)+strlen("=")+strlen("0x")+(sizeof(variable)*2); // (0x00 to 0xFF) == 1 byte
+    char * str = malloc(len);
+    memset(str, 0, len);
+    snprintf(str,len, "%s=%p",name, variable);
+    envtmp = env__add(envtmp, str);
+    memset(str, 0, len);
+    free(str);
+    env__free(env);
+    env = env__copy(envtmp);
+    env__free(envtmp);
+    return env;
+}
+
+env_t * env__get_env(env_t env, char * s) {
+	char * n = env__get(env, s);
+	if (n) {
+		env_t b;
+		sscanf(n,"%p",b);
+		return *b;
+	}
+}
+
+env_t env__remove(env_t env, const char * string) {
 	// we rebuild the entire environment
-	char ** envtmp = env__copy(env);
-	char ** envempty = env__new();
+	env_t envtmp = env__copy(env);
+	env_t envempty = env__new();
     int i = 1;
     char *s = *envtmp;
 
@@ -303,10 +388,10 @@ char ** env__remove(char ** env, const char * string) {
 	return env;
 }
 
-char ** env__replace(char ** env, const char * string, const char * string2) {
+env_t env__replace(env_t env, const char * string, const char * string2) {
 	// we rebuild the entire environment
-	char ** envtmp = env__copy(env);
-	char ** envempty = env__new();
+	env_t envtmp = env__copy(env);
+	env_t envempty = env__new();
     int i = 1;
     char *s = *envtmp;
 
@@ -348,11 +433,11 @@ char ** env__replace(char ** env, const char * string, const char * string2) {
 }
 
 
-char ** env__append(char ** env, const char * name, const char * string) {
+env_t env__append(env_t env, const char * name, const char * string) {
     if (!env) return env__new();
 	// we rebuild the entire environment
-	char ** envtmp = env__copy(env);
-	char ** envempty = env__new();
+	env_t envtmp = env__copy(env);
+	env_t envempty = env__new();
     int i = 1;
     char *s = *envtmp;
 
@@ -392,13 +477,27 @@ char ** env__append(char ** env, const char * name, const char * string) {
 	return env;
 }
 
-char ** env__append_env(char ** env1, char ** env2) {
+env_t env__append_env(env_t env1, env_t env2) {
  	if (!env1 && !env2) return env__new();
     if (!env2) return env1;
 	// we rebuild the entire environment
- 	char ** envtmp = env__copy(env1);
+ 	env_t envtmp = env__copy(env1);
 	for (int i = 0; i < env__size(env1); i++) envtmp = env__add(envtmp, env1[i]);
 	for (int i = 0; i < env__size(env2); i++) envtmp = env__add(envtmp, env2[i]);
+	env__free(env1);
+	env1 = env__copy(envtmp);
+	env__free(envtmp);
+	return env1;
+}
+
+env_t env__clean(env_t env1) {
+	env_t envtmp = env__new();
+	for (int i = 0; i < env__size(env1); i++) {
+		char * name = env__get_name(env1, env1[i]);
+		char * returned = env__return(env1, name);
+		envtmp = env__add(envtmp, returned);
+		free(name);
+	}
 	env__free(env1);
 	env1 = env__copy(envtmp);
 	env__free(envtmp);

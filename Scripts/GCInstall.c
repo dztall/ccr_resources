@@ -14,8 +14,8 @@ int main()
 	str_new(path);
 	char * pathh = getenv("CPATH")+1;
 	int len = strlen(pathh)-strlen("~/CCR/Headers");
-	str_insert_string(path, path.index, pathh);
-	str_insert_string(path, path.index, "/gc.h");
+	str_insert_string(path, pathh);
+	str_insert_string(path, "/gc.h");
 	if (access(path.string, F_OK) == 0) {
 		printf("Garbage Collector Is Already Installed\n");
 	}
@@ -25,9 +25,9 @@ int main()
 		puts("Generating Include string");
 		char * gcpath = resolve("./Garbage_Collector/gc.h", dirname(path.string));
 		str_new(contents);
-		str_insert_string(contents, contents.index, "#include \"");
-		str_insert_string(contents, contents.index, gcpath);
-		str_insert_string(contents, contents.index, "\"");
+		str_insert_string(contents, "#include \"");
+		str_insert_string(contents, gcpath);
+		str_insert_string(contents, "\"");
 		puts("Include string generated");
 		puts("Writing file");
 		str_output(contents, path.string);

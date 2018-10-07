@@ -1,0 +1,11 @@
+.fslckout
+lemonex.fossil
+lemon.exe
+lemon.osx
+lemon.osx.dSYM/
+test
+test.c
+test.dSYM/
+test.out
+test.exe
+
