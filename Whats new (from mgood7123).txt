@@ -1,6 +1,6 @@
 ﻿version 1.2.1:
 
-New Command: lemon : a modified version of lemonex, see https://github.com/mgood7123/lemonlex/tree/master/README.md for details
+New Command: lemon : a modified version of renjipanicker's lemonex, see https://github.com/mgood7123/lemonlex/tree/master/README.md for details
 
 Updated: git :
     git now supports the 'log' sub command (git log) ( somewhat critical )
