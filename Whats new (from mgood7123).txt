@@ -38,6 +38,7 @@ Updated: Shell :
 			env__free(A);
 		
 	Added new sub strings to the regex strings: str.escaped.string and str.json.string (use str_info(str) to view info about them)
+	str_insert_* no longer take an index due to index inconsistencies between string types, eg escaped vs json vs normal
 
 
 version 1.2:
