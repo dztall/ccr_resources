@@ -1,6 +1,6 @@
 <h1>Lemonex</h1>
 
-Originally ported from what is believed to be https://sqlite.org/src/vinfo?name=5b295897153e9b26 version of the sqlite repository tree, Lemonex is an extension to the lemon parser, developed to include a builtin lexer.
+Originally ported from what is believed to be https://sqlite.org/src/vinfo?name=5b295897153e9b26 version of the sqlite repository tree, to https://github.com/renjipanicker/lemonex , Lemonex is an extension to the lemon parser, developed to include a builtin lexer.
 
 SQLite's documentation for Lemon can be found here:
 * https://www.hwaci.com/sw/lemon/lemon.html (current)
