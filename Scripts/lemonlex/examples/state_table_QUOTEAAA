@@ -1,0 +1,547 @@
+  LX_ADVANCE(lxpLexer->lxstate);
+L0:
+  printf("L0:%d\n", lxpLexer->lxstate);
+  switch(lxpLexer->lxstate) {
+    case 1:goto S1;
+    case 2:goto S2;
+    case 3:goto S3;
+    case 4:goto S4;
+    case 5:goto S5;
+    case 6:goto S6;
+    case 7:goto S7;
+    case 8:goto S8;
+    case 9:goto S9;
+    case 10:goto S10;
+    case 11:goto S11;
+    case 12:goto S12;
+    case 13:goto S13;
+    case 14:goto S14;
+  }
+S1:
+  printf("current state: 1: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+REGULAR_TX  REGULAR_TX  
+*/    /*1[65(A)-0( )]->2:tx_type:0, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(2);goto S2; /*1*/}
+
+/*
+REGULAR_TX  INIT_TX     
+*/    /*1[65(A)-0( )]->2:tx_type:2, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){  LX_ACTION(1);/*NO_SEND*/LX_RESET;LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(2);goto S2; /*1*/}
+
+/*
+REGULAR_TX  LOOP_TX     
+*/    /*1[0( )-0( )]->5:tx_type:4, is_cap:0*/  /*loop --> 5*/
+
+/*
+REGULAR_TX  REGULAR_TX  
+*/    /*1[0( )-5( )]->7:tx_type:0, is_cap:1*/  if(ch != 0){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(7);goto S7; /*1*/}
+  if(is_final == 0) {lxpLexer->lxstate=1;return 0;}
+  LX_SEND(0);return 0;
+  
+S2:
+  printf("current state: 2: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+none        REGULAR_TX  
+*/    /*2[65(A)-0( )]->3:tx_type:0, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(3);goto S3; /*1*/}
+  if(ch == 0){lxpLexer->lxstate=2;return 0;}
+  goto S5; /* by goto_state */
+S3:
+  printf("current state: 3: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+none        REGULAR_TX  
+*/    /*3[65(A)-0( )]->4:tx_type:0, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(4);goto S4; /*1*/}
+  if(ch == 0){lxpLexer->lxstate=3;return 0;}
+  goto S5; /* by goto_state */
+S4:
+  printf("current state: 4: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+  if((ch == 0) && (is_final == 0)) {lxpLexer->lxstate=4;return 0;}
+  LX_ACTION(4);/*NO_SEND*/LX_RESET;
+  if(ch == 0) {LX_SEND(0);return 0;}
+  LX_ENTER_NESTING(1);
+  goto S8; /* by retn_state */
+S5:
+  printf("current state: 5: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+REGULAR_TX  INIT_TX     
+*/    /*5[65(A)-0( )]->2:tx_type:2, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){  LX_ACTION(5);/*NO_SEND*/LX_RESET;LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(2);goto S2; /*1*/}
+
+/*
+REGULAR_TX  REGULAR_TX  
+*/    /*5[0( )-5( )]->6:tx_type:0, is_cap:1*/  if(ch != 0){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(6);goto S6; /*1*/}
+  if(is_final == 0) {lxpLexer->lxstate=5;return 0;}
+  LX_SEND(0);return 0;
+  
+S6:
+  printf("current state: 6: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+  goto S5; /* by goto_state */
+S7:
+  printf("current state: 7: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+  goto S6; /* by goto_state */
+S8:
+  printf("current state: 8: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+REGULAR_TX  REGULAR_TX  
+*/    /*8[65(A)-0( )]->9:tx_type:0, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(9);goto S9; /*1*/}
+
+/*
+REGULAR_TX  INIT_TX     
+*/    /*8[65(A)-0( )]->9:tx_type:2, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){  LX_ACTION(8);/*NO_SEND*/LX_RESET;LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(9);goto S9; /*1*/}
+
+/*
+REGULAR_TX  LOOP_TX     
+*/    /*8[0( )-0( )]->12:tx_type:4, is_cap:0*/  /*loop --> 12*/
+
+/*
+REGULAR_TX  REGULAR_TX  
+*/    /*8[0( )-5( )]->14:tx_type:0, is_cap:1*/  if(ch != 0){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(14);goto S14; /*1*/}
+  if(is_final == 0) {lxpLexer->lxstate=8;return 0;}
+  LX_SEND(0);return 0;
+  
+S9:
+  printf("current state: 9: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+none        REGULAR_TX  
+*/    /*9[65(A)-0( )]->10:tx_type:0, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(10);goto S10; /*1*/}
+  if(ch == 0){lxpLexer->lxstate=9;return 0;}
+  goto S12; /* by goto_state */
+S10:
+  printf("current state: 10: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+none        REGULAR_TX  
+*/    /*10[65(A)-0( )]->11:tx_type:0, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(11);goto S11; /*1*/}
+  if(ch == 0){lxpLexer->lxstate=10;return 0;}
+  goto S12; /* by goto_state */
+S11:
+  printf("current state: 11: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+  if((ch == 0) && (is_final == 0)) {lxpLexer->lxstate=11;return 0;}
+  LX_ACTION(11);/*NO_SEND*/LX_RESET;
+  if(ch == 0) {LX_SEND(0);return 0;}
+  if(LX_LEAVE_NESTING() == 1){goto L0;}
+  goto S8; /* by next_state */
+S12:
+  printf("current state: 12: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+
+/*
+REGULAR_TX  INIT_TX     
+*/    /*12[65(A)-0( )]->9:tx_type:2, is_cap:1*/  if(ch == 65 /* decimal is required for full unicode support, printable character is 'A' */ ){  LX_ACTION(12);/*NO_SEND*/LX_RESET;LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(9);goto S9; /*1*/}
+
+/*
+REGULAR_TX  REGULAR_TX  
+*/    /*12[0( )-5( )]->13:tx_type:0, is_cap:1*/  if(ch != 0){LX_CAPTURE(curr_pos, curr_len);LX_ADVANCE(13);goto S13; /*1*/}
+  if(is_final == 0) {lxpLexer->lxstate=12;return 0;}
+  LX_SEND(0);return 0;
+  
+S13:
+  printf("current state: 13: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+  goto S12; /* by goto_state */
+S14:
+  printf("current state: 14: (row %d, column %d): char hex:0x%X (%c)\n", lxpLexer->lxrow, lxpLexer->lxcol, ch, ((ch>= 32) && (ch <= 127))?ch:' ');
+  goto S13; /* by goto_state */
+
+  return 0;
+}
+
+
+
+
+parsing <<CAT HEREDOC <<CAT
+ AAA <<EOF
+ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<EOF AAA RIP
+*****CREATE_TOKEN:(1,1)
+L0:1
+current state: 1: (row 1, column 2): char hex:0x3C (<)
+*****CAT_TOKEN:<
+current state: 7: (row 1, column 3): char hex:0x3C (<)
+current state: 6: (row 1, column 3): char hex:0x3C (<)
+current state: 5: (row 1, column 3): char hex:0x3C (<)
+*****CAT_TOKEN:<<
+current state: 6: (row 1, column 4): char hex:0x43 (C)
+current state: 5: (row 1, column 4): char hex:0x43 (C)
+*****CAT_TOKEN:<<C
+current state: 6: (row 1, column 5): char hex:0x41 (A)
+current state: 5: (row 1, column 5): char hex:0x41 (A)
+OTHER: <<C
+*****CREATE_TOKEN:(1,5)
+*****CAT_TOKEN:A
+current state: 2: (row 1, column 6): char hex:0x54 (T)
+current state: 5: (row 1, column 6): char hex:0x54 (T)
+*****CAT_TOKEN:AT
+current state: 6: (row 1, column 7): char hex:0x20 ( )
+current state: 5: (row 1, column 7): char hex:0x20 ( )
+*****CAT_TOKEN:AT 
+current state: 6: (row 1, column 8): char hex:0x48 (H)
+current state: 5: (row 1, column 8): char hex:0x48 (H)
+*****CAT_TOKEN:AT H
+current state: 6: (row 1, column 9): char hex:0x45 (E)
+current state: 5: (row 1, column 9): char hex:0x45 (E)
+*****CAT_TOKEN:AT HE
+current state: 6: (row 1, column 10): char hex:0x52 (R)
+current state: 5: (row 1, column 10): char hex:0x52 (R)
+*****CAT_TOKEN:AT HER
+current state: 6: (row 1, column 11): char hex:0x45 (E)
+current state: 5: (row 1, column 11): char hex:0x45 (E)
+*****CAT_TOKEN:AT HERE
+current state: 6: (row 1, column 12): char hex:0x44 (D)
+current state: 5: (row 1, column 12): char hex:0x44 (D)
+*****CAT_TOKEN:AT HERED
+current state: 6: (row 1, column 13): char hex:0x4F (O)
+current state: 5: (row 1, column 13): char hex:0x4F (O)
+*****CAT_TOKEN:AT HEREDO
+current state: 6: (row 1, column 14): char hex:0x43 (C)
+current state: 5: (row 1, column 14): char hex:0x43 (C)
+*****CAT_TOKEN:AT HEREDOC
+current state: 6: (row 1, column 15): char hex:0x20 ( )
+current state: 5: (row 1, column 15): char hex:0x20 ( )
+*****CAT_TOKEN:AT HEREDOC 
+current state: 6: (row 1, column 16): char hex:0x3C (<)
+current state: 5: (row 1, column 16): char hex:0x3C (<)
+*****CAT_TOKEN:AT HEREDOC <
+current state: 6: (row 1, column 17): char hex:0x3C (<)
+current state: 5: (row 1, column 17): char hex:0x3C (<)
+*****CAT_TOKEN:AT HEREDOC <<
+current state: 6: (row 1, column 18): char hex:0x43 (C)
+current state: 5: (row 1, column 18): char hex:0x43 (C)
+*****CAT_TOKEN:AT HEREDOC <<C
+current state: 6: (row 1, column 19): char hex:0x41 (A)
+current state: 5: (row 1, column 19): char hex:0x41 (A)
+OTHER: AT HEREDOC <<C
+*****CREATE_TOKEN:(1,19)
+*****CAT_TOKEN:A
+current state: 2: (row 1, column 20): char hex:0x54 (T)
+current state: 5: (row 1, column 20): char hex:0x54 (T)
+*****CAT_TOKEN:AT
+current state: 6: (row 2, column 0): char hex:0xA ( )
+current state: 5: (row 2, column 0): char hex:0xA ( )
+*****CAT_TOKEN:AT
+
+current state: 6: (row 2, column 1): char hex:0x20 ( )
+current state: 5: (row 2, column 1): char hex:0x20 ( )
+*****CAT_TOKEN:AT
+ 
+current state: 6: (row 2, column 2): char hex:0x41 (A)
+current state: 5: (row 2, column 2): char hex:0x41 (A)
+OTHER: AT
+ 
+*****CREATE_TOKEN:(2,2)
+*****CAT_TOKEN:A
+current state: 2: (row 2, column 3): char hex:0x41 (A)
+*****CAT_TOKEN:AA
+current state: 3: (row 2, column 4): char hex:0x41 (A)
+*****CAT_TOKEN:AAA
+current state: 4: (row 2, column 5): char hex:0x20 ( )
+5CAT_START: AAA
+*****CREATE_TOKEN:(2,5)
+NEST:enter-level:1(count:0, prev_state:1
+current state: 8: (row 2, column 5): char hex:0x20 ( )
+*****CAT_TOKEN: 
+current state: 14: (row 2, column 6): char hex:0x3C (<)
+current state: 13: (row 2, column 6): char hex:0x3C (<)
+current state: 12: (row 2, column 6): char hex:0x3C (<)
+*****CAT_TOKEN: <
+current state: 13: (row 2, column 7): char hex:0x3C (<)
+current state: 12: (row 2, column 7): char hex:0x3C (<)
+*****CAT_TOKEN: <<
+current state: 13: (row 2, column 8): char hex:0x45 (E)
+current state: 12: (row 2, column 8): char hex:0x45 (E)
+*****CAT_TOKEN: <<E
+current state: 13: (row 2, column 9): char hex:0x4F (O)
+current state: 12: (row 2, column 9): char hex:0x4F (O)
+*****CAT_TOKEN: <<EO
+current state: 13: (row 2, column 10): char hex:0x46 (F)
+current state: 12: (row 2, column 10): char hex:0x46 (F)
+*****CAT_TOKEN: <<EOF
+current state: 13: (row 3, column 0): char hex:0xA ( )
+current state: 12: (row 3, column 0): char hex:0xA ( )
+*****CAT_TOKEN: <<EOF
+
+current state: 13: (row 3, column 1): char hex:0x41 (A)
+current state: 12: (row 3, column 1): char hex:0x41 (A)
+5CAT_CONTENTS:  <<EOF
+
+*****CREATE_TOKEN:(3,1)
+*****CAT_TOKEN:A
+current state: 9: (row 3, column 2): char hex:0x4E (N)
+current state: 12: (row 3, column 2): char hex:0x4E (N)
+*****CAT_TOKEN:AN
+current state: 13: (row 3, column 3): char hex:0x4F (O)
+current state: 12: (row 3, column 3): char hex:0x4F (O)
+*****CAT_TOKEN:ANO
+current state: 13: (row 3, column 4): char hex:0x54 (T)
+current state: 12: (row 3, column 4): char hex:0x54 (T)
+*****CAT_TOKEN:ANOT
+current state: 13: (row 3, column 5): char hex:0x48 (H)
+current state: 12: (row 3, column 5): char hex:0x48 (H)
+*****CAT_TOKEN:ANOTH
+current state: 13: (row 3, column 6): char hex:0x45 (E)
+current state: 12: (row 3, column 6): char hex:0x45 (E)
+*****CAT_TOKEN:ANOTHE
+current state: 13: (row 3, column 7): char hex:0x52 (R)
+current state: 12: (row 3, column 7): char hex:0x52 (R)
+*****CAT_TOKEN:ANOTHER
+current state: 13: (row 4, column 0): char hex:0xA ( )
+current state: 12: (row 4, column 0): char hex:0xA ( )
+*****CAT_TOKEN:ANOTHER
+
+current state: 13: (row 4, column 1): char hex:0x48 (H)
+current state: 12: (row 4, column 1): char hex:0x48 (H)
+*****CAT_TOKEN:ANOTHER
+H
+current state: 13: (row 4, column 2): char hex:0x45 (E)
+current state: 12: (row 4, column 2): char hex:0x45 (E)
+*****CAT_TOKEN:ANOTHER
+HE
+current state: 13: (row 4, column 3): char hex:0x52 (R)
+current state: 12: (row 4, column 3): char hex:0x52 (R)
+*****CAT_TOKEN:ANOTHER
+HER
+current state: 13: (row 4, column 4): char hex:0x45 (E)
+current state: 12: (row 4, column 4): char hex:0x45 (E)
+*****CAT_TOKEN:ANOTHER
+HERE
+current state: 13: (row 5, column 0): char hex:0xA ( )
+current state: 12: (row 5, column 0): char hex:0xA ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+
+current state: 13: (row 5, column 1): char hex:0x44 (D)
+current state: 12: (row 5, column 1): char hex:0x44 (D)
+*****CAT_TOKEN:ANOTHER
+HERE
+D
+current state: 13: (row 5, column 2): char hex:0x4F (O)
+current state: 12: (row 5, column 2): char hex:0x4F (O)
+*****CAT_TOKEN:ANOTHER
+HERE
+DO
+current state: 13: (row 5, column 3): char hex:0x43 (C)
+current state: 12: (row 5, column 3): char hex:0x43 (C)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+current state: 13: (row 6, column 0): char hex:0xA ( )
+current state: 12: (row 6, column 0): char hex:0xA ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+
+current state: 13: (row 6, column 1): char hex:0x3E (>)
+current state: 12: (row 6, column 1): char hex:0x3E (>)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>
+current state: 13: (row 6, column 2): char hex:0x35 (5)
+current state: 12: (row 6, column 2): char hex:0x35 (5)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5
+current state: 13: (row 6, column 3): char hex:0x20 ( )
+current state: 12: (row 6, column 3): char hex:0x20 ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 
+current state: 13: (row 6, column 4): char hex:0x30 (0)
+current state: 12: (row 6, column 4): char hex:0x30 (0)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 0
+current state: 13: (row 6, column 5): char hex:0x35 (5)
+current state: 12: (row 6, column 5): char hex:0x35 (5)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05
+current state: 13: (row 6, column 6): char hex:0x20 ( )
+current state: 12: (row 6, column 6): char hex:0x20 ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 
+current state: 13: (row 6, column 7): char hex:0x3E (>)
+current state: 12: (row 6, column 7): char hex:0x3E (>)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >
+current state: 13: (row 6, column 8): char hex:0x35 (5)
+current state: 12: (row 6, column 8): char hex:0x35 (5)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5
+current state: 13: (row 6, column 9): char hex:0x20 ( )
+current state: 12: (row 6, column 9): char hex:0x20 ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 
+current state: 13: (row 6, column 10): char hex:0x45 (E)
+current state: 12: (row 6, column 10): char hex:0x45 (E)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 E
+current state: 13: (row 6, column 11): char hex:0x4E (N)
+current state: 12: (row 6, column 11): char hex:0x4E (N)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 EN
+current state: 13: (row 6, column 12): char hex:0x44 (D)
+current state: 12: (row 6, column 12): char hex:0x44 (D)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END
+current state: 13: (row 6, column 13): char hex:0x20 ( )
+current state: 12: (row 6, column 13): char hex:0x20 ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END 
+current state: 13: (row 6, column 14): char hex:0x4F (O)
+current state: 12: (row 6, column 14): char hex:0x4F (O)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END O
+current state: 13: (row 6, column 15): char hex:0x46 (F)
+current state: 12: (row 6, column 15): char hex:0x46 (F)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF
+current state: 13: (row 6, column 16): char hex:0x20 ( )
+current state: 12: (row 6, column 16): char hex:0x20 ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF 
+current state: 13: (row 6, column 17): char hex:0x46 (F)
+current state: 12: (row 6, column 17): char hex:0x46 (F)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF F
+current state: 13: (row 6, column 18): char hex:0x49 (I)
+current state: 12: (row 6, column 18): char hex:0x49 (I)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FI
+current state: 13: (row 6, column 19): char hex:0x4C (L)
+current state: 12: (row 6, column 19): char hex:0x4C (L)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FIL
+current state: 13: (row 6, column 20): char hex:0x45 (E)
+current state: 12: (row 6, column 20): char hex:0x45 (E)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+current state: 13: (row 7, column 0): char hex:0xA ( )
+current state: 12: (row 7, column 0): char hex:0xA ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+
+current state: 13: (row 7, column 1): char hex:0x3C (<)
+current state: 12: (row 7, column 1): char hex:0x3C (<)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<
+current state: 13: (row 7, column 2): char hex:0x3C (<)
+current state: 12: (row 7, column 2): char hex:0x3C (<)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<
+current state: 13: (row 7, column 3): char hex:0x45 (E)
+current state: 12: (row 7, column 3): char hex:0x45 (E)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<E
+current state: 13: (row 7, column 4): char hex:0x4F (O)
+current state: 12: (row 7, column 4): char hex:0x4F (O)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<EO
+current state: 13: (row 7, column 5): char hex:0x46 (F)
+current state: 12: (row 7, column 5): char hex:0x46 (F)
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<EOF
+current state: 13: (row 7, column 6): char hex:0x20 ( )
+current state: 12: (row 7, column 6): char hex:0x20 ( )
+*****CAT_TOKEN:ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<EOF 
+current state: 13: (row 7, column 7): char hex:0x41 (A)
+current state: 12: (row 7, column 7): char hex:0x41 (A)
+5CAT_CONTENTS: ANOTHER
+HERE
+DOC
+>5 05 >5 END OF FILE
+<<EOF 
+*****CREATE_TOKEN:(7,7)
+*****CAT_TOKEN:A
+current state: 9: (row 7, column 8): char hex:0x41 (A)
+*****CAT_TOKEN:AA
+current state: 10: (row 7, column 9): char hex:0x41 (A)
+*****CAT_TOKEN:AAA
+current state: 11: (row 7, column 10): char hex:0x20 ( )
+5CAT_END: AAA
+*****CREATE_TOKEN:(7,10)
+NEST:leave-level:1
+NEST:leave:0
+NEST:leave-1:0
+NEST:leave-level:0, goto:1
+L0:1
+current state: 1: (row 7, column 10): char hex:0x20 ( )
+*****CAT_TOKEN: 
+current state: 7: (row 7, column 11): char hex:0x52 (R)
+current state: 6: (row 7, column 11): char hex:0x52 (R)
+current state: 5: (row 7, column 11): char hex:0x52 (R)
+*****CAT_TOKEN: R
+current state: 6: (row 7, column 12): char hex:0x49 (I)
+current state: 5: (row 7, column 12): char hex:0x49 (I)
+*****CAT_TOKEN: RI
+current state: 6: (row 7, column 13): char hex:0x50 (P)
+current state: 5: (row 7, column 13): char hex:0x50 (P)
+*****CAT_TOKEN: RIP
+current state: 6: (row 7, column 13): char hex:0x0 ( )
+current state: 5: (row 7, column 13): char hex:0x0 ( )
+*****FINALIZE_TOKEN(7,10): RIP
+DEBUG: Input $
+DEBUG: Reduce [rModule ::=] -> state 0.
+DEBUG: Accept!
+DEBUG: Popping $
+DEBUG: Return
+Success

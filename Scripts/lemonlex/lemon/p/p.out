@@ -1,0 +1,28 @@
+State 0:
+          rModule ::= * EOF
+
+                           EOF shift        1      
+                       rModule accept
+
+State 1:
+      (0) rModule ::= EOF *
+
+                             $ reduce       0      rModule ::= EOF
+
+----------------------------------------------------
+Symbols:
+The first-set of non-terminals is shown after the name.
+
+    0: $:
+    1: STR
+    2: U3
+    3: EOF
+    4: rModule: EOF
+----------------------------------------------------
+Syntax-only Symbols:
+The following symbols never carry semantic content.
+
+$ STR U3 EOF rModule
+----------------------------------------------------
+Rules:
+   0: rModule ::= EOF.

@@ -222,8 +222,8 @@ void builtin__argv(int argc, char ** argv) {
 char * builtin__argvtostring(int argc, char ** argv) {
 	str_new(a);
 	for (int i = 0; i<argc; i++) {
-		if (i != 0) str_insert_string(a, a.index, " ");
-		str_insert_string(a, a.index, argv[i]);
+		if (i != 0) str_insert_string(a, " ");
+		str_insert_string(a, argv[i]);
 	}
 	char * b = strdup(a.string);
 	str_free(a);
@@ -233,8 +233,8 @@ char * builtin__argvtostring(int argc, char ** argv) {
 char * argtopathlist(int argc, char ** argv) {
 	str_new(a);
 	for (int i = 0; i<argc; i++) {
-		if (i != 0) str_insert_string(a, a.index, ":");
-		str_insert_string(a, a.index, argv[i]);
+		if (i != 0) str_insert_string(a, ":");
+		str_insert_string(a, argv[i]);
 	}
 	char * b = strdup(a.string);
 	str_free(a);
