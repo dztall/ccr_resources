@@ -1,4 +1,4 @@
-/* make_cmd.h -- Declarations of functions found in make_cmd.c */
+﻿/* make_cmd.h -- Declarations of functions found in make_cmd.c */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

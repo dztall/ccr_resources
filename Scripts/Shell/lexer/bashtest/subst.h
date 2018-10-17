@@ -1,4 +1,4 @@
-/* subst.h -- Names of externally visible functions in subst.c. */
+﻿/* subst.h -- Names of externally visible functions in subst.c. */
 
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
 

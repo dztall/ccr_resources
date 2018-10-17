@@ -1,4 +1,4 @@
-/* <dir.h> -- definitions for 4.2BSD-compatible directory access.
+﻿/* <dir.h> -- definitions for 4.2BSD-compatible directory access.
    last edit:	09-Jul-1983	D A Gwyn. */
 
 #if defined (VMS)

@@ -1,4 +1,4 @@
-/* Emulation of getpagesize() for systems that need it.
+﻿/* Emulation of getpagesize() for systems that need it.
    Copyright (C) 1991-2003 Free Software Foundation, Inc.
 
    This file is part of GNU Bash, the Bourne-Again SHell.

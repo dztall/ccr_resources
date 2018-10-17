@@ -1,4 +1,4 @@
-/* posixjmp.h -- wrapper for setjmp.h with changes for POSIX systems. */
+﻿/* posixjmp.h -- wrapper for setjmp.h with changes for POSIX systems. */
 
 /* Copyright (C) 1987,1991-2015 Free Software Foundation, Inc.
 

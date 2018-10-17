@@ -1,4 +1,4 @@
-/* syntax.h -- Syntax definitions for the shell */
+﻿/* syntax.h -- Syntax definitions for the shell */
 
 /* Copyright (C) 2000, 2001, 2005, 2008,2009 Free Software Foundation, Inc.
 

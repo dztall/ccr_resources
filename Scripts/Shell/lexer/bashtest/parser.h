@@ -1,4 +1,4 @@
-/* parser.h -- Everything you wanted to know about the parser, but were
+﻿/* parser.h -- Everything you wanted to know about the parser, but were
    afraid to ask. */
 
 /* Copyright (C) 1995-2010 Free Software Foundation, Inc.

@@ -1,4 +1,4 @@
-/* rltty.h - tty driver-related definitions used by some library files. */
+﻿/* rltty.h - tty driver-related definitions used by some library files. */
 
 /* Copyright (C) 1995-2009 Free Software Foundation, Inc.
 

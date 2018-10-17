@@ -1,4 +1,4 @@
-/* rlshell.h -- utility functions normally provided by bash. */
+﻿/* rlshell.h -- utility functions normally provided by bash. */
 
 /* Copyright (C) 1999-2009 Free Software Foundation, Inc.
 

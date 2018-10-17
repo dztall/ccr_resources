@@ -1,4 +1,4 @@
-#ifndef LL
+﻿#ifndef LL
 #define LL
 
 typedef struct node {

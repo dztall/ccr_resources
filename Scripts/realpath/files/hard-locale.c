@@ -1,4 +1,4 @@
-/* hard-locale.c -- Determine whether a locale is hard.
+﻿/* hard-locale.c -- Determine whether a locale is hard.
 
    Copyright (C) 1997-1999, 2002-2004, 2006-2007, 2009-2017 Free Software
    Foundation, Inc.

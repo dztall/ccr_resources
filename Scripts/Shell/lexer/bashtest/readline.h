@@ -1,4 +1,4 @@
-/* Readline.h -- the names of functions callable from within readline. */
+﻿/* Readline.h -- the names of functions callable from within readline. */
 
 /* Copyright (C) 1987-2016 Free Software Foundation, Inc.
 

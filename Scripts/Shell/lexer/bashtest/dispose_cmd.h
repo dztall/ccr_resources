@@ -1,4 +1,4 @@
-/* dispose_cmd.h -- Functions appearing in dispose_cmd.c. */
+﻿/* dispose_cmd.h -- Functions appearing in dispose_cmd.c. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

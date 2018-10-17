@@ -1,4 +1,4 @@
-/* arrayfunc.h -- declarations for miscellaneous array functions in arrayfunc.c */
+﻿/* arrayfunc.h -- declarations for miscellaneous array functions in arrayfunc.c */
 
 /* Copyright (C) 2001-2010 Free Software Foundation, Inc.
 

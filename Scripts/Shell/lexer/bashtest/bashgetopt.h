@@ -1,4 +1,4 @@
-/* bashgetopt.h -- extern declarations for stuff defined in bashgetopt.c. */
+﻿/* bashgetopt.h -- extern declarations for stuff defined in bashgetopt.c. */
 
 /* Copyright (C) 1993 Free Software Foundation, Inc.
 

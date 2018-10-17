@@ -1,4 +1,4 @@
-/* stat-related time functions.
+﻿/* stat-related time functions.
 
    Copyright (C) 2005, 2007, 2009-2012 Free Software Foundation, Inc.
 

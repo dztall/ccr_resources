@@ -1,4 +1,4 @@
-#ifndef SHELL
+﻿#ifndef SHELL
 #define SHELL
 
 // General

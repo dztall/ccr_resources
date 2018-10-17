@@ -1,4 +1,4 @@
-/* conftypes.h -- defines for build and host system. */
+﻿/* conftypes.h -- defines for build and host system. */
 
 /* Copyright (C) 2001, 2005, 2008,2009 Free Software Foundation, Inc.
 

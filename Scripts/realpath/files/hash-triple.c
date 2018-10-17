@@ -1,4 +1,4 @@
-/* Hash functions for file-related triples: name, device, inode.
+﻿/* Hash functions for file-related triples: name, device, inode.
    Copyright (C) 2007, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

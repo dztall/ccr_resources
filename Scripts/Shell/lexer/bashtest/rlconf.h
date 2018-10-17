@@ -1,4 +1,4 @@
-/* rlconf.h -- readline configuration definitions */
+﻿/* rlconf.h -- readline configuration definitions */
 
 /* Copyright (C) 1992-2015 Free Software Foundation, Inc.
 

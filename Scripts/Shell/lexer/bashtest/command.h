@@ -1,4 +1,4 @@
-/* command.h -- The structures used internally to represent commands, and
+﻿/* command.h -- The structures used internally to represent commands, and
    the extern declarations of the functions used to create them. */
 
 /* Copyright (C) 1993-2016 Free Software Foundation, Inc.

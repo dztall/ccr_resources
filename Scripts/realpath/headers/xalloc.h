@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 /* xalloc.h -- malloc with out-of-memory checking
 
    Copyright (C) 1990-2000, 2003-2004, 2006-2017 Free Software Foundation, Inc.

@@ -1,4 +1,4 @@
-#ifndef HASH_TRIPLE_H
+﻿#ifndef HASH_TRIPLE_H
 #define HASH_TRIPLE_H
 
 #include <sys/types.h>

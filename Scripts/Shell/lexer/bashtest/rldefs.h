@@ -1,4 +1,4 @@
-/* rldefs.h -- an attempt to isolate some of the system-specific defines
+﻿/* rldefs.h -- an attempt to isolate some of the system-specific defines
    for readline.  This should be included after any files that define
    system-specific constants like _POSIX_VERSION or USG. */
 

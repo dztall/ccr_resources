@@ -1,4 +1,4 @@
-/* common.h -- extern declarations for functions defined in common.c. */
+﻿/* common.h -- extern declarations for functions defined in common.c. */
 
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
 

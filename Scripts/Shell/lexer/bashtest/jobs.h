@@ -1,4 +1,4 @@
-/* jobs.h -- structures and definitions used by the jobs.c file. */
+﻿/* jobs.h -- structures and definitions used by the jobs.c file. */
 
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* posixdir.h -- Posix directory reading includes and defines. */
+﻿/* posixdir.h -- Posix directory reading includes and defines. */
 
 /* Copyright (C) 1987,1991,2012 Free Software Foundation, Inc.
 

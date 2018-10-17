@@ -1,4 +1,4 @@
-/* provide a replacement openat function
+﻿/* provide a replacement openat function
    Copyright (C) 2004-2006, 2008-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

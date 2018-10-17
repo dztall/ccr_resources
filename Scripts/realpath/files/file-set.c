@@ -1,4 +1,4 @@
-/* Specialized functions to manipulate a set of files.
+﻿/* Specialized functions to manipulate a set of files.
    Copyright (C) 2007, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

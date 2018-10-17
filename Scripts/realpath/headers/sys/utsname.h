@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* Substitute for <sys/utsname.h>.
    Copyright (C) 2009-2017 Free Software Foundation, Inc.
 

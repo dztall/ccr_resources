@@ -1,4 +1,4 @@
-/* hashcmd.h - Common defines for hashing filenames. */
+﻿/* hashcmd.h - Common defines for hashing filenames. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

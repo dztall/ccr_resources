@@ -1,4 +1,4 @@
-/* dirname.c -- return all but the last element in a file name
+﻿/* dirname.c -- return all but the last element in a file name
 
    Copyright (C) 1990, 1998, 2000-2001, 2003-2006, 2009-2017 Free Software
    Foundation, Inc.

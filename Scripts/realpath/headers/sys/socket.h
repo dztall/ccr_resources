@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* Provide a sys/socket header file for systems lacking it (read: MinGW)
    and for systems where it is incomplete.
    Copyright (C) 2005-2017 Free Software Foundation, Inc.

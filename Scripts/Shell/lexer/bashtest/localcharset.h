@@ -1,4 +1,4 @@
-/* localcharset.h - Determine a canonical name for the current locale's character encoding. */
+﻿/* localcharset.h - Determine a canonical name for the current locale's character encoding. */
 
 /* Copyright (C) 2000-2003, 2005-2009 Free Software Foundation, Inc.
 

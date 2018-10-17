@@ -1,4 +1,4 @@
-/* Close standard output and standard error.
+﻿/* Close standard output and standard error.
 
    Copyright (C) 1998, 2000, 2003-2004, 2006, 2008-2017 Free Software
    Foundation, Inc.

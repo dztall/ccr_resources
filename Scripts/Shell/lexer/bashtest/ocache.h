@@ -1,4 +1,4 @@
-/* ocache.h -- a minimal object caching implementation. */
+﻿/* ocache.h -- a minimal object caching implementation. */
 
 /* Copyright (C) 2002 Free Software Foundation, Inc.
 

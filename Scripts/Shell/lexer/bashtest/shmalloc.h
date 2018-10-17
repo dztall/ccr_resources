@@ -1,4 +1,4 @@
-/* Functions (currently) for use by the shell to do malloc debugging and
+﻿/* Functions (currently) for use by the shell to do malloc debugging and
    tracking. */
 /* Copyright (C) 2001-2003 Free Software Foundation, Inc.
 

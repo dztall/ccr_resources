@@ -1,4 +1,4 @@
-#ifndef CHAIN
+﻿#ifndef CHAIN
 #define CHAIN
 #include "ll.h"
 

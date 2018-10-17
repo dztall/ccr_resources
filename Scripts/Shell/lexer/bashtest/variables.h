@@ -1,4 +1,4 @@
-/* variables.h -- data structures for shell variables. */
+﻿/* variables.h -- data structures for shell variables. */
 
 /* Copyright (C) 1987-2015 Free Software Foundation, Inc.
 

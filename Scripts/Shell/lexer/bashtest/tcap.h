@@ -1,4 +1,4 @@
-/* tcap.h -- termcap library functions and variables. */
+﻿/* tcap.h -- termcap library functions and variables. */
 
 /* Copyright (C) 1996-2015 Free Software Foundation, Inc.
 

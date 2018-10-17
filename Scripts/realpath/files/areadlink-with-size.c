@@ -1,4 +1,4 @@
-/* readlink wrapper to return the link name in malloc'd storage.
+﻿/* readlink wrapper to return the link name in malloc'd storage.
    Unlike xreadlink and xreadlink_with_size, don't ever call exit.
 
    Copyright (C) 2001, 2003-2007, 2009-2017 Free Software Foundation, Inc.

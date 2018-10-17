@@ -1,4 +1,4 @@
-/* Multibyte character data type.
+﻿/* Multibyte character data type.
    Copyright (C) 2001, 2005-2007, 2009-2010 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

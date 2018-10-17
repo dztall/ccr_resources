@@ -1,4 +1,4 @@
-/* Close standard input, rewinding seekable stdin if necessary.
+﻿/* Close standard input, rewinding seekable stdin if necessary.
 
    Copyright (C) 2007, 2009-2017 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* bashhist.h -- interface to the bash history functions in bashhist.c. */
+﻿/* bashhist.h -- interface to the bash history functions in bashhist.c. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation,  Inc.
 

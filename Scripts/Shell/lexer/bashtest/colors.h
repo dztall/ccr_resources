@@ -1,4 +1,4 @@
-/* `dir', `vdir' and `ls' directory listing programs for GNU.
+﻿/* `dir', `vdir' and `ls' directory listing programs for GNU.
 
    Modified by Chet Ramey for Readline.
 

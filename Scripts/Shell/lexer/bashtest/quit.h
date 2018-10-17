@@ -1,4 +1,4 @@
-/* quit.h -- How to handle SIGINT gracefully. */
+﻿/* quit.h -- How to handle SIGINT gracefully. */
 
 /* Copyright (C) 1993-2013 Free Software Foundation, Inc.
 

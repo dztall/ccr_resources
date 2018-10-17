@@ -1,4 +1,4 @@
-/* builtins.h -- What a builtin looks like, and where to find them. */
+﻿/* builtins.h -- What a builtin looks like, and where to find them. */
 
 /* Copyright (C) 1987-2009 Free Software Foundation, Inc.
 

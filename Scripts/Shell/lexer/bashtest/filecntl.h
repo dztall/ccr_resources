@@ -1,4 +1,4 @@
-/* filecntl.h - Definitions to set file descriptors to close-on-exec. */
+﻿/* filecntl.h - Definitions to set file descriptors to close-on-exec. */
 
 /* Copyright (C) 1993 Free Software Foundation, Inc.
 

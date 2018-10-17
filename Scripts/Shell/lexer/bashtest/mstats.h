@@ -1,4 +1,4 @@
-/* mstats.h - definitions for malloc statistics */
+﻿/* mstats.h - definitions for malloc statistics */
 
 /*  Copyright (C) 2001-2003 Free Software Foundation, Inc.
 

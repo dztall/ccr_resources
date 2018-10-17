@@ -1,4 +1,4 @@
-/* shell.h -- The data structures used by the shell */
+﻿/* shell.h -- The data structures used by the shell */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

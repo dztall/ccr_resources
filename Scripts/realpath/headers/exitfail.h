@@ -1,4 +1,4 @@
-/* Failure exit status
+﻿/* Failure exit status
 
    Copyright (C) 2002, 2009-2017 Free Software Foundation, Inc.
 

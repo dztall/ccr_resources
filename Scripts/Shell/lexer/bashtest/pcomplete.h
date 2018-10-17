@@ -1,4 +1,4 @@
-/* pcomplete.h - structure definitions and other stuff for programmable
+﻿/* pcomplete.h - structure definitions and other stuff for programmable
 		 completion. */
 
 /* Copyright (C) 1999-2009 Free Software Foundation, Inc.

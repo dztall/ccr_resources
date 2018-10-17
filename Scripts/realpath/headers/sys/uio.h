@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* Substitute for <sys/uio.h>.
    Copyright (C) 2011-2017 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* hash-pjw.c -- compute a hash value from a NUL-terminated string.
+﻿/* hash-pjw.c -- compute a hash value from a NUL-terminated string.
 
    Copyright (C) 2001, 2003, 2006, 2009-2017 Free Software Foundation, Inc.
 

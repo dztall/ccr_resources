@@ -1,4 +1,4 @@
-/* mailcheck.h -- variables and function declarations for mail checking. */
+﻿/* mailcheck.h -- variables and function declarations for mail checking. */
 
 /* Copyright (C) 1987,1991,2001,2003,2005,2006,2008,2009 Free Software Foundation, Inc.
 

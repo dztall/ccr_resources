@@ -1,4 +1,4 @@
-/* Implementation details of FILE streams.
+﻿/* Implementation details of FILE streams.
    Copyright (C) 2007-2008, 2010-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

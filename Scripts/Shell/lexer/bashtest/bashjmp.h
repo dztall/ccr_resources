@@ -1,4 +1,4 @@
-/* bashjmp.h -- wrapper for setjmp.h with necessary bash definitions. */
+﻿/* bashjmp.h -- wrapper for setjmp.h with necessary bash definitions. */
 
 /* Copyright (C) 1987-2009 Free Software Foundation, Inc.
 

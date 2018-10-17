@@ -1,4 +1,4 @@
-/* bashline.h -- interface to the bash readline functions in bashline.c. */
+﻿/* bashline.h -- interface to the bash readline functions in bashline.c. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

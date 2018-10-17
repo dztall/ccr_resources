@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 #define PREFIX "/usr/local"
 #define EXEC_PREFIX "/usr/local"
 #define BINDIR "/usr/local/bin"

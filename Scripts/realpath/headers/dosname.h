@@ -1,4 +1,4 @@
-/* File names on MS-DOS/Windows systems.
+﻿/* File names on MS-DOS/Windows systems.
 
    Copyright (C) 2000-2001, 2004-2006, 2009-2017 Free Software Foundation, Inc.
 

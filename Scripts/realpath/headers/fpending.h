@@ -1,4 +1,4 @@
-/* Declare __fpending.
+﻿/* Declare __fpending.
 
    Copyright (C) 2000, 2003, 2005-2006, 2009-2017 Free Software Foundation,
    Inc.

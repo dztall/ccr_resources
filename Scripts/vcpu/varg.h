@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifdef __CPP__
 
 typedef char *va_list;

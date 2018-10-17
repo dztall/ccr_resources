@@ -1,4 +1,4 @@
-/* array.h -- definitions for the interface exported by array.c that allows
+﻿/* array.h -- definitions for the interface exported by array.c that allows
    the rest of the shell to manipulate array variables. */
 
 /* Copyright (C) 1997-2009 Free Software Foundation, Inc.

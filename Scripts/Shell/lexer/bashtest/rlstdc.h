@@ -1,4 +1,4 @@
-/* stdc.h -- macros to make source compile on both ANSI C and K&R C compilers. */
+﻿/* stdc.h -- macros to make source compile on both ANSI C and K&R C compilers. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

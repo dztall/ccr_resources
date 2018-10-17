@@ -1,4 +1,4 @@
-/*
+﻿/*
  * HPUX 10.x stubs to implement dl* in terms of shl*
  *
  * Not needed for later versions; HPUX 11.x has dlopen() and friends.

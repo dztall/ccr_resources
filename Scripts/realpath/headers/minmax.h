@@ -1,4 +1,4 @@
-/* MIN, MAX macros.
+﻿/* MIN, MAX macros.
    Copyright (C) 1995, 1998, 2001, 2003, 2005, 2009-2017 Free Software
    Foundation, Inc.
 

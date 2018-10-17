@@ -1,4 +1,4 @@
-/* externs.h -- extern function declarations which do not appear in their
+﻿/* externs.h -- extern function declarations which do not appear in their
    own header file. */
 
 /* Copyright (C) 1993-2010 Free Software Foundation, Inc.

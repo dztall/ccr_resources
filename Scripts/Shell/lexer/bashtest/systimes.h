@@ -1,4 +1,4 @@
-/* Copyright (C) 1991, 1992, 1996, 2008,2009 Free Software Foundation, Inc.
+﻿/* Copyright (C) 1991, 1992, 1996, 2008,2009 Free Software Foundation, Inc.
 
    This file is part of GNU Bash, the Bourne Again SHell.
 

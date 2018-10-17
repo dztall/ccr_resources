@@ -1,4 +1,4 @@
-/* fflush.c -- allow flushing input streams
+﻿/* fflush.c -- allow flushing input streams
    Copyright (C) 2007-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

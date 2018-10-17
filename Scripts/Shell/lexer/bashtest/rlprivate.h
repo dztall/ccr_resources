@@ -1,4 +1,4 @@
-/* rlprivate.h -- functions and variables global to the readline library,
+﻿/* rlprivate.h -- functions and variables global to the readline library,
 		  but not intended for use by applications. */
 
 /* Copyright (C) 1999-2015 Free Software Foundation, Inc.

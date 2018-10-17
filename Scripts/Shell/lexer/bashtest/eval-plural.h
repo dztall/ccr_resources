@@ -1,4 +1,4 @@
-/* eval-plural.c - Plural expression evaluation. */
+﻿/* eval-plural.c - Plural expression evaluation. */
 
 /* Copyright (C) 2000-2002, 2006-2009 Free Software Foundation, Inc.
 

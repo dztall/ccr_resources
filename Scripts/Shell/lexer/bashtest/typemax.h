@@ -1,4 +1,4 @@
-/* typemax.h -- encapsulate max values for long, long long, etc. */
+﻿/* typemax.h -- encapsulate max values for long, long long, etc. */
 
 /* Copyright (C) 2001 Free Software Foundation, Inc.
 

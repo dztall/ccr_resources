@@ -1,4 +1,4 @@
-/* memalloc.h -- consolidate code for including alloca.h or malloc.h and
+﻿/* memalloc.h -- consolidate code for including alloca.h or malloc.h and
    defining alloca. */
 
 /* Copyright (C) 1993 Free Software Foundation, Inc.

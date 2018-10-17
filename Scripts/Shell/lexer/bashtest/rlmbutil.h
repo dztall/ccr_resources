@@ -1,4 +1,4 @@
-/* rlmbutil.h -- utility functions for multibyte characters. */
+﻿/* rlmbutil.h -- utility functions for multibyte characters. */
 
 /* Copyright (C) 2001-2015 Free Software Foundation, Inc.
 

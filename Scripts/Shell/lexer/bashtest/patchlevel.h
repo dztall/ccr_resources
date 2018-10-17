@@ -1,4 +1,4 @@
-/* patchlevel.h -- current bash patch level */
+﻿/* patchlevel.h -- current bash patch level */
 
 /* Copyright (C) 2001-2016 Free Software Foundation, Inc.
 

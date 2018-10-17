@@ -1,4 +1,4 @@
-/* input.h -- Structures and unions used for reading input. */
+﻿/* input.h -- Structures and unions used for reading input. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

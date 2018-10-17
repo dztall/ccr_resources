@@ -1,4 +1,4 @@
-/* loadinfo.c */
+﻿/* loadinfo.c */
 
 /* Copyright (C) 1996-1999, 2000-2002, 2005-2009 Free Software Foundation, Inc.
    This file is part of the GNU C Library.

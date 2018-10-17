@@ -1,4 +1,4 @@
-/* shmbutil.h -- utility functions for multibyte characters. */
+﻿/* shmbutil.h -- utility functions for multibyte characters. */
 
 /* Copyright (C) 2002-2004 Free Software Foundation, Inc.
 

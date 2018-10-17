@@ -1,4 +1,4 @@
-/* config-top.h - various user-settable options not under the control of autoconf. */
+﻿/* config-top.h - various user-settable options not under the control of autoconf. */
 
 /* Copyright (C) 2002-2009 Free Software Foundation, Inc.
 

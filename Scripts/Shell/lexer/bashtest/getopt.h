@@ -1,4 +1,4 @@
-/* getopt.h - declarations for getopt. */
+﻿/* getopt.h - declarations for getopt. */
 
 /* Copyright (C) 1989, 1990, 1991, 1992, 1993, 2008,2009 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* c-strcasecmp.c -- case insensitive string comparator in C locale
+﻿/* c-strcasecmp.c -- case insensitive string comparator in C locale
    Copyright (C) 1998-1999, 2005-2006, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify

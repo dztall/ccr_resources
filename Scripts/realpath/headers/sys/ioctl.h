@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* Substitute for and wrapper around <sys/ioctl.h>.
    Copyright (C) 2008-2017 Free Software Foundation, Inc.
 

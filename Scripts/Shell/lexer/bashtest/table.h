@@ -1,4 +1,4 @@
-/* table.h - definitions for tables for keeping track of allocated memory */
+﻿/* table.h - definitions for tables for keeping track of allocated memory */
 
 /*  Copyright (C) 2001-2003 Free Software Foundation, Inc.
 

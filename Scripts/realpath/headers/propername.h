@@ -1,4 +1,4 @@
-/* Localization of proper names.  -*- coding: utf-8 -*-
+﻿/* Localization of proper names.  -*- coding: utf-8 -*-
    Copyright (C) 2006, 2008-2017 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2006.
 

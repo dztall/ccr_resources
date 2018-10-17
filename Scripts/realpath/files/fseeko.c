@@ -1,4 +1,4 @@
-/* An fseeko() function that, together with fflush(), is POSIX compliant.
+﻿/* An fseeko() function that, together with fflush(), is POSIX compliant.
    Copyright (C) 2007-2017 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify

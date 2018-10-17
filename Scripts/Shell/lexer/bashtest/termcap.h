@@ -1,4 +1,4 @@
-/* termcap.h - public declarations for termcap library. */
+﻿/* termcap.h - public declarations for termcap library. */
 
 /* Copyright (C) 1991, 1992, 1995, 2001, 2005, 2006, 2008,2009 Free Software Foundation, Inc.
 

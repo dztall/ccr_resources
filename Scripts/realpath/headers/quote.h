@@ -1,4 +1,4 @@
-/* quote.h - prototypes for quote.c
+﻿/* quote.h - prototypes for quote.c
 
    Copyright (C) 1998-2001, 2003, 2009-2017 Free Software Foundation, Inc.
 

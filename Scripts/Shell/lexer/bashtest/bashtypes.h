@@ -1,4 +1,4 @@
-/* bashtypes.h -- Bash system types. */
+﻿/* bashtypes.h -- Bash system types. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

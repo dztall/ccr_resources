@@ -1,4 +1,4 @@
-/* keymaps.h -- Manipulation of readline keymaps. */
+﻿/* keymaps.h -- Manipulation of readline keymaps. */
 
 /* Copyright (C) 1987, 1989, 1992 Free Software Foundation, Inc.
 

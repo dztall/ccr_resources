@@ -1,4 +1,4 @@
-/* Prefer faster, non-thread-safe stdio functions if available.
+﻿/* Prefer faster, non-thread-safe stdio functions if available.
 
    Copyright (C) 2001-2004, 2009-2017 Free Software Foundation, Inc.
 

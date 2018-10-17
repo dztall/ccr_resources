@@ -1,4 +1,4 @@
-/* execute_cmd.h - functions from execute_cmd.c. */
+﻿/* execute_cmd.h - functions from execute_cmd.c. */
 
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
 

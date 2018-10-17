@@ -1,4 +1,4 @@
-/* Case-insensitive string comparison functions in C locale.
+﻿/* Case-insensitive string comparison functions in C locale.
    Copyright (C) 1995-1996, 2001, 2003, 2005, 2009-2017 Free Software
    Foundation, Inc.
 

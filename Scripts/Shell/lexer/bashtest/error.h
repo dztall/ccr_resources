@@ -1,4 +1,4 @@
-/* error.h -- External declarations of functions appearing in error.c. */
+﻿/* error.h -- External declarations of functions appearing in error.c. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

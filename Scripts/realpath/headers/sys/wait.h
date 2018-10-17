@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* A POSIX-like <sys/wait.h>.
    Copyright (C) 2001-2003, 2005-2017 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* rltypedefs.h -- Type declarations for readline functions. */
+﻿/* rltypedefs.h -- Type declarations for readline functions. */
 
 /* Copyright (C) 2000-2011 Free Software Foundation, Inc.
 

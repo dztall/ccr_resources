@@ -1,4 +1,4 @@
-/* assoc.h -- definitions for the interface exported by assoc.c that allows
+﻿/* assoc.h -- definitions for the interface exported by assoc.c that allows
    the rest of the shell to manipulate associative array variables. */
 
 /* Copyright (C) 2008,2009 Free Software Foundation, Inc.

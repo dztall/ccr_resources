@@ -1,4 +1,4 @@
-/* history.h -- the names of functions that you can call in history. */
+﻿/* history.h -- the names of functions that you can call in history. */
 
 /* Copyright (C) 1989-2015 Free Software Foundation, Inc.
 

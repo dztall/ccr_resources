@@ -1,4 +1,4 @@
-/* tilde.h: Externally available variables and function in libtilde.a. */
+﻿/* tilde.h: Externally available variables and function in libtilde.a. */
 
 /* Copyright (C) 1992-2009 Free Software Foundation, Inc.
 

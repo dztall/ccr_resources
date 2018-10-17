@@ -1,4 +1,4 @@
-/* posixtime.h -- wrapper for time.h, sys/times.h mess. */
+﻿/* posixtime.h -- wrapper for time.h, sys/times.h mess. */
 
 /* Copyright (C) 1999 Free Software Foundation, Inc.
 

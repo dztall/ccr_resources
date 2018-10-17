@@ -1,4 +1,4 @@
-/* Variable with FSF copyright information, for version-etc.
+﻿/* Variable with FSF copyright information, for version-etc.
    Copyright (C) 1999-2006, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

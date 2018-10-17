@@ -1,4 +1,4 @@
-/* Determine whether two file names refer to the same file.
+﻿/* Determine whether two file names refer to the same file.
 
    Copyright (C) 1997-2000, 2002-2006, 2009-2017 Free Software Foundation, Inc.
 

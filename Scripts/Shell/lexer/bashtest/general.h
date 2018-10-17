@@ -1,4 +1,4 @@
-/* general.h -- defines that everybody likes to use. */
+﻿/* general.h -- defines that everybody likes to use. */
 
 /* Copyright (C) 1993-2016 Free Software Foundation, Inc.
 

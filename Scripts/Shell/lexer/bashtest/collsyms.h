@@ -1,4 +1,4 @@
-/* collsyms.h -- collating symbol names and their corresponding characters
+﻿/* collsyms.h -- collating symbol names and their corresponding characters
 		 (in ascii) as given by POSIX.2 in table 2.8. */
 
 /* Copyright (C) 1997-2002 Free Software Foundation, Inc.

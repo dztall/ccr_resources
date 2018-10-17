@@ -1,1 +1,1 @@
-extern char const *Version;
+﻿extern char const *Version;

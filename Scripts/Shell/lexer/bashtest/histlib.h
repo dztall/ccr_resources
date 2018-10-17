@@ -1,4 +1,4 @@
-/* histlib.h -- internal definitions for the history library. */
+﻿/* histlib.h -- internal definitions for the history library. */
 
 /* Copyright (C) 1989-2009 Free Software Foundation, Inc.
 

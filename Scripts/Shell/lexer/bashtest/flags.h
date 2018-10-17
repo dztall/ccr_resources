@@ -1,4 +1,4 @@
-/* flags.h -- a list of all the flags that the shell knows about.  You add
+﻿/* flags.h -- a list of all the flags that the shell knows about.  You add
    a flag to this program by adding the name here, and in flags.c. */
 
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.

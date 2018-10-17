@@ -1,4 +1,4 @@
-/* timespec -- System time interface
+﻿/* timespec -- System time interface
 
    Copyright (C) 2000, 2002, 2004-2005, 2007, 2009-2017 Free Software
    Foundation, Inc.

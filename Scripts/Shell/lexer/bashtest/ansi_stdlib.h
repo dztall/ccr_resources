@@ -1,4 +1,4 @@
-/* ansi_stdlib.h -- An ANSI Standard stdlib.h. */
+﻿/* ansi_stdlib.h -- An ANSI Standard stdlib.h. */
 /* A minimal stdlib.h containing extern declarations for those functions
    that bash uses. */
 

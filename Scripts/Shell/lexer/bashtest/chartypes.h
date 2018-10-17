@@ -1,4 +1,4 @@
-/* chartypes.h -- extend ctype.h */
+﻿/* chartypes.h -- extend ctype.h */
 
 /* Copyright (C) 2001 Free Software Foundation, Inc.
 

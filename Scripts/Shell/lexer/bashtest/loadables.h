@@ -1,4 +1,4 @@
-/* loadables.h -- Include files needed by all loadable builtins */
+﻿/* loadables.h -- Include files needed by all loadable builtins */
 
 /* Copyright (C) 2015 Free Software Foundation, Inc.
 

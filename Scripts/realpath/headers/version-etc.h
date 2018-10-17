@@ -1,4 +1,4 @@
-/* Print --version and bug-reporting information in a consistent format.
+﻿/* Print --version and bug-reporting information in a consistent format.
    Copyright (C) 1999, 2003, 2005, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

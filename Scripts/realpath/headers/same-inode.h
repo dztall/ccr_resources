@@ -1,4 +1,4 @@
-/* Determine whether two stat buffers are known to refer to the same file.
+﻿/* Determine whether two stat buffers are known to refer to the same file.
 
    Copyright (C) 2006, 2009-2017 Free Software Foundation, Inc.
 

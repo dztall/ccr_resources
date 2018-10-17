@@ -1,4 +1,4 @@
-/* ltcap.h - Local declarations for termcap library. */
+﻿/* ltcap.h - Local declarations for termcap library. */
 
 /* Copyright (C) 1999-2009 Free Software Foundation, Inc.
 

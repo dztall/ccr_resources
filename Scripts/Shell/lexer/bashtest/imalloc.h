@@ -1,4 +1,4 @@
-/* imalloc.h -- internal malloc definitions shared by source files. */
+﻿/* imalloc.h -- internal malloc definitions shared by source files. */
 
 /* Copyright (C) 2001-2003 Free Software Foundation, Inc.
 

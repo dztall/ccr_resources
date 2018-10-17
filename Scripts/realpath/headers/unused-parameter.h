@@ -1,4 +1,4 @@
-/* A C macro for declaring that specific function parameters are not used.
+﻿/* A C macro for declaring that specific function parameters are not used.
    Copyright (C) 2008-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify it

@@ -1,4 +1,4 @@
-/* bashintl.h -- Internationalization functions and defines. */
+﻿/* bashintl.h -- Internationalization functions and defines. */
 
 /* Copyright (C) 1996-2009 Free Software Foundation, Inc.
 

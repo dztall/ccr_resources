@@ -1,4 +1,4 @@
-/* sig.h -- header file for signal handler definitions. */
+﻿/* sig.h -- header file for signal handler definitions. */
 
 /* Copyright (C) 1994-2013 Free Software Foundation, Inc.
 

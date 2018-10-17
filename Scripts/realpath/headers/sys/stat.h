@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* Provide a more complete sys/stat.h header file.
    Copyright (C) 2005-2017 Free Software Foundation, Inc.
 

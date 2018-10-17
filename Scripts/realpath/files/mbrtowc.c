@@ -1,4 +1,4 @@
-/* Convert multibyte character to wide character.
+﻿/* Convert multibyte character to wide character.
    Copyright (C) 1999-2002, 2005-2017 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2008.
 

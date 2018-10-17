@@ -1,4 +1,4 @@
-/* Report an error and exit.
+﻿/* Report an error and exit.
    Copyright 2016-2017 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify

@@ -1,4 +1,4 @@
-/* Program name management.
+﻿/* Program name management.
    Copyright (C) 2001-2003, 2005-2017 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2001.
 

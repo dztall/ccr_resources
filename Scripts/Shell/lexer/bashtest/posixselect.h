@@ -1,4 +1,4 @@
-/* posixselect.h -- wrapper for select(2) includes and definitions */
+﻿/* posixselect.h -- wrapper for select(2) includes and definitions */
 
 /* Copyright (C) 2009 Free Software Foundation, Inc.
 

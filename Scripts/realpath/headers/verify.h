@@ -1,4 +1,4 @@
-/* Compile-time assert-like macros.
+﻿/* Compile-time assert-like macros.
 
    Copyright (C) 2005-2006, 2009-2017 Free Software Foundation, Inc.
 

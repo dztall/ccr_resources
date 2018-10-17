@@ -1,4 +1,4 @@
-#ifndef EVALKERN_H
+﻿#ifndef EVALKERN_H
 #define EVALKERN_H
 
 typedef union {

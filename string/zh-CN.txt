@@ -272,7 +272,7 @@ CPP ( Built-in )
 CPP 1.2.10 ( 内置 )
 
 Clang
-Clang 6.0.0
+Clang 8.0.0
 
 Lua Interpreter
 Lua 5.3.4

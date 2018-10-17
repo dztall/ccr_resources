@@ -1,4 +1,4 @@
-/* xalloc-oversized.h -- memory allocation size checking
+﻿/* xalloc-oversized.h -- memory allocation size checking
 
    Copyright (C) 1990-2000, 2003-2004, 2006-2017 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* Optimized case-insensitive string comparison in C locale.
+﻿/* Optimized case-insensitive string comparison in C locale.
    Copyright (C) 2001-2002, 2007, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify it

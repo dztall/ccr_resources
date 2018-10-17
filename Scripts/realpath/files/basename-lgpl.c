@@ -1,4 +1,4 @@
-/* basename.c -- return the last element in a file name
+﻿/* basename.c -- return the last element in a file name
 
    Copyright (C) 1990, 1998-2001, 2003-2006, 2009-2017 Free Software
    Foundation, Inc.

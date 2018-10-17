@@ -1,4 +1,4 @@
-/* pathexp.h -- The shell interface to the globbing library. */
+﻿/* pathexp.h -- The shell interface to the globbing library. */
 
 /* Copyright (C) 1987-2015 Free Software Foundation, Inc.
 

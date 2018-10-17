@@ -1,4 +1,4 @@
-/* hash-pjw.h -- declaration for a simple hash function
+﻿/* hash-pjw.h -- declaration for a simple hash function
    Copyright (C) 2001, 2003, 2009-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

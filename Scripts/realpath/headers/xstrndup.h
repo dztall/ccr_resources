@@ -1,4 +1,4 @@
-/* Duplicate a bounded initial segment of a string, with out-of-memory
+﻿/* Duplicate a bounded initial segment of a string, with out-of-memory
    checking.
    Copyright (C) 2003, 2009-2017 Free Software Foundation, Inc.
 

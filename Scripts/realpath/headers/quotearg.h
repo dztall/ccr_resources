@@ -1,4 +1,4 @@
-/* quotearg.h - quote arguments for output
+﻿/* quotearg.h - quote arguments for output
 
    Copyright (C) 1998-2002, 2004, 2006, 2008-2017 Free Software Foundation,
    Inc.

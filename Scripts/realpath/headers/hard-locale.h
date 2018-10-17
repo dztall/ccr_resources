@@ -1,4 +1,4 @@
-/* Determine whether a locale is hard.
+﻿/* Determine whether a locale is hard.
 
    Copyright (C) 1999, 2003-2004, 2009-2017 Free Software Foundation, Inc.
 

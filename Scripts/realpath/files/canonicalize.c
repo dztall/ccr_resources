@@ -1,4 +1,4 @@
-/* Return the canonical absolute name of a given file.
+﻿/* Return the canonical absolute name of a given file.
    Copyright (C) 1996-2017 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

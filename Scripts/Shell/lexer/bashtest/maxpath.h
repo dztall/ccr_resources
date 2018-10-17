@@ -1,4 +1,4 @@
-/* maxpath.h - Find out what this system thinks PATH_MAX and NAME_MAX are. */
+﻿/* maxpath.h - Find out what this system thinks PATH_MAX and NAME_MAX are. */
 
 /* Copyright (C) 1993 Free Software Foundation, Inc.
 

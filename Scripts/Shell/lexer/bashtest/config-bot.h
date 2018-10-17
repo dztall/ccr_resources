@@ -1,4 +1,4 @@
-/* config-bot.h */
+﻿/* config-bot.h */
 /* modify settings or make new ones based on what autoconf tells us. */
 
 /* Copyright (C) 1989-2009 Free Software Foundation, Inc.

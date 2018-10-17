@@ -1,4 +1,4 @@
-/* findcmd.h - functions from findcmd.c. */
+﻿/* findcmd.h - functions from findcmd.c. */
 
 /* Copyright (C) 1997-2015 Free Software Foundation, Inc.
 

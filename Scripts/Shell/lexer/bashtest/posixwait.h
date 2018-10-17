@@ -1,4 +1,4 @@
-/* posixwait.h -- job control definitions from POSIX 1003.1 */
+﻿/* posixwait.h -- job control definitions from POSIX 1003.1 */
 
 /* Copyright (C) 1997 Free Software Foundation, Inc.
 

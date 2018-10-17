@@ -1,4 +1,4 @@
-/* hash - hashing table processing.
+﻿/* hash - hashing table processing.
 
    Copyright (C) 1998-2004, 2006-2007, 2009-2017 Free Software Foundation, Inc.
 

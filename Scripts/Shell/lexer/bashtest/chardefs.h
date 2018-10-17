@@ -1,4 +1,4 @@
-/* chardefs.h -- Character definitions for readline. */
+﻿/* chardefs.h -- Character definitions for readline. */
 
 /* Copyright (C) 1994-2015 Free Software Foundation, Inc.
 

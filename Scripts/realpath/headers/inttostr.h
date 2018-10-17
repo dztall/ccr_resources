@@ -1,4 +1,4 @@
-/* inttostr.h -- convert integers to printable strings
+﻿/* inttostr.h -- convert integers to printable strings
 
    Copyright (C) 2001-2006, 2009-2017 Free Software Foundation, Inc.
 

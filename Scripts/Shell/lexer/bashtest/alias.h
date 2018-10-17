@@ -1,4 +1,4 @@
-/* alias.h -- structure definitions. */
+﻿/* alias.h -- structure definitions. */
 
 /* Copyright (C) 1987-2009 Free Software Foundation, Inc.
 

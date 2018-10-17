@@ -1,4 +1,4 @@
-/* unionwait.h -- definitions for using a `union wait' on systems without
+﻿/* unionwait.h -- definitions for using a `union wait' on systems without
    one. */
 
 /* Copyright (C) 1996 Free Software Foundation, Inc.

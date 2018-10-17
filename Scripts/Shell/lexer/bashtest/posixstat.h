@@ -1,4 +1,4 @@
-/* posixstat.h -- Posix stat(2) definitions for systems that
+﻿/* posixstat.h -- Posix stat(2) definitions for systems that
    don't have them. */
 
 /* Copyright (C) 1987,1991 Free Software Foundation, Inc.

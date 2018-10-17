@@ -1,4 +1,4 @@
-/* siglist.h -- encapsulate various definitions for sys_siglist */
+﻿/* siglist.h -- encapsulate various definitions for sys_siglist */
 
 /* Copyright (C) 1993, 2001, 2005, 2008,2009 Free Software Foundation, Inc.
 

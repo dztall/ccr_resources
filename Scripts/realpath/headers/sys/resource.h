@@ -1,4 +1,4 @@
-/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+﻿/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
 /* Substitute for <sys/resource.h>.
    Copyright (C) 2012-2017 Free Software Foundation, Inc.
 

@@ -1,4 +1,4 @@
-/* hashlib.h -- the data structures used in hashing in Bash. */
+﻿/* hashlib.h -- the data structures used in hashing in Bash. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 

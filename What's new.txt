@@ -1,4 +1,13 @@
-﻿--------------Mobile C 2.5.2--------------
+﻿--------------Mobile C 2.5.3--------------
+
+• Libraries updated
+	- clang/llvm/libc++ 8.0.0
+
+• New features
+
+• Bugs fixed
+
+--------------Mobile C 2.5.2--------------
 
 • New features
 	- Text editor text replace added.

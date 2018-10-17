@@ -1,2 +1,2 @@
-#include "../headers/config.h"
+﻿#include "../headers/config.h"
 char const *Version = "8.28";

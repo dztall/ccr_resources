@@ -1,4 +1,4 @@
-/* unwind_prot.h - Macros and functions for hacking unwind protection. */
+﻿/* unwind_prot.h - Macros and functions for hacking unwind protection. */
 
 /* Copyright (C) 1993-2009 Free Software Foundation, Inc.
 
