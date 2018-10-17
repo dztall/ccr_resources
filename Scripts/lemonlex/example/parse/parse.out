@@ -1,0 +1,20 @@
+State 0:
+					rModule ::= * EOF
+
+                           EOF shift				1      
+                       rModule accept
+
+State 1:
+		  (0) rModule ::= EOF *
+
+                             $ reduce			 0      rModule ::= EOF
+
+----------------------------------------------------
+Symbols:
+	  0: $:
+	  1: STR
+	  2: U3
+	  3: STR3
+	  4: EOF
+	  5: error:
+	  6: rModule: EOF

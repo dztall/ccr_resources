@@ -131,8 +131,8 @@ int builtin__gcc(const int argc, const char * argv[]) {
 			i++;
 			printf("Define: %s\n", argv[i]);
 			str_new(defined);
-			str_insert_string(defined, defined.index, "#define ");
-			str_insert_string(defined, defined.index, argv[i]);
+			str_insert_string(defined, "#define ");
+			str_insert_string(defined, argv[i]);
 			env__add(gcc_defines, defined.string);
 			str_free(defined);
 			itta(gcc_defines);

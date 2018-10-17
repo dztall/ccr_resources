@@ -13,8 +13,8 @@ int main()
 	str_new(path);
 	char * pathh = getenv("CPATH")+1;
 	int len = strlen(pathh)-strlen("~/CCR/Headers");
-	str_insert_string(path, path.index, pathh);
-	str_insert_string(path, path.index, "/gc.h");
+	str_insert_string(path, pathh);
+	str_insert_string(path, "/gc.h");
 	if (access(path.string, F_OK) == 0) {
 		printf("Uninstalling Garbage Collector from %s\n", path.string);
 		unlink(path.string);

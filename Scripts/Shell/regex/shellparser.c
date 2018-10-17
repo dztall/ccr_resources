@@ -60,64 +60,72 @@ char * chartostring(char c) {
 	cc[1] = '\0';
 	return strdup(cc);
 }
+
 int getbitgroupcount(int bit) {
-	/*
-	if (bit == 0) return 1;
-	int n; 
-	int count=0; 
-	for( n = 0; n < (sizeof(bit)*2); n++ ) if( bit & ( 0xF << (n*4) ) ) count=n+1;
-	return count;
-	*/
 	return snprintf(stdout, 0, "%d", bit);
 }
 
-struct regex_string
+struct regex_string_structure
 {
 	char * string;
 	int index;
 	int len;
 	int malloced;
+	int * rel;
 };
 
-#define xmalloc(x, y, z) { \
-	x y = malloc(z); \
-	memset(y, 0, z); \
-}
+struct regex_string
+{
+	char * string;
+	struct regex_string_structure escaped;
+	struct regex_string_structure json;
+	int index;
+	int len;
+	int malloced;
+};
 
-#define zmalloc(y, z) { \
-	y = malloc(z); \
-	memset(y, 0, z); \
-}
+#define str_malloc_(y, z) \
+	y.string = malloc(z); \
+	memset(y.string, 0, z); \
+	y.malloced = z; \
+	y.len = 0; \
+	y.index = 0;
 
+#define str_mallocr(y, z) \
+	str_malloc_(y, z); \
+	str_malloc_(y.escaped, z); \
+	str_malloc_(y.json, z); \
+	
 #define str_malloc(y, z) \
 	struct regex_string y; \
-	y.string = malloc(z); \
-	memset(y.string, 0, z); \
-	y.malloced = z; 
-	
-#define str_mallocr(y, z) \
-	y.string = malloc(z); \
-	memset(y.string, 0, z); \
-	y.malloced = z; 
-	
+	str_mallocr(y, z);
+
 #define str_new(str) \
 	str_malloc(str, 1) \
-	str.len = 0; \
-	str.index = 0;
 	
-#define str_free(y) \
-	{ \
+#define str_free_(y) \
+		memset(y.string, 0, y.malloced); \
 		free(y.string); \
 		y.malloced = 0; \
 		y.len = 0; \
 		y.index = 0; \
+
+#define str_free(y) \
+	{ \
+		str_free_(y); \
+		str_free_(y.escaped); \
+		str_free_(y.json); \
 	}
 	
+#define str_reset_(str) { \
+	str_free_(str) \
+	str_malloc_(str, 1) \
+}
+
 #define str_reset(str) { \
-	str_free(str) \
-	str_mallocr(str, 1) \
-	str.len = 0; \
-	str.index = 0; \
+	str_reset_(str) \
+	str_reset_(str.escaped) \
+	str_reset_(str.json) \
 }
 
 #define str_realloc(y, z) \
@@ -127,36 +135,135 @@ struct regex_string
 	} \
 	y.malloced = z;
 	
-#define str_info(str) \
-	{ \
+#define str_info_(str) \
 		printf("%s.index = %d\n", #str, str.index); \
 		printf("%s.len = %d\n", #str, str.len); \
 		printf("%s.malloced = %d\n", #str, str.malloced); \
 		printf("%s.string = %s\n", #str, str.string); \
-	}
+
+#define str_info(str) { \
+	str_info_(str) \
+	str_info_(str.escaped) \
+	str_info_(str.json) \
+}
 
 
-#define str_insert_char(str, index, ch) { \
+#define str_insert_char(str, ch) { \
 	str_realloc(str, str.malloced+1); \
-	str.string[index] = ch; \
-	index++; \
+	str.string[str.index] = ch; \
+	str.index++; \
 	str.len = strlen(str.string); \
 }
 
-#define str_insert_string(str, index, string) { \
+
+#define str_insert_string(str, string) { \
 	char * s = string; \
-	for(int i = 0; s[i]; i++) \
-		str_insert_char(str, index, s[i]); \
+	for(int i = 0; s[i]; i++) { \
+		if (s[i] == '\n') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, 'n'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, 'n'); \
+		} \
+		else if (s[i] == '\t') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, 't'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, 't'); \
+		} \
+		else if (s[i] == '\r') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, 'r'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, 'r'); \
+		} \
+		else if (s[i] == '\f') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, 'f'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, 'f'); \
+		} \
+		else if (s[i] == '\b') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, 'b'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, 'b'); \
+		} \
+		else if (s[i] == '"') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, '"'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, '"'); \
+		} \
+		else if (s[i] == '\'') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, '\''); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, '\''); \
+		} \
+		else if (s[i] == '\\') { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.escaped, '\\'); \
+			str_insert_char(str.json, '\\'); \
+			str_insert_char(str.json, '\\'); \
+		} \
+		else { \
+			str_insert_char(str, s[i]); \
+			str_insert_char(str.escaped, s[i]); \
+			str_insert_char(str.json, s[i]); \
+		} \
+	} \
 }
 
 #define str_int2string(x,y) \
 	char * x = malloc(getbitgroupcount(y)); \
 	sprintf(x, "%d", y);
 	
-#define str_insert_int(str, index, integer) { \
+#define str_insert_int(str, integer) { \
 	str_int2string(j, integer); \
-	str_insert_string(str, index, j); \
+	str_insert_string(str, j); \
 	free(j); \
+}
+
+int reverseBool(int val) {
+	if (val == 1 || val == 0) return val^1;
+	else return val;
+}
+
+void str_output(struct regex_string * str, const char * file);
+
+void str_output_append(struct regex_string * str, const char * file);
+
+#define str_output(str, file) { \
+	FILE * stream = stdout; \
+	int isfile = 0; \
+	if (strcmp("stdin" file) == 0) stream = stdin; \
+	else if(strcmp("stdout" file) == 0) stream = stdout; \
+	else if(strcmp("stderr" file) == 0) stream = stderr; \
+	else isfile = 1; \
+	if (isfile) stream = fopen(file, "w"); \
+	fwrite(str.string,str.len, 1, stream); \
+	if (isfile) fclose(stream); \
+}
+
+#define str_output_append(str, file) { \
+	FILE * stream = stdout; \
+	int isfile = 0; \
+	if (strcmp("stdin" file) == 0) stream = stdin; \
+	else if(strcmp("stdout" file) == 0) stream = stdout; \
+	else if(strcmp("stderr" file) == 0) stream = stderr; \
+	else isfile = 1; \
+	if (isfile) stream = fopen(file, "a"); \
+	fwrite(str.string,str.len, 1, stream); \
+	if (isfile) fclose(stream); \
 }
 
 #endif
@@ -263,7 +370,7 @@ else if (state == 2) state = 0;
 
 #define seperate_double_operator_start1(op, i, p, y, x) \
 	if (op == 0 && i[p-1] != ' ' && i[p-1] != x && i[p] == x) { \
-		str_insert_char(y, y.index, ' '); \
+		str_insert_char(y, ' '); \
 		if (debug_tok) str_info(y); \
 		op = 1; \
 		state = 1; \
@@ -274,7 +381,7 @@ else if (state == 2) state = 0;
 	
 #define seperate_double_operator_start2(op, i, p, y, x) \
 	else if (op == 0 && i[p-1] == x && i[p-2] == x && i[p] != ' ') { \
-		str_insert_char(y, y.index, ' '); \
+		str_insert_char(y, ' '); \
 		if (debug_tok) str_info(y); \
 		op = 1; \
 		state = 2; \
@@ -285,7 +392,7 @@ else if (state == 2) state = 0;
 	
 #define seperate_double_operator_start2_new(op, i, p, y, x) \
 	else if (op == 0 && i[p-1] != ' ' && i[p-1] != x && i[p] == x) { \
-		str_insert_char(y, y.index, ' '); \
+		str_insert_char(y, ' '); \
 		if (debug_tok) str_info(y); \
 		op = 1; \
 		state = 3; \
@@ -295,7 +402,7 @@ else if (state == 2) state = 0;
 	}
 
 #define seperate_double_operator_end(op, i, p, y) \
-	else str_insert_char(y, y.index, i[p]); \
+	else str_insert_char(y, i[p]); \
 	if (op == 2) op = 0; \
 	if (op == 1) op = 2;
 
@@ -421,7 +528,7 @@ int get_lines(char * file) {
 
 char * fill_int(int pad, char fill, int i) {
 	str_new(is);
-	str_insert_int(is,is.index,i);
+	str_insert_int(is,i);
 	int to_pad = 0, k = 0, kk = 0, iik = getbitgroupcount(i), ii = 0, l = 0;
 	memcpy(&ii, &iik, sizeof(ii));
 	if (pad < ii) to_pad = 0;
