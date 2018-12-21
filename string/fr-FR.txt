@@ -5,7 +5,7 @@ Replace
 Remplacer
 
 Print function call logs
-Afficher le journal de l'appel de fonction
+Afficher un journal d'appel de fonction
 
 Contents
 Contenu
@@ -17,16 +17,16 @@ Select all
 Tout sélectionner
 
 Use precompiled header
-Utiliser l'en-tête précompilé
+Utiliser les en-têtes précompilées
 
 Level of optimization
 Niveau d'optimisation
 
 Build LLVM Bitcode
-Générer du code bit LLVM
+Autoriser Clang à générer un bitcode LLVM
 
 Build LLVM Assembly
-Créer un assemblage LLVM
+Autoriser Clang à générer un assembly LLVM
 
 Keyboard sound effect
 Son clavier
@@ -71,7 +71,7 @@ Use Regex
 Exp. régulières
 
 Search files(folders)
-Rechercher des fichiers (dossiers)
+Rechercher des fichiers ou dossiers
 
 Print warning messages
 Montrer les messages d'avertissements
@@ -101,7 +101,7 @@ Edit
 Éditer
 
 Enable code diagnostic
-Utiliser le diagnostique de code
+Activer le diagnostique de code
 
 Enable code complete
 Activer la saisie semi-automatique
@@ -188,7 +188,7 @@ Run
 Exécuter
 
 New folder name?
-Nouveau nom de répertoire?
+Veuillez nommer le nouveau dossier
 
 NewFolder
 NouveauRépertoire
@@ -197,7 +197,7 @@ Copy
 Copie
 
 New file name?
-Nouveau nom de fichier?
+Veuillez nommer le nouveau fichier
 
 NewFile
 NouveauFichier
